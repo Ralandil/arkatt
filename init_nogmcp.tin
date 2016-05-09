@@ -12,7 +12,7 @@
 #read $path/kill.tin;
 #read $path/keys_nogmcp.tin;
 #read $path/walka_mini.tin;
-#nop read $path/walka4.tin;
+#read $path/walka4_colors.tin;
 #read $path/alias.tin;
 #read $path/worki3.tin;
 #read $path/sleep.tin;

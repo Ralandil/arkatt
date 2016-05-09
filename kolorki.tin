@@ -332,6 +332,14 @@
 }
 
 
+#unaction {^%* wskazuje %* jako cel ataku.$} ;
+#action {~^%* wskazuje %* jako cel ataku.$} {
+	#var rstuw @add_chat_lines{<118><fca>[wskazan] %0};#line gag;
+    #var ret @set_quickbind_red{nazabij cel ataku};
+} {1};
+
+
+
 #high {stary matowy pancerz} {<fff>};
 #high {strzelisty zasniedzialy helm} {<fff>};
 #high {snieznobialy lsniacy pancerz} {<fff>};

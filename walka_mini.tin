@@ -63,91 +63,91 @@
 #NOP ZASLONY;
 #NOP NEUTRALNE;
 
-#nop action {~^%* wytraca %*.$} {#var rr @add_chat_lines{<118><ffa>[str wyt] <088>%0};#line gag;} {7};
+#nop action {~^%* wytraca %*.$} {#var rr @add_chat_lines{<118><ffa>[str wyt] %0};#line gag;} {7};
 
-#action {~^%* probuje zaslonic %* przed ciosami %*, jednak nie jest w stanie tego uczynic.$}
+#action {^%* probuje zaslonic %* przed ciosami %*, jednak nie jest w stanie tego uczynic.$}
 {
-	#var rstuw @add_chat_lines{<118><faa>[zaslona] <088>%0<aaa>,};#line gag;
+	#var rstuw @add_chat_lines{<118><faa>[zaslona] %0<aaa>,};#line gag;
 }
 
 
-#action {~^%* probuje zaslonic cie przed ciosami %*, jednak nie jest w stanie tego uczynic.$}
+#action {^%* probuje zaslonic cie przed ciosami %*, jednak nie jest w stanie tego uczynic.$}
 {
-	#var rstuw @add_chat_lines{<118><faa>[zaslona] <088>%0<aaa>,};#line gag;
+	#var rstuw @add_chat_lines{<118><faa>[zaslona] %0<aaa>,};#line gag;
 } {2}
 
-#action {~^Przestajesz zaslaniac %*.$}
+#action {^Przestajesz zaslaniac %*.$}
 {
-	#var rstuw @add_chat_lines{<118><ffa>[zaslona] <088>%0<aaa>,};#line gag;
+	#var rstuw @add_chat_lines{<118><ffa>[zaslona] %0<aaa>,};#line gag;
 } {1}
-#action {~^%* przestaje cie zaslaniac przed ciosami wrogow.$}
+#action {^%* przestaje cie zaslaniac przed ciosami wrogow.$}
 {
-	#var rstuw @add_chat_lines{<118><ffa>[zaslona] <088>%0<aaa>,};#line gag;
+	#var rstuw @add_chat_lines{<118><ffa>[zaslona] %0<aaa>,};#line gag;
 }
-#action {~^Wychodzisz zza zaslony %*.$}
+#action {^Wychodzisz zza zaslony %*.$}
 {
-	#var rstuw @add_chat_lines{<118><ffa>[zaslona] <088>%0<aaa>,};#line gag;
+	#var rstuw @add_chat_lines{<118><ffa>[zaslona] %0<aaa>,};#line gag;
 }
 
 #NOP NEGATYWNE;
-#action {~^%* zaslania %* przed twoimi ciosami.%D$}
+#action {^%* zaslania %* przed twoimi ciosami.%D$}
 {
-	#var rstuw @add_chat_lines{<118><faa>[zaslona] [] przelam] <088>%0<aaa>,};
+	#var rstuw @add_chat_lines{<118><faa>[zaslona] [] przelam] %0<aaa>,};
     #var r @set_quickbind_red{przelam obrone celu ataku};
     #line gag;
 }
   
-#action {~^Probujesz zaslonic %* przed ciosami %*, jednak nie jestes w stanie tego uczynic.$}
+#action {^Probujesz zaslonic %* przed ciosami %*, jednak nie jestes w stanie tego uczynic.$}
 {
-	#var rstuw @add_chat_lines{<118><faa>[zaslona] <088>%0<aaa>,};
+	#var rstuw @add_chat_lines{<118><faa>[zaslona] %0<aaa>,};
     #var koko @start_zaslona_ticker{};
     #line gag;
 }
-#action {~^%* probujesz zaslonic %* przed ciosami %*, jednak nie jestes w stanie tego uczynic.%D$}
+#action {^%* probujesz zaslonic %* przed ciosami %*, jednak nie jestes w stanie tego uczynic.%D$}
 {
-	#var rstuw @add_chat_lines{<118><faa>[zaslona] <088>%0<aaa>,};
+	#var rstuw @add_chat_lines{<118><faa>[zaslona] %0<aaa>,};
     #var koko @start_zaslona_ticker{};
     #line gag;
 }
 
 
 #NOP POZYTYWNE;
-#action {~^%* zaslania %* przed ciosami %*.$}
+#action {^%* zaslania %* przed ciosami %*.$}
 {
-	#var rstuw @add_chat_lines{<118><ffa>[zaslona] <088>%0<aaa>,};
+	#var rstuw @add_chat_lines{<118><ffa>[zaslona] %0<aaa>,};
     #line gag;
 }
 
-#action {~^Na twoj rozkaz %* zaslania cie przed ciosami %*.$}
+#action {^Na twoj rozkaz %* zaslania cie przed ciosami %*.$}
 {
-	#var rstuw @add_chat_lines{<118><afa>[zaslona] <088>%0<aaa>,};
+	#var rstuw @add_chat_lines{<118><afa>[zaslona] %0<aaa>,};
     #line gag;
 }
-#action {~^%* zaslania cie przed ciosami %*.$}
+#action {^%* zaslania cie przed ciosami %*.$}
 {
-	#var rstuw @add_chat_lines{<118><afa>[zaslona] <088>%0<aaa>,};
+	#var rstuw @add_chat_lines{<118><afa>[zaslona] %0<aaa>,};
     #line gag;
 } {2}
 
-#action {~^Zrecznie zaslaniasz %* przed ciosami %*.$}
+#action {^Zrecznie zaslaniasz %* przed ciosami %*.$}
 {
-	#var rstuw @add_chat_lines{<118><afa>[zaslona] [3 przestan] <088>%0<aaa>,};
+	#var rstuw @add_chat_lines{<118><afa>[zaslona] [3 przestan] %0<aaa>,};
     #var r @set_quickbind_green{przestan zaslaniac};
     #var koko @start_zaslona_ticker{};
     #line gag;
 }{2};
 
-#action {~^Stajesz u boku %1, gotow w kazdej chwili %*}
+#action {^Stajesz u boku %1, gotow w kazdej chwili %*}
 {
-	#var rstuw @add_chat_lines{<118><afa>[zaslona] [3 przestan] <088>%0<aaa>,};
+	#var rstuw @add_chat_lines{<118><afa>[zaslona] [3 przestan] %0<aaa>,};
     #var r @set_quickbind_green{przestan zaslaniac};
     #var koko @start_zaslona_ticker{};
     #line gag;
 }
 
-#action {~^Z wprawa stajesz pomiedzy %* a %*, przyjmujac na siebie nadchodzace ciosy.$}
+#action {^Z wprawa stajesz pomiedzy %* a %*, przyjmujac na siebie nadchodzace ciosy.$}
 {
-	#var rstuw @add_chat_lines{<118><afa>[zaslona] [3 przestan] <088>%0<aaa>,};
+	#var rstuw @add_chat_lines{<118><afa>[zaslona] [3 przestan] %0<aaa>,};
     #var r @set_quickbind_green{przestan zaslaniac};
     #var koko @start_zaslona_ticker{};
     #line gag;
@@ -186,55 +186,55 @@
 #action {^%* probuje cie zaatakowac, lecz %* zagradza %* droge.%D$}
 {#var ret @parselen{%0};#sh <afa><- NIE LAMIE CIE <-<088> $ret<088><aaa>0<088>;#line gag;}{1}
 
-#action {~^Slamazarnym wymachem %* probujesz wytracic %*. Przeciwnik nie daje sie jednak zaskoczyc, {|cofajac sie w pore|zbijajac w pore twoje uderzenie na bok}.$}
+#action {^Slamazarnym wymachem %* probujesz wytracic %*. Przeciwnik nie daje sie jednak zaskoczyc, {|cofajac sie w pore|zbijajac w pore twoje uderzenie na bok}.$}
 {
-	#sh {<118><faa>[str]     <088>%0<aaa>,};
+	#var kl @add_combat_lines_yellow{<118><faa>[str]     %0<aaa>,};
     #line gag;
 }
 
-#action {~^Szybkim niczym mysl %* wytracasz %* z rak %*.$} {
-	#sh {<118><afa>[str]     <088>%0<aaa>,};
+#action {^Szybkim niczym mysl %* wytracasz %* z rak %*.$} {
+	#var kl @add_combat_lines_green{<118><afa>[str]     %0<aaa>,};
     #line gag;
 } {1}
 
-#action {~^Szybkim niczym mysl %* wytracasz %* z reki %*.$} {
-	#sh {<118><afa>[str]     <088>%0<aaa>,};
+#action {^Szybkim niczym mysl %* wytracasz %* z reki %*.$} {
+	#var kl @add_combat_lines_green{<118><afa>[str]     %0<aaa>,};
     #line gag;
 } {1}
 
 
 #NOP INNE PRZYDATNE W WALCE;
-#action {~^Bol %* staje sie mniej odczuwalny.$}
+#action {^Bol %* staje sie mniej odczuwalny.$}
 {
-	#sh {<118><afa>[bron   ] [3 dobadz] <088>%0<aaa>,};
+	#var kl @add_chat_lines{<118><afa>[bron]    [3 dobadz] %0<aaa>,};
     #var r @set_quickbind_green{dobadz broni};
     #line gag;
 }
 
-#action {~^Nie mozesz dobyc %*, gdyz %*.$}
+#action {^Nie mozesz dobyc %*, gdyz %*.$}
 {
-	#sh {<118><faa>[bron   ] <088>%0<aaa>,};
+	#var kl @add_chat_lines{<118><faa>[bron]    %0<aaa>,};
     #line gag;
 }
 
-#action {~^Uderzenie jest tak silne, ze bezwiednie puszczasz %*.$}
+#action {^Uderzenie jest tak silne, ze bezwiednie puszczasz %*.$}
 {
-	#sh {<118><faa>[bron   ] <088>%0<aaa>,};
+	#var kl @add_chat_lines{<118><faa>[bron]    %0<aaa>,};
     #line gag;
 }
 
-#action {~^%* dobywa %*.$} {
-	#sh {<118><ffa>[bron   ] <088>%0<aaa>,};
+#action {^%* dobywa %*.$} {
+	#var kl @add_combat_lines_red{<118><ffa>[bron]    %0<aaa>,};
     #line gag;
 }
 
-#action {~^Uderzenie jest tak silne, ze %* bezwiednie opuszcza %*.$}
+#action {^Uderzenie jest tak silne, ze %* bezwiednie opuszcza %*.$}
 {
-	#sh {<118><ffa>[bron   ] <088>%0<aaa>,};
+	#var kl @add_combat_lines_red{<118><ffa>[bron]    %0<aaa>,};
     #line gag;
 }
 
-#action {~^Wskazujesz %* jako cel ataku.$}
+#action {^Wskazujesz %* jako cel ataku.$}
 {
-	#sh {<118><afa>[  cel  ] <088>%0<aaa>,};
+	#var kl @add_chat_lines{<118><afa>[  cel  ] %0<aaa>,};
 }

@@ -1,4 +1,6 @@
-#ACTION {~^Zabil{es|as} %2.$}
+#action {%* umarl.$} {#line gag;}
+
+#ACTION {^Zabil{es|as} %2.$}
 {
   #FORMAT {capnietyDuze} {%u} {%2};
 
@@ -18,14 +20,16 @@
   #math {count[Ty][$mob][cnt]} {$count[Ty][$mob][cnt]+1};
   #math {count[Ot][$mob][cnt]} {$count[Ot][$mob][cnt]+1};
 
-  #sh {<118><FAA><fff>[**ZGON**]<088> %0<088><aaa>,<088>};
-  #sh {<118><FAA><fff>[**ZGON**]<088> <afa> ${count}[Ty][$mob][cnt]/$count[Ot][$mob][cnt] <088>};
+  #var rstuw @add_chat_lines{<118><ccc>[<fca> .~.~. <ccc>] %0};
+  #var rstuw @add_chat_lines{<118><ccc>[<fca>(p...q)<ccc>] Ty       : <afa>${count}[Ty][$mob][cnt]<088>};
+  #var rstuw @add_chat_lines{<118><ccc>[<fca>  |||  <ccc>] Druzyna  : <afa>$count[Ot][$mob][cnt]<088>};
+  #var rstuw @add_chat_lines{<118><ccc>[<fca>  `-'  <ccc>] Srednia  : <afa>$count[Ot][$mob][cnt]<088>};
 
   #var r @set_quickbind_yellow{wez_monety};
   #line gag;
 }
 
-#ACTION {~%1 zabi{la|l} %3.$}
+#ACTION {%1 zabi{la|l} %3.$}
 {
   #FORMAT {capnietyDuze} {%u} {%3};
 

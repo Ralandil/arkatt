@@ -183,6 +183,7 @@
       #var wrogowie_prompt[$zz] {<fff>           <088>};
     };
     testprompt;
+    refresh_chat_prompt;
 }
 
 #event {IAC SB GMCP objects.nums IAC SE} 
@@ -449,8 +450,3 @@
 };
 
 
-
-
-#action {^%* wskazuje %* jako cel ataku.$} {
-    #var ret @set_quickbind_red{nazabij cel ataku};
-} {1};
