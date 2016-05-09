@@ -139,7 +139,7 @@
 		#var asciimapv[$loopcnt] {$wpadder};
 	};
 	#nop system {/Users/eldakar/arkatt/maps/showmap /Users/eldakar/arkatt/maps/$ROOM_INFO[map][name].map $ROOM_INFO[map][x] $ROOM_INFO[map][y] $asciimap_w 12};	
-	#script {asciimapv} {$path/maps/showmap $path/maps/$ROOM_INFO[map][name].map $ROOM_INFO[map][x] $ROOM_INFO[map][y] $asciimap_w 12};
+	#script {asciimapv} {/Users/eldakar/arkatt/maps/showmap /Users/eldakar/arkatt/maps/$ROOM_INFO[map][name].map $ROOM_INFO[map][x] $ROOM_INFO[map][y] $asciimap_w 12};
 	#loop 1 $asciimap_h loopcnt {
 		#var tmpline {$asciimapv[$loopcnt]};
 		#format {tmpline} {%-${asciimap_w}s} {$tmpline};
