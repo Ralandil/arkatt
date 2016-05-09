@@ -1,0 +1,66 @@
+#alias move_s {#send s;#chat message mapper navigate:exit:s};
+#alias move_n {#send n;#chat message mapper navigate:exit:n};
+#alias move_e {#send e;#chat message mapper navigate:exit:e};
+#alias move_w {#send w;#chat message mapper navigate:exit:w};
+#alias move_u {#send u;#chat message mapper navigate:exit:u};
+#alias move_d {#send d;#chat message mapper navigate:exit:d};
+#alias move_ne {#send ne;#chat message mapper navigate:exit:ne};
+#alias move_nw {#send nw;#chat message mapper navigate:exit:nw};
+#alias move_se {#send se;#chat message mapper navigate:exit:se};
+#alias move_sw {#send sw;#chat message mapper navigate:exit:sw};
+
+#alias s {move_s};
+#alias n {move_n};
+#alias w {move_w};
+#alias e {move_e};
+#alias nw {move_nw};
+#alias ne {move_ne};
+#alias sw {move_sw};
+#alias se {move_se};
+#alias u {move_u};
+#alias d {move_d};
+
+
+#alias {kondycjak} {
+	#var pr_wrog <088> -<088>;
+	kondycja wszystkich;
+	#foreach {$druzyna_lista[]} {ix} {
+		#list {druzyna_alias} {set} {$ix} @__alias_dimmed{$druzyna_lista[$ix]};
+		#list {druzyna_atakujacy} {set} {$ix} {${cl_frame}-<088>};
+	};
+	#var global_wrog_index 0;
+	#var r @wrogowie_clear{};
+	#var r @druzyna_refresh{};
+	#var r @wrogowie_refresh{};	
+	testprompt
+}
+
+
+#line substitute {variables} {#macro {$KEY_PAD_S} {move_s}}
+#line substitute {variables} {#macro {$KEY_PAD_N} {move_n}}
+#line substitute {variables} {#macro {$KEY_PAD_W} {move_w}}
+#line substitute {variables} {#macro {$KEY_PAD_E} {move_e}}
+#line substitute {variables} {#macro {$KEY_PAD_NW} {move_nw}}
+#line substitute {variables} {#macro {$KEY_PAD_NE} {move_ne}}
+#line substitute {variables} {#macro {$KEY_PAD_SW} {move_sw}}
+#line substitute {variables} {#macro {$KEY_PAD_SE} {move_se}}
+#line substitute {variables} {#macro {$KEY_PAD_U} {move_u}}
+#line substitute {variables} {#macro {$KEY_PAD_D} {move_d}}
+
+#nop line substitute {variables} {#macro {$KEY_PAD_WALK} {#sh WALK}}
+
+#nop line substitute {variables} {#macro {$KEY_PAD_WALK_M} {#sh WALK_M}}
+
+#line substitute {variables} {#macro {$KEY_PAD_KOND} {zerknij}}
+
+#line substitute {variables} {#macro {$KEY_F5} {#echo {<FFA><aaa>not set<088>}}};
+#line substitute {variables} {#macro {$KEY_F7} {#echo {<FFA><aaa>not set<088>}}};
+#line substitute {variables} {#macro {$KEY_F8} {#echo {<FFA><aaa>not set<088>}}};
+
+#line substitute {variables} {#macro {$KEY_F12} {worki}};
+
+#line substitute {variables} {#macro {$KEY_F11} {tryb_chodzenia}};
+
+#line substitute {variables} {#macro {$KEY_F5} {ocen_wrogow}};
+
+

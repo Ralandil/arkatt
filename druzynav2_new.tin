@@ -1,0 +1,456 @@
+#var team_index 1;
+#var othe_index 1;
+#var przewodzisz_druzynie 0;
+#alias {team_clean_compare}
+{
+  #var ecmp[0] {T12};
+  #var ecmp[1] {   };
+  #var ecmp[2] {   };
+  #var ecmp[3] {   };
+  #var ecmp[4] {   };
+  #var ecmp[5] {   };
+  #var ecmp[6] {   };
+  #var ecmp[7] {   };
+  #var ecmp[8] {   };
+  #var ecmp[9] {   };
+  #var ecmp[10] {   };
+  #var ecmp[11] {   };
+  #var ecmp[12] {   };
+  #var ecmp[13] {   };
+  #var ecmp[14] {   };
+  #var ecmp[15] {   };
+  #var ecmp[16] {   };
+  #var ecmp[17] {   };
+  #var ecmp[18] {   };
+  #var ecmp[19] {   };
+  #var ecmp[20] {   };
+}
+#alias {find_enemy}
+{
+ #if {"$przewodzisz_druzynie" == "1"} {
+    #sh <119>Przewodzisz, szukam wroga...<088>;
+    #var enemy_id 0;
+    
+    #foreach {$obda2[]} {vob} {  
+      #if {"$obda2[$vob][team]" == "false"} {
+	#if {"$obda2[$vob][enemy]" == "false"} {
+	    #regex {$obda2[$vob][desc]} {czarny ork} { };
+	};
+	#elseif {"$obda2[$vob][enemy]" == "true"} {
+
+	};
+      };  
+    };
+
+    
+ };
+ 
+ 
+}
+
+#function {update_teams}
+{
+  #unvar team {};
+  #unvar othe {};
+  #var team_index 1;
+  #var othe_index 1;
+
+  #unvar druzyna_prompt;
+  #unvar wrogowie_prompt;
+  
+  #foreach {$obda2[]} {vob} {  
+
+    #if {"$obda2[$vob][avatar]" == "true"} {
+      
+      #if {"$obda2[$vob][team_leader]" == "true"} {
+	#var przewodzisz_druzynie {1};
+      } {
+	#var przewodzisz_druzynie {0};
+      };
+      
+      #var myattackers {0};
+      #foreach {$obda2[]} {vos} {
+
+	  #if {"$obda2[$vos][attack_num]" == "$vob"} {
+	    #math {myattackers} {$myattackers + 1};
+	  };
+      };
+      #if {"$myattackers" == "0"} {#var myattackers {  }};
+      #format pr_wrog {%+2s} $myattackers;
+      #var pr_wrog {<118><faa>$pr_wrog<088>};
+    };
+    
+    #else {
+    
+      #if {"$obda2[$vob][team]" == "true"} {	
+	#if {$obda2[$vob][hp] == 6} {#var team[$team_index][desc] @__alias_77{$obda2[$vob][desc]}};
+	#if {$obda2[$vob][hp] == 5} {#var team[$team_index][desc] @__alias_67{$obda2[$vob][desc]}};
+	#if {$obda2[$vob][hp] == 4} {#var team[$team_index][desc] @__alias_57{$obda2[$vob][desc]}};
+	#if {$obda2[$vob][hp] == 3} {#var team[$team_index][desc] @__alias_47{$obda2[$vob][desc]}};
+	#if {$obda2[$vob][hp] == 2} {#var team[$team_index][desc] @__alias_37{$obda2[$vob][desc]}};
+	#if {$obda2[$vob][hp] == 1} {#var team[$team_index][desc] @__alias_27{$obda2[$vob][desc]}};
+	#if {$obda2[$vob][hp] == 0} {#var team[$team_index][desc] @__alias_17{$obda2[$vob][desc]}};
+	#var team[$team_index][enemies] 0;
+	#var team[$team_index][tag] $vob;
+	#foreach {$obda2[]} {vos} {
+	  #if {"$obda2[$vos][attack_num]" == "$vob"} {
+	    #math {team[$team_index][enemies]} {$team[$team_index][enemies] + 1};
+	  };
+	};
+	#nop TODO zaslony;	
+	#math indexvalue {96 + $team_index};
+	#format indexchar {%a} {$indexvalue};
+	
+	#format team_enemies {%+2s} {$team[$team_index][enemies]};
+	#if {"$team_enemies" == " 0"} {#var team_enemies {  }};
+	
+	#var druzyna_prompt[$team_index] {<088>$indexchar<188><faa>$team_enemies$team[$team_index][desc]};
+	
+
+	#line substitute {variables} {#alias rz$indexchar {wskaz ob_$team[$team_index][tag] jako cel obrony;rozkaz druzynie zaslonic ob_$team[$team_index][tag]}};
+	#line substitute {variables} {#alias z$indexchar {zaslon ob_$team[$team_index][tag]}};
+	#nop straznik;
+	#line substitute {variables} {#alias z${indexchar}2 {opcje grupa 2;zaslon ob_$team[$team_index][tag];opcje grupa 1}};
+	#line substitute {variables} {#alias z${indexchar}3 {opcje grupa 3;zaslon ob_$team[$team_index][tag];opcje grupa 1}};
+	#line substitute {variables} {#alias z${indexchar}4 {opcje grupa 4;zaslon ob_$team[$team_index][tag];opcje grupa 1}};
+	
+	#math {team_index} {$team_index + 1};	
+
+	#nop if {$team_index == 26} {#var team_index = 1};
+      };
+      #else {
+      
+	#if {$obda2[$vob][hp] == 6} {#var othe[$othe_index][desc] @__alias_77{$obda2[$vob][desc]};};
+	#if {$obda2[$vob][hp] == 5} {#var othe[$othe_index][desc] @__alias_67{$obda2[$vob][desc]};};
+	#if {$obda2[$vob][hp] == 4} {#var othe[$othe_index][desc] @__alias_57{$obda2[$vob][desc]};};
+	#if {$obda2[$vob][hp] == 3} {#var othe[$othe_index][desc] @__alias_47{$obda2[$vob][desc]};};
+	#if {$obda2[$vob][hp] == 2} {#var othe[$othe_index][desc] @__alias_37{$obda2[$vob][desc]};};
+	#if {$obda2[$vob][hp] == 1} {#var othe[$othe_index][desc] @__alias_27{$obda2[$vob][desc]};};
+	#if {$obda2[$vob][hp] == 0} {#var othe[$othe_index][desc] @__alias_17{$obda2[$vob][desc]};};		  
+	#var othe[$othe_index][enemies] 0;
+	#var othe[$othe_index][tag] $vob;
+	#foreach {$obda2[]} {vos} {
+	  #if {"$obda2[$vos][attack_num]" == "$vob"} {
+	    #math {othe[$othe_index][enemies]} {$othe[$othe_index][enemies] + 1};
+	  };
+	};
+
+	#math indexvalue {96 + $othe_index};
+	#format indexchar {%a} {$indexvalue};
+
+	#format other_enemies {%+2s} {$othe[$othe_index][enemies]};
+	#if {"$other_enemies" == " 0"} {#var other_enemies {  }};
+
+
+	#if {"$obda2[$vob][attack_target]" == "true"} {
+	  #var wrogowie_prompt[$othe_index] {<088>$indexchar<188><fff>$other_enemies$othe[$othe_index][desc]<119><ffa><};
+	} {
+	  #var wrogowie_prompt[$othe_index] {<088>$indexchar<188><fff>$other_enemies$othe[$othe_index][desc]<aaa><};
+	};
+	
+	#line substitute {variables} {#alias oc$indexchar {
+		ocen ob_$othe[$othe_index][tag];
+		porownaj sile z ob_$othe[$othe_index][tag];
+		porownaj zrecznosc z ob_$othe[$othe_index][tag];
+		porownaj wytrzymalosc z ob_$othe[$othe_index][tag];
+		#var cmp_obj $othe_index;
+	}};
+	#line substitute {variables} {#alias zp$indexchar {zaslon przed ob_$othe[$othe_index][tag]}};
+	
+	#if {"$przewodzisz_druzynie" == "1"} {
+	  #line substitute {variables} {#alias k$indexchar {nazabij ob_$othe[$othe_index][tag];wskaz ob_$othe[$othe_index][tag] jako cel ataku}};
+	  #line substitute {variables} {#alias r$indexchar {nazabij ob_$othe[$othe_index][tag];wskaz ob_$othe[$othe_index][tag] jako cel ataku;rozkaz druzynie zabic cel ataku}};
+	} {
+	  #line substitute {variables} {#alias k$indexchar {nazabij ob_$othe[$othe_index][tag]}};
+	};
+	
+	#line substitute {variables} {#alias b$indexchar {zablokuj ob_$othe[$othe_index][tag]}};
+	
+	#math {othe_index} {$othe_index + 1};
+	
+	#nop if {$othe_index == 26} {#var othe_index = 1};
+      };
+      
+    };
+    
+    };
+    
+    #loop {$team_index} {19} {z} {
+      #var druzyna_prompt[$z] {<fff>          <088>};
+    };
+    #loop {$othe_index} {20} {zz} {
+      #nop var wrogowie_prompt[$zz] {<fff>                         <088>};
+      #var wrogowie_prompt[$zz] {<fff>           <088>};
+    };
+    testprompt;
+}
+
+#event {IAC SB GMCP objects.nums IAC SE} 
+{
+	#var {obnu} {%0};
+	#forall {$obda2[]} {
+		#list {obnu} find {&0} {vfob};
+		#if {"$vfob" == "0"} {
+			#unvar {obda2[&0]}
+         	}
+        };
+	#var r @update_teams{};
+}
+
+#event {IAC SB GMCP objects.data IAC SE} 
+{
+  #var {obda} {%0};
+  #foreach {$obda[]} {vob} {
+    #forall {$obda[$vob][]} {
+      #var {obda2[$vob][&0]} {$obda[$vob][&0]};
+    }
+  };
+  #var r @update_teams{};
+}
+
+
+
+
+#action {^%1 jest w swietnej kondycji.$} {
+    #nop sh {<ccc>(<179>#######<088><ccc>)<088> %1};
+    #line gag;
+}
+	
+#action {^%1 jest w dobrym stanie.$} {
+    #nop sh {<ccc>(<179>###### <088><ccc>)<088> %1};
+    #line gag;
+};
+#action {^%1 jest lekko rann%..$} {
+    #nop sh {<ccc>(<179>#####  <088><ccc>)<088> %1};
+    #line gag;
+}
+#action {^%1 jest rann%..$} {
+    #nop sh {<ccc>(<179>####   <088><ccc>)<088> %1};
+    #line gag;
+}
+#action {^%1 jest w zlej kondycji.$} {
+    #nop sh {<ccc>(<179>###    <088><ccc>)<088> %1};
+    #line gag;
+}
+#action {^%1 jest ciezko rann%..$} {
+    #nop sh {<ccc>(<179>##     <088><ccc>)<088> %1};
+    #line gag;
+}
+#action {^%1 jest ledwo zyw%..$} {
+    #nop sh {<ccc>(<179><FAA>-LEDWO-<088><ccc>)<088> %1};
+    #line gag;
+}
+
+
+#action {^%1 jest w swietnej kondycji. Atakujesz {go|ja}.}
+{
+  	#nop sh {<ccc>(<179>#######<088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ};
+  	#line gag;
+}
+#action {^%1 jest w swietnej kondycji. Atakujesz {go|ja} ty i %3.}
+{
+  	#nop sh {<ccc>(<179>#######<088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ TY I %3};
+  	#line gag;
+}
+#action {^%1 jest w swietnej kondycji. Atakujesz {go|ja} ty, %69.}
+{
+  	#nop sh {<ccc>(<179>#######<088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ TY, %69};
+  	#line gag;
+}
+#action {^%1 jest w dobrym stanie. Atakujesz {go|ja}.}
+{	
+  	#nop sh {<ccc>(<179>###### <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ};
+  	#line gag;
+}
+#action {^%1 jest w dobrym stanie. Atakujesz {go|ja} ty i %3.}
+{
+  	#nop sh {<ccc>(<179>###### <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ TY I %3};
+  	#line gag;
+}
+#action {^%1 jest w dobrym stanie. Atakujesz {go|ja} ty, %69.}
+{	
+  	#nop sh {<ccc>(<179>###### <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ TY, %69};
+  	#line gag;
+}
+
+#action {^%1 jest lekko rann{y|a}. Atakujesz {go|ja}.}
+{
+  	#nop sh {<ccc>(<179>#####  <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ};
+  	#line gag;
+}
+#action {^%1 jest lekko rann{y|a}. Atakujesz {go|ja} ty i %3.}
+{	
+  	#nop sh {<ccc>(<179>#####  <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ TY I %3};
+  	#line gag;
+}
+
+
+#action {^%1 jest lekko rann{y|a}. Atakujesz {go|ja} ty, %69.}
+{	
+  	#nop sh {<ccc>(<179>#####  <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ TY, %69};
+  	#line gag;
+}
+#action {^%1 jest rann{y|a}. Atakujesz {go|ja}.}
+{
+  	#nop sh {<ccc>(<179>####   <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ};
+  	#line gag;
+}
+#action {^%1 jest rann{y|a}. Atakujesz {go|ja} ty i %3.}
+{
+  	#nop sh {<ccc>(<179>####   <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ TY I %3};
+  	#line gag;
+}
+#action {^%1 jest rann{y|a}. Atakujesz {go|ja} ty, %69.}
+{	
+  	#nop sh {<ccc>(<179>####   <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ TY, %69};
+  	#line gag;
+}
+
+
+#action {^%1 jest w zlej kondycji. Atakujesz {go|ja}.}
+{	
+  	#nop sh {<ccc>(<179>###    <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ};
+  	#line gag;
+}
+#action {^%1 jest w zlej kondycji. Atakujesz {go|ja} ty i %3.}
+{	
+  	#nop sh {<ccc>(<179>###    <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ TY I %3};
+  	#line gag;
+}
+#action {^%1 jest w zlej kondycji. Atakujesz {go|ja} ty, %69.}
+{	
+  	#nop sh {<ccc>(<179>###    <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ TY, %69};
+  	#line gag;
+}
+
+
+#action {^%1 jest ciezko rann{y|a}. Atakujesz {go|ja}.}
+{
+  	#nop sh {<ccc>(<179>##     <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ};
+  	#line gag;
+}
+#action {^%1 jest ciezko rann{y|a}. Atakujesz {go|ja} ty i %3.}
+{	
+  	#nop sh {<ccc>(<179>##     <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ TY I %3};
+  	#line gag;
+}
+#action {^%1 jest ciezko rann{y|a}. Atakujesz {go|ja} ty, %69.}
+{	
+  	#nop sh {<ccc>(<179>##     <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ TY, %69};
+  	#line gag;
+}
+
+#action {^%1 jest ledwo zyw{y|a}. Atakujesz {go|ja}.}
+{	
+  	#nop sh {<ccc>(<179><FAA>-LEDWO-<088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ};
+  	#line gag;
+}
+#action {^%1 jest ledwo zyw{y|a}. Atakujesz {go|ja} ty i %3.}
+{	
+  	#nop sh {<ccc>(<179><FAA>-LEDWO-<088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ TY I %3};
+  	#line gag;
+}
+#action {^%1 jest ledwo zyw{y|a}. Atakujesz {go|ja} ty, %69.}
+{	
+  	#nop sh {<ccc>(<179><FAA>-LEDWO-<088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ TY, %69};
+  	#line gag;
+}
+
+
+#action {^%1 jest w swietnej kondycji. Atakuj{e|a} {ja|go} %69.}
+{
+	#nop sh {<ccc>(<179>#######<088><ccc>)<088> %1 <119><faa> <<< ATAKUJE GO %69};
+	#line gag;
+}
+
+#action {^%1 jest w dobrym stanie. Atakuj{e|a} {ja|go} %69.}
+{
+	#nop sh {<ccc>(<179>###### <088><ccc>)<088> %1 <119><faa> <<< ATAKUJE GO %69};
+	#line gag;
+}
+
+#action {^%1 jest lekko rann{y|a}. Atakuj{e|a} {ja|go} %69.}
+{	
+	#nop sh {<ccc>(<179>#####  <088><ccc>)<088> %1 <119><faa> <<< ATAKUJE GO %69};
+	#line gag;
+}
+
+
+#action {^%1 jest rann{y|a}. Atakuj{e|a} {ja|go} %69.}
+{
+	#nop sh {<ccc>(<179>####   <088><ccc>)<088> %1 <119><faa> <<< ATAKUJE GO %69};
+	#line gag;
+}
+
+#action {^%1 jest w zlej kondycji. Atakuj{e|a} {ja|go} %69.}
+{	
+	#nop sh {<ccc>(<179>###    <088><ccc>)<088> %1 <119><faa> <<< ATAKUJE GO %69};
+	#line gag;
+}
+
+#action {^%1 jest ciezko rann{y|a}. Atakuj{e|a} {ja|go} %69.}
+{	
+	#nop sh {<ccc>(<179>##     <088><ccc>)<088> %1 <119><faa> <<< ATAKUJE GO %69};
+	#line gag;
+}
+
+#action {^%1 jest ledwo zyw{y|a}. Atakuj{e|a} {ja|go} %69.}
+{
+	#nop sh {<ccc>(<FAA><178>-LEDWO-<088><ccc>)<088> %1 <119><faa> <<< ATAKUJE GO %69};
+	#line gag;
+}
+
+
+#alias {wez_monety}
+{
+	wez monety z ciala;
+	odloz miedziane monety;
+	wloz monety do zalozonego plecaka;
+	wez kamienie z ciala;
+};
+
+#action {^%1 umarl.$} {
+	#var r @set_quickbind_yellow{wez_monety};
+}
+
+#action {^Jestes %1. Atakuj{e|a} cie %69.} {
+  #sh {Jestes %1.};
+  #line gag;
+  #nop sh {<ccc>(<179>#######<088><ccc>)<088> <119><faa>### TY ### <FAA><118><fff><<< ATAKUJA CIE: %69};#line gag;
+} {2};
+
+
+#action {^Jestes w swietnej kondycji. Atakuj{e|a} cie %69.} {
+  #sh {<ccc>(<179>#######<088><ccc>)<088> <119><faa>### TY ### <FAA><118><fff><<< ATAKUJA CIE: %69};#line gag;
+};
+
+#action {^Jestes w dobrym stanie. Atakuj{e|a} cie %69.} {
+  #sh {<ccc>(<179>###### <088><ccc>)<088> <119><faa>### TY ### <FAA><118><fff><<< ATAKUJA CIE: %69};#line gag;
+};
+
+#action {^Jestes lekko ranny. Atakuj{e|a} cie %69.} {
+  #sh {<ccc>(<179>#####  <088><ccc>)<088> <119><faa>### TY ### <FAA><118><fff><<< ATAKUJA CIE: %69};#line gag;
+};
+
+#action {^Jestes ranny. Atakuj{e|a} cie %69.} {
+  #sh {<ccc>(<179>####   <088><ccc>)<088> <119><faa>### TY ### <FAA><118><fff><<< ATAKUJA CIE: %69};#line gag;
+};
+
+#action {^Jestes w zlej kondycji. Atakuj{e|a} cie %69.} {
+  #sh {<ccc>(<179><faa>###    <088><ccc>)<088> <119><faa>### TY ### <FAA><118><fff><<< ATAKUJA CIE: %69};#line gag;
+};
+
+#action {^Jestes ciezko ranny. Atakuj{e|a} cie %69.} {
+  #sh {<ccc>(<179><faa>##     <088><ccc>)<088> <119><faa>### TY ### <FAA><118><fff><<< ATAKUJA CIE: %69};#line gag;
+};
+
+#action {^Jestes ledwo zywy. Atakuj{e|a} cie %69.} {
+  #sh {<ccc>(<FAA><178>-LEDWO-<088><ccc>)<088> <119><faa>### TY ### <FAA><118><fff><<< ATAKUJA CIE: %69};#line gag;
+};
+
+
+
+
+#action {^%* wskazuje %* jako cel ataku.$} {
+    #var ret @set_quickbind_red{nazabij cel ataku};
+} {1};

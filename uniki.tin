@@ -1,0 +1,52 @@
+#nop var dodged {0};
+#nop var blocked {0};
+#nop var missed {0};
+
+#action {probuje cie trafic %1, lecz tobie} {#line gag;#math dodged {$dodged + 1}};
+#action {lecz tobie udaje sie je zbic} {#line gag;#math blocked {$blocked + 1}};
+#action {lecz tobie udaje sie zbic} {#line gag;#math blocked {$blocked + 1}};
+#action {trafia cie %1, lecz caly impet uderzenia} {#line gag;#math blocked {$blocked + 1}};
+#action {nieumiejetnie probujac trafic cie} {#line gag;#math missed {$missed + 1}};
+#action {lecz tobie udaje sie uniknac} {#line gag;#math dodged {$dodged + 1}};
+#action {lecz tobie udaje sie go sparowac} {#line gag;#math blocked {$blocked + 1}};
+#action {lecz tobie udaje sie ja sparowac} {#line gag;#math blocked {$blocked + 1}};
+#action {przecina powietrze tuz przed twoja glowa} {#line gag;#math missed {$missed + 1}};
+
+#action {szybkim %1 zbijasz na bok} {#line gag;#math blocked {$blocked + 1}};
+#action {Szybkim %1 zbijasz na bok} {#line gag;#math blocked {$blocked + 1}};
+#action {wyprowadza szybkie %1, lecz tobie udaje} {#line gag;#math dodged {$dodged + 1}};
+#action {gdy jego uderzenie zeslizguje sie po tw} {#line gag;#math blocked {$blocked + 1}};
+#action {nie udaje sie trafic ciebie} {#line gag;#math missed {$missed + 1}};
+
+#unaction {^Ledwo muskasz %1.$} {#sh {<129># Ranisz (1/6) %1.<088>};#line gag};
+#unaction {^Lekko ranisz %1.$} {#sh {<129># Ranisz (2/6) %1.<088>};#line gag};
+#unaction {^Ranisz %1.$} {#sh {<129># Ranisz (3/6) %1.<088>};#line gag};
+#unaction {^Powaznie ranisz %1.$} {#sh {<129># Ranisz (4/6) %1.<088>};#line gag};
+#unaction {^Bardzo ciezko ranisz %1.$} {#sh {<129># Ranisz (5/6) %1.<088>};#line gag};
+#unaction {^Masakrujesz %1.$} {#sh {<129># Ranisz (6/6) %1.<088>};#line gag};
+
+#unaction {^%1 ledwo muska cie %2.$} {#sh {<119># Rani cie (1/6) %1.};#line gag};
+#unaction {^%1 lekko rani cie %2.$} {#sh {<119># Rani cie (2/6) %1.};#line gag};
+#unaction {^%1 rani cie %2.$} {#sh {<119># Rani cie (3/6) %1.};#line gag} {7};
+#unaction {^%1 powaznie rani cie %2.$} {#sh {<119># Rani cie (4/6) %1.};#line gag};
+#unaction {^%1 bardzo ciezko rani cie %2.$} {#sh {<119># Rani cie (5/6) %1.};#line gag};
+#unaction {^%1 masakruje cie %2.$} {#sh {<119># Rani cie (6/6) %1.};#line gag};
+
+#action {^Probujesz trafic %1, lecz %2} {#line gag};
+#action {^Nie udaje ci sie trafic %1} {#line gag};
+#action {^Ledwo muskasz %1.$} {#line gag};
+#action {^Lekko ranisz %1.$} {#line gag};
+#action {^Ranisz %1.$} {#line gag};
+#action {^Powaznie ranisz %1.$} {#line gag};
+#action {^Bardzo ciezko ranisz %1.$} {#line gag};
+#action {^Masakrujesz %1.$} {#line gag};
+#action {^%1 ledwo muska cie %2.$} {#line gag};
+#action {^%1 lekko rani cie %2.$} {#line gag};
+#action {^%1 rani cie %2.$} {#line gag};
+#action {^%1 powaznie rani cie %2.$} {#line gag};
+#action {^%1 bardzo ciezko rani cie %2.$} {#line gag};
+#action {^%1 masakruje cie %2.$} {#line gag};
+#action {^Wykonujesz zamaszyste %*} {#line gag};
+#action {^Wyprowadzasz szybkie %*} {#line gag};
+#unaction {^Wykorzystujac brak broni u przeciwnika, %*.$}  {#sh <119><fff>%0;#line gag;}
+#action {^Nagle %1 wykonuje zamaszyst} {#line gag}

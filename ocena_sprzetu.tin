@@ -1,0 +1,1045 @@
+#func odmien
+{
+  #var bbo %0;
+  #var item {};
+  #replace {bbo} { } {;};
+  #list bba create $bbo;
+  #foreach {$bba[]} {t} 
+  {
+  
+    #regex {$bba[$t]} {^%*%.$}{#var {p}{&1};#var {k}{&2}};
+    #if {"$k"=="e" || "$k"=="a" || "$k"=="o" || "$k"=="i" || "$k"=="y"} 
+    {
+      #var item[1] {$item[1] $p{zie|iej|ie|ej|ego|emu|ych|ich|a|e|y|o|i|}};
+      #var item[2] {$item[2] $p%$t};
+    };
+    #else 
+    {
+      #var item[1] {$item[1] $p{ow|y|e|ej|ek|${k}|${k}|${k}owi|${k}em|${k}ie|${k}a|}};
+      #var item[2] {$item[2] $p%$t}; 
+    };
+  };
+  #return $item;
+}
+#func odmien2
+{
+  #var bbo %0;
+  #var item {};
+  #replace {bbo} { } {;};
+  #list bba create $bbo;
+  #foreach {$bba[]} {t} 
+  {
+      #regex {$bba[$t]} {^%.%*%.$}{#var {b}{&1};#var {p}{&2};#var {k}{&3}};
+
+      #var item[1] {$item[1] $b$p{[a-z]*}};
+      #var item[2] {$item[2] $b$p%$t};    
+  };
+  #return $item;
+}
+
+#func proce
+{
+%var ss %1;
+#replace ss {/} {;};
+#list s1 create {$ss};
+
+#math {mark} {(($s1[1]+0.00)/$s1[2])*100};
+#return $mark;
+}
+
+#action {Oceniasz, ze %1 {waza|wazy} %69, zas} 
+{
+  
+  #var cos %1;
+  
+  #action {Zaklada sie {go|ja|je} na %%11.}
+  {
+    #var eqq %%11;
+    #replace eqq {{, | i }} {|};
+    #var {zbroje[$cos][cialo]} {$eqq};
+    #if {"$eqq"=="dlonie"}
+    {
+      #var {zbroje[$cos][Typ]} {rekawice};
+      #var {zbroje[$cos][cietymi]} {wyjatkowo zle};
+      #var {zbroje[$cos][klutymi]} {wyjatkowo zle};
+      #var {zbroje[$cos][obuchowymi]} {wyjatkowo zle};
+      #sh {<030>[+] DODANO REKAWICE<088>};
+    };
+  };
+  
+    #action {Twoje doswiadczenie i umiejetnosci podpowiadaja ci, ze %%69}
+  {
+
+    #var query {%%69};
+    #nop sh {$query};
+    #regexp {$query}{jak na {.*} {jest|sa} on{a|e|o|} {.*} wywazon{a|e|y} i {.*}skuteczn{a|e|y}.}
+    {
+      #var typ {&1};
+      #var wyww &4;
+      #var skk &6;
+      #var b 1;
+      #var t 0;
+      #var z 0;
+    };
+    
+    #regexp {$query}{{.*}jest{ on| ona| ono| one|} {.*}skuteczn{a|e|y} w parowaniu ciosow.}
+    {
+      #var skk &3;
+      #var b 0;
+      #var t 1;
+      #var z 0;
+    };
+    #regexp {$query}{chroni on{a|o|e|} {.*}. {.*}}
+    {
+      #var tarczec &2;
+      #var b 0;
+      #var t 1;
+      #var z 0;
+    };
+    #regexp {$query}{jak na {.*} chroni{a|} on{a|o|e|} {.*}}
+    {
+      #var typ &1;
+      #var zstat &4;
+      #var b 0;
+      #var t 0;
+      #var z 1;
+    };
+    
+    #if {$b==1}
+    {
+        #switch {"$wyww"} 
+        {
+          #case {"wyjatkowo zle"} {#var wyw {1/14}};
+          #case {"bardzo zle"} {#var wyw {2/14}};
+          #case {"zle"} {#var wyw {3/14}};
+          #case {"bardzo kiepsko"} {#var wyw {4/14}};
+          #case {"kiepsko"} {#var wyw {5/14}};
+          #case {"przyzwoicie"} {#var wyw {6/14}};
+          #case {"srednio"} {#var wyw {7/14}};
+          #case {"niezle"} {#var wyw {8/14}};
+          #case {"dosc dobrze"} {#var wyw {9/14}};
+          #case {"dobrze"} {#var wyw {10/14}};
+          #case {"bardzo dobrze"} {#var wyw {11/14}};
+          #case {"doskonale"} {#var wyw {12/14}};
+          #case {"perfekcyjnie"} {#var wyw {13/14}};
+          #case {"genialnie"} {#var wyw {14/14}};
+        }
+
+        #switch {"$skk"}
+        {
+          #case {"kompletnie nie"} {#var sk {1/14}};
+          #case {"strasznie nie"} {#var sk {2/14}};
+          #case {"bardzo nie"} {#var sk {3/14}};
+          #case {"raczej nie"} {#var sk {4/14}};
+          #case {"malo "} {#var sk {5/14}};
+          #case {"niezbyt "} {#var sk {6/14}};
+          #case {"raczej "} {#var sk {7/14}};
+          #case {"dosyc "} {#var sk {8/14}};
+          #case {"calkiem "} {#var sk {9/14}};
+          #case {"bardzo "} {#var sk {10/14}};
+          #case {"niezwykle "} {#var sk {11/14}};
+          #case {"wyjatkowo "} {#var sk {12/14}};
+          #case {"zabojczo "} {#var sk {13/14}};
+          #case {"fantastycznie "} {#var sk {14/14}};
+        }
+        #var {bronie[$cos][typ]} {$typ};
+        #var {bronie[$cos][wyw]} {$wyw};
+        #var {bronie[$cos][sk]} {$sk};
+        #sh {<030>[+] DODANO $cos DO BAZY BRONI<088>};
+      };
+      #if {$t==1}
+      {
+        #switch {"$skk"}
+          {
+            #case {"kompletnie nie"} {#var sk {1/14}};
+            #case {"strasznie nie"} {#var sk {2/14}};
+            #case {"bardzo nie"} {#var sk {3/14}};
+            #case {"raczej nie"} {#var sk {4/14}};
+            #case {"malo "} {#var sk {5/14}};
+            #case {"niezbyt "} {#var sk {6/14}};
+            #case {"raczej "} {#var sk {7/14}};
+            #case {"dosyc "} {#var sk {8/14}};
+            #case {"calkiem "} {#var sk {9/14}};
+            #case {"bardzo "} {#var sk {10/14}};
+            #case {"niezwykle "} {#var sk {11/14}};
+            #case {"wyjatkowo "} {#var sk {12/14}};
+            #case {"zabojczo "} {#var sk {13/14}};
+            #case {"fantastycznie "} {#var sk {14/14}};
+          };
+          #sh {<030>[+] DODANO $cos DO BAZY TARCZ<088>};
+
+          
+          #var {tarcze[$cos][skutecznosc]} {$sk};     
+      };
+      
+      #if {$z==1}
+      {
+        #if {"$zbroje[$cos][cialo]"!=""}
+        {
+          #replace zstat {{, | i | oraz }} {;};
+          #list zbstat create {$zstat};
+          #var i 1;
+          #foreach {$zbstat[]} {ob} 
+          {
+            #var t $zbstat[$ob];
+            #replace t {{ przed | przed obrazeniami }} {;};
+            #list tt create {$t};
+            #list tt size {v};
+            #regexp {$tt[$v]} {{.*}{cietymi|obuchowymi|klutymi}} {#var obb &2};
+            #if {"$obb"=="$tt[1]"} 
+            {
+              #math j {($i-1)};
+              #var {zbroje[$cos][$obb]} {$pop[$j]};
+              #var pop[$i] {$pop[$j]};
+            };
+            #else 
+            {
+              #var pop[$i] {$tt[1]};
+              #var {zbroje[$cos][$obb]} {$tt[1]};
+            };
+            #math i {$i+1};
+          };
+          #var {zbroje[$cos][Typ]} {$typ};
+        };
+        #sh {<030>[+] DODANO $cos DO BAZY ZBROI<088>};
+        };
+  };
+}
+
+#function zbb 
+{
+#var ss {%0};
+#switch {"$ss"}
+{
+   #case {"wyjatkowo zle"} {#var wyw {1/11}}; 
+   #case {"bardzo zle, zle"} {#var wyw {2/11}}; 
+   #case {"bardzo kiepsko"} {#var wyw {3/11}}; 
+   #case {"kiepsko"} {#var wyw {4/11}};
+   #case {"przyzwoicie"} {#var wyw {5/11}}; 
+   #case {"niezle"} {#var wyw {6/11}}; 
+   #case {"dosc dobrze"} {#var wyw {7/11}}; 
+   #case {"dobrze"} {#var wyw {8/11}}; 
+   #case {"bardzo dobrze"} {#var wyw {9/11}}; 
+   #case {"doskonale"} {#var wyw {10/11}};
+   #case {"perfekcyjnie"} {#var wyw {11/11}};
+}
+#return $wyw;
+}
+
+#action {Oceniasz starannie %1.} 
+{ 
+  #var cos %1;
+  
+  #action {Zaklada sie {go|ja|je} na %%11.}
+  {
+    #var eqq %%11;
+    #replace eqq {{, | i }} {|};
+    #var {zbroje[$cos][cialo]} {$eqq};
+    #if {"$eqq"=="dlonie"}
+    {
+      #var {zbroje[$cos][Typ]} {rekawice};
+      #var {zbroje[$cos][cietymi]} {wyjatkowo zle};
+      #var {zbroje[$cos][klutymi]} {wyjatkowo zle};
+      #var {zbroje[$cos][obuchowymi]} {wyjatkowo zle};
+      #sh {<030>[+] DODANO REKAWICE<088>};
+    };
+    #if {"$eqq"=="stopy"}
+    {
+      #var {zbroje[$cos][Typ]} {buty};
+      #var {zbroje[$cos][cietymi]} {wyjatkowo zle};
+      #var {zbroje[$cos][klutymi]} {wyjatkowo zle};
+      #var {zbroje[$cos][obuchowymi]} {wyjatkowo zle};
+      #sh {<030>[+] DODANO BUTY<088>};
+    };
+    
+  } {9};
+  
+  
+  #action {Twoje doswiadczenie i umiejetnosci podpowiadaja ci, ze %%69}
+  {
+
+    #var query {%%69};
+    #nop sh {$query};
+    #regexp {$query}{jak na {.*} {jest|sa} on{a|e|o|} {.*} wywazon{a|e|y} i {.*}skuteczn{a|e|y}.}
+    {
+      #var typ {&1};
+      #var wyww &4;
+      #var skk &6;
+      #var b 1;
+      #var t 0;
+      #var z 0;
+    };
+    
+    #regexp {$query}{{.*}jest{ on| ona| ono| one|} {.*}skuteczn{a|e|y} w parowaniu ciosow.}
+    {
+      #var skk &3;
+      #var b 0;
+      #var t 1;
+      #var z 0;
+    };
+    #regexp {$query}{chroni on{a|o|e|} {.*}. {.*}}
+    {
+      #var tarczec &2;
+      #var b 0;
+      #var t 1;
+      #var z 0;
+    };
+    #regexp {$query}{jak na {.*} chroni{a|} on{a|o|e|} {.*}}
+    {
+      #var typ &1;
+      #var zstat &4;
+      #var b 0;
+      #var t 0;
+      #var z 1;
+    };
+    
+    #if {$b==1}
+    {
+        #switch {"$wyww"} 
+        {
+          #case {"wyjatkowo zle"} {#var wyw {1/14}};
+          #case {"bardzo zle"} {#var wyw {2/14}};
+          #case {"niezle"} {#var wyw {8/14}};
+          #case {"zle"} {#var wyw {3/14}};
+          #case {"bardzo kiepsko"} {#var wyw {4/14}};
+          #case {"kiepsko"} {#var wyw {5/14}};
+          #case {"przyzwoicie"} {#var wyw {6/14}};
+          #case {"srednio"} {#var wyw {7/14}};
+          #case {"dosc dobrze"} {#var wyw {9/14}};
+          #case {"dobrze"} {#var wyw {10/14}};
+          #case {"bardzo dobrze"} {#var wyw {11/14}};
+          #case {"doskonale"} {#var wyw {12/14}};
+          #case {"perfekcyjnie"} {#var wyw {13/14}};
+          #case {"genialnie"} {#var wyw {14/14}};
+        }
+
+        #switch {"$skk"}
+        {
+          #case {"kompletnie nie"} {#var sk {1/14}};
+          #case {"strasznie nie"} {#var sk {2/14}};
+          #case {"bardzo nie"} {#var sk {3/14}};
+          #case {"raczej nie"} {#var sk {4/14}};
+          #case {"malo "} {#var sk {5/14}};
+          #case {"niezbyt "} {#var sk {6/14}};
+          #case {"raczej "} {#var sk {7/14}};
+          #case {"dosyc "} {#var sk {8/14}};
+          #case {"calkiem "} {#var sk {9/14}};
+          #case {"bardzo "} {#var sk {10/14}};
+          #case {"niezwykle "} {#var sk {11/14}};
+          #case {"wyjatkowo "} {#var sk {12/14}};
+          #case {"zabojczo "} {#var sk {13/14}};
+          #case {"fantastycznie "} {#var sk {14/14}};
+        }
+        #var {bronie[$cos][typ]} {$typ};
+        #var {bronie[$cos][wyw]} {$wyw};
+        #var {bronie[$cos][sk]} {$sk};
+        #sh {<030>[+] DODANO $cos DO BAZY BRONI<088>};
+      };
+      #if {$t==1}
+      {
+        #switch {"$skk"}
+          {
+            #case {"kompletnie nie"} {#var sk {1/14}};
+            #case {"strasznie nie"} {#var sk {2/14}};
+            #case {"bardzo nie"} {#var sk {3/14}};
+            #case {"raczej nie"} {#var sk {4/14}};
+            #case {"malo "} {#var sk {5/14}};
+            #case {"niezbyt "} {#var sk {6/14}};
+            #case {"raczej "} {#var sk {7/14}};
+            #case {"dosyc "} {#var sk {8/14}};
+            #case {"calkiem "} {#var sk {9/14}};
+            #case {"bardzo "} {#var sk {10/14}};
+            #case {"niezwykle "} {#var sk {11/14}};
+            #case {"wyjatkowo "} {#var sk {12/14}};
+            #case {"zabojczo "} {#var sk {13/14}};
+            #case {"fantastycznie "} {#var sk {14/14}};
+          };
+          #sh {<030>[+] DODANO $cos DO BAZY TARCZ<088>};
+
+          
+          #var {tarcze[$cos][skutecznosc]} {$sk};     
+      };
+      
+      #if {$z==1}
+      {
+        #if {"$zbroje[$cos][cialo]"!=""}
+        {
+          #replace zstat {{, | i | oraz }} {;};
+          #list zbstat create {$zstat};
+          #var i 1;
+          #foreach {$zbstat[]} {ob} 
+          {
+            #var t $zbstat[$ob];
+            #replace t {{ przed | przed obrazeniami }} {;};
+            #list tt create {$t};
+            #list tt size {v};
+            #regexp {$tt[$v]} {{.*}{cietymi|obuchowymi|klutymi}} {#var obb &2};
+            #if {"$obb"=="$tt[1]"} 
+            {
+              #math j {($i-1)};
+              #var {zbroje[$cos][$obb]} {$pop[$j]};
+              #var pop[$i] {$pop[$j]};
+            };
+            #else 
+            {
+              #var pop[$i] {$tt[1]};
+              #var {zbroje[$cos][$obb]} {$tt[1]};
+            };
+            #math i {$i+1};
+          };
+          #var {zbroje[$cos][Typ]} {$typ};
+        };
+        #sh {<030>[+] DODANO $cos DO BAZY ZBROI<088>};
+        };
+  };
+  
+} {9}
+
+#alias zbroje
+{
+  #var maxnam 0;
+  #var lp 0;
+  #showme {Lp                     Zbroja                Typ         Ciete  Klute  Obuchowe  Chroni};
+  #showme {---------------------------------------------------------------------------------------------------};
+  #foreach {$zbroje[]} {bb} 
+  {
+    #format {bnam} {%L} {$bb};
+    #if {$bnam>$maxnam} {#var maxnam $bnam};
+  }
+  #math maxnam {$maxnam+2};
+  #list zbroje size v;
+  #if {$v>1}
+  {
+    #foreach {$zbroje[]} {bb}
+    {
+      #math lp {$lp+1};
+      #if {"%0"==""} {
+        #format {line} {%+4s %+${maxnam}s %+16s %+7s %+7s %+7s %+7s} {$lp |} {$bb |} {$zbroje[$bb][Typ] |} {@zbb{$zbroje[$bb][cietymi]} |} {@zbb{$zbroje[$bb][klutymi]} |} {@zbb{$zbroje[$bb][obuchowymi]} |} {$zbroje[$bb][cialo]};
+        #echo {$line};
+      };
+      #else
+      {
+        #if {"%0"=="$zbroje[$bb][Typ]"} {
+          #format {line} {%+4s %+${maxnam}s %+16s %+7s %+7s %+7s %+7s} {$lp |} {$bb |} {$zbroje[$bb][Typ] |} {@zbb{$zbroje[$bb][cietymi]} |} {@zbb{$zbroje[$bb][klutymi]} |} {@zbb{$zbroje[$bb][obuchowymi]} |} {$zbroje[$bb][cialo]};
+          #echo {$line};
+        };
+        #if {"%0"=="$zbroje[$bb][cialo]"} {
+          #format {line} {%+4s %+${maxnam}s %+16s %+7s %+7s %+7s %+7s} {$lp |} {$bb |} {$zbroje[$bb][Typ] |} {@zbb{$zbroje[$bb][cietymi]} |} {@zbb{$zbroje[$bb][klutymi]} |} {@zbb{$zbroje[$bb][obuchowymi]} |} {$zbroje[$bb][cialo]};
+          #echo {$line};
+        };
+      };
+      #var zbroje_del[$lp] {$bb};
+
+    };
+	};
+	#if {$v==0}
+	{
+    #sh {<030>Nie oceniles jeszcze zadnych zbroi.<088>};
+	}
+	#showme {---------------------------------------------------------------------------------------------------};
+	#showme {* - pamietaj zapisac \x23write main.tin zeby nie stracic listy zbroi. \n[<ffa>zzbroje<088>]-aby wyczyscic liste\n\n}
+}
+
+#alias kasuj
+{
+#var e {%0};
+#replace e { } {;};
+#list ee create {$e};
+#if {"$ee[2]"==""}
+{
+  #sh {<030>Komenda kasuj przyjmuje dwa argumenty<088>};
+  #sh {<030>kasuj <bron/zbroje/tarcze> <id><088>};
+  #sh {<030>id jest dynamiczne, uzuwaj tej komendy bezposrednio po przejrzeniu listy<088>};
+};
+#elseif {"$ee[2]"!=""}
+{
+  #if {"$ee[1]"=="bron" || "$ee[1]"=="bronie"}
+  {
+    #foreach {$bronie[]} {bb}
+    { 
+      #if {"$bronie_del[$ee[2]]"!="$bb"} 
+      {
+        #var weapon[$bb] {$bronie[$bb]};
+      };
+    };
+    #list bronie cle;
+    #var bronie {$weapon};
+    #list weapon cle;
+    #sh {<030>USUNIETO POZYCJE [$bronie_del[$ee[2]]] Z BAZY<088>};
+  };
+  #elseif {"$ee[1]"=="zbroje" || "$ee[1]"=="zbroja"}
+  {
+    #foreach {$zbroje[]} {zz}
+    { 
+      #if {"$zbroje_del[$ee[2]]"!="$zz"} 
+      {
+        #var armor[$zz] {$zbroje[$zz]};
+      };
+    };
+    #list zbroje cle;
+    #var zbroje {$armor};
+    #list armor cle;
+    #sh {<030>USUNIETO POZYCJE [$zbroje_del[$ee[2]]] Z BAZY<088>};
+  };
+  #elseif {"$ee[1]"=="tarcza" || "$oeep[1]"=="tarcze"}
+  {
+    #foreach {$tarcze[]} {tt}
+    { 
+      #if {"$tarcze_del[$ee[2]]"!="$tt"} 
+      {
+        #var shield[$tt] {$tarcze[$tt]};
+      };
+    };
+    #list shield cle;
+    #var tarcze {$shield};
+    #list shield cle;
+    #sh {<030>USUNIETO POZYCJE [$tarcze_del[$ee[2]]] Z BAZY<088>};
+  };
+  #else 
+  {
+    #sh {<030>$ee[1] jest blednym argumantem<088>};
+    #sh {};
+    #sh {<030>Komenda kasuj przyjmuje dwa argumenty<088>};
+    #sh {<030>kasuj <bron/zbroje/tarcze> <id><088>};
+    #sh {<030>id jest dynamiczne, uzuwaj tej komendy bezposrednio po przejrzeniu listy<088>};
+
+  }
+};
+}
+
+#alias bronie 
+{
+  #var maxnam 0;
+  #var lp 0;
+  #showme {L   Bron                     Typ                Wywazenie   Skutecznosc   Ocena};
+	#showme {-------------------------------------------------------------------------------------------------};
+  #foreach {$bronie[]} {br}
+  {
+    #format {bnam} {%L} {$br};
+    #if {$bnam>$maxnam} {#var maxnam $bnam};  
+  }
+  #math maxnam {$maxnam+2};
+	#foreach {$bronie[]} {br}
+	{
+    #math lp {$lp+1};
+    #IF {"%0"=="$bronie[$br][typ]"} {
+      #var ww $bronie[$br][wyw];
+      #replace ww {/} {;};
+      #list w1 create {$ww};
+      
+      #var ss $bronie[$br][sk];
+      #replace ss {/} {;};
+      #list s1 create {$ss};
+      
+      #var bronie_del[$lp] {$br};
+      #math {mark} {(((($w1[1]+0.00)/$w1[2])+(($s1[1]+0.00)/$s1[2]))/2)*100};
+      #format {line} {%+3s %+${maxnam}s %+19s %+7s %+7s %+19s} {$lp |} {$br |} {$bronie[$br][typ] |} {$bronie[$br][wyw]} {$bronie[$br][sk]} {$mark \x25};
+      #echo {$line};
+		};
+		#elseif {"%0"==""} {
+      #var ww $bronie[$br][wyw];
+      #replace ww {/} {;};
+      #list w1 create {$ww};
+      
+      #var ss $bronie[$br][sk];
+      #replace ss {/} {;};
+      #list s1 create {$ss};
+
+      #var bronie_del[$lp] {$br};      
+      #math {mark} {(((($w1[1]+0.00)/$w1[2])+(($s1[1]+0.00)/$s1[2]))/2)*100};
+      #format {line} {%+3s %+${maxnam}s %+19s %+7s %+7s %+19s} {$lp |} {$br |} {$bronie[$br][typ] |} {$bronie[$br][wyw]} {$bronie[$br][sk]} {$mark \x25};
+      #echo {$line};		
+		}
+	};
+	#showme {-------------------------------------------------------------------------------------------------};
+	#showme {* - pamietaj zapisac \x23write main.tin zeby nie stracic listy broni. \n[<ffa>zbronie<088>]-aby wyczyscic liste\n\n}
+}
+#alias zbronie {#list bronie clr;#sh {<ffa>Lista broni zostala wyczyszczona<088>}}
+
+#alias zzbroje {#list zbroje clr;#sh {<ffa>Lista zbroi zostala wyczyszczona<088>}}
+
+#alias tarcze 
+{
+  #var maxnam 0;
+  #var lp 0;
+
+  #showme {L                Tarcza               Skutecznosc     Ocena};
+	#showme {---------------------------------------------------------------------};
+  #foreach {$tarcze[]} {br}
+  {
+    #format {bnam} {%L} {$br};
+    #if {$bnam>$maxnam} {#var maxnam $bnam};  
+  }
+  #math maxnam {$maxnam+2};
+	#foreach {$tarcze[]} {br}
+	{
+    #math lp {$lp+1};
+   
+    #IF {"%0"=="$tarcze[$br][skutecznosc]"} 
+    {
+      #var ww $tarcze[$br][skutecznosc];
+      #replace ww {/} {;};
+      #list w1 create {$ww};
+      #math {mark} {(($w1[1]+0.00)/$w1[2])*100};
+      #format {line} {%+3s %+${maxnam}s %+9s %+5s %+7s} {$lp |} {$br |} {$tarcze[$br][skutecznosc] |} {$mark \x25};
+      #echo {$line};
+		};
+		#elseif {"%0"==""} {
+      #var ww $tarcze[$br][skutecznosc];
+      #replace ww {/} {;};
+      #list w1 create {$ww};
+      #math {mark} {(($w1[1]+0.00)/$w1[2])*100};
+      #format {line} {%+3s %+${maxnam}s %+9s %+5s %+7s} {$lp |} {$br |} {$tarcze[$br][skutecznosc] |} {$mark \x25};
+      #echo {$line};	
+		};
+		#var tarcze_del[$lp] {$bb};
+
+	};
+	#showme {-------------------------------------------------------------------------------------------------};
+	#showme {* - pamietaj zapisac \x23write main.tin zeby nie stracic listy broni. \n[<ffa>zbronie<088>]-aby wyczyscic liste\n\n}
+}
+
+#ac {Masz na sobie %1.} 
+{
+    #var eq %1;
+    #replace eq {{, | i }} {;};
+    #list equ create {$eq};
+}
+
+#ac {Trzymasz oburacz %0.} 
+{
+    #var bequ {};
+    #list bequ add {%0};
+} {9}
+#ac {Trzymasz %1 w {lewej|prawej} rece} 
+{
+    #var bequ {};
+    #list bequ add {%1};
+}
+
+#alias {konf}
+{
+
+  #if {"%0"=="help" || "%0"=="pomoc"}
+  {
+    #sh {<030>--------------------------------------------------------------------<088>};  
+    #sh {<030>Porownuje aktualny ekwipunek z przedmiotami widzianymi na lokacji<088>};
+    #sh {<030>--------------------------------------------------------------------<088>};
+    #sh {<030>konf zbroje <on/off> \t\twlacza i wylacza substitution zbroi<088>};
+    #sh {<030>konf bronie <on/off> \t\twlacza i wylacza substitution broni<088>};
+    #sh {<030>konf tarcze <on/off> \t\twlacza i wylacza substitution tarczy<088>};
+    #sh {<030>konf sub <all/select>\t\tall - ustawia suby dla wszystkich widzianych rzeczy<088>};
+    #sh {<030>\t\t\t\tselect - ustawia suby tylko dla dobytych/zalozonych rzeczy<088>};
+    #sh {<030>konf desc <long/short/rel>\tprzelacza na dlugie lub krotkie opisy<088>};
+    #sh {<030>\t\t\t\tlong - dodaje procentowa wartosc w nawiasach np (+17.43)<088>};
+    #sh {<030>\t\t\t\tshort - dodaje symbol dla leoszych i gorszych np [+]<088>};
+    #sh {<030>\t\t\t\trel - nie porownuje przedmiotow do aktualnie dzierzonych np [76.12]<088>};
+    #sh {<030>konf color <+/-/=/r> <wartosc>\tustawia kolory dla subow<088>};
+    #sh {<030>\t\t\t\t+ dla lepszych<088>};
+    #sh {<030>\t\t\t\t- dla gorszych<088>};
+    #sh {<030>\t\t\t\t= dla innych przedmniotow<088>};
+    #sh {<030>\t\t\t\tr zresetuje kolory<088>};
+    #sh {<030>showcolors\t\t\tpokazuje palete kolorow<088>};
+  };
+  
+
+
+  #if {"%0"==""} 
+  {
+    #if {"$konf[zbroje]"=="on"}
+    {
+      #macro {\e\cz} {konf zbroje off;konf};
+    };
+    #if {"$konf[zbroje]"=="off"}
+    {
+      #macro {\e\cz} {konf zbroje on;konf};
+    };
+    #if {"$konf[bronie]"=="on"}
+    {
+      #macro {\e\cb} {konf bronie off;konf};
+    };
+    #if {"$konf[bronie]"=="off"}
+    {
+      #macro {\e\cb} {konf bronie on;konf};
+    };
+    #if {"$konf[tarcze]"=="on"}
+    {
+      #macro {\e\ct} {konf tarcze off;konf};
+    };
+    #else
+    {
+      #macro {\e\ct} {konf tarcze on;konf};
+    };
+    #sh {<030>-------------------------------------------------------------------------<088>};
+    #sh {<030>Ta komenda przyjmuje argument.};
+    #sh {<030>konf <bronie/zbroje/tarcze/help> <on/off>?<088>\n};
+    #sh {<030>ZBROJE $konf[zbroje]\t [CTRL+ALT+Z]\t\tSubs ${konf[sub]}<088>};
+    #sh {<030>BRONIE $konf[bronie]\t [CTRL+ALT+B]\t\tDesc ${konf[desc]}<088>};
+    #echo {<030>TARCZE $konf[tarcze]\t [CTRL+ALT+T]\t\tColors <${col[1]}> ${col[1]} <${col[2]}> ${col[2]} <${col[3]}> ${col[3]}<088>};
+    #sh {<030>-------------------------------------------------------------------------<088>};
+
+  };
+  #var {e} {%0};
+  #replace e { } {;};
+  #list ee create {$e};
+  
+  #if {"$col[1]"==""} {#var col[1] {bcd};};
+  #if {"$col[2]"==""} {#var col[2] {bcb};};
+  #if {"$col[3]"==""} {#var col[3] {g17};};
+  
+  #if {"$ee[1]"=="color"}
+  {
+    #if {"$ee[2]"=="+"}
+    {
+      #var col[1] {$ee[3]};
+    };
+    #if {"$ee[2]"=="-"}
+    {
+      #var col[2] {$ee[3]};
+    };
+    #if {"$ee[2]"=="="}
+    {
+      #var col[3] {$ee[3]};
+    };
+    #if {"$ee[2]"=="r"}
+    {
+      #var col[1] {};
+      #var col[2] {};
+      #var col[3] {};
+      
+    };     
+  };
+  #if {"$ee[1]"=="sub"}
+  {
+    #if {"$ee[2]"=="all"} {#sh {<030>KONF SUB : ALL<088>};#var konf[sub] all};
+    #if {"$ee[2]"=="select"} {#sh {<030>KONF SUB : SELECT<088>};#var konf[sub] select};
+  };
+  #if {"$ee[1]"=="desc"}
+  {
+    #if {"$ee[2]"=="long"} {#sh {<030>KONF DESC : LONG<088>};#var konf[desc] long};
+    #if {"$ee[2]"=="short"} {#sh {<030>KONF DESC : SHORT<088>};#var konf[desc] short};
+    #if {"$ee[2]"=="rel"} {#sh {<030>KONF DESC : REL<088>};#var konf[desc] rel};
+  };
+  
+  #if {"$ee[1]"=="zbroje"} 
+  {
+    
+    #foreach {$equ[]} {i}
+    {
+      #var {cc} {@zbb{$zbroje[$equ[$i]][cietymi]}};
+      #replace cc {/} {;};#list c1 create {$cc};
+      
+      #var {kk} {@zbb{$zbroje[$equ[$i]][klutymi]}};
+      #replace kk {/} {;};#list k1 create {$kk};
+      
+      #var {oo} {@zbb{$zbroje[$equ[$i]][obuchowymi]}};
+      #replace oo {/} {;};#list o1 create {$oo};
+      
+      #var chroni $zbroje[$equ[$i]][cialo];
+      #replace chroni {|} {;};
+      #list chron create {$chroni};
+      #foreach {$chron[]} {i} 
+      {
+        #if {"$chron[$i]"!=""}
+        {
+          #math {mark[$chroni]} {(((($c1[1]+0.00)/$c1[2])+(($k1[1]+0.00)/$k1[2])+(($o1[1]+0.00)/$o1[2]))/3)*100};
+        };   
+      };
+    }
+
+    #if {"$ee[2]"=="on"}
+    {
+      #var konf[zbroje] on;
+      #sh {<030>PODSWIETLANIE ZBROI ON<088>};
+      #foreach {$zbroje[]} {zz} 
+      {
+
+      #var {cc} {@zbb{$zbroje[$zz][cietymi]}};
+      #replace cc {/} {;};#list c1 create {$cc};
+      
+      #var {kk} {@zbb{$zbroje[$zz][klutymi]}};
+      #replace kk {/} {;};#list k1 create {$kk};
+      
+      #var {oo} {@zbb{$zbroje[$zz][obuchowymi]}};
+      #replace oo {/} {;};#list o1 create {$oo};
+      
+      #var chroni $zbroje[$zz][cialo];
+      #regex {$chroni} {^%*|%*$}{#var {chroni}{&1};#var {k2}{&2}};
+
+      
+      
+      #math {markk[$chroni]} {(((($c1[1]+0.00)/$c1[2])+(($k1[1]+0.00)/$k1[2])+(($o1[1]+0.00)/$o1[2]))/3)*100};
+
+        #var item {@odmien2{$zz}};
+        #if {$markk[$chroni]>$mark[$chroni]}
+        {
+          
+          #math dif {$markk[$chroni]-$mark[$chroni]};
+          #line substitute variables 
+          {
+            #if {"$zbroje[$zz][cialo]"!="stopy" && "$zbroje[$zz][cialo]"!="dlonie"}
+            {
+              #if {"$konf[desc]"=="short"} 
+              {
+                #sub {$item[1]} {<${col[1]}>$item[2] [+]<088>};
+              };
+              #elseif {"$konf[desc]"=="rel"} 
+              {
+                #sub {$item[1]} {<${col[3]}>$item[2] [$markk[$chroni]]<088>};
+              };
+              #else 
+              {
+                #sub {$item[1]} {<${col[1]}>$item[2] (+$dif)<088>};
+              };
+            };
+          };
+        };
+        #if {$markk[$chroni]<=$mark[$chroni]}
+        {
+          #math dif {$mark[$chroni]-$markk[$chroni]};
+          #line substitute variables 
+          { 
+            #if {"$zbroje[$zz][cialo]"!="stopy" && "$zbroje[$zz][cialo]"!="dlonie"}
+            {
+              #if {"$konf[desc]"=="short"}
+              {
+                #sub {$item[1]} {<${col[2]}>$item[2] [-]<088>};
+              };
+              #elseif {"$konf[desc]"=="rel"} 
+              {
+                #sub {$item[1]} {<${col[3]}>$item[2] [$markk[$chroni]]<088>};
+              };
+              #else 
+              {
+                #sub {$item[1]} {<${col[2]}>$item[2] (-$dif)<088>};              
+              }; 
+            };
+          };
+        }; 
+        #else 
+        {
+          #if {"$konf[desc]"=="rel"} 
+          {
+            #line substitute variables 
+            {
+              #sub {$item[1]} {<${col[3]}>$item[2] [$markk[$chroni]]<088>};
+            }
+          };
+        }
+      };
+    };
+    #if {"$ee[2]"=="off"}
+    {
+      #var konf[zbroje] off;
+      #sh {<030>PODSWIETLANIE ZBROI OFF<088>};
+      #foreach {$zbroje[]} {zz} 
+      {
+        #var item {@odmien2{$zz}};
+        #unsub {$item[1]};
+      };
+    };
+  };
+  #nop BRONIE -----------------------------------------------------------------------------------------;
+  #if {"$ee[1]"=="bronie"}
+  {
+
+    #var {currenttyp} {$bronie[$bequ[1]][typ]};
+    
+    #var {ww} {$bronie[$bequ[1]][wyw]};
+    #replace ww {/} {;};#list w1 create {$ww};
+    
+    #var {ss} {$bronie[$bequ[1]][sk]};
+    #replace ss {/} {;};#list s1 create {$ss};
+    
+    #math {mark} {(((($w1[1]+0.00)/$w1[2])+(($s1[1]+0.00)/$s1[2]))/2)*100};
+    
+    #if {"$ee[2]"=="on"}
+    {
+      
+      #var konf[bronie] on;
+      #sh {<030>PODSWIETLANIE BRONI ON<088>};
+      #foreach {$bronie[]} {bb}
+      {
+        #var item {@odmien2{$bb}};
+
+        #if {"$bronie[$bb][typ]"=="$currenttyp"}
+        {
+        #var {ww} {$bronie[$bb][wyw]};
+        #replace ww {/} {;};#list w1 create {$ww};
+        
+        #var {ss} {$bronie[$bb][sk]};
+        #replace ss {/} {;};#list s1 create {$ss};
+        
+        #math {markk} {(((($w1[1]+0.00)/$w1[2])+(($s1[1]+0.00)/$s1[2]))/2)*100};
+
+          #if {$markk>$mark}
+          {
+            #math dif {$markk-$mark};
+            #line substitute variables 
+            {
+              #if {"$konf[desc]"=="short"}
+              {
+                #sub {$item[1]} {<${col[1]}>$item[2] [+]<088>};
+              };
+              #elseif {"$konf[desc]"=="rel"} 
+              {
+                #sub {$item[1]} {<${col[3]}>$item[2] [$markk]<088>};
+              };
+              #else
+              {
+                #sub {$item[1]} {<${col[1]}>$item[2] (+$dif)<088>};
+              };
+            };
+          };
+          #elseif {$markk<=$mark} 
+          {
+            #math dif {$mark-$markk};
+            #line substitute variables 
+            {
+              #if {"$konf[desc]"=="short"}
+              {
+                #sub {$item[1]} {<${col[2]}>$item[2] [-]<088>};
+              };
+              #elseif {"$konf[desc]"=="rel"} 
+              {
+                #sub {$item[1]} {<${col[3]}>$item[2] [$markk]<088>};
+              };
+              #else
+              {
+                #sub {$item[1]} {<${col[2]}>$item[2] (-$dif)<088>};
+              };
+            };
+          };
+          
+         
+          
+        };
+        #if {"$bronie[$bb][typ]"!="$currenttyp"}
+        {
+          #var {ww} {$bronie[$bb][wyw]};
+          #replace ww {/} {;};#list w1 create {$ww};
+          
+          #var {ss} {$bronie[$bb][sk]};
+          #replace ss {/} {;};#list s1 create {$ss};
+          
+          #math {markk} {(((($w1[1]+0.00)/$w1[2])+(($s1[1]+0.00)/$s1[2]))/2)*100};
+          
+          #var item {@odmien2{$bb}};
+          
+          #if {"$konf[sub]"=="all"}
+          {
+            #line substitute variables 
+            { 
+              #if {"$konf[desc]"=="short"}
+              {
+                #sub {$item[1]} {<${col[3]}>$item[2] [=]<088>};
+              };
+              #else
+              {
+                #sub {$item[1]} {<${col[3]}>$item[2] [$markk]<088>};
+              };
+            };
+          };
+        };
+      };
+      };
+    #if {"$ee[2]"=="off"}
+    {
+      #var konf[bronie] off;
+      #sh {<030>PODSWIETLANIE BRONI OFF<088>};
+      #foreach {$bronie[]} {bb}
+      {
+        #var item {@odmien2{$bb}};
+        #unsub {$item[1]};
+      };
+    };  
+  };
+  #nop -------------- TARCZE ---------------------------------------------------------;
+  #if {"$ee[1]"=="tarcze"}
+  {
+    #foreach {$tarcze[]} {tt}
+    {
+      #list equ find {$tt} {ve};
+      #if  {$ve>0} {#var v $ve};
+    };
+    #if  {$v>0}
+    {
+      #var {ww} {$tarcze[$equ[$v]][skutecznosc]};
+      #replace ww {/} {;};#list w1 create {$ww};
+
+      #math {mark} {(($w1[1]+0.00)/$w1[2])*100};
+      
+      #if {"$ee[2]"=="on"}
+      {
+        #var konf[tarcze] on;
+        #sh {<030>PODSWIETLANIE TARCZ ON<088>};
+
+        #foreach {$tarcze[]} {tt} 
+        {
+          #var {ww} {$tarcze[$tt][skutecznosc]};
+          #replace ww {/} {;};#list w1 create {$ww};
+          
+          #math {markk} {(($w1[1]+0.00)/$w1[2])*100};
+          
+          #var item {@odmien2{$tt}};
+          
+          #if {$markk>$mark}
+          {
+            #math dif {$markk-$mark};
+            #line substitute variables 
+            {
+              #if {"$konf[desc]"=="short"}
+              {
+                #sub {$item[1]} {<${col[1]}>$item[2] [+]<088>};
+              };
+              #elseif {"$konf[desc]"=="rel"}
+              {
+                #sub {$item[1]} {<${col[3]}>$item[2] [$markk]<088>};
+              };
+              #else
+              {
+                #sub {$item[1]} {<${col[1]}>$item[2] (+$dif)<088>};
+              };
+            }; 
+          };
+          #if {$markk<=$mark} 
+          {
+            #math dif {$mark-$markk};
+            #line substitute variables 
+            {
+              #if {"$konf[desc]"=="short"}
+              {
+                #sub {$item[1]} {<${col[2]}>$item[2] [-]<088>};
+              };
+              #elseif {"$konf[desc]"=="rel"}
+              {
+                #sub {$item[1]} {<${col[3]}>$item[2] [$markk]<088>};
+              };
+              #else
+              {
+                #sub {$item[1]} {<${col[2]}>$item[2] (-$dif)<088>};
+              };
+            };
+          };
+        }
+      };
+      #if {"$ee[2]"=="off"}
+      {
+        #var konf[tarcze] off;
+        #sh {<030>PODSWIETLANIE TARCZ OFF<088>};
+        #foreach {$tarcze[]} {$tt} 
+        {
+          #var item {@odmien2{$tt}};
+          #unsub {$item[1]};
+        };      
+      };  
+       
+    };
+    #if {$v==0} 
+    {
+      #var konf[tarcze] off;
+      #sh {<030>PODSWIETLANIE TARCZ OFF<088>};
+      #sh {<030>\n Nie uzywasz Tarcz ! \n<088>};
+    };
+  };
+}

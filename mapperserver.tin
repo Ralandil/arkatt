@@ -1,0 +1,66 @@
+#session mapper 127.0.0.1 23923
+#chat init 6666
+#chat name mapper
+
+#action {^room:enter} {
+	#chat message all room:enter	
+}
+
+#action {exit:rebind:%1} {
+	#chat message all %1
+}
+
+#action {exit:custom:%1} {
+	#chat message all custom:%1
+}
+
+#action {^<CHAT> %1 chats to you, 'navigate:exit:{nw|ne|sw|se|n|w|s|e|u|d}'}
+{
+	#sh catch;
+	#mapper #send navigate:exit:%2;
+} {5}
+
+#action {^<CHAT> %1 chats to you, 'map:undo'}
+{
+	#mapper #send map:undo;
+}
+#action {^<CHAT> %1 chats to you, 'revert'}
+{
+	#mapper #send revert;
+}
+#action {^<CHAT> %1 chats to you, 'undo'}
+{
+	#mapper #send undo;
+}
+
+
+#action {^<CHAT> %1 chats to you, 'lookup:%2'}
+{
+	#mapper #send lookup:%2;
+} {1}
+
+#action {^<CHAT> %1 chats to you, 'navigate:follow:%2'}
+{
+	#mapper #send navigate:follow:%2;
+} {1}
+
+#action {^<CHAT> %1 chats to you, 'navigate:exit:%2'}
+{
+	#mapper #send navigate:custom:%2;
+} {6}
+#action {^<CHAT> %1 chats to you, 'navigate:custom:%2'}
+{
+	#mapper #send navigate:custom:%2;
+} {6}
+
+#action {^exit:start} {
+	#chat message all exit:start;
+}
+
+#action {^exit:end} {
+	#chat message all exit:end;
+}
+
+#action {^room:id:%1} {
+	#chat message all room:id:%1
+}

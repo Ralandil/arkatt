@@ -1,0 +1,10 @@
+#nop wejscie do kasztelu od strony lasu;
+#action {^W lesie przy murze warowni.$}
+{
+	#chat message mapper lookup:db851f19-7faa-11e4-ad90-2cf0ee2cbf2a;
+}
+#action {^Przestronny pokoj.$}
+{
+	#nop tu sie wejdzie przez okno;
+}
+

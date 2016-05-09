@@ -1,0 +1,133 @@
+#nop unaction {~^%* probuje %lecz ten oslania %*.$} {#sh {<118><ccc>[mis]     <088>%0<aaa>,};#line gag;};
+
+
+#nop GP
+#action {~^%* wykorzystujac dogodny moment wyprowadza %* {muskajac|raniac|masakrujac} %*.$} {#sh {<118><ffa>[gp  ?/?] <088>%0<aaa>,};#line gag;};
+
+#action {~^Wykorzystujac dogodny moment wyprowadzasz %* lecz %*.$} {#sh {<118><ccc>[mis]     <088>%0<aaa>,};#line gag;};
+#action {~^Wykorzystujac dogodny moment wyprowadzasz %* ledwo muskajac%*.$} {#sh {<118><fff>[gp  1/6] <088>%0<aaa>,};#line gag;};
+#action {~^Wykorzystujac dogodny moment wyprowadzasz %* lekko raniac%*.$} {#sh {<118><fff>[gp  2/6] <088>%0<aaa>,};#line gag;};
+#action {~^Wykorzystujac dogodny moment wyprowadzasz %* raniac%*.$} {#sh {<118><fff>[gp  3/6] <088>%0<aaa>,};#line gag;} {7};
+#action {~^Wykorzystujac dogodny moment wyprowadzasz %* powaznie raniac%*.$} {#sh {<118><fff>[gp  4/6] <088>%0<aaa>,};#line gag;};
+#action {~^Wykorzystujac dogodny moment wyprowadzasz %* bardzo ciezko raniac%*.$} {#sh {<118><fff>[gp  5/6] <088>%0<aaa>,};#line gag;};
+#action {~^Wykorzystujac dogodny moment wyprowadzasz %* masakrujac%*.$} {#sh {<118><fff>[gp  6/6] <088>%0<aaa>,};#line gag;};
+
+#action {~^Wykorzystujac dogodny moment %* wyprowadza %* lecz %*.$} {#sh {<118><faa>[mis]     <088>%0<aaa>,};#line gag;};
+#action {~^Wykorzystujac dogodny moment %* wyprowadza %* ledwo muskajac%*.$} {#sh {<118><faa>[gp  1/6] <088>%0<aaa>,};#line gag;};
+#action {~^Wykorzystujac dogodny moment %* wyprowadza %* lekko raniac%*.$} {#sh {<118><faa>[gp  2/6] <088>%0<aaa>,};#line gag;};
+#action {~^Wykorzystujac dogodny moment %* wyprowadza %* raniac%*.$} {#sh {<118><faa>[gp  3/6] <088>%0<aaa>,};#line gag;} {7};
+#action {~^Wykorzystujac dogodny moment %* wyprowadza %* powaznie raniac%*.$} {#sh {<118><faa>[gp  4/6] <088>%0<aaa>,};#line gag;};
+#action {~^Wykorzystujac dogodny moment %* wyprowadza %* bardzo ciezko raniac%*.$} {#sh {<118><faa>[gp  5/6] <088>%0<aaa>,};#line gag;};
+#action {~^Wykorzystujac dogodny moment %* wyprowadza %* masakrujac%*.$} {#sh {<118><faa>[gp  6/6] <088>%0<aaa>,};#line gag;};
+
+
+#action {~^%* wykorzystujac dogodny moment wyprowadza %* lecz%*.$} {#sh {<118><ffa>[gp  mis] <088>%0<aaa>,};#line gag;};
+#action {~^%* wykorzystujac dogodny moment wyprowadza %* ledwo muskajac%*.$} {#sh {<118><ffa>[gp  1/6] <088>%0<aaa>,};#line gag;};
+#action {~^%* wykorzystujac dogodny moment wyprowadza %* lekko raniac%*.$} {#sh {<118><ffa>[gp  2/6] <088>%0<aaa>,};#line gag;};
+#action {~^%* wykorzystujac dogodny moment wyprowadza %* raniac%*.$} {#sh {<118><ffa>[gp  3/6] <088>%0<aaa>,};#line gag;} {7};
+#action {~^%* wykorzystujac dogodny moment wyprowadza %* powaznie raniac%*.$} {#sh {<118><ffa>[gp  4/6] <088>%0<aaa>,};#line gag;};
+#action {~^%* wykorzystujac dogodny moment wyprowadza %* bardzo ciezko raniac%*.$} {#sh {<118><ffa>[gp  5/6] <088>%0<aaa>,};#line gag;};
+#action {~^%* wykorzystujac dogodny moment wyprowadza %* masakrujac%*.$} {#sh {<118><ffa>[gp  6/6] <088>%0<aaa>,};#line gag;};
+
+
+
+#nop KORSARZ
+#action {~^%* przecina tylko powietrze%*.$} {#sh {<118><ffa>[kor unk] <088>%0<aaa>,};#line gag;};
+#action {~^%* {ruchem|polobrotem} unika ciosu%*.$} {#sh {<118><ffa>[kor ?/?] <088>%0<aaa>,};#line gag;};
+#action {~^%* wypadem do przodu%*.$} {#sh {<118><ffa>[kor ?/?] <088>%0<aaa>,};#line gag;};
+#action {~^%* przecina tylko powietrze%*.$} {#sh {<118><ffa>[kor 0/5] <088>%0<aaa>,};#line gag;};
+#action {~^%* zadaje %* tylko nieznaczne obrazenia%*.$} {#sh {<118><ffa>[kor 1/5] <088>%0<aaa>,};#line gag;};
+#action {~^%* otwiera szeroka rane na%*.$} {#sh {<118><ffa>[kor 2/5] <088>%0<aaa>,};#line gag;};
+#action {~^%* gleboko rozrywajac %* cialo%*.$} {#sh {<118><ffa>[kor 3/5] <088>%0<aaa>,};#line gag;};
+#action {~^%* powodujac ogromne obrazenia%*.$} {#sh {<118><ffa>[kor 4/5] <088>%0<aaa>,};#line gag;};
+#action {~^%* ciagnac za soba krwawy warkocz smierci%*.$} {#sh {<118><ffa>[kor 5/5] <088>%0<aaa>,};#line gag;};
+
+#nop STRAZNIK
+#action {~^%* wytraca ci %*.$} {#sh {<118><faa>[str wyt] <088>%0<aaa>,};#line gag;};
+#action {~^%* wytraca %*.$} {#sh {<118><ffa>[str wyt] <088>%0<aaa>,};#line gag;} {7};
+#action {~^%* wykorzystujac twoj brak broni %*.$} {#sh {<118><faa>[str spc] <088>%0<aaa>,};#line gag;};
+#action {~^%* probuje wytracic %*.$} {#sh {<118><ffa>[str wyt] <088>%0<aaa>,};#line gag;};
+#action {~^%* wykorzystujac brak broni %* trafia %*.$} {#sh {<118><ffa>[str spc] <088>%0<aaa>,};#line gag;};
+#action {~^%* wykorzystujac oslabienie %* trafia %*.$} {#sh {<118><ffa>[str spc] <088>%0<aaa>,};#line gag;};
+#action {~^%* wykorzystujac brak %* rownowage%*.$} {#sh {<118><ffa>[str 0/5] <088>%0<aaa>,};#line gag;};
+#action {~^%* wykorzystujac brak %* {ledwie zahaczajac|ledwie sinca}%*.$} {#sh {<118><ffa>[str 1/5] <088>%0<aaa>,};#line gag;};
+#action {~^%* wykorzystujac brak %* {lekko raniac|krwiawiace zadrapanie}%*.$} {#sh {<118><ffa>[str 2/5] <088>%0<aaa>,};#line gag;};
+#action {~^%* wykorzystujac brak %* {mocno raniac|dluga, poszarpana rane}%*.$} {#sh {<118><ffa>[str 3/5] <088>%0<aaa>,};#line gag;};
+#action {~^%* wykorzystujac %* smiertelne obrazenia%*.$} {#sh {<118><ffa>[str 5/5] <088>%0<aaa>,};#line gag;};
+
+#nop LEGIONISTA
+#action {~^%* wyprowadzic %* {przecinajac tylko powietrze|nie czyniac najmniejszej krzywdy}%*.$} {#sh {<118><ffa>[leg 0/7] <088>%0<aaa>,};#line gag;};
+#action {~^%* wyprowadzic %* powodujac tylko ledwo zauwazalne obrazenie%*.$} {#sh {<118><ffa>[leg 1/7] <088>%0<aaa>,};#line gag;};
+#action {~^%* wyprowadzic %* powodujac tylko nieznaczne obrazenia%*.$} {#sh {<118><ffa>[leg 2/7] <088>%0<aaa>,};#line gag;};
+#action {~^%* wyprowadzic %* powodujac niemale obrazenia%*.$} {#sh {<118><ffa>[leg 3/7] <088>%0<aaa>,};#line gag;};
+#action {~^%* wyprowadzic %* powodujac liczne i glebokie obrazenia%*.$} {#sh {<118><ffa>[leg 4/7] <088>%0<aaa>,};#line gag;};
+#action {~^%* wyprowadzic %* powodujac rozlegle obrazenia%*.$} {#sh {<118><ffa>[leg 5/7] <088>%0<aaa>,};#line gag;};
+#action {~^%* wyprowadzic %* powodujac prawieze smiertelne obrazenia%*.$} {#sh {<118><ffa>[leg 6/7] <088>%0<aaa>,};#line gag;};
+#action {~^%* wyprowadzic %* w jednym momencie konczac walke%*%*.$} {#sh {<118><ffa>[leg 7/7] <088>%0<aaa>,};#line gag;};
+
+#nop PARTYZANT
+#action {~^%* probuje %* dosiegnac %* jednak %*.$} {#sh {<118><ffa>[par 0/7] <088>%0<aaa>,};#line gag;};
+#action {~^%* uderza %* nieznacznie raniac%*.$} {#sh {<118><ffa>[par 1/7] <088>%0<aaa>,};#line gag;};
+#action {~^%* uderza %* lekko raniac%*.$} {#sh {<118><ffa>[par 2/7] <088>%0<aaa>,};#line gag;};
+#action {~^%* uderza %* bolesnie raniac%*.$} {#sh {<118><ffa>[par 3/7] <088>%0<aaa>,};#line gag;};
+#action {~^%* uderza %* powaznie raniac%*.$} {#sh {<118><ffa>[par 4/7] <088>%0<aaa>,};#line gag;};
+#action {~^%* uderza %* bardzo ciezko raniac%*.$} {#sh {<118><ffa>[par 5/7] <088>%0<aaa>,};#line gag;};
+#action {~^%* uderza %* potwornie raniac%*.$} {#sh {<118><ffa>[par 6/7] <088>%0<aaa>,};#line gag;};
+#action {~^%* blyskawicznie doskakuje do %* bezlitosnie masakrujac%*.$} {#sh {<118><ffa>[par 7/7] <088>%0<aaa>,};#line gag;};
+#action {~^%* doskakuje do %* mordercze uderzenie} {#sh {<118><ffa>[par 7/7] <088>%0<aaa>,};#line gag;};
+
+#action {~^%* ubiegajac reakcje %* probuje zaskoczyc%*.$} {#sh {<118><ffa>[par 0/5] <088>%0<aaa>,};#line gag;};
+#action {~^%* uprzedzajac reakcje %* {blyskawicznym ciosem|z wielkim pospiechem stara sie|bez namyslu uderza} %*.$} {#sh {<118><ffa>[par 1/5] <088>%0<aaa>,};#line gag;};
+#action {~^%* blyskawicznym susem dopada %* ledwie zahaczajac%*.$} {#sh {<118><ffa>[par 1/5] <088>%0<aaa>,};#line gag;};
+#action {~^%* momentalnie doskakuje %* w biegu skladajac sie%*.$} {#sh {<118><ffa>[par 2/5] <088>%0<aaa>,};#line gag;};
+#action {~^%* dziko hallakujac w ulamku sekundy zabiega od tylu %*.$} {#sh {<118><ffa>[par 3/5] <088>%0<aaa>,};#line gag;};
+#action {~^%* z furia drapieznika rusza do ataku na %*.$} {#sh {<118><ffa>[par 4/5] <088>%0<aaa>,};#line gag;};
+#action {~^%* wyprzedzajac nieudolny atak natychmiast rzuca sie w kierunku %*.$} {#sh {<118><ffa>[par 5/5] <088>%0<aaa>,};#line gag;};
+#action {~^%* z dzikim krzykiem wpada na %*.$} {#sh {<118><ffa>[par 5/5] <088>%0<aaa>,};#line gag;};
+
+
+#nop BARBARZYNCA
+#action {~^Nie %* {probuje|z calej sily wali}%*jednak} {#sh {<118><ffa>[bar 0/6] <088>%0<aaa>,};#line gag;};
+#action {~^Nie %* z calej sily wali cie na odlew obijajac%*.$} {#sh {<118><faa>[bar 1/6] <088>%0<aaa>,};#line gag;} {3};
+#action {~^Nie %* z calej sily wali cie na odlew tlukac%*.$} {#sh {<118><faa>[bar 2/6] <088>%0<aaa>,};#line gag;} {3};
+#action {~^Nie %* z calej sily wali cie na odlew kaleczac%*.$} {#sh {<118><faa>[bar 3/6] <088>%0<aaa>,};#line gag;} {3};
+#action {~^Nie %* z calej sily wali cie na odlew gruchoczac%*.$} {#sh {<118><faa>[bar 4/6] <088>%0<aaa>,};#line gag;} {3};
+#action {~^Nie %* z calej sily wali cie na odlew druzgoczac%*.$} {#sh {<118><faa>[bar 5/6] <088>%0<aaa>,};#line gag;} {3};
+#action {~^Nie %* z calej sily wali cie na odlew miazdzac%*.$} {#sh {<118><faa>[bar 6/6] <088>%0<aaa>,};#line gag;} {3};
+
+#action {~^Nie %* z calej sily wali %* na odlew obijajac%*.$} {#sh {<118><ffa>[bar 1/6] <088>%0<aaa>,};#line gag;} {5};
+#action {~^Nie %* z calej sily wali %* na odlew tlukac%*.$} {#sh {<118><ffa>[bar 2/6] <088>%0<aaa>,};#line gag;} {5};
+#action {~^Nie %* z calej sily wali %* na odlew kaleczac%*.$} {#sh {<118><ffa>[bar 3/6] <088>%0<aaa>,};#line gag;} {5};
+#action {~^Nie %* z calej sily wali %* na odlew gruchoczac%*.$} {#sh {<118><ffa>[bar 4/6] <088>%0<aaa>,};#line gag;} {5};
+#action {~^Nie %* z calej sily wali %* na odlew druzgoczac%*.$} {#sh {<118><ffa>[bar 5/6] <088>%0<aaa>,};#line gag;} {5};
+#action {~^Nie %* z calej sily wali %* na odlew miazdzac%*.$} {#sh {<118><ffa>[bar 6/6] <088>%0<aaa>,};#line gag;} {5};
+
+
+#nop FANATYK
+#action {~^%*bierze%*potezny zamach i wyprowadza %* ktory ma%*.$} {#sh {<118><ffa>[fan 0/7] <088>%0<aaa>,};#line gag;} {5};
+#action {~^%*rzuca%*sie do ataku%*trafia%*ledwo muskajac%*.$} {#sh {<118><ffa>[fan 1/7] <088>%0<aaa>,};#line gag;} {5};
+#action {~^%*rzuca%*sie do ataku%*trafia%*lekko raniac%*.$} {#sh {<118><ffa>[fan 2/7] <088>%0<aaa>,};#line gag;} {5};
+#action {~^%*rzuca%*sie do ataku%*trafia%*raniac%*.$} {#sh {<118><ffa>[fan 3/7] <088>%0<aaa>,};#line gag;} {6};
+#action {~^%*rzuca%*sie do ataku%*trafia%*powaznie raniac%*.$} {#sh {<118><ffa>[fan 4/7] <088>%0<aaa>,};#line gag;} {5};
+#action {~^%*rzuca%*sie do ataku%*trafia%*bardzo ciezko raniac%*.$} {#sh {<118><ffa>[fan 5/7] <088>%0<aaa>,};#line gag;} {5};
+#action {~^%*rzuca%*sie do ataku%*trafia%*masakrujac%*.$} {#sh {<118><ffa>[fan 6/7] <088>%0<aaa>,};#line gag;} {5};
+#action {~^%*pewnie na szeroko%*na ziemie%*.$} {#sh {<118><ffa>[fan 7/7] <088>%0<aaa>,};#line gag;} {5};
+
+   
+
+#nop partyzana kg
+#action {~^Faliste ostrze twojej partyzany ze swistem przeszywa powietrze %*.$} {#sh {<118><ccc>[par 0/5] <088>%0<aaa>,};#line gag;}
+#action {~^Szpikulcem stalowoszarej falistej partyzany zaczepiasz%*.$} {#sh {<118><fff>[par 1/5] <088>%0<aaa>,};#line gag;}
+#action {~^Pofalowane ostrze stalowoszarej falistej partyzany w pelnym pedzie trafia %*.$} {#sh {<118><fff>[par 1/5] <088>%0<aaa>,};#line gag;}
+#action {~^Zamaszystym ciosem stalowoszarej falistej partyzany %* wyszarpujac duzy plat %*.$} {#sh {<118><fff>[par 2/5] <088>%0<aaa>,};#line gag;}
+#action {~^Pofalowane ostrze stalowoszarej falistej partyzany rozcina korpus %*.$} {#sh {<118><fff>[par 3/5] <088>%0<aaa>,};#line gag;}
+#action {~^Z werwa ruszasz na masywnego olbrzymiego czarnego orka wyprowadzajac mocne i dobrze wymierzone pchniecie stalowoszara falista partyzana.%*.$} {#sh {<118><fff>[par 3/5] <088>%0<aaa>,};#line gag;}
+#action {~^Chwytasz poziomo stalowoszara falista partyzane i mierzac %*.$} {#sh {<118><fff>[par 4/5] <088>%0<aaa>,};#line gag;}
+#action {~^Celujac dokladnie w glowe przeciwnika, posuwistym ruchem reki kierujesz bron %*.$} {#sh {<118><fff>[par 5/5] <088>%0<aaa>,};#line gag;}
+#action {~^Zachodzisz z boku %* podcinasz drzewcem stalowoszarej falistej %*.$} {#sh {<118><fff>[par 5/5] <088>%0<aaa>,};#line gag;}
+#action {~^Zachodzac z boku %* podcinasz drzewcem stalowoszarej falistej %*.$} {#sh {<118><fff>[par 5/5] <088>%0<aaa>,};#line gag;}
+#action {~^Z werwa ruszasz na %* stalowoszara falista partyzana. Celujac %*.$} {#sh {<118><fff>[par 4/5] <088>%0<aaa>,};#line gag;}
+
+
+#nop MAX
+#action {~^Cios %* trafia %* jednak otaczajaca go poswiata %*.$} {#sh {<118><ccc>[unk vam] <088>%0<aaa>,};#line gag;}

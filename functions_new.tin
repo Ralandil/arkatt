@@ -1,0 +1,533 @@
+#var margin {32}
+#var marginstr {                               }
+
+#alias {test_len} {#sh {Wyszczerzony zlosliwy goblin wykonuje zamaszyste ciecie krzywym krotkim nozem
+mierzac w ciebie, lecz tobie udaje sie je zbic z linii ataku ciezka dluga halabarda.}};
+
+#function {parselen} {
+  #return %1;
+};
+
+#function {parselen3} {
+  #format strlen {%L} {%1};
+  #math {strlen} {$strlen};
+  #format cols {%C};
+  #var margin {19};
+  #math {maxlen} {$cols - $margin};
+  
+  #if {$strlen < $maxlen} {
+    #return %1;
+  };
+  #else {
+    #var cnt 0;
+    #var ret {};
+    #math {len1} {$maxlen * 1};
+    #math {len2} {$maxlen * 2};
+    #math {len3} {$maxlen * 3};
+    #math {len4} {$maxlen * 4};
+    
+    #parse {%0} {c} {
+      #format newstrlen {%L} {$ret};
+      #math {newstrlen} {$newstrlen};
+      #math {cnt} {$cnt + 1};
+      #if {$newstrlen == $len1} {#var ret {${ret}\n};#loop {1} {$margin} {$kii} {#var ret {${ret} }}};
+      #if {$newstrlen == $len2} {#var ret {${ret}\n};#loop {1} {$margin} {$kii} {#var ret {${ret} }}};
+      #if {$newstrlen == $len3} {#var ret {${ret}\n};#loop {1} {$margin} {$kii} {#var ret {${ret} }}};
+      #if {$newstrlen == $len4} {#var ret {${ret}\n};#loop {1} {$margin} {$kii} {#var ret {${ret} }}};
+      
+      #var ret {${ret}${c}};
+    };
+    #return $ret;  
+  }
+}
+
+
+#function {parselen2} {
+  #format strlen {%L} {%1};
+  #math {strlen} {$strlen};
+  #format cols {%C};
+  #math {maxlen} {$cols - $margin - 1};
+  
+  #if {$strlen < $maxlen} {
+    #return %1;
+  };
+  #else {
+    #var cnt 0;
+    #var ret {};
+    #math {len1} {$maxlen * 1};
+    #math {len2} {$maxlen * 2};
+    #math {len3} {$maxlen * 3};
+    #math {len4} {$maxlen * 4};
+    
+    #parse {%0} {c} {
+      #math {cnt} {$cnt + 1};
+      #if {$cnt == $len1} {#var ret {${ret}\n}};
+      #if {$cnt == $len2} {#var ret {${ret}\n}};
+      #if {$cnt == $len3} {#var ret {${ret}\n}};
+      #if {$cnt == $len4} {#var ret {${ret}\n}};
+      
+      #var ret {${ret}${c}};
+    };
+    #return $ret;  
+  }
+}
+
+#function {pasek_zielony} {
+  #unvar r;
+  #format strlen {%L} {%1};
+  #format cols {%C};
+  #math {left} {($cols - $strlen) / 2};
+  #var r {<ADA><aaa>};
+  #loop 1 $left {$i} {#var r {${r} }};
+  #var r {${r}%1};
+  #loop 1 $left {$i} {#var r {${r} }};
+  #format newlen {%L} {$r};
+  #if {$newlen < $cols} {
+    #var r {${r} };
+  };
+  #sh $r;
+  #return $r;
+}
+
+#function {pasek_czerwony} {
+  #unvar r;
+  #format strlen {%L} {%1};
+  #format cols {%C};
+  #math {left} {($cols - $strlen) / 2};
+  #var r {<DAA><aaa>};
+  #loop 1 $left {$i} {#var r {${r} }};
+  #var r {${r}%1};
+  #loop 1 $left {$i} {#var r {${r} }};
+  #format newlen {%L} {$r};
+  #if {$newlen < $cols} {
+    #var r {${r} };
+  };
+  #sh $r;
+  #return $r;
+}
+
+#function {pasek_zolty} {
+  #unvar r;
+  #format strlen {%L} {%1};
+  #format cols {%C};
+  #math {left} {($cols - $strlen) / 2};
+  #var r {<FFD><aaa>};
+  #loop 1 $left {$i} {#var r {${r} }};
+  #var r {${r}%1};
+  #loop 1 $left {$i} {#var r {${r} }};
+  #format newlen {%L} {$r};
+  #if {$newlen < $cols} {
+    #var r {${r} };
+  };
+  #sh $r;
+  #return $r;
+}
+
+#function {pasek_liliowy} {
+  #unvar r;
+  #format strlen {%L} {%1};
+  #format cols {%C};
+  #math {left} {($cols - $strlen) / 2};
+  #var r {<FDE><aaa>};
+  #loop 1 $left {$i} {#var r {${r} }};
+  #var r {${r}%1};
+  #loop 1 $left {$i} {#var r {${r} }};
+  #format newlen {%L} {$r};
+  #if {$newlen < $cols} {
+    #var r {${r} };
+  };
+  #sh $r;
+  #return $r;
+}
+
+#function {odmien_prefix} {
+  #var prefix {};
+  #var koncowka {};
+  #regex {%1} {^%w%.$} {#var prefix &1;#var koncowka &2};
+  #format {prefix} {%l} {$prefix};
+  #format {koncowka} {%l} {$koncowka};
+  #switch {"$koncowka"} {
+    #case {"i"} {#var koncowka iego};
+    #case {"y"} {#var koncowka ego};
+    #case {"a"} {#var koncowka a};
+    #case {"e"} {#var koncowka e};
+    #default {#var koncowka {$koncowka}a};
+  };
+  #return $prefix$koncowka;
+}
+
+#function {odmien_suffix} {
+  #var suffix {};
+  #var koncowka {};
+  #regex {%1} {^%w%.$} {#var suffix &1;#var koncowka &2};
+  #format {suffix} {%l} {$suffix};
+  #format {koncowka} {%l} {$koncowka};
+  #switch {"$koncowka"} {
+    #case {"i"} {#var koncowka iego};
+    #case {"y"} {#var koncowka ego};
+    #case {"a"} {#var koncowka e};
+    #case {"o"} {#var koncowka a};
+    #case {"u"} {#var koncowka u};
+    #case {"e"} {#var koncowka e};
+    #default {#var koncowka {${koncowka}a}};
+  };
+  #return $suffix$koncowka;
+}
+
+#function {odmien_suffix_przebijanie} {
+  #var suffix {};
+  #var koncowka {};
+  #regex {%1} {^%w%.$} {#var suffix &1;#var koncowka &2};
+  #format {suffix} {%l} {$suffix};
+  #format {koncowka} {%l} {$koncowka};
+  #switch {"$koncowka"} {
+    #case {"i"} {#var koncowka iego};
+    #case {"y"} {#var koncowka ego};
+    #case {"a"} {#var koncowka y};
+    #case {"o"} {#var koncowka a};
+    #case {"u"} {#var koncowka u};
+    #case {"e"} {#var koncowka e};
+    #default {#var koncowka {${koncowka}a}};
+  };
+  #return $suffix$koncowka;
+}
+
+
+#function {odmien_suffix_porownanie} {
+  #var suffix {};
+  #var koncowka {};
+  #regex {%1} {^%w%.$} {#var suffix &1;#var koncowka &2};
+  #format {suffix} {%l} {$suffix};
+  #format {koncowka} {%l} {$koncowka};
+  #switch {"$koncowka"} {
+    #case {"i"} {#var koncowka im};
+    #case {"y"} {#var koncowka ym};
+    #case {"a"} {#var koncowka a};
+    #case {"o"} {#var koncowka iem};
+    #case {"u"} {#var koncowka u};
+    #case {"e"} {#var koncowka e};
+    #case {"k"} {#var koncowka kiem};
+    #default {#var koncowka {${koncowka}em}};
+  };
+  #return $suffix$koncowka;
+}
+
+
+#function {odmien_prefix_porownanie} {
+  #var prefix {};
+  #var koncowka {};
+  #regex {%1} {^%w%.$} {#var prefix &1;#var koncowka &2};
+  #format {prefix} {%l} {$prefix};
+  #format {koncowka} {%l} {$koncowka};
+  #switch {"$koncowka"} {
+    #case {"i"} {#var koncowka im};
+    #case {"y"} {#var koncowka ym};
+    #case {"a"} {#var koncowka a};
+    #default {#var koncowka {$koncowka}a};
+  };
+  #return $prefix$koncowka;
+}
+
+#function {odmien_dopelniacz} {
+  #regex {%1} {^%w %w %w %w$} 
+  {
+    #var pierwsze @odmien_prefix{&1};
+    #var drugie @odmien_prefix{&2};
+    #var trzecie @odmien_prefix{&3};
+    #var czwarte @odmien_suffix{&4};
+    #var retcztery {$pierwsze $drugie $trzecie $czwarte}
+    #return $retcztery;
+  }
+  {
+      #regex {%1} {^%w %w %w$} 
+      {
+	#var pierwsze @odmien_prefix{&1};
+	#var drugie @odmien_prefix{&2};
+	#var trzecie @odmien_suffix{&3};
+	#var rettrzy {$pierwsze $drugie $trzecie};
+	#return $rettrzy;
+      }
+      {
+	#regex {%1} {^%w %w$} 
+	{
+	  #var pierwsze @odmien_prefix{&1};
+	  #var drugie @odmien_suffix{&2};
+	  #var retdwa {$pierwsze $drugie};
+	  #return $retdwa;
+	}
+	{
+	  #regex {%1} {^%w} {
+	    #var pierwsze @odmien_suffix{&1};
+	    #return $pierwsze;
+	  }
+	}
+      }
+  }
+}
+
+#function {odmien_przelamanie} {
+  #regex {%1} {^%w %w %w %w$} 
+  {
+    #var pierwsze @odmien_prefix{&1};
+    #var drugie @odmien_prefix{&2};
+    #var trzecie @odmien_prefix{&3};
+    #var czwarte @odmien_suffix_przebijanie{&4};
+    #var retcztery {$pierwsze $drugie $trzecie $czwarte}
+    #return $retcztery;
+  }
+  {
+      #regex {%1} {^%w %w %w$} 
+      {
+	#var pierwsze @odmien_prefix{&1};
+	#var drugie @odmien_prefix{&2};
+	#var trzecie @odmien_suffix_przebijanie{&3};
+	#var rettrzy {$pierwsze $drugie $trzecie};
+	#return $rettrzy;
+      }
+      {
+	#regex {%1} {^%w %w$} 
+	{
+	  #var pierwsze @odmien_prefix{&1};
+	  #var drugie @odmien_suffix_przebijanie{&2};
+	  #var retdwa {$pierwsze $drugie};
+	  #return $retdwa;
+	}
+	{
+	  #regex {%1} {^%w} {
+	    #var pierwsze @odmien_suffix_przebijanie{&1};
+	    #return $pierwsze;
+	  }
+	}
+      }
+  }
+}
+
+
+#function {odmien_porownanie} {
+  #regex {%1} {^%w %w %w %w$} 
+  {
+    #var pierwsze @odmien_prefix_porownanie{&1};
+    #var drugie @odmien_prefix_porownanie{&2};
+    #var trzecie @odmien_prefix_porownanie{&3};
+    #var czwarte @odmien_suffix_porownanie{&4};
+    #var retcztery {$pierwsze $drugie $trzecie $czwarte}
+    #return $retcztery;
+  }
+  {
+      #regex {%1} {^%w %w %w$} 
+      {
+	#var pierwsze @odmien_prefix_porownanie{&1};
+	#var drugie @odmien_prefix_porownanie{&2};
+	#var trzecie @odmien_suffix_porownanie{&3};
+	#var rettrzy {$pierwsze $drugie $trzecie};
+	#return $rettrzy;
+      }
+      {
+	#regex {%1} {^%w %w$} 
+	{
+	  #var pierwsze @odmien_prefix_porownanie{&1};
+	  #var drugie @odmien_suffix_porownanie{&2};
+	  #var retdwa {$pierwsze $drugie};
+	  #return $retdwa;
+	}
+	{
+	  #regex {%1} {^%w} {
+	    #var pierwsze @odmien_suffix_porownanie{&1};
+	    #return $pierwsze;
+	  }
+	}
+      }
+  }
+}
+
+#function {drawline}
+{
+  #var rt %1;
+  #var ho_line {};
+  #format {dll} {%L} {$1};
+  #if {$dll < 1} {
+    #sh <faa>drawnline() : string too short;
+      #return err_drawline;
+  } 
+  {
+    #format {scrw} {%C};
+    #if {$dll >= $scrw} {
+      #var rt $scrw;
+    };
+    #loop {1} {$scrw} {zzzz} {#var ho_line {${ho_line}-}}; 
+  }
+  
+  #return $ho_line;
+}
+
+
+
+
+#var kondycja_kolor_17 {<CAA><188><fff>};
+#var kondycja_kolor_27 {<CAA><188><fff>};
+#var kondycja_kolor_37 {<BBA><188><aaa>};
+#var kondycja_kolor_47 {<BBA><188><aaa>};
+#var kondycja_kolor_57 {<ABA><188><aaa>};
+#var kondycja_kolor_67 {<ABA><188><aaa>};
+#var kondycja_kolor_77 {<ABA><188><aaa>};
+
+#var blok1 {<G01><188><fff>};
+#var blok2 {<G05><188><fff>};
+
+#nop var blok1 {<174>};
+#nop var blok2 {<174>};
+
+
+
+#function {__alias_77}
+{
+  #regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+  #nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+  #format {rt} {%l} {$rt};
+  #regex {$rt} {%.%.%.%.%.%.%.} {#var rt ${kondycja_kolor_77}&1&2&3&4&5&6&7<088>};
+  #return $rt;
+}
+
+#function {__alias_67}
+{
+  #regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+  #nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+  #format {rt} {%l} {$rt};
+  #regex {$rt} {%.%.%.%.%.%.%.} {#var rt ${kondycja_kolor_67}&1&2&3&4&5&6${blok1}&7<088>};
+  #return $rt;
+}
+
+#function {__alias_57}
+{
+  #regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+  #nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+  #format {rt} {%l} {$rt};
+  #regex {$rt} {%.%.%.%.%.%.%.} {#var rt ${kondycja_kolor_57}&1&2&3&4&5${blok2}&6${blok1}&7<088>};
+  #return $rt;
+}
+
+#function {__alias_47}
+{
+  #regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+  #nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+  #format {rt} {%l} {$rt};
+  #regex {$rt} {%.%.%.%.%.%.%.} {#var rt ${kondycja_kolor_47}&1&2&3&4${blok1}&5${blok2}&6${blok1}&7<088>};
+  #return $rt;
+}
+
+#function {__alias_37}
+{
+  #regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+  #nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+  #format {rt} {%l} {$rt};
+  #regex {$rt} {%.%.%.%.%.%.%.} {#var rt ${kondycja_kolor_37}&1&2&3${blok2}&4${blok1}&5${blok2}&6${blok1}&7<088>};
+  #return $rt;
+}
+
+#function {__alias_27}
+{
+  #regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+  #nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+  #format {rt} {%l} {$rt};
+  #regex {$rt} {%.%.%.%.%.%.%.} {#var rt ${kondycja_kolor_27}&1&2${blok1}&3${blok2}&4${blok1}&5${blok2}&6${blok1}&7<088>};
+  #return $rt;
+}
+
+#function {__alias_17}
+{
+  #regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+  #nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+  #format {rt} {%l} {$rt};
+  #regex {$rt} {%.%.%.%.%.%.%.} {#var rt ${kondycja_kolor_17}&1${blok2}&2${blok1}&3${blok2}&4${blok1}&5${blok2}&6${blok1}&7<088>};
+  #return $rt;
+}
+#function {__alias_unknown}
+{
+  #regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+  #nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+  #format {rt} {%l} {$rt};
+  #regex {$rt} {%.%.%.%.%.%.%.} {#var rt <899>&1&2&3&4&5&6&7<088>};
+  #return $rt;
+}
+#function {__alias_dimmed}
+{
+  #regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+  #nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+  #format {rt} {%l} {$rt};
+  #regex {$rt} {%.%.%.%.%.%.%.} {#var rt <899>&1&2&3&4&5&6&7<088>};
+  #return $rt;
+}
+#function {__alias_dead}
+{
+  #regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+  #nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+  #format {rt} {%l} {$rt};
+  #regex {$rt} {%.%.%.%.%.%.%.} {#var rt <188><faa>&1&2&3&4&5&6&7<088>};
+  #return $rt;
+}
+
+
+
+#function {__alias_enemy_77}
+{
+  #regex {%1} {%w %w %w} {#var rt {&1 &3}} {#var rt {%1}};#format {rt} {%.21s} {$rt};
+  #format {rt} {%-21s} {$rt};
+  #format {rt} {%l} {$rt};
+  #regex {$rt} {%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.} {#var rt ${kondycja_kolor_77}&1&2&3&4&5&6&7&8&9&10&11&12&13&14&15&16&17&18&19&20&21<088>};
+  #return $rt;
+}
+
+#function {__alias_enemy_67}
+{
+  #regex {%1} {%w %w %w} {#var rt {&1 &3}} {#var rt {%1}};#format {rt} {%.21s} {$rt};
+  #format {rt} {%-21s} {$rt};
+  #format {rt} {%l} {$rt};
+  #regex {$rt} {%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.} {#var rt ${kondycja_kolor_67}&1&2&3&4&5&6&7&8&9&10&11&12&13&14&15&16&17&18${blok1}&19&20&21<088>};
+  #return $rt;
+}
+
+#function {__alias_enemy_57}
+{
+  #regex {%1} {%w %w %w} {#var rt {&1 &3}} {#var rt {%1}};#format {rt} {%.21s} {$rt};
+  #format {rt} {%-21s} {$rt};
+  #format {rt} {%l} {$rt};
+  #regex {$rt} {%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.} {#var rt ${kondycja_kolor_57}&1&2&3&4&5&6&7&8&9&10&11&12&13&14&15${blok2}&16&17&18${blok1}&19&20&21<088>};
+  #return $rt;
+}
+
+#function {__alias_enemy_47}
+{
+  #regex {%1} {%w %w %w} {#var rt {&1 &3}} {#var rt {%1}};#format {rt} {%.21s} {$rt};
+  #format {rt} {%-21s} {$rt};
+  #format {rt} {%l} {$rt};
+  #regex {$rt} {%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.} {#var rt ${kondycja_kolor_47}&1&2&3&4&5&6&7&8&9&10&11&12${blok1}&13&14&15${blok2}&16&17&18${blok1}&19&20&21<088>};
+  #return $rt;
+}
+
+#function {__alias_enemy_37}
+{
+  #regex {%1} {%w %w %w} {#var rt {&1 &3}} {#var rt {%1}};#format {rt} {%.21s} {$rt};
+  #format {rt} {%-21s} {$rt};
+  #format {rt} {%l} {$rt};
+  #regex {$rt} {%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.} {#var rt ${kondycja_kolor_37}&1&2&3&4&5&6&7&8&9${blok2}&10&11&12${blok1}&13&14&15${blok2}&16&17&18${blok1}&19&20&21<088>};
+  #return $rt;
+}
+
+#function {__alias_enemy_27}
+{
+  #regex {%1} {%w %w %w} {#var rt {&1 &3}} {#var rt {%1}};#format {rt} {%.21s} {$rt};
+  #format {rt} {%-21s} {$rt};
+  #format {rt} {%l} {$rt};
+  #regex {$rt} {%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.} {#var rt ${kondycja_kolor_27}&1&2&3&4&5&6${blok1}&7&8&9${blok2}&10&11&12${blok1}&13&14&15${blok2}&16&17&18${blok1}&19&20&21<088>};
+  #return $rt;
+}
+
+#function {__alias_enemy_17}
+{
+  #regex {%1} {%w %w %w} {#var rt {&1 &3}} {#var rt {%1}};#format {rt} {%.21s} {$rt};
+  #format {rt} {%-21s} {$rt};
+  #format {rt} {%l} {$rt};
+  #regex {$rt} {%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.} {#var rt ${kondycja_kolor_17}&1&2&3${blok2}&4&5&6${blok1}&7&8&9${blok2}&10&11&12${blok1}&13&14&15${blok2}&16&17&18${blok1}&19&20&21<088>};
+  #return $rt;
+}
+

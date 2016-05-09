@@ -1,0 +1,104 @@
+#NOP TRIGGER NA WOZNICE;
+#ACTION {Znajdujesz sie w niewielkim pokoju o ciemnych, drewnianych scianach. Stoja tutaj trzy lozka, przeznaczone dla gosci mieszczacej sie na dole karczmy. W rogu pomieszczenia ustawiono tez niewielka szafke o mocno juz zniszczonym blacie, ktora moze sluzyc do przechowywania podrecznego bagazu lub jako stolik. Na polnocnej scianie znajduje sie niewielkie okienko za ktorym widac przystanie portowe i morze, nad nim wisi zasuszona, zszarzala rozgwiazda. Na dol prowadza waskie i strome schodki, zaczynajace sie tuz za progiem pokoju.} {#chat message mapper lookup:1761a561-cfd0-11e4-aa18-0021ccbf0d6e};
+#ACTION {%1 dylizans powoli zatrzymuje sie.} {#var r @bind_enter_carriage{}};
+#ACTION {Powoli pojazd zaczyna tracic predkosc, by po chwili zatrzymac sie.} {#var r @bind_leave_carriage{}};
+
+#HIGHLIGHT {Z zewnatrz slychac stlumiony glos woznicy oznajmiajacy odjazd.} {<bbb>};
+#HIGHLIGHT {Drzwiczki sie zamykaja, drzenie przebiega przez caly pojazd, ktory powoli rusza.} {<bbb>};
+#HIGHLIGHT {Dylizans podskoczyl na wyboju.} {<bbb>};
+#HIGHLIGHT {Powoli pojazd zaczyna tracic predkosc, by po chwili zatrzymac sie.} {<bbb>};
+#HIGHLIGHT {Dylizans mocno zaskrzypial.} {<bbb>};
+#HIGHLIGHT {Dylizans %1 sie zakolysal.} {<bbb>};
+
+#ACTION {Czarnowlosy barczysty mezczyzna krzyczy: Doplynelismy do pomostu na Blekitnej Wstedze! Mozna wysiadac!} {#chat message mapper lookup:89a0940f-bdb5-11e4-aeaa-0021ccbf0d6e} {1};
+#NOP KRAINA ZGROMADZENIA;
+#ACTION {Czarnowlosy barczysty mezczyzna krzyczy: Doplynelismy do przystani na polnocnym brzegu Averu! Mozna wysiadac!} {#chat message mapper lookup:7964f790-fda6-11e4-bf2f-f46d044b8566} {1};
+#NOP NULN;
+#ACTION {Czarnowlosy barczysty mezczyzna krzyczy: Doplynelismy do dokow miasta Nuln! Mozna wysiadac!} {#chat message mapper lookup:088bd5e1-bc13-11e4-9db9-0021ccbf0d6e} {1};
+#NOP KREUTZHOFEN;
+#ACTION {Czarnowlosy barczysty mezczyzna krzyczy: Doplynelismy do przystani w miasteczku Kreutzhofen! Mozna wysiadac!} {#chat message mapper lookup:a14bcf40-05f3-11e5-862a-c0cb38f2c871} {1};
+
+
+#NOP ** KREUTZHOFEN - ALIMENTO **;
+#NOP ALIMENTO;
+#ACTION {Lysawy gruby mezczyzna krzyczy: Doplynelismy do przystani przeladunkowej w Alimento! Mozna wysiadac!} {#chat message mapper lookup:fc58e356-fe77-11e4-9a35-f46d044b8566} {1};
+#NOP KREUTZHOFEN;
+#ACTION {Lysawy gruby mezczyzna krzyczy: Doplynelismy do przystani w miasteczku Kreutzhofen! Mozna wysiadac!} {#chat message mapper lookup:bf11150f-cca7-11e4-92ed-0021ccbf0d6e} {1};
+
+#NOP ** MARGUILLES - QUENELLES **;
+#NOP QUENELLES;
+#ACTION {Opalony wytatuowany mezczyzna krzyczy: Doplynelismy do portu w Quenelles! Mozna wysiadac!} {#chat message mapper lookup:5080ef30-bf55-11e4-ad2f-0021ccbf0d6e} {1};
+#NOP MARGUILLES;
+#ACTION {Opalony wytatuowany mezczyzna krzyczy: Doplynelismy do przystani rzecznej w Marguilles! Mozna wysiadac!}{#chat message mapper lookup:9a842c40-bf5b-11e4-a2f9-0021ccbf0d6e} {1};
+
+#NOP ** BRETONIA - TRATWA NA RZECE GRISMERIE **;
+#NOP POLUDNIOWA STRONA RZEKI;
+#ACTION {Smagly przygarbiony mezczyzna krzyczy: Doplynelismy do poludniowego brzegu Grismerie! Mozna wysiadac!} {#chat message mapper lookup:6d4b11cf-bf51-11e4-b171-0021ccbf0d6e} {1};
+#NOP POLNOCNA STRONA RZEKI;
+#ACTION {Smagly przygarbiony mezczyzna krzyczy: Doplynelismy do polnocnego brzegu Grismerie! Mozna wysiadac!} {#chat message mapper lookup:4a909b30-bf4f-11e4-a380-0021ccbf0d6e} {1};
+
+#NOP ** QUENNELES - PROM NA RZECE BRIENNE **;
+#NOP POLUDNIOWA STRONA RZEKI;
+#ACTION {Wysoki muskularny mezczyzna krzyczy: Doplynelismy do poludniowego brzegu! Mozna wysiadac!} {#chat message mapper lookup:de997bc0-bf5a-11e4-b80f-0021ccbf0d6e} {1};
+#NOP POLNOCNA STRONA RZEKI;
+#ACTION {Wysoki muskularny mezczyzna krzyczy: Doplynelismy do polnocnego brzegu! Mozna wysiadac!} {#chat message mapper lookup:e9f428b0-bf57-11e4-977d-0021ccbf0d6e} {1};
+
+#NOP ** BLEKITNA WSTEGA - BLAVIKEN **;
+#NOP BLAVIKEN;
+#ACTION {Sniady spokojny mezczyzna krzyczy: Doplynelismy do portu Blaviken w krolestwie Redanii! Mozna wysiadac!} {#chat message mapper lookup:f580eb9e-bdb3-11e4-abd5-0021ccbf0d6e} {1};
+#NOP BLEKITNA WSTEGA;
+#ACTION {Sniady spokojny mezczyzna krzyczy: Doplynelismy do pomostu na Blekitnej Wstedze! Mozna wysiadac!} {#chat message mapper lookup:8297bc6e-bdb5-11e4-88a6-0021ccbf0d6e} {1};
+
+#NOP ** QUENELLES - BODROG **;
+#NOP BODROG;
+#ACTION {Dumny wysoki mezczyzna krzyczy: Doplynelismy do przystani u stop twierdzy Bodrog! Mozna wysiadac!} {#chat message mapper lookup:7e7bb58f-cfbe-11e4-8ab2-0021ccbf0d6e} {1};
+#NOP QUENELLES;
+#ACTION {Dumny wysoki mezczyzna krzyczy: Doplynelismy do portu w Quenelles! Mozna wysiadac!} {#chat message mapper lookup:51d0a0b0-bf55-11e4-bac2-0021ccbf0d6e} {1};
+
+
+#NOP ** BACCALA - MEKAN **;
+#NOP MEKAN;
+#ACTION {Charyzmatyczny brodaty mezczyzna krzyczy: Doplynelismy do wyspy Mekan! Mozna wysiadac!} {#chat message mapper lookup:ff878a4f-cfc4-11e4-8e3d-0021ccbf0d6e} {1};
+#NOP BACCALA;
+#ACTION {Charyzmatyczny brodaty mezczyzna krzyczy: Doplynelismy! Mozna wysiadac!} {#chat message mapper lookup:a160ba6e-cfc7-11e4-af04-0021ccbf0d6e} {1};
+
+#NOP ** ROZROG - MEKAN **;
+#NOP ROZROG;
+#ACTION {Zarosniety ogorzaly kapitan krzyczy: Doplynelismy do przystani pod twierdza Rozrog! Mozna wysiadac!} {#chat message mapper lookup:19ace0cf-cfc3-11e4-8f08-0021ccbf0d6e} {1};
+#NOP MEKAN;
+#ACTION {Zarosniety ogorzaly kapitan krzyczy: Doplynelismy do wyspy Mekan! Mozna wysiadac!} {#chat message mapper lookup:e03e291e-cfc3-11e4-829c-0021ccbf0d6e} {1};
+
+#NOP ** ROZROG - ARD SKELLIGE **;
+#NOP ARD SKELLIGE;
+#ACTION {Mlody zylasty mezczyzna krzyczy: Doplynelismy do wyspy Ard Skellige! Mozna wysiadac!} {#chat message mapper lookup:281270de-cfcd-11e4-9b1b-0021ccbf0d6e} {1};
+#NOP ROZROG;
+#ACTION {Mlody zylasty mezczyzna krzyczy: Doplynelismy do przystani pod twierdza Rozrog! Mozna wysiadac!} {#chat message mapper lookup:1a1f51ae-cfc3-11e4-914e-0021ccbf0d6e} {1};
+
+#nop GRABOWA-OX
+#action {Mlody smutny mezczyzna krzyczy: Doplynelismy do przystani w Grabowej Buchcie na poludniowym brzegu Pontaru! Mozna wysiadac!} {#chat message mapper lookup:d2c44cfd-b8da-11e4-a332-2cf0ee2cbf2a} {1};
+#action {Mlody smutny mezczyzna krzyczy: Doplynelismy do przystani w Oxenfurcie na polnocnym brzegu Pontaru! Mozna wysiadac!} {#chat message mapper lookup:03cb1cc7-b213-11e4-8337-2cf0ee2cbf2a} {1};
+
+
+
+#action {Dojrzaly markotny mezczyzna krzyczy: Doplynelismy do wsi Nadrzecze w Temerii! Mozna wysiadac!}
+{
+  #var rdx @set_quickbind_green{zejdz ze statku};
+  #chat message mapper lookup:1a6ffe57-1f2d-11e5-ab98-2cf0ee2cbf2a;
+} {1};
+#unaction {Dojrzaly markotny mezczyzna krzyczy: Doplynelismy do Stoczni Novigradzkiej! Mozna wysiadac!}
+{
+  #var rdx @set_quickbind_green{zejdz ze statku};
+  #chat message mapper lookup:38ec7859-1f2f-11e5-a049-2cf0ee2cbf2a;
+} {1};
+
+#action {Niewielki, zaciszny pokoik ulokowany jest na tylach karczmy, o czym swiadcza dochodzace zza drewnianych drzwi odglosy. Wyposazenie tego miejsca jest bardzo skromne, pod scianami stoi kilka bardzo prostych, drewnianych lozek, wyscielanych wypchanymi sloma siennikami i nakrytych mocno juz podniszczonymi kocami. Procz nich, w kacie izby stoi jeszcze tylko dosc wysoka, solidna szafka, zapewne przeznaczona na rzeczy nocujacych tutaj wedrowcow.} 
+{
+  #chat message mapper lookup:766fede8-b214-11e4-b3fc-2cf0ee2cbf2a;
+} {1};
+
+#action {Jasnowlosy sniady elf krzyczy: Doplynelismy do portu Blaviken w krolestwie Redanii! Mozna wysiadac!} {#chat message mapper lookup:f48fb382-b912-11e4-87f7-2cf0ee2cbf2a} {1};
+#action {Sniady spokojny mezczyzna krzyczy: Doplynelismy do portu Blaviken w krolestwie Redanii! Mozna wysiadac!} {#chat message mapper lookup:f48fb230-b912-11e4-a51e-2cf0ee2cbf2a} {1};
+#action {Sniady spokojny mezczyzna krzyczy: Doplynelismy do pomostu na Blekitnej Wstedze! Mozna wysiadac!} {#chat message mapper lookup:296a60e8-a47a-11e4-8513-2cf0ee2cbf2a} {1};
+#action {Jasnowlosy sniady elf krzyczy: Doplynelismy do Novigradu w krolestwie Redanii! Mozna wysiadac!} {#chat message mapper lookup:e4aaaf54-7a4d-11e4-bb92-2cf0ee2cbf2a} {1};
+
+#action {Zarosniety smierdzacy mezczyzna krzyczy: Doplynelismy do poludniowego portu Novigradu w krolestwie Redanii! Mozna wysiadac!} {#chat message mapper lookup:a93b45e6-b911-11e4-a4a5-2cf0ee2cbf2a} {1};

@@ -1,0 +1,261 @@
+#action {^Zaslona przed GRUPA} {#line gag;}
+#action {^%1 unosi %2 i szybko przesuwa sie za ciebie, kryjac sie przed atakami %3.$}
+ {
+    #nop sh {<138><afa> ###  <afa>CHOWA SIE <fff>(<afa>F3<fff> przestan) <fff>%1 przed ciosami %3 };
+    #sh {<ffa>%1 <ffa>unosi %2 <ffa>i szybko przesuwa sie za ciebie, kryjac sie przed atakami %3};
+    #var r @set_quickbind_green{przestan zaslaniac};
+    #var koko @start_zaslona_ticker{};
+    #line gag;
+}
+#action {^%1 unosi %2 i szybko przesuwa sie za %3, kryjac sie przed atakami %4.$}
+ {
+    #nop sh {<138><afa> ###  <ffa>CHOWA SIE <fff>(<afa>F3<fff> przestan) <fff>%1 przed ciosami %4 };
+    #var r @set_quickbind_green{przestan zaslaniac};
+    #var koko @start_zaslona_ticker{};
+    #nop line gag;
+} {7};
+
+#NOP BLOKOWANIE;
+#NOP NEGATYWNE;
+#action {^%* omija twoj nieskuteczny blok.%D$} 
+{#var ret @parselen{%0};#nop sh <ffa>-> OMIJA TWOJ BLOK -><088> $ret<088><aaa>0<088>;#nop line gag;}{0}
+#action {^%* zagrodzil{|a} ci droge ucieczki.%D$} 
+{#var ret @parselen{%0};#sh <faa><- BLOKUJE CIE <-<088> $ret<088><aaa>0<088>;#line gag;}{0}
+#action {^%* blokuje ci droge %*.%D$}
+{#var ret @parselen{%0};#sh <faa><- BLOKUJE CIE <-<088> $ret<088><aaa>0<088>;#line gag;}{0}
+#action {^%* blokuje ci droge ucieczki %*.%D$}
+{#var ret @parselen{%0};#sh <faa><- BLOKUJE CIE <-<088> $ret<088><aaa>0<088>;#line gag;}{0}
+#action {^%* zajmuje pozycje umozliwiajaca odciecie ci drogi ucieczki.%D$}
+{#var ret @parselen{%0};#sh <faa><- BLOKUJE CIE <-<088> $ret<088><aaa>0<088>;#line gag;}{0}
+#action {^%* przymierza sie do odciecia ci drogi ucieczki.%D$}
+{
+  #sh { };
+  #sh {<118><ffa>               ###########################################################################################################<088>};
+  #sh {<118><ffa>               #######                                                                                              ######<088>}; 
+  #sh {<118><ffa>               #######                                        CHCE CIE BLOKOWAC                                     ######<088>};
+  #sh {<118><ffa>               #######                                                                                              ######<088>}; 
+  #sh {<118><ffa>               ###########################################################################################################<088>};
+  #sh { };
+}
+#nop {#var ret @parselen{%0};#sh <FFA><aaa>CHCE CIE BLOKOWAC<088> $ret<088><aaa>0<088>;#line gag;}{0}
+
+#NOP NEUTRALNE;
+#action {^%* blokuje %* droge %*.%D$} 
+{#var ret @parselen{%0};#sh <ffa>-- BLOKUJE KOGOS --<088> $ret<088><aaa>0<088>;#line gag;}{2}
+#action {^%* blokuje %* droge ucieczki %*.%D$} 
+{#var ret @parselen{%0};#sh <ffa>-- BLOKUJE KOGOS --<088> $ret<088><aaa>0<088>;#line gag;}{2}
+#action {^%* przestaje odcinac droge ucieczki %*.%D$}
+{#var ret @parselen{%0};#sh <ffa>-- PRZESTAJE BLOK --<088> $ret<088><aaa>0<088>;#line gag;}{2}
+#action {^%* omija nieskuteczny blok %*.%D$} 
+{#var ret @parselen{%0};#sh <ffa>-- OMIJA BLOK --<088> $ret<088><aaa>0<088>;#line gag;}{2}
+#action {^%* zajmuje pozycje umozliwiajaca odciecie %* drogi ucieczki.%D$} 
+{#var ret @parselen{%0};#sh <ffa>-- BLOKUJE KOGOS --<088> $ret<088><aaa>0<088>;#line gag;}{2}
+#action {^%* przymierza sie do odciecia %* drogi ucieczki.%D$}
+{#var ret @parselen{%0};#sh <ffa>-- CHCE BLOKOWAC --<088> $ret<088><aaa>0<088>;#line gag;}{8}
+#action {^Przestajesz odcinac droge ucieczki %*.%D$} 
+{#var ret @parselen{%0};#sh <ffa>-> PRZESTAJESZ BLOK -><088> $ret<088><aaa>0<088>;#line gag;}{2}
+
+#NOP POZYTYWNE;
+#action {^Blokujesz %* droge %*.%D$} 
+{#var ret @parselen{%0};#sh <afa>-> BLOKUJESZ -><088> $ret<088><aaa>0<088>;#line gag;}{1}
+#action {^Zajmujesz pozycje umozliwiajaca odciecie %*.%D$} 
+{#var ret @parselen{%0};#sh <afa>-> BLOKUJESZ -><088> $ret<088><aaa>0<088>;#line gag;}{1}
+#action {^Przymierzasz sie do odciecia %* drogi ucieczki.%D$} 
+{#var ret @parselen{%0};#sh <afa>-> CHCESZ BLOKOWAC -><088> $ret<088><aaa>0<088>;#line gag;}{1}
+#action {^Udaje ci sie ominac nieskuteczny blok %*.%D$} 
+{#var ret @parselen{%0};#sh <afa><- OMIJASZ BLOK <-<088> $ret<088><aaa>0<088>;#line gag;}{1}
+#action {^%* przestaje odcinac twoja droge ucieczki.%D$} 
+{#var ret @parselen{%0};#sh <afa><- NIEBLOKOWANY! <-<088> $ret<088><aaa>0<088>;#line gag;}{1}
+
+#NOP ZASLONY;
+#NOP NEUTRALNE;
+
+#unaction {~^%* wytraca %*.$} {#var rr @add_chat_lines{<118><ffa>[str wyt] <088>%0};#line gag;} {7};
+
+#unaction {^%* probuje zaslonic %* przed ciosami %*, jednak nie jest w stanie tego uczynic.$}
+{
+    #sh {<138><faa> ###  <faa>NIE ZASLANIA <fff>%1 nie zaslonil %2 przed ciosami %3};
+    #line gag;
+}
+
+
+#action {^%* probuje zaslonic cie przed ciosami %*, jednak nie jest w stanie tego uczynic.$}
+{
+    #sh {<138><faa> ###  <faa>NIE ZASLANIA CIE <fff>%1};
+    #line gag;
+} {2}
+
+#unaction {^Przestajesz zaslaniac %*.$}
+{
+    #sh {<138><ffa> ###  <ffa>PRZESTAJESZ ZASLANIAC <fff>%1};
+    #line gag;
+} {1}
+#unaction {^%* przestaje cie zaslaniac przed ciosami wrogow.$}
+{
+    #sh {<138><ffa> ###  <ffa>PRZESTAJE CIE ZASLANIAC <fff>%1 };
+    #line gag;
+}
+#action {^Wychodzisz zza zaslony %*.$}
+{
+    #sh {<138><ffa> ###  <ffa>WYCHODZISZ ZZA ZASLONY <fff>%1 };
+    #line gag;
+}
+
+#NOP NEGATYWNE;
+#action {^%* zaslania %* przed twoimi ciosami.%D$}
+{
+    #sh {<ffa>%1 zaslania %2<ffa> przed twoimi ciosami <118><FFA><aaa> F1 PRZELAM <088>};
+    #nop sh {<138><faa> ###  <faa>ZASLANIA PRZED TOBA <fff>(<faa>F1 PRZELAM<fff>) <fff>%1 zaslania %2};
+    #var r @set_quickbind_red{przelam obrone celu ataku};
+    #line gag;
+}
+  
+#action {^Probujesz zaslonic %* przed ciosami %*, jednak nie jestes w stanie tego uczynic.$}
+{
+    #nop sh {<138><faa> ###  <faa>NIE ZASLANIASZ <fff>%1  };
+    #nop sh {<ffa>Probujesz zaslonic %1 <ffa>przed ciosami %2<ffa>, jednak nie jestes w stanie tego uczynic};
+    #var koko @start_zaslona_ticker{};
+    #nop line gag;
+}
+#unaction {^%* probujesz zaslonic %* przed ciosami %*, jednak nie jestes w stanie tego uczynic.%D$}
+{
+    #nop sh {<138><faa> ###  <faa>NIE ZASLANIASZ <fff>%2  };
+    #var koko @start_zaslona_ticker{};
+    #nop line gag;
+}
+
+
+#NOP POZYTYWNE;
+#action {^%* zaslania %* przed ciosami %*.$}
+{
+    #sh {<afa>%1 zaslania %2 <afa>przed ciosami <afa>%3};
+    #nop sh {<138><ffa> ###  <ffa>ZASLANIA <fff>%1 zaslania %2 przed ciosami %3 };
+    #line gag;
+}
+
+#action {^Na twoj rozkaz %* zaslania cie przed ciosami %*.$}
+{
+    #sh {<138><afa> ###  <afa>ZASLANIA CIE NA ROZKAZ <fff>%1 przed ciosami %2 };
+    #line gag;
+}
+#unaction {^%* zaslania cie przed ciosami %*.$}
+{
+    #sh {<138><afa> ###  <afa>ZASLANIA CIE <fff>%1 przed ciosami %2};
+    #line gag;
+} {2}
+
+#unhigh {Zrecznie zaslaniasz} {<faa>};
+#high {zaslania} {<faa>};
+#hihh {zaslaniasz} {<faa>};
+#high {zaslaniac} {<faa>};
+#high {Zaslaniasz} {<faa>};
+#action {~^Zrecznie zaslaniasz %* przed ciosami %*.$}
+{
+    
+    #nop sh {<138><afa> ###  <afa>ZASLANIASZ <fff>(<afa>F3<fff> przestan) <fff>%1 przed ciosami %2 };
+    #sh {%0 <ffa> F3 PRZESTAN <088> };
+    #var r @set_quickbind_green{przestan zaslaniac};
+    #var koko @start_zaslona_ticker{};
+    #line gag;
+}
+
+#action {^Stajesz u boku %1, gotow w kazdej chwili %*}
+{
+    #nop sh {<138><afa> ###  <afa>ZASLANIASZ <fff>(<afa>F3<fff> przestan) <fff>%1};
+    #sh {<ffa>Stajesz u boku %1<ffa>, gotow w kazdej chwili zaslonic};
+    #var r @set_quickbind_green{przestan zaslaniac};
+    #var koko @start_zaslona_ticker{};
+    #line gag;
+}
+
+#action {^Z wprawa stajesz pomiedzy %* a %*, przyjmujac na siebie nadchodzace ciosy.$}
+{
+    #sh {<138><afa> ###  <afa>ZASLANIASZ <fff>(<afa>F3<fff> przestan) <fff>%1 przed ciosami %2};
+    #var r @set_quickbind_green{przestan zaslaniac};
+    #var koko @start_zaslona_ticker{};
+    #line gag;
+} {2}
+ 
+
+#NOP PRZELAMYWANIE OBRONY;
+#NOP NEUTRALNE;
+#action {^%* rzuca sie na %* przebijajac sie przez %* ochrone.%D$}
+{#var ret @parselen{%0};#sh <ffa>-- LAMIE KOGOS --<088> $ret<088><aaa>0<088>;#line gag;}{2}
+#action {^%* rzuca sie na %*, lecz %* staje %* na drodze.%D$}
+{#var ret @parselen{%0};#sh <ffa>-- NIE LAMIE KOGOS --<088> $ret<088><aaa>0<088>;#line gag;}{2}
+#action {^%* rzuca sie na %*, bezskutecznie probujac przebic sie przez %*.%D$}
+{#var ret @parselen{%0};#sh <ffa>-- NIE LAMIE KOGOS -- <088> $ret<088><aaa>0<088>;#line gag;}{2}
+
+#NOP NEGATYWNE;
+#action {^%* rzuca sie na ciebie przebijajac sie przez twoja ochrone.$%D}
+{#var ret @parselen{%0};#sh <faa><- LAMIE CIE <-<088> $ret<088><aaa>0<088>;#line gag;}{0}
+#action {^Nie dasz rady %* zaatakowac, gdyz %* zagradza ci droge.%D$}
+{#var ret @parselen{%0};#sh <ffa>-> NIE LAMIESZ -><088> $ret<088><aaa>0<088>;#line gag;}{0}
+#action {^%* rzucasz sie na %*, probujac przebic sie przez %* ochrone.%D$}
+{#var ret @parselen{%0};#sh <ffa>-> NIE LAMIESZ -><088> $ret<088><aaa>0<088>;#line gag;}{0}
+#action {^%* rzucasz sie do ataku na %*, ale wpadasz na %*!%D$}
+{#var ret @parselen{%0};#sh <ffa>-> NIE LAMIESZ -><088> $ret<088><aaa>0<088>;#line gag;}{0}
+#action {^Rzucasz sie na %*, lecz %* staje ci na drodze.%D$}
+{#var ret @parselen{%0};#sh <ffa>-> NIE LAMIESZ -><088> $ret<088><aaa>0<088>;#line gag;}{0}
+
+
+#NOP POZYTYWNE;
+#action {^Rzucasz sie na %* przebijajac sie przez %* ochrone.%D$}
+{#var ret @parselen{%0};#sh <afa>-> LAMIESZ -><088> $ret<088><aaa>0<088>;#line gag;}{1}
+#action {^%* probuje cie zaatakowac, lecz %* zagradza %* droge.%D$}
+{#var ret @parselen{%0};#sh <afa><- NIE LAMIE CIE <-<088> $ret<088><aaa>0<088>;#line gag;}{1}
+#action {^%* probuje przebic sie przez twoja ochrone, nie udaje %* sie jednak ominac %*.%D$}
+{#var ret @parselen{%0};#sh <afa><- NIE LAMIE CIE <-<088> $ret<088><aaa>0<088>;#line gag;}{1}
+#action {^%* probuje cie zaatakowac, lecz %* zagradza %* droge.%D$}
+{#var ret @parselen{%0};#sh <afa><- NIE LAMIE CIE <-<088> $ret<088><aaa>0<088>;#line gag;}{1}
+
+#action {^Slamazarnym wymachem %* probujesz wytracic %*. Przeciwnik nie daje sie jednak zaskoczyc, {|cofajac sie w pore|zbijajac w pore twoje uderzenie na bok}.$}
+{
+    #sh {<118><ffa> <X>  <ffa>NIE WYTRACASZ <fff>%2};   
+    #line gag;
+}
+
+#action {^Szybkim niczym mysl %* wytracasz %* z rak %*.$} {
+    #sh {<118><afa> <X>  <afa>WYTRACASZ <fff>%3};   
+    #line gag;
+} {1}
+
+#action {^Szybkim niczym mysl %* wytracasz %* z reki %*.$} {
+    #sh {<118><afa> <X>  <afa>WYTRACASZ <fff>%3};   
+    #line gag;
+} {1}
+
+
+#NOP INNE PRZYDATNE W WALCE;
+#action {^Bol %* staje sie mniej odczuwalny.$}
+{
+    #sh {<118><afa> <X>  <afa>DOBADZ BRONI! (<afa>F3<fff>)    };   
+    #var r @set_quickbind_green{dobadz broni};
+    #line gag;
+}
+
+#action {^Nie mozesz dobyc %*, gdyz %*.$}
+{
+    #sh {<118><ffa> <X>  <ffa>ZA WCZESNIE NA DOBYCIE!         };   
+    #line gag;
+}
+
+#action {^Uderzenie jest tak silne, ze bezwiednie puszczasz %*.$}
+{
+    #sh {<118><faa> <X>  <faa>OPUSZCZASZ <fff>%1 };   
+    #line gag;
+}
+
+#action {^~%* dobywa %*.$} {
+    #sh {<ffa>dobywa %0<aaa>0};   
+    #line gag;
+}
+
+#action {^~Uderzenie jest tak silne, ze %* bezwiednie opuszcza %*.$}
+{
+    #sh {<ffa>opuszcza %0<aaa>0};   
+    #line gag;
+}
+
+#action {^Wskazujesz %* jako cel ataku.$}
+{#var ret @parselen{%0};#sh <118><afa>CEL<088> $ret <088>;#line gag;}

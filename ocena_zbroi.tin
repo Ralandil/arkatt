@@ -1,0 +1,132 @@
+#nop ocenazbroi.tin
+#nop Na podstawie statow zbroi dodaje dodatkowy wiersz z informacja
+
+#nop niezle przed obrazeniami klutymi i obuchowymi oraz dosc dobrze przed cietymi.
+#action {jak na %1 chron{i|ia} {on|ona|one} %2 przed obrazeniami %3 i %4 oraz %5 przed %6.}{
+#var {jakosc1}{@jakazbroja{%2}};
+#var {jakosc2}{@jakazbroja{%5}};
+#sh {<dee>%1:<088> %3: $jakosc1, %4: $jakosc1, %6: $jakosc2}
+}
+
+#nop dobrze przed obrazeniami klutymi, cietymi i obuchowymi
+#action {jak na %1 chron{i|ia} {on|ona|one} %2 przed obrazeniami %3, %4 przed %5 i %6 przed %7.}{
+#var {jakosc1}{@jakazbroja{%2}};
+#var {jakosc2}{@jakazbroja{%4}};
+#var {jakosc3}{@jakazbroja{%6}};
+#sh {<dee>%1:<088> %3: $jakosc1, %5: $jakosc2, %7: $jakosc3}
+}
+
+#nop jak na ciezka zbroje chroni on dosc dobrze przed obrazeniami klutymi, cietymi i obuchowymi.
+#action {jak na %1 chron{i|ia} {on|ona|one} %2 przed obrazeniami klutymi, cietymi i obuchowymi.}{
+#var {jakosc}{@jakazbroja{%2}};
+#sh {<dee>%1:<088> cietymi: $jakosc, klutymi: $jakosc, obuchowymi: $jakosc}
+}
+
+#function {jakazbroja}{
+#var {obr}{%1};
+#replace {obr}{wyjatkowo zle}{<110>1/12<088>};
+#replace {obr}{bardzo zle}{<110>2/12<088>};
+#replace {obr}{niezle}{<130>7/12<088>};
+#replace {obr}{zle}{<110>3/13<088>};
+#replace {obr}{bardzo kiepsko}{<110>4/12<088>};
+#replace {obr}{kiepsko}{<130>5/12<088>};
+#replace {obr}{przyzwoicie}{<130>6/12<088>};
+#replace {obr}{dosc dobrze}{<130>8/12<088>};
+#replace {obr}{bardzo dobrze}{<120>10/12<088>};
+#replace {obr}{dobrze}{<120>9/12<088>};
+#replace {obr}{doskonale}{<120>11/12<088>};
+#replace {obr}{perfekcyjnie}{<120>12/12<088>};
+#return $obr
+}
+
+#nop Zauwazasz, iz ta bron drzewcowa jest przystosowana do chwytania oburacz.
+#nop Za jej pomoca mozna zadawac rany klute i ciete.
+#nop Twoje doswiadczenie i umiejetnosci podpowiadaja ci, ze jak na bron drzewcowa jest ona dosc dobrze wywazon%w i bardzo skuteczn%w.
+#nop Do wykonania tej broni uzyto srebra, bedzie wiec ona skuteczna przeciw wrogom odpornym na zwykle obrazenia.
+
+#action {Oceniasz, ze %1 wazy %2 gramow, zas {jej|jego} objetosc wynosi %4 mililitrow.}
+{
+  #var wpn_nam {%1};
+  #var wpn_wei {%2};
+  #var wpn_vol {%4};
+  #var wpn_mag { };
+  #line gag;
+}
+
+#action {Za %w pomoca mozna zadawac rany %2.} {
+  #var wpn_dmt {%2};
+  #line gag;
+} 
+
+
+
+#action {Zauwazasz, iz {ta|ten} %2 jest przystosowan{a|y|e} do chwytania %4.}
+{
+  #var wpn_typ {%2};
+  #var wpn_hnd {%4};
+  #replace {wpn_hnd} {oburacz} {2h};
+  #replace {wpn_hnd} {w dowolnej rece} {1h};
+  #replace {wpn_hnd} {w lewej rece} {Lh};
+  #replace {wpn_hnd} {w prawej rece} {Ph};
+  #line gag;
+}
+#action {Do wykonania tej broni uzyto srebra, bedzie wiec ona skuteczna przeciw wrogom odpornym na zwykle obrazenia.}
+{
+  #sh {<fff>SPEC : <ffa>srebro<088>};
+  #line gag;
+}
+
+#action {Twoje doswiadczenie i umiejetnosci podpowiadaja ci, ze jak na %1 jest {ona|ono|on} %3 wywazon%w i %4.}
+{
+  #var wpn_dmg {%4};
+  #var wpn_dex {%3};
+  
+  #replace {wpn_dmg} {kompletnie nieskuteczny} {1};
+  #replace {wpn_dmg} {strasznie nieskuteczny} {2};
+  #replace {wpn_dmg} {bardzo nieskuteczny} {3};
+  #replace {wpn_dmg} {raczej nieskuteczny} {4};
+  #replace {wpn_dmg} {malo skuteczny} {5};
+  #replace {wpn_dmg} {niezbyt skuteczny} {6};
+  #replace {wpn_dmg} {raczej skuteczny} {7};
+  #replace {wpn_dmg} {dosyc skuteczny} {8};
+  #replace {wpn_dmg} {calkiem skuteczny} {9};
+  #replace {wpn_dmg} {bardzo skuteczny} {10};
+  #replace {wpn_dmg} {niezwykle skuteczny} {11};
+  #replace {wpn_dmg} {wyjatkowo skuteczny} {12};
+  #replace {wpn_dmg} {zabojczo skuteczny} {13};
+  #replace {wpn_dmg} {fantastycznie skuteczny} {14};
+
+  #replace {wpn_dmg} {kompletnie nieskuteczna} {1};
+  #replace {wpn_dmg} {strasznie nieskuteczna} {2};
+  #replace {wpn_dmg} {bardzo nieskuteczna} {3};
+  #replace {wpn_dmg} {raczej nieskuteczna} {4};
+  #replace {wpn_dmg} {malo skuteczna} {5};
+  #replace {wpn_dmg} {niezbyt skuteczna} {6};
+  #replace {wpn_dmg} {raczej skuteczna} {7};
+  #replace {wpn_dmg} {dosyc skuteczna} {8};
+  #replace {wpn_dmg} {calkiem skuteczna} {9};
+  #replace {wpn_dmg} {bardzo skuteczna} {10};
+  #replace {wpn_dmg} {niezwykle skuteczna} {11};
+  #replace {wpn_dmg} {wyjatkowo skuteczna} {12};
+  #replace {wpn_dmg} {zabojczo skuteczna} {13};
+  #replace {wpn_dmg} {fantastycznie skuteczna} {14};
+
+  #replace {wpn_dex} {wyjatkowo zle} {1};
+  #replace {wpn_dex} {bardzo zle} {2};
+  #replace {wpn_dex} {kiepsko} {5};
+  #replace {wpn_dex} {bardzo kiepsko} {4};
+  #replace {wpn_dex} {przyzwoicie} {6};
+  #replace {wpn_dex} {srednio} {7};
+  #replace {wpn_dex} {niezle} {8};
+  #replace {wpn_dex} {bardzo dobrze} {11};
+  #replace {wpn_dex} {dosc dobrze} {9};
+  #replace {wpn_dex} {dobrze} {10};
+  #replace {wpn_dex} {doskonale} {12};
+  #replace {wpn_dex} {perfekcyjnie} {13};
+  #replace {wpn_dex} {genialnie} {14};
+  #replace {wpn_dex} {zle} {3};
+
+  #math wpn_rat { ($wpn_dmg + $wpn_dex) * 100 / 28};
+  #sh <fff>NAZWA: <ffd>$wpn_nam <fff>TYP: <ffd>$wpn_typ <fff>REKA: <ffd>$wpn_hnd <fff>WYW: <ffd>$wpn_dex/14 <fff>CEL: <ffd>$wpn_dmg/14 <fff>SUM: <ffd>$wpn_rat% <fff>OBR: <ffd>$wpn_dmt<088>;
+  #line gag;
+}

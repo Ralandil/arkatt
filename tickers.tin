@@ -1,0 +1,45 @@
+#var ticker_zaslona {5}
+#var ticker_zaslona_sec1 {<faa> <088>};
+#var ticker_zaslona_sec2 {<fbb> <088>};
+#var ticker_zaslona_sec3 {<faa> <088>};
+#var ticker_zaslona_sec4 {<fbb> <088>};
+#var ticker_zaslona_sec5 {<faa> <088>};
+
+#function {start_zaslona_ticker} {
+	#var ticker_zaslona_sec1 {<faa>#<088>};
+	#var ticker_zaslona_sec2 {<fbb>#<088>};
+	#var ticker_zaslona_sec3 {<faa>#<088>};
+	#var ticker_zaslona_sec4 {<fbb>#<088>};
+	#var ticker_zaslona_sec5 {<faa>#<088>};
+	#var prompr_zaslona_tick {<faa>5<088>};
+	#var ticker_zaslona {4};
+	testprompt;
+	#ticker {zaslona_ticker} {
+		#if {$ticker_zaslona == 4} {
+			#var ticker_zaslona_sec5 {<faa> <088>};	
+		};
+		#if {$ticker_zaslona == 3} {
+			#var ticker_zaslona_sec4 {<faa> <088>};	
+		};
+		#if {$ticker_zaslona == 2} {
+			#var ticker_zaslona_sec3 {<faa> <088>};	
+		};
+		#if {$ticker_zaslona == 1} {
+			#var ticker_zaslona_sec2 {<faa> <088>};	
+		};
+	
+		#if {$ticker_zaslona > 0} {
+			#var prompt_zaslona_tick {<faa>$ticker_zaslona<088>};
+			#math {ticker_zaslona} {$ticker_zaslona - 1};
+			testprompt;
+		};
+		#elseif {"$ticker_zaslona" == "0"} {
+			#var prompt_zaslona_tick {-};
+			#var ticker_zaslona_sec1 {<faa> <088>};	
+			#unticker {zaslona_ticker};
+			testprompt;
+		};
+	} {1};
+};
+
+

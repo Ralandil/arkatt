@@ -1,0 +1,48 @@
+#var na_statku 0;
+#var celwyjscia 0;
+
+#action {^%1 przybija do brzegu.$}
+{
+	#if {"$na_statku" == "0"} {
+		#alias {wejdz_na_poklad} {
+			#format {stateknazwa} {%l} {%1};
+			#send {wez monety z sakiewki};
+			#send {wez monety z plecaka};
+			#send {kup bilet};
+			#send {wejdz na $stateknazwa};
+			#send {wejdz na tratwe};
+			
+		};
+		#var czxz @set_quickbind_blue{wejdz_na_poklad};
+	};
+}
+
+#action {^Wchodzisz na wysokie wzniesienie.}
+{
+	#nop CATCH;
+} {2};
+
+#action {^Wchodzisz na %1.$}
+{
+	#var celwyjscia 0;
+	#var na_statku 1;
+	#alias {zejdz_na_brzeg} {
+		#send zejdz na brzeg;
+		#send zejdz ze statku;
+		#send zejdz z barki;
+		#send zejdz z promu;
+		#send zejdz z tratwy;
+		#send zejdz z drakkara;
+		#send zejdz ze szkuty;
+	};
+	#var czxz @set_quickbind_green{zejdz_na_brzeg};
+}
+#action {^Schodzisz z %1.$}
+{
+	#var na_statku 0;
+	#nop line substitute {variables} {#chat message mapper lookup:$_statek[$celwyjscia]};
+	#nop var celwyjscia 0;
+	#nop sh $ROOM_INFO $statek_tekst;
+}
+
+

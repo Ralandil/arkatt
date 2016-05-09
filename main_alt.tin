@@ -1,0 +1,49 @@
+#ses arka arkadia.rpg.pl 23;
+#event {IAC WILL GMCP}
+{       
+	#send {\xFF\xFD\xC9\};
+	#send {\xFF\xFA\xC9core.supports.set [ "Core", "Objects", "Room", "Messages", "Char" ]\xFF\xF0\};
+}
+#config {debug telnet} {off};
+#var path /home/adam/arkatt;
+#var logpath ${path}logs;
+#var cl_frame {<bbb>};
+#var cl_compf {<faf>};
+#var cl_compc {<faa>};
+#var cl_updownc {<FAA><aaa>};
+#nop ### wartosc dla wiele/ przy peliczaniu
+#var wiele {44};
+#chat init 5555;
+#chat name eldakar;
+#var KEY_F1 {\e[[A};
+#var KEY_F2 {\e[[B};
+#var KEY_F3 {\e[[C};
+#var KEY_F4 {\e[[D};
+#var KEY_F5 {\e[[E};
+#var KEY_F6 {\e[17~};
+#var KEY_F7 {\e[18~};
+#var KEY_F8 {\e[19~};
+#var KEY_F9 {\e[20~};
+#var KEY_F10 {\e[21~};
+#var KEY_BIND {`};
+#var KEY_F11 {\e[23~};
+#var KEY_F12 {\e[24~};
+#var KEY_PAD_N {\e8};
+#var KEY_PAD_S {\e2};
+#var KEY_PAD_E {\e6};
+#var KEY_PAD_W {\e4};
+#var KEY_PAD_NW {\e7};
+#var KEY_PAD_NE {\e9};
+#var KEY_PAD_SW {\e1};
+#var KEY_PAD_SE {\e3};
+#var KEY_PAD_U {\e-};
+#var KEY_PAD_D {\e+};
+#var KEY_PAD_WALK {\e0};
+#var KEY_PAD_WALK_M {\e/};
+#var KEY_PAD_KOND {\e5};
+#var KEY_PAD_ZERO {\e0};
+#var KEY_PAD_DOT {\e/};
+#var safe_walk 1;
+#nop @@@ bez gagowania @@@
+#var no_gag 1;
+#read $path/init.tin;

@@ -1,0 +1,105 @@
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, na rynku Averheim.} {#chat message mapper lookup:6f8445de-74f9-11e4-b8cd-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, na rynku Averheim.} {#chat message mapper lookup:6f8445de-74f9-11e4-b8cd-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, nieduzy placyk.} {#chat message mapper lookup:9227a7ae-ddb8-11e4-8df3-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, nieduzy placyk.} {#chat message mapper lookup:9227a7ae-ddb8-11e4-8df3-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, dziedziniec zajazdu kompanii Cztery Pory Roku.} {#chat message mapper lookup:9e808be6-a47a-11e4-9065-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, dziedziniec zajazdu kompanii Cztery Pory Roku.} {#chat message mapper lookup:9e808be6-a47a-11e4-9065-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, skrzyzowanie traktow w miasteczku.} {#chat message mapper lookup:db09f32e-a7cf-11e4-a781-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, skrzyzowanie traktow w miasteczku.} {#chat message mapper lookup:db09f32e-a7cf-11e4-a781-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, przed karczma.} {#chat message mapper lookup:ccad559e-74fa-11e4-9161-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, przed karczma.} {#chat message mapper lookup:ccad559e-74fa-11e4-9161-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, ulica Krancowa.} {#chat message mapper lookup:38eef8dc-74fd-11e4-ab55-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, ulica Krancowa.} {#chat message mapper lookup:38eef8dc-74fd-11e4-ab55-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, niewielki plac w poludniowej czesci miasta.} {#chat message mapper lookup:f92e8900-74ee-11e4-92bf-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, niewielki plac w poludniowej czesci miasta.} {#chat message mapper lookup:f92e8900-74ee-11e4-92bf-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, placyk w centrum miasteczka Kreutzhofen.} {#chat message mapper lookup:6d05954a-755c-11e4-8124-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, placyk w centrum miasteczka Kreutzhofen.} {#chat message mapper lookup:6d05954a-755c-11e4-8124-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, placyk w polnocnej czesci miasta.} {#chat message mapper lookup:d463faa1-74e3-11e4-ad69-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, placyk w polnocnej czesci miasta.} {#chat message mapper lookup:d463faa1-74e3-11e4-ad69-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, niedaleko miasta nad jeziorem.} {#chat message mapper lookup:d61463ee-b8e0-11e4-a361-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, niedaleko miasta nad jeziorem.} {#chat message mapper lookup:d61463ee-b8e0-11e4-a361-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, placyk w centrum miasta.} {#chat message mapper lookup:ba8276a3-b214-11e4-8332-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, placyk w centrum miasta.} {#chat message mapper lookup:ba8276a3-b214-11e4-8332-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, skrzyzowanie traktow w miasteczku.} {#chat message mapper lookup:db09f32e-a7cf-11e4-a781-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, skrzyzowanie traktow w miasteczku.} {#chat message mapper lookup:db09f32e-a7cf-11e4-a781-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, trakt przez wioske.} {#chat message mapper lookup:1002d74f-a602-11e4-bea6-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, trakt przez wioske.} {#chat message mapper lookup:1002d74f-a602-11e4-bea6-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, przed karczma.} {#chat message mapper lookup:ccad559e-74fa-11e4-9161-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, przed karczma.} {#chat message mapper lookup:ccad559e-74fa-11e4-9161-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, placyk z fontanna.} {#chat message mapper lookup:bbb94ae3-74f6-11e4-a61b-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, placyk z fontanna.} {#chat message mapper lookup:bbb94ae3-74f6-11e4-a61b-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, przed zajazdem 'Pod Srebrnym Grotem'.} {#chat message mapper lookup:290d7ae3-74f1-11e4-8ace-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, przed zajazdem 'Pod Srebrnym Grotem'.} {#chat message mapper lookup:290d7ae3-74f1-11e4-8ace-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, rynek miejski Salignac La Rouge.} {#chat message mapper lookup:ae8790e3-7f8d-11e4-af03-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz slyszysz glos woznicy: Postoj, rynek miejski Salignac La Rouge.} {#chat message mapper lookup:ae8790e3-7f8d-11e4-af03-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, rynek miejski Salignac La Rouge.} {#chat message mapper lookup:ae8790e3-7f8d-11e4-af03-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, dziedziniec przed zajazdem 'Pod piegowata elfka'.} {#chat message mapper lookup:29ec4b9c-7f8d-11e4-8004-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, dziedziniec przed zajazdem 'Pod piegowata elfka'.} {#chat message mapper lookup:29ec4b9c-7f8d-11e4-8004-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, placyk w centrum miasteczka Kreutzhofen.} {#chat message mapper lookup:6d05954a-755c-11e4-8124-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, placyk w centrum miasteczka Kreutzhofen.} {#chat message mapper lookup:6d05954a-755c-11e4-8124-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, niewielki plac w poludniowej czesci miasta.} {#chat message mapper lookup:f92e8900-74ee-11e4-92bf-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, niewielki plac w poludniowej czesci miasta.} {#chat message mapper lookup:f92e8900-74ee-11e4-92bf-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, dziedziniec frontowy karczmy.} {#chat message mapper lookup:c23e442b-7549-11e4-8b18-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz slyszysz glos woznicy: Postoj, dziedziniec frontowy karczmy.} {#chat message mapper lookup:c23e442b-7549-11e4-8b18-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, dziedziniec frontowy karczmy.} {#chat message mapper lookup:c23e442b-7549-11e4-8b18-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, rozstaje przed zajazdem.} {#chat message mapper lookup:0fdac0a6-74f9-11e4-b816-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, rozstaje przed zajazdem.} {#chat message mapper lookup:0fdac0a6-74f9-11e4-b816-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, placyk w centrum miasta.} {#chat message mapper lookup:ba8276a3-b214-11e4-8332-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, placyk w centrum miasta.} {#chat message mapper lookup:ba8276a3-b214-11e4-8332-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, centrum wioski.} {#chat message mapper lookup:43b71ffd-1f1a-11e5-a94d-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, centrum wioski.} {#chat message mapper lookup:43b71ffd-1f1a-11e5-a94d-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, rozdroza niedaleko Piany.} {#chat message mapper lookup:5cca7c59-b214-11e4-af3a-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, rozdroza niedaleko Piany.} {#chat message mapper lookup:5cca7c59-b214-11e4-af3a-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, placyk.} {#chat message mapper lookup:15a74435-b214-11e4-9849-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, placyk.} {#chat message mapper lookup:15a74435-b214-11e4-9849-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, placyk w centrum miasteczka Kreutzhofen.} {#chat message mapper lookup:6d05954a-755c-11e4-8124-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, placyk w centrum miasteczka Kreutzhofen.} {#chat message mapper lookup:6d05954a-755c-11e4-8124-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, placyk w centrum miasteczka Kreutzhofen.} {#chat message mapper lookup:6d05954a-755c-11e4-8124-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, placyk w centrum miasteczka Kreutzhofen.} {#chat message mapper lookup:6d05954a-755c-11e4-8124-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Fermata - incrocio alla Miragliano!} {#chat message mapper lookup:9b3ff92e-a580-11e4-9912-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Fermata - incrocio alla Miragliano!} {#chat message mapper lookup:9b3ff92e-a580-11e4-9912-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Fermata - Varieno!} {#chat message mapper lookup:863a61de-a591-11e4-bc2f-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz slyszysz glos woznicy: Fermata - Varieno!} {#chat message mapper lookup:863a61de-a591-11e4-bc2f-2cf0ee2cbf2a} {1}
+#action {Woznica dylizansu glosno wola: Fermata - Varieno!} {#chat message mapper lookup:863a61de-a591-11e4-bc2f-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Fermata - incrocio alla Miragliano!} {#chat message mapper lookup:9b3ff92e-a580-11e4-9912-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz slyszysz glos woznicy: Fermata - incrocio alla Miragliano!} {#chat message mapper lookup:9b3ff92e-a580-11e4-9912-2cf0ee2cbf2a} {1}
+#action {Woznica dylizansu glosno wola: Fermata - incrocio alla Miragliano!} {#chat message mapper lookup:9b3ff92e-a580-11e4-9912-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Za chwile ruszamy w kierunku Krainy Zgromadzenia!} {#chat message mapper lookup:d463faa1-74e3-11e4-ad69-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz slyszysz glos woznicy: Za chwile ruszamy w kierunku Krainy Zgromadzenia!} {#chat message mapper lookup:d463faa1-74e3-11e4-ad69-2cf0ee2cbf2a} {1}
+#action {Woznica dylizansu glosno wola: Za chwile ruszamy w kierunku Krainy Zgromadzenia!} {#chat message mapper lookup:d463faa1-74e3-11e4-ad69-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Nastepny postoj - Tadrig!} {#chat message mapper lookup:db09f32e-a7cf-11e4-a781-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz slyszysz glos woznicy: Nastepny postoj - Tadrig!} {#chat message mapper lookup:db09f32e-a7cf-11e4-a781-2cf0ee2cbf2a} {1}
+#action {Woznica dylizansu glosno wola: Nastepny postoj - Tadrig!} {#chat message mapper lookup:db09f32e-a7cf-11e4-a781-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Nastepny postoj - Averheim!} {#chat message mapper lookup:db09f32e-a7cf-11e4-a781-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz slyszysz glos woznicy: Nastepny postoj - Averheim!} {#chat message mapper lookup:db09f32e-a7cf-11e4-a781-2cf0ee2cbf2a} {1}
+#action {Woznica dylizansu glosno wola: Nastepny postoj - Averheim!} {#chat message mapper lookup:db09f32e-a7cf-11e4-a781-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Nastepny postoj - Bogenhafen!} {#chat message mapper lookup:bbb94ae3-74f6-11e4-a61b-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz slyszysz glos woznicy: Nastepny postoj - Bogenhafen!} {#chat message mapper lookup:bbb94ae3-74f6-11e4-a61b-2cf0ee2cbf2a} {1}
+#action {Woznica dylizansu glosno wola: Nastepny postoj - Bogenhafen!} {#chat message mapper lookup:bbb94ae3-74f6-11e4-a61b-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Nastepny postoj - Salignac La Rouge!} {#chat message mapper lookup:29ec4b9c-7f8d-11e4-8004-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz slyszysz glos woznicy: Nastepny postoj - Salignac La Rouge!} {#chat message mapper lookup:29ec4b9c-7f8d-11e4-8004-2cf0ee2cbf2a} {1}
+#action {Woznica dylizansu glosno wola: Nastepny postoj - Salignac La Rouge!} {#chat message mapper lookup:29ec4b9c-7f8d-11e4-8004-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Nastepny postoj - Kreutzhofen!} {#chat message mapper lookup:29ec4b9c-7f8d-11e4-8004-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz slyszysz glos woznicy: Nastepny postoj - Kreutzhofen!} {#chat message mapper lookup:29ec4b9c-7f8d-11e4-8004-2cf0ee2cbf2a} {1}
+#action {Woznica dylizansu glosno wola: Nastepny postoj - Kreutzhofen!} {#chat message mapper lookup:29ec4b9c-7f8d-11e4-8004-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, placyk w centrum miasta.} {#chat message mapper lookup:ba8276a3-b214-11e4-8332-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, placyk w centrum miasta.} {#chat message mapper lookup:ba8276a3-b214-11e4-8332-2cf0ee2cbf2a} {1}
+#action {Woznica dylizansu glosno wola: Postoj, placyk w centrum miasta.} {#chat message mapper lookup:ba8276a3-b214-11e4-8332-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, centrum wioski.} {#chat message mapper lookup:43b71ffd-1f1a-11e5-a94d-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, centrum wioski.} {#chat message mapper lookup:43b71ffd-1f1a-11e5-a94d-2cf0ee2cbf2a} {1}
+#action {Woznica dylizansu glosno wola: Postoj, centrum wioski.} {#chat message mapper lookup:43b71ffd-1f1a-11e5-a94d-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, niedaleko miasta nad jeziorem.} {#chat message mapper lookup:d61463ee-b8e0-11e4-a361-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, niedaleko miasta nad jeziorem.} {#chat message mapper lookup:d61463ee-b8e0-11e4-a361-2cf0ee2cbf2a} {1}
+#action {Woznica dylizansu glosno wola: Postoj, niedaleko miasta nad jeziorem.} {#chat message mapper lookup:d61463ee-b8e0-11e4-a361-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, placyk w centrum miasteczka Kreutzhofen.} {#chat message mapper lookup:6d05954a-755c-11e4-8124-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, placyk w centrum miasteczka Kreutzhofen.} {#chat message mapper lookup:6d05954a-755c-11e4-8124-2cf0ee2cbf2a} {1}
+#action {Woznica dylizansu glosno wola: Postoj, placyk w centrum miasteczka Kreutzhofen.} {#chat message mapper lookup:6d05954a-755c-11e4-8124-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Postoj, niewielki plac w poludniowej czesci miasta.} {#chat message mapper lookup:f92e8900-74ee-11e4-92bf-2cf0ee2cbf2a} {1}
+#action {Woznica oznajmia gromkim glosem: Postoj, niewielki plac w poludniowej czesci miasta.} {#chat message mapper lookup:f92e8900-74ee-11e4-92bf-2cf0ee2cbf2a} {1}
+#action {Woznica dylizansu glosno wola: Postoj, niewielki plac w poludniowej czesci miasta.} {#chat message mapper lookup:f92e8900-74ee-11e4-92bf-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Nastepny postoj - Karczma 'Pod piegowata elfka'!} {#chat message mapper lookup:6d05954a-755c-11e4-8124-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz slyszysz glos woznicy: Nastepny postoj - Karczma 'Pod piegowata elfka'!} {#chat message mapper lookup:6d05954a-755c-11e4-8124-2cf0ee2cbf2a} {1}
+#action {Woznica dylizansu glosno wola: Nastepny postoj - Karczma 'Pod piegowata elfka'!} {#chat message mapper lookup:6d05954a-755c-11e4-8124-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: Partire per Urbimo in qualche minuti!} {#chat message mapper lookup:9b3ff92e-a580-11e4-9912-2cf0ee2cbf2a} {1}
+#action {Z zewnatrz slyszysz glos woznicy: Partire per Urbimo in qualche minuti!} {#chat message mapper lookup:9b3ff92e-a580-11e4-9912-2cf0ee2cbf2a} {1}
+#action {Woznica dylizansu glosno wola: Partire per Urbimo in qualche minuti!} {#chat message mapper lookup:9b3ff92e-a580-11e4-9912-2cf0ee2cbf2a} {1}

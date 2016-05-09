@@ -1,0 +1,85 @@
+#var ruch_kompasu {none};
+
+#action {%*{Podazasz|podazasz} za %1 posrod opary mgly, brodzac w mule.} {#var lastmove $ruch_kompasu};
+#action {%*{Podazasz|podazasz} za %1 w lesna gestwine.} {#var lastmove $ruch_kompasu};
+#action {%*{Podazasz|podazasz} za %1 w szara mgle.} {#var lastmove $ruch_kompasu};
+#action {%*{Podazasz|podazasz} za %1 w biala otchlan sniegu.} {#var lastmove $ruch_kompasu};
+
+#action {%* uklada %* na wyprostowanej dloni i przez pare chwil wstrzymuje oddech.}
+{
+  #var ruch_kompasu {none};
+  #sh {%1 <118><fca>sprawdza kierunki!<088>};
+}
+
+#action {%* {mowi|dudni|mruczy|skrzypi}%*: polnoc.} {#var ruch_kompasu n};
+#action {%* {mowi|dudni|mruczy|skrzypi}%*: poludnie.} {#var ruch_kompasu s};
+#action {%* {mowi|dudni|mruczy|skrzypi}%*: wschod.} {#var ruch_kompasu e};
+#action {%* {mowi|dudni|mruczy|skrzypi}%*: zachod.} {#var ruch_kompasu w};
+#action {%* {mowi|dudni|mruczy|skrzypi}%*: dol.} {#var ruch_kompasu d};
+#action {%* {mowi|dudni|mruczy|skrzypi}%*: gora.} {#var ruch_kompasu u};
+#action {%* {mowi|dudni|mruczy|skrzypi}%*: polnocny-wschod.} {#var ruch_kompasu ne};
+#action {%* {mowi|dudni|mruczy|skrzypi}%*: polnocny-zachod.} {#var ruch_kompasu nw};
+#action {%* {mowi|dudni|mruczy|skrzypi}%*: poludniowy-zachod.} {#var ruch_kompasu sw};
+#action {%* {mowi|dudni|mruczy|skrzypi}%*: poludniowy-wschod.} {#var ruch_kompasu se};
+
+#nop tryb chodzenia
+
+#var kompas_dziala {0};
+#action {Ukladasz urzadzenie na wyprostowanej dloni i przez pare chwil wstrzymujesz oddech, by pozwolic kompasowi pokazac kierunek polnocny.}
+{#var kompas_dziala {1};}
+#nop action {Ukladasz urzadzenie na wyprostowanej dloni i przez pare chwil wstrzymujesz oddech, by pozwolic kompasowi pokazac kierunek polnocny. Uwaznie przygladasz sie ulozeniu wskazowki i na jej podstawie ustalasz pozostale kierunki swiata.}
+{#var kompasdziala {1};}
+
+#var walkmode {wk}
+#var walkmodep {<118><afa>wk<088>}
+
+#alias {tryb_chodzenia}
+{
+  #if {"$walkmode" == "wk"} {
+    #var walkmode {st};
+    #var walkmodep {<118><ffa>st<088>};
+#alias move_s {#send przemknij sie s;#chat message mapper navigate:exit:s};
+#alias move_n {#send przemknij sie n;#chat message mapper navigate:exit:n};
+#alias move_e {#send przemknij sie e;#chat message mapper navigate:exit:e};
+#alias move_w {#send przemknij sie w;#chat message mapper navigate:exit:w};
+#alias move_u {#send przemknij sie u;#chat message mapper navigate:exit:u};
+#alias move_d {#send przemknij sie d;#chat message mapper navigate:exit:d};
+#alias move_ne {#send przemknij sie ne;#chat message mapper navigate:exit:ne};
+#alias move_nw {#send przemknij sie nw;#chat message mapper navigate:exit:nw};
+#alias move_se {#send przemknij sie se;#chat message mapper navigate:exit:se};
+#alias move_sw {#send przemknij sie sw;#chat message mapper navigate:exit:sw};
+  };
+  #elseif {"$walkmode" == "st"} {
+    #var walkmode {cm};
+    #var walkmodep {<118><faa>cm<088>};
+    #alias move_s {#if {$kompas_dziala > 0} {#send s;#chat message mapper navigate:exit:s} {#sh Kompas!}};
+    #alias move_n {#if {$kompas_dziala > 0} {#send n;#chat message mapper navigate:exit:n} {#sh Kompas!}};
+    #alias move_e {#if {$kompas_dziala > 0} {#send e;#chat message mapper navigate:exit:e} {#sh Kompas!}};
+    #alias move_w {#if {$kompas_dziala > 0} {#send w;#chat message mapper navigate:exit:w} {#sh Kompas!}};
+    #alias move_u {#if {$kompas_dziala > 0} {#send u;#chat message mapper navigate:exit:u} {#sh Kompas!}};
+    #alias move_d {#if {$kompas_dziala > 0} {#send d;#chat message mapper navigate:exit:d} {#sh Kompas!}};
+    #alias move_ne {#if {$kompas_dziala > 0} {#send ne;#chat message mapper navigate:exit:ne} {#sh Kompas!}};
+    #alias move_nw {#if {$kompas_dziala > 0} {#send nw;#chat message mapper navigate:exit:nw} {#sh Kompas!}};
+    #alias move_se {#if {$kompas_dziala > 0} {#send se;#chat message mapper navigate:exit:se} {#sh Kompas!}};
+    #alias move_sw {#if {$kompas_dziala > 0} {#send sw;#chat message mapper navigate:exit:sw} {#sh Kompas!}};
+  };
+  #elseif {"$walkmode" == "cm"} {
+    #var walkmode {wk};
+    #var walkmodep {<118><afa>wk<088>};
+    #alias move_s {#send s;#chat message mapper navigate:exit:s};
+    #alias move_n {#send n;#chat message mapper navigate:exit:n};
+    #alias move_e {#send e;#chat message mapper navigate:exit:e};
+    #alias move_w {#send w;#chat message mapper navigate:exit:w};
+    #alias move_u {#send u;#chat message mapper navigate:exit:u};
+    #alias move_d {#send d;#chat message mapper navigate:exit:d};
+    #alias move_ne {#send ne;#chat message mapper navigate:exit:ne};
+    #alias move_nw {#send nw;#chat message mapper navigate:exit:nw};
+    #alias move_se {#send se;#chat message mapper navigate:exit:se};
+    #alias move_sw {#send sw;#chat message mapper navigate:exit:sw};
+  };
+  
+  testprompt;
+}
+
+
+

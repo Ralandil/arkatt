@@ -1,0 +1,68 @@
+#read $path/carsDB.tin;
+
+#action {Z zewnatrz slyszysz glos woznicy: %1}
+{
+  #sh <faa>Dylizans nie zmapowany, przenies sie na mapie i uzyj komendy <afa>zapiszd<faa> aby stworzyc action.<088>;
+  #alias {zapiszd} {
+    #system {echo "#action {Z zewnatrz dochodzi stlumiony glos woznicy: %1} {#chat message mapper lookup:$current_room_id} {1}" >> $path/carsDB.tin};
+    #system {echo "#action {Woznica oznajmia gromkim glosem: %1} {#chat message mapper lookup:$current_room_id} {1}" >> $path/carsDB.tin};
+    #system {echo "#action {Woznica dylizansu glosno wola: %1} {#chat message mapper lookup:$current_room_id} {1}" >> $path/carsDB.tin};
+
+    #action {Z zewnatrz slyszysz glos woznicy: %1} {#chat message mapper lookup:$current_room_id} {1};
+    #action {Woznica oznajmia gromkim glosem: %1} {#chat message mapper lookup:$current_room_id} {1};
+    #action {Woznica dylizansu glosno wola: %1} {#chat message mapper lookup:$current_room_id} {1};
+
+    #unalias zapiszd
+  }
+} {2}
+
+
+#action {Z zewnatrz dochodzi stlumiony glos woznicy: %1}
+{
+  #sh <faa>Dylizans nie zmapowany, przenies sie na mapie i uzyj komendy <afa>zapiszd<faa> aby stworzyc action.<088>;
+  #alias {zapiszd} {
+    #system {echo "#action {Z zewnatrz dochodzi stlumiony glos woznicy: %1} {#chat message mapper lookup:$current_room_id} {1}" >> $path/carsDB.tin};
+    #system {echo "#action {Woznica oznajmia gromkim glosem: %1} {#chat message mapper lookup:$current_room_id} {1}" >> $path/carsDB.tin};
+    #system {echo "#action {Woznica dylizansu glosno wola: %1} {#chat message mapper lookup:$current_room_id} {1}" >> $path/carsDB.tin};
+
+    #action {Z zewnatrz dochodzi stlumiony glos woznicy: %1} {#chat message mapper lookup:$current_room_id} {1};
+    #action {Woznica oznajmia gromkim glosem: %1} {#chat message mapper lookup:$current_room_id} {1};
+    #action {Woznica dylizansu glosno wola: %1} {#chat message mapper lookup:$current_room_id} {1};
+
+    #unalias zapiszd
+  }
+} {2}
+
+#action {Woznica oznajmia gromkim glosem: %1}
+{
+  #sh <faa>Dylizans nie zmapowany, przenies sie na mapie i uzyj komendy <afa>zapiszd<faa> aby stworzyc action.<088>;
+  #alias {zapiszd} {
+    #system {echo "#action {Z zewnatrz dochodzi stlumiony glos woznicy: %1} {#chat message mapper lookup:$current_room_id} {1}" >> $path/carsDB.tin};
+    #system {echo "#action {Z zewnatrz slyszysz glos woznicy: %1} {#chat message mapper lookup:$current_room_id} {1}" >> $path/carsDB.tin};
+    #system {echo "#action {Woznica oznajmia gromkim glosem: %1} {#chat message mapper lookup:$current_room_id} {1}" >> $path/carsDB.tin};
+
+    #action {Z zewnatrz dochodzi stlumiony glos woznicy: %1} {#chat message mapper lookup:$current_room_id} {1};
+    #action {Z zewnatrz slyszysz glos woznicy: %1} {#chat message mapper lookup:$current_room_id} {1};
+    #action {Woznica oznajmia gromkim glosem: %1} {#chat message mapper lookup:$current_room_id} {1};
+    #unalias zapiszd
+  }
+
+} {2};
+
+#action {Woznica dylizansu glosno wola: %1}
+{
+  #sh <faa>Dylizans nie zmapowany, przenies sie na mapie i uzyj komendy <afa>zapiszd<faa> aby stworzyc action.<088>;
+  #alias {zapiszd} {
+    #system {echo "#action {Z zewnatrz dochodzi stlumiony glos woznicy: %1} {#chat message mapper lookup:$current_room_id} {1}" >> $path/carsDB.tin};
+    #system {echo "#action {Z zewnatrz slyszysz glos woznicy: %1} {#chat message mapper lookup:$current_room_id} {1}" >> $path/carsDB.tin};
+    #system {echo "#action {Woznica dylizansu glosno wola: %1} {#chat message mapper lookup:$current_room_id} {1}" >> $path/carsDB.tin};
+
+    #action {Z zewnatrz dochodzi stlumiony glos woznicy: %1} {#chat message mapper lookup:$current_room_id} {1};
+    #action {Z zewnatrz slyszysz glos woznicy: %1} {#chat message mapper lookup:$current_room_id} {1};
+    #action {Woznica dylizansu glosno wola: %1} {#chat message mapper lookup:$current_room_id} {1};
+    #unalias zapiszd
+  }
+
+} {2};
+
+

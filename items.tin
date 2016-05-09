@@ -1,0 +1,58 @@
+#var zalozonyplecak {}
+#var zalozonyplecak_dopelniacz {}
+
+#action {^Wydaje ci sie, ze jest war{ta|t} okolo %2 miedziak{i|ow}.$}
+{
+    #var value_mith {0};
+    #var value_gold {0};
+    #var value_silv {0};
+    #var value_copp {%2};
+    
+    #if {$value_copp >= 24000} {
+      #math value_mith {$value_copp / 24000};
+      #math value_copp {$value_copp % 24000};
+    };
+
+    #if {$value_copp >= 240} {
+      #math value_gold {$value_copp / 240};
+      #math value_copp {$value_copp % 240};
+    };
+    #if {$value_copp >= 12} {
+      #math value_silv {$value_copp / 12};
+      #math value_copp {$value_copp % 12};
+    };
+    #sh {Wydaje ci sie, ze jest war%1 okolo %2 miedziakow, czyli <acf>${value_mith}m <ffa>${value_gold}g <eee>${value_silv}s <fca>${value_copp}c<088>,};
+    #line gag;
+}
+
+
+#action {^Masz na sobie %69.$} {
+  #list equip clear;
+  #var str_nosisz {%69};
+  #format str_nosisz {%u} {$str_nosisz};
+  #replace str_nosisz {{ I |, }} {;};
+  #list ltmp_equip create {$str_nosisz};
+  #foreach {$ltmp_equip[]} {litem} {
+    #list equip add $ltmp_equip[$litem];
+  };
+}
+
+#action {^Na plecach {targasz|nosisz} %69.$} {
+  #var str_nosisz {%69};
+  #format str_nosisz {%u} {$str_nosisz};
+  #replace str_nosisz {{ I |, }} {;};
+  #list ltmp_equip create {$str_nosisz};
+  #foreach {$ltmp_equip[]} {litem} {
+    #regexp $ltmp_equip[$litem] {%i%*plecak%*} {
+      #var zalozonyplecak_dopelniacz {zalozonego plecaka};
+    };
+    #regexp $ltmp_equip[$litem] {%i%*torba%*} {
+      #var zalozonyplecak_dopelniacz {zalozonej torby};
+    };
+    #regexp $ltmp_equip[$litem] {%i%*worek%*} {
+      #var zalozonyplecak_dopelniacz {zalozonego worka};
+    };
+    
+  };
+}
+

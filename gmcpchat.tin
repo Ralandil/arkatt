@@ -1,0 +1,41 @@
+#event {IAC SB GMCP messages IAC SE} {
+	#var MESSAGE_INFO {%0};
+	
+	#if {"$MESSAGE_INFO[type]" == "comm"} {
+		#sh $MESSAGE_INFO[text];
+	};
+
+	#elseif {"$MESSAGE_INFO[type]" == "emotes"} {
+		#sh $MESSAGE_INFO[text];
+	};
+	#elseif {"$MESSAGE_INFO[type]" == "combat"} {
+		#sh $MESSAGE_INFO[text];
+	};
+	#elseif {"$MESSAGE_INFO[type]" == "combat.team"} {
+		#sh $MESSAGE_INFO[text];
+	};
+	#elseif {"$MESSAGE_INFO[type]" == "combat.others"} {
+		#sh $MESSAGE_INFO[text];
+	};
+	
+}
+
+#nop regex {$MESSAGE_INFO[text]} {%*:%*} {#var rr @add_chat_lines{<bbb>$stamp <fff>&1<bbb>:<ccc>&2};};
+
+#action {%1 {mruczy|mowi|burczy|dudni|krzyczy|nuci}%* do ciebie: %4} 
+{
+  #var rstuw @add_chat_lines{<ffa>[<faf>rozmowa<ffa>] <088><faf>%0};
+  #line gag;
+}
+
+#action {%1 {mruczy|mowi|burczy|dudni|krzyczy|nuci}%*: %4}
+{
+  #var rstuw @add_chat_lines{<ffa>[<faf>rozmowa<ffa>] <088><faf>%0};
+  #line gag;
+}
+
+#action {Mowisz%*: %2}
+{
+  #var rstuw @add_chat_lines{<ffa>[<faf>rozmowa<ffa>] <088><aff>%0};
+  #line gag;
+}

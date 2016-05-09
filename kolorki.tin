@@ -1,0 +1,348 @@
+#action {^Jest %1 w stanie wyroznic kilka sladow na ziemi. Najswiezsze prowadza na zachod.$}
+{
+    #sh { };
+    #sh {<118><fff>    \\   ----- };
+    #sh {<118><afa> ---O>  <ffa>SLADY };
+    #sh {<118><fff>    /   -----};
+    #sh { };    
+    #line gag;
+}
+
+#action {^Dowiadujesz sie czegos wiecej o %1.$}
+{
+#sh { };
+    #sh {<118><fff>      ------------------------------- };
+    #sh {<118><afa> /\\\\  <fff>Dowiadujesz sie czegos wiecej o };
+    #sh {<118><afa> \\\\/  <fff>%1 };
+    #sh {<118><fff>      ------------------------------- };
+#sh { };    
+    #line gag;
+}
+
+#action {^Wydaje ci sie, ze twoja wiedza o %1 wzrosla nieznacznie.$}
+{
+#sh { };
+    #sh {<118><fff>      ------------------------------- };
+    #sh {<138><afa> /\\\\  <fff>Wydaje ci sie ze twoja wiedza o };
+    #sh {<138><afa> \\\\/  <fff>%1 wzrosla nieznacznie.};
+    #sh {<118><fff>      ------------------------------- };
+#sh { };    
+    #line gag;
+}
+
+#action {^Masz nowa poczte od %1.$} {
+#sh { };
+    #sh {<118><fff>      ------------------------------- };
+    #sh {<118><afa> ***  <fff>Poczta od %1};
+    #sh {<118><fff>      ------------------------------- };
+    #nop system {beep -f 1500 -l 500 -r 3 &};
+#sh { };    
+    #line gag;
+} {2};
+
+#action {^%* zaprasza cie do swojej druzyny.$}
+{
+    #sh { };
+    #sh {<118><fff>      ------------------------------- };
+    #sh {<138><afa>  o   <afa>ZAPRASZA <fff>%1 };
+    #sh {<138><afa> /V\\   <fff>(<afa>F2<fff>) nadolacz};
+    #sh {<118><fff>      ------------------------------- };
+    #sh { }; 
+    #line gag;
+}
+
+
+#action {^%* przekazuje ci {prowadzenie druzyny|dowodzenie nad swoja druzyna}.$}
+{
+    #sh { };
+    #sh {<118><fff>      ------------------------------- };
+    #sh {<138><ffa>  o   <fff>Prowadzisz druzyne! };
+    #sh {<138><ffa> /V\\   <fff>%1 przekazal};
+    #sh {<118><fff>      ------------------------------- };
+    #sh { };    
+    #var przewodzisz_druzynie 1;
+    #line gag;
+}
+
+#action {^Przekazujesz prowadzenie druzyny %1.$}
+{
+    #sh { };
+    #sh {<118><fff>      ------------------------------- };
+    #sh {<138><ffa>  o   <fff>Przekazales prowadzenie! };
+    #sh {<138><ffa> /V\\   <fff>%1 prowadzi};
+    #sh {<118><fff>      ------------------------------- };
+    #sh { };    
+    #var przewodzisz_druzynie 0;
+    #line gag;
+}
+
+
+
+#ACTION {^Gubisz gdzies za soba %1.$}
+{
+#sh { };
+    #sh {<118><fff>      ------------------------------- };
+    #sh {<118><faa> ***  <fff>Gubisz za soba %1};
+    #sh {<118><fff>      ------------------------------- };
+    #nop system {beep -f 1500 -l 500 -r 3 &};
+#sh { };    
+    #line gag;
+}
+
+#ACTION {^%1 porzuca twoja druzyne.$}
+{
+    #sh { };
+    #sh {<118><fff>      ------------------------------- };
+    #sh {<138><ffa> ***  <fff>%1 porzuca druzyne! };
+    #sh {<118><fff>      ------------------------------- };
+    #sh { };    
+    #var przewodzisz_druzynie 1;
+    #line gag;
+}
+
+#ACTION {^%1 zmusza %2 do opuszczenia druzyny.$}
+{
+    #sh { };
+    #sh {<118><fff>      ------------------------------- };
+    #sh {<138><ffa>  o   <fff>%1 zmusza %2  };
+    #sh {<138><ffa> /V\\  <fff>do opuszczenia druzyny };
+    #sh {<118><fff>      ------------------------------- };
+    #sh { };    
+    #var przewodzisz_druzynie 0;
+    #line gag;
+}
+
+#ACTION {^Zmuszasz %1 do opuszczenia druzyny.$}
+{
+    #sh { };
+    #sh {<118><fff>      ------------------------------- };
+    #sh {<138><ffa>  o   <fff>Zmuszasz %1  };
+    #sh {<138><ffa> /V\\  <fff>do opuszczenia druzyny};
+    #sh {<118><fff>      ------------------------------- };
+    #sh { };    
+    #var przewodzisz_druzynie 0;
+    #line gag;
+}
+
+#ACTION {^%* zmusza cie do opuszczenia druzyny.$}
+{
+    #sh { };
+    #sh {<118><fff>      ------------------------------- };
+    #sh {<138><ffa>  o   <fff>%1 zmusza Cie  };
+    #sh {<138><ffa> /V\\  <fff>do opuszczenia druzyny};
+    #sh {<118><fff>      ------------------------------- };
+    #sh { };    
+    #var przewodzisz_druzynie 0;
+    #line gag;
+}
+
+#ACTION {^Porzucasz druzyne, ktorej przewodzil{|es|as}.$}
+{
+    #sh { };
+    #sh {<118><fff>      ------------------------------- };
+    #sh {<138><ffa> ***  <fff>Porzucasz druzyne ktorej przewodziles  };
+    #sh {<118><fff>      ------------------------------- };
+    #sh { };    
+    #var przewodzisz_druzynie 0;
+    #line gag;
+}
+
+#ACTION {^%* rozwiazuje druzyne.$}
+{
+    #sh { };
+    #sh {<118><fff>      ------------------------------- };
+    #sh {<138><ffa> ***  <fff>%1 rozwiazuje druzyne};
+    #sh {<118><fff>      ------------------------------- };
+    #sh { };    
+    #var przewodzisz_druzynie 0;
+    #line gag;
+}
+
+
+#high {^Pomiedzy skalami dostrzegasz ciemny otwor prowadzacy w dol.$} {<faa>%1}
+
+#ACTION {^W jednym z zaglebien terenu dostrzegasz szczeline prowadzaca pod ziemie.$}
+{
+	#var ret @pasek_liliowy{<caa>SZCZELINA!};
+	#line gag;
+}
+#ACTION {^Posrod pajeczyn dostrzegasz niewielki wyrysowany kreda symbol - dokladnie taki, jaki pokazal ci starzec z wioski.$}
+{
+	#var ret @pasek_liliowy{<caa>SYMBOL!};
+	#line gag;
+}
+#ACTION {^Bagno odslonilo tu fragment kamiennej plyty %*.$}
+{
+	#var ret @pasek_liliowy{<caa>KAMIENNA PLYTA!};
+	#line gag;
+}
+
+#NOP CZERWONE
+
+#VAR {wazneNPC} {<faa>};
+#HIGH {{rogaty smok chaosu|arlekin|kolorowowlosa rozesmiana elfka|zakapturzony zgarbiony mezczyzna}%w} {${wazneNPC}};
+
+
+
+#ACTION {^W powietrzu unosi sie gesta chmura pylu.$}
+{
+	#var ret @pasek_czerwony{<ffd>MGLA! MGLA! MGLA!};
+	#line gag;
+}
+
+#ACTION {^Nad twoja glowa zbiera sie duza chmura %* pylu.$}
+{
+	#var ret @pasek_czerwony{<ffd>MGLA! MGLA! MGLA!};
+	#line gag;
+}
+
+#ACTION {^Czujesz fale zimna, ktora blyskawicznie rozchodzi sie %*.$}
+{
+	#var ret @pasek_czerwony{<ffd>UWAGA! ZATRUCIE PRZEZ GHOULA!};
+	#line gag;
+}
+
+#ACTION {^%* Czujesz rozchodzacy sie po twoim ciele, pulsujacy bol!$}
+{
+	#var ret @pasek_czerwony{<ffd>UWAGA! ZATRUCIE ANTYCZNYM ZDOBIONYM SZTYLETEM!};
+	#line gag;
+}
+
+#ACTION {^%* {rozpada sie!|peka!|rozpruwa sie.}$}
+{
+	#sh <fca>%1 niszczy sie.<088>;
+	#line gag;
+}
+
+
+#ACTION {^Ku twojemu zdumieniu, %1 pojawil sie nagle tuz obok ciebie!$}
+{
+	#var ret @pasek_czerwony{<ffd>%1 WYSZEDL Z UKRYCIA!};
+	#line gag;
+}
+#ACTION {^{Kamienna plyta pod|Kamienna plyta, na ktorej}%*.$}
+{
+	#var ret @pasek_czerwony{<ffd>UWAGA! PLYTA!};
+	#line gag;
+}
+#ACTION {^Kamienna plyta z przerazliwym zgrzytem zamyka wejscie do grobowca!$}
+{
+	#var ret @pasek_czerwony{<ffd>ZAMKNIETE PRZEJSCIE!};
+	#line gag;
+}
+
+
+
+
+#NOP OPIS POSTACI;
+#ACTION {^{Wyglada|Wygladasz} na kogos niedoswiadczonego.$} {#SH <118><fff>%0 [1/13]<088>;#line gag};
+#ACTION {^{Wyglada|Wygladasz} na kogos, kto widzial juz to i owo.$} {#SH <118><fff>%0 [2/13]<088>;#line gag};
+#ACTION {^{Wyglada|Wygladasz} na kogos, kto pewnie stapa po swiecie.$} {#SH { <ffa>| POZIOM:   <fba>ktos, kto pewnie stapa po swiecie [3/13]<088>};#line gag;};
+#ACTION {^{Wyglada|Wygladasz} na kogos, kto niejedno widzial.$} {#SH { <ffa>| POZIOM:   <fba>ktos, kto niejedno widzial [4/13]<088>};#line gag;};
+#ACTION {^{Wyglada|Wygladasz} na kogos, kto swoje przezyl.$} {#SH { <ffa>| POZIOM:   <fba>ktos, kto swoje przezyl [5/13]<088>};#line gag;};
+#ACTION {^{Wyglada|Wygladasz} na kogos doswiadczonego.$} {#SH { <ffa>| POZIOM:   <fba>ktos doswiadczony [6/13]<088>};#line gag;};
+#ACTION {^{Wyglada|Wygladasz} na kogos, kto wiele przeszedl.$} {#SH { <ffa>| POZIOM:   <fba>ktos, kto wiele przeszedl [7/13]<088>};#line gag;};
+#ACTION {^{Wyglada|Wygladasz} na kogos, kto widzial kawal swiata.$} {#SH { <ffa>| POZIOM:   <fba>ktos, kto widzial kawal swiata [8/13]<088>};#line gag;};
+#ACTION {^{Wyglada|Wygladasz} na kogos bardzo doswiadczonego.$} {#SH { <ffa>| POZIOM:   <fba>ktos bardzo doswiadczony [9/13]<088>};#line gag;};
+#ACTION {^{Wyglada|Wygladasz} na kogos, kto zwiedzil caly swiat.$} {#SH <118><fff>%0 [10/13]<088>;#line gag};
+#ACTION {^{Wyglada|Wygladasz} na kogos wielce doswiadczonego.$} {#SH { <ffa>| POZIOM:   <fba>ktos wielce doswiadczony [11/13]<088>};#line gag;};
+#ACTION {^{Wyglada|Wygladasz} na kogos, kto widzial i doswiadczyl wszystkiego.$} {#SH { <ffa>| POZIOM:   <fba>ktos, kto widzial i doswiadczyl wszystkiego [12/13]<088>};#line gag;};
+#ACTION {^{Wyglada|Wygladasz} na osobe owiana legenda.$} {#SH { <ffa>| POZIOM:   <fba>osoba owiana legenda [13/13]<088>};#line gag;};
+
+
+
+#action {~^%69 przybyw%* z %*.$} {
+  #var str_ilu {%69};
+  #format str_ilu {%u} {$str_ilu};
+  #replace str_ilu {{ I |, }} {;};
+  #list ltmp_ilu create {$str_ilu};
+  #list ltmp_ilu size {rara};
+  #sh {<118><ffa>[<afa>+$rara<ffa>]<088> %0<aaa>0<088>};
+  #line gag;
+}
+
+#action {~^%69 przybyw{|aja|a}.$} {
+  #var str_ilu {%69};
+  #format str_ilu {%u} {$str_ilu};
+  #replace str_ilu {{ I |, }} {;};
+  #list ltmp_ilu create {$str_ilu};
+  #list ltmp_ilu size {rara};
+  #sh {<118><ffa>[<afa>+$rara<ffa>]<088> %0<aaa>0<088>};
+  #line gag;
+}
+
+#action {~^%69 podaz{aja|a} na %*.$} {
+  #var str_ilu {%69};
+  #format str_ilu {%u} {$str_ilu};
+  #replace str_ilu {{ I |, }} {;};
+  #list ltmp_ilu create {$str_ilu};
+  #list ltmp_ilu size {rara};
+  #sh {<118><ffa>[<faa>-$rara<ffa>]<088> %0<aaa>0<088>};
+  #line gag;
+}
+
+
+#nop action {~^%69 podaz%*.$} {
+  #var str_ilu {%69};
+  #format str_ilu {%u} {$str_ilu};
+  #replace str_ilu {{ I |, }} {;};
+  #list ltmp_ilu create {$str_ilu};
+  #list ltmp_ilu size {rara};
+  #sh {<118><ffa>[<faa>-$rara<ffa>]<088> %0<aaa>0<088>};
+  #line gag;
+}
+
+#high {bronie drzewcowe:} {<faa>};
+#high {miecze:} {<faa>};
+#high {parowanie:} {<faa>};
+#high {rozbrajanie:} {<faa>};
+#high {tarczownictwo:} {<faa>};
+#high {zaslanianie:} {<faa>};
+#high {walka w ciemnosci:} {<faa>};
+#high {blokowanie:} {<faa>};
+#high {rozkazy:} {<faa>};
+#high {sztylety:} {<faa>};
+#high {uniki:} {<faa>};
+#high {walka w szyku:} {<faa>};
+
+#action {^Trzymasz %1.$} {
+  #sh {<119><afa>Trzymasz %1.<088><aaa>0};
+  #line gag;
+}
+
+#action {^Masz na sobie %1.$} {
+  #sh {<119><afa>Masz na sobie %1.<088><aaa>0};
+  #nop sh {<119><AFA><aaa>Masz na sobie %1.<088><aaa>0};
+  #line gag;
+}
+
+
+#action {^Trzyma %1.$} {
+  #sh {<119><afa>Trzyma %1.<088><aaa>0};
+  #line gag;
+}
+
+
+
+#action {^%1 atakuje cie!$}
+{
+  #sh {<179><FAA>%1 atakuje cie !};
+  #nop system {beep -r 10 -l 100 &};
+  #line gag;
+}
+
+
+#high {stary matowy pancerz} {<fff>};
+#high {strzelisty zasniedzialy helm} {<fff>};
+#high {snieznobialy lsniacy pancerz} {<fff>};
+#high {strzelisty zlocisty helm} {<fff>};
+
+#sub {srebrzysta kose bojowa} {<faf>sr<ebf>eb<dcf>rz<cdf>ys<aef>ta <aff>ko<bef>se <cdf>bo<dcf>jo<ebf>wa<088>}
+#sub {srebrzysta kosa bojowa} {<faf>sr<ebf>eb<dcf>rz<cdf>ys<aef>ta <aff>ko<bef>sa <cdf>bo<dcf>jo<ebf>wa<088>}
+#sub {srebrzystej kosy bojowej} {<faf>sr<ebf>eb<dcf>rz<cdf>ys<aef>tej <aff>ko<bef>sy <cdf>bo<dcf>jo<ebf>wej<088>}
+
+#sub {adamantytowa szpiczasta partyzana} {<bda>ada<bea>man<aea>tyt<cea>owa <bea>szp<ada>icz<aea>asta <dfa>part<cfa>rtyz<bfa>ana<088>}
+#sub {adamantytowa szpiczasta partyzane} {<bda>ada<bea>man<aea>tyt<cea>owa <bea>szp<ada>icz<aea>asta <dfa>part<cfa>rtyz<bfa>ane<088>}
+#sub {adamantytowa szpiczasta partyzana} {<bda>ada<bea>man<aea>tyt<cea>owa <bea>szp<ada>icz<aea>asta <dfa>part<cfa>rtyz<bfa>ana<088>}
+
+#sub {azurowy koscistobialy amulet} {<ddf>az<dff>uro<fdf>wy <ffd>kosc<eed>isto<fdf>bialy <ddf>amu<dff>let<088>};

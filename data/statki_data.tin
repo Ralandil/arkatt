@@ -1,0 +1,26 @@
+#var _statek[tratwa_alimento] {ec987a57-a325-11e4-9028-2cf0ee2cbf2a};
+#var _statek[tratwa_kreutz] {b82166d4-755d-11e4-b7cf-2cf0ee2cbf2a};
+#var _statek[barka_quen] {7e4b17eb-bd98-11e4-8423-2cf0ee2cbf2a};
+#var _statek[statek_bodrog] {322a023d-cbc7-11e4-9e6e-2cf0ee2cbf2a};
+
+#action {Doplynelismy do %1! Mozna wysiadac!$} {
+
+	#if {"%1" == "przystani przeladunkowej w Alimento"} {#var celwyjscia {tratwa_alimento}};
+	#elseif {"%1" == "przystani w miasteczku Kreutzhofen"} {#var celwyjscia {tratwa_kreutz}};
+	#nop elseif {"%1" == "portu w Quenelles"} {#var celwyjscia {barka_quen}};
+	#elseif {"%1" == "przystani u stop twierdzy Bodrog"} {#var celwyjscia {statek_bodrog}};
+	#alias {zejdz_na_brzeg} {
+		#send zejdz na brzeg;
+		#send zejdz ze statku;
+	};
+	#var koko @set_quickbind_blue{zejdz_na_brzeg};
+	
+	#var statek_tekst %0;
+}
+
+
+#ACTION {Sniady spokojny mezczyzna krzyczy: Doplynelismy do portu Blaviken w krolestwie Redanii! Mozna wysiadac!} {#chat message mapper lookup:f580eb9e-bdb3-11e4-abd5-0021ccbf0d6e} {1};
+#action {Jasnowlosy sniady elf krzyczy: Doplynelismy do portu Blaviken w krolestwie Redanii! Mozna wysiadac!} {#chat message mapper lookup:f48fb382-b912-11e4-87f7-2cf0ee2cbf2a} {1};
+#action {Sniady spokojny mezczyzna krzyczy: Doplynelismy do portu Blaviken w krolestwie Redanii! Mozna wysiadac!} {#chat message mapper lookup:f48fb230-b912-11e4-a51e-2cf0ee2cbf2a} {1};
+
+

@@ -1,0 +1,5 @@
+#run {bot} {telnet open.ircnet.net 6667};
+#read /home/eldakar/arkatt/botoptions.tin;
+#read /home/adam/arkatt/botoptions.tin;
+#chat init
+#chat name ircbot
