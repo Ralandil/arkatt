@@ -54,14 +54,14 @@
 
 #var staticframe {<afa>    }
 
-#prompt {chatline2} {   <aff>CEL ATAKU   :<088>                                                        $promptlines[1]} {-2}
-#prompt {chatline3} {   <aff>CEL OBRONY  :<088>                                                        $promptlines[2]} {-3}
-#prompt {chatline4} {                                                           $promptlines[3]} {-4}
-#prompt {chatline5} {                                                           $promptlines[4]} {-5}
-#prompt {chatline6} {                                                           $promptlines[5]} {-6}
-#prompt {chatline7} {                                                           $promptlines[6]} {-7}
-#prompt {chatline8} {                                                           $promptlines[7]} {-8}
-#prompt {chatline9} {   $ecmp[1] $wrogowie_prompt[1] $ecmp[11] $wrogowie_prompt[11]   $pr_wrog$pr_zycie $druzyna_prompt[10]  $promptlines[8]} {-9}
+#prompt {chatline2} {   <aff>CEL ATAKU   :<088>                                          $promptlines[1]} {-2}
+#prompt {chatline3} {   <aff>CEL OBRONY  :<088>                                         $promptlines[2]} {-3}
+#prompt {chatline4} {                                                          $promptlines[3]} {-4}
+#prompt {chatline5} {                                                          $promptlines[4]} {-5}
+#prompt {chatline6} {                                                          $promptlines[5]} {-6}
+#prompt {chatline7} {                                                          $promptlines[6]} {-7}
+#prompt {chatline8} {                                                          $promptlines[7]} {-8}
+#prompt {chatline9} {  $ecmp[1] $wrogowie_prompt[1] $ecmp[11] $wrogowie_prompt[11]   $pr_wrog$pr_zycie $druzyna_prompt[10]  $promptlines[8]} {-9}
 #prompt {chatline10} {  $ecmp[2] $wrogowie_prompt[2] $ecmp[12] $wrogowie_prompt[12]  $druzyna_prompt[1] $druzyna_prompt[11]  $promptlines[9]} {-10}
 #prompt {chatline11} {  $ecmp[3] $wrogowie_prompt[3] $ecmp[13] $wrogowie_prompt[13]  $druzyna_prompt[2] $druzyna_prompt[12]  $promptlines[10]} {-11}
 #prompt {chatline12} {  $ecmp[4] $wrogowie_prompt[4] $ecmp[14] $wrogowie_prompt[14]  $druzyna_prompt[3] $druzyna_prompt[13]  $promptlines[11]} {-12}
