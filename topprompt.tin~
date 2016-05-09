@@ -54,23 +54,24 @@
 
 #var staticframe {<afa>    }
 
-#prompt {chatline2} {  $pr_wrog$pr_zycie   $ecmp[1] $wrogowie_prompt[1]  $promptlines[1]} {-2}
-#prompt {chatline3} { $druzyna_prompt[1]   $ecmp[2] $wrogowie_prompt[2]  $promptlines[2]} {-3}
-#prompt {chatline4} { $druzyna_prompt[2]   $ecmp[3] $wrogowie_prompt[3]  $promptlines[3]} {-4}
-#prompt {chatline5} {$promptlines[4]} {-5}
-#prompt {chatline6} {$promptlines[5]} {-6}
-#prompt {chatline7} {$promptlines[6]} {-7}
-#prompt {chatline8} {$promptlines[7]} {-8}
-#prompt {chatline9} {$promptlines[8]} {-9}
-#prompt {chatline10} {$promptlines[9]} {-10}
-#prompt {chatline11} {$promptlines[10]} {-11}
-#prompt {chatline12} {$promptlines[11]} {-12}
-#prompt {chatline13} {$promptlines[12]} {-13}
-#prompt {chatline14} {$promptlines[13]} {-14}
-#prompt {chatline15} {$promptlines[14]} {-15}
-#prompt {chatline16} {$promptlines[15]} {-16}
-#prompt {chatline17} {$promptlines[16]} {-17}
-#prompt {chatline18} {$promptlines[17]} {-18}
+#prompt {chatline2} {   <aff>CEL ATAKU   :<088>                                          $promptlines[1]} {-2}
+#prompt {chatline3} {   <aff>CEL OBRONY  :<088>                                          $promptlines[2]} {-3}
+#prompt {chatline4} {                                                          $promptlines[3]} {-4}
+#prompt {chatline5} {                                                          $promptlines[4]} {-5}
+#prompt {chatline6} {                                                          $promptlines[5]} {-6}
+#prompt {chatline7} {                                                          $promptlines[6]} {-7}
+#prompt {chatline8} {                                                          $promptlines[7]} {-8}
+#prompt {chatline9} {  $ecmp[1] $wrogowie_prompt[1] $ecmp[11] $wrogowie_prompt[11]   $pr_wrog$pr_zycie $druzyna_prompt[10]  $promptlines[8]} {-9}
+#prompt {chatline10} {  $ecmp[2] $wrogowie_prompt[2] $ecmp[12] $wrogowie_prompt[12]  $druzyna_prompt[1] $druzyna_prompt[11]  $promptlines[9]} {-10}
+#prompt {chatline11} {  $ecmp[3] $wrogowie_prompt[3] $ecmp[13] $wrogowie_prompt[13]  $druzyna_prompt[2] $druzyna_prompt[12]  $promptlines[10]} {-11}
+#prompt {chatline12} {  $ecmp[4] $wrogowie_prompt[4] $ecmp[14] $wrogowie_prompt[14]  $druzyna_prompt[3] $druzyna_prompt[13]  $promptlines[11]} {-12}
+#prompt {chatline13} {  $ecmp[5] $wrogowie_prompt[5] $ecmp[15] $wrogowie_prompt[15]  $druzyna_prompt[4] $druzyna_prompt[14]  $promptlines[12]} {-13}
+#prompt {chatline14} {  $ecmp[6] $wrogowie_prompt[6] $ecmp[16] $wrogowie_prompt[16]  $druzyna_prompt[5] $druzyna_prompt[15]  $promptlines[13]} {-14}
+#prompt {chatline15} {  $ecmp[7] $wrogowie_prompt[7] $ecmp[17] $wrogowie_prompt[17]  $druzyna_prompt[6] $druzyna_prompt[16]  $promptlines[14]} {-15}
+#prompt {chatline16} {  $ecmp[8] $wrogowie_prompt[8] $ecmp[18] $wrogowie_prompt[18]  $druzyna_prompt[7] $druzyna_prompt[17]  $promptlines[15]} {-16}
+#prompt {chatline17} {  $ecmp[9] $wrogowie_prompt[9] $ecmp[19] $wrogowie_prompt[19]  $druzyna_prompt[8] $druzyna_prompt[18]  $promptlines[16]} {-17}
+#prompt {chatline18} {  $ecmp[10] $wrogowie_prompt[10] $ecmp[20] $wrogowie_prompt[20]  $druzyna_prompt[9] $druzyna_prompt[19]  $promptlines[17]} {-18}
+
 
 #format maxwidth {%C}
 #loop {1} {150} {iii} {

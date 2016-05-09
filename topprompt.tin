@@ -55,7 +55,7 @@
 #var staticframe {<afa>    }
 
 #prompt {chatline2} {   <aff>CEL ATAKU   :<088>                                          $promptlines[1]} {-2}
-#prompt {chatline3} {   <aff>CEL OBRONY  :<088>                                         $promptlines[2]} {-3}
+#prompt {chatline3} {   <aff>CEL OBRONY  :<088>                                          $promptlines[2]} {-3}
 #prompt {chatline4} {                                                          $promptlines[3]} {-4}
 #prompt {chatline5} {                                                          $promptlines[4]} {-5}
 #prompt {chatline6} {                                                          $promptlines[5]} {-6}
@@ -74,7 +74,7 @@
 
 
 #format maxwidth {%C}
-#loop {1} {150} {iii} {
+#loop {1} {5} {iii} {
   #if {$iii == 1} {
     #var staticframe {${bgcolor}+};
     #list promptlines set {1} {};
