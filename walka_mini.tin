@@ -67,45 +67,45 @@
 
 #action {^%* probuje zaslonic %* przed ciosami %*, jednak nie jest w stanie tego uczynic.$}
 {
-	#var rstuw @add_chat_lines{<118><faa>[zaslona] %0<aaa>,};#line gag;
+	#var rstuw @add_chat_lines_yellow{<118><ffa>[zaslona] %0};#line gag;
 }
 
 
 #action {^%* probuje zaslonic cie przed ciosami %*, jednak nie jest w stanie tego uczynic.$}
 {
-	#var rstuw @add_chat_lines{<118><faa>[zaslona] %0<aaa>,};#line gag;
+	#var rstuw @add_chat_lines_red{<118><faa>[zaslona] %0};#line gag;
 } {2}
 
 #action {^Przestajesz zaslaniac %*.$}
 {
-	#var rstuw @add_chat_lines{<118><ffa>[zaslona] %0<aaa>,};#line gag;
+	#var rstuw @add_chat_lines_yellow{<118><ffa>[zaslona] %0};#line gag;
 } {1}
 #action {^%* przestaje cie zaslaniac przed ciosami wrogow.$}
 {
-	#var rstuw @add_chat_lines{<118><ffa>[zaslona] %0<aaa>,};#line gag;
+	#var rstuw @add_chat_lines_yellow{<118><ffa>[zaslona] %0};#line gag;
 }
 #action {^Wychodzisz zza zaslony %*.$}
 {
-	#var rstuw @add_chat_lines{<118><ffa>[zaslona] %0<aaa>,};#line gag;
+	#var rstuw @add_chat_lines_yellow{<118><ffa>[zaslona] %0};#line gag;
 }
 
 #NOP NEGATYWNE;
 #action {^%* zaslania %* przed twoimi ciosami.%D$}
 {
-	#var rstuw @add_chat_lines{<118><faa>[zaslona] [] przelam] %0<aaa>,};
+	#var rstuw @add_chat_lines_red{<118><faa>[zaslona] [] przelam] %0};
     #var r @set_quickbind_red{przelam obrone celu ataku};
     #line gag;
 }
   
 #action {^Probujesz zaslonic %* przed ciosami %*, jednak nie jestes w stanie tego uczynic.$}
 {
-	#var rstuw @add_chat_lines{<118><faa>[zaslona] %0<aaa>,};
+	#var rstuw @add_chat_lines_red{<118><faa>[zaslona] %0};
     #var koko @start_zaslona_ticker{};
     #line gag;
 }
 #action {^%* probujesz zaslonic %* przed ciosami %*, jednak nie jestes w stanie tego uczynic.%D$}
 {
-	#var rstuw @add_chat_lines{<118><faa>[zaslona] %0<aaa>,};
+	#var rstuw @add_chat_lines_red{<118><faa>[zaslona] %0};
     #var koko @start_zaslona_ticker{};
     #line gag;
 }
@@ -114,24 +114,24 @@
 #NOP POZYTYWNE;
 #action {^%* zaslania %* przed ciosami %*.$}
 {
-	#var rstuw @add_chat_lines{<118><ffa>[zaslona] %0<aaa>,};
+	#var rstuw @add_chat_lines_yellow{<118><ffa>[zaslona] %0};
     #line gag;
 }
 
 #action {^Na twoj rozkaz %* zaslania cie przed ciosami %*.$}
 {
-	#var rstuw @add_chat_lines{<118><afa>[zaslona] %0<aaa>,};
+	#var rstuw @add_chat_lines_green{<118><afa>[zaslona] %0};
     #line gag;
 }
 #action {^%* zaslania cie przed ciosami %*.$}
 {
-	#var rstuw @add_chat_lines{<118><afa>[zaslona] %0<aaa>,};
+	#var rstuw @add_chat_lines_green{<118><afa>[zaslona] %0};
     #line gag;
 } {2}
 
 #action {^Zrecznie zaslaniasz %* przed ciosami %*.$}
 {
-	#var rstuw @add_chat_lines{<118><afa>[zaslona] [3 przestan] %0<aaa>,};
+	#var rstuw @add_chat_lines_green{<118><afa>[zaslona] [3 przestan] %0};
     #var r @set_quickbind_green{przestan zaslaniac};
     #var koko @start_zaslona_ticker{};
     #line gag;
@@ -139,7 +139,7 @@
 
 #action {^Stajesz u boku %1, gotow w kazdej chwili %*}
 {
-	#var rstuw @add_chat_lines{<118><afa>[zaslona] [3 przestan] %0<aaa>,};
+	#var rstuw @add_chat_lines_green{<118><afa>[zaslona] [3 przestan] %0};
     #var r @set_quickbind_green{przestan zaslaniac};
     #var koko @start_zaslona_ticker{};
     #line gag;
@@ -147,7 +147,7 @@
 
 #action {^Z wprawa stajesz pomiedzy %* a %*, przyjmujac na siebie nadchodzace ciosy.$}
 {
-	#var rstuw @add_chat_lines{<118><afa>[zaslona] [3 przestan] %0<aaa>,};
+	#var rstuw @add_chat_lines_green{<118><afa>[zaslona] [3 przestan] %0};
     #var r @set_quickbind_green{przestan zaslaniac};
     #var koko @start_zaslona_ticker{};
     #line gag;
@@ -206,14 +206,14 @@
 #NOP INNE PRZYDATNE W WALCE;
 #action {^Bol %* staje sie mniej odczuwalny.$}
 {
-	#var kl @add_chat_lines{<118><afa>[bron]    [3 dobadz] %0<aaa>,};
+	#var kl @add_chat_lines_green{<118><afa>[bron]    [3 dobadz] %0};
     #var r @set_quickbind_green{dobadz broni};
     #line gag;
 }
 
 #action {^Nie mozesz dobyc %*, gdyz %*.$}
 {
-	#var kl @add_chat_lines{<118><faa>[bron]    %0<aaa>,};
+	#var kl @add_chat_lines_yellow{<118><faa>[bron]    %0};
     #line gag;
 }
 
@@ -236,5 +236,5 @@
 
 #action {^Wskazujesz %* jako cel ataku.$}
 {
-	#var kl @add_chat_lines{<118><afa>[  cel  ] %0<aaa>,};
+	#var kl @add_chat_lines_red{<118><afa>[cel]     %0};
 }

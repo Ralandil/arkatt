@@ -226,6 +226,120 @@ refresh_chat_prompt
 	#loop 1 $slen {z} {#var promptlines[20] {$promptlines[20] }}; 
 }
 
+#function {add_chat_line_green} {
+    #list promptlines set {1} $promptlines[2];
+    #list promptlines set {2} $promptlines[3];
+    #list promptlines set {3} $promptlines[4];
+    #list promptlines set {4} $promptlines[5];
+    #list promptlines set {5} $promptlines[6];
+    #list promptlines set {6} $promptlines[7];
+    #list promptlines set {7} $promptlines[8];
+    #list promptlines set {8} $promptlines[9];
+    #list promptlines set {9} $promptlines[10];
+    #list promptlines set {10} $promptlines[11];
+    #list promptlines set {11} $promptlines[12];
+    #list promptlines set {12} $promptlines[13];
+    #list promptlines set {13} $promptlines[14];
+    #list promptlines set {14} $promptlines[15];
+    #list promptlines set {15} $promptlines[16];
+    #list promptlines set {16} $promptlines[17];
+    #list promptlines set {17} $promptlines[18];
+    #list promptlines set {18} $promptlines[19];
+    #list promptlines set {19} $promptlines[20];
+    #list promptlines set {20} {%1};
+	
+	#format slen {%L} {$promptlines[20]};
+	#math slen {85 - $slen};
+	#loop 1 $slen {z} {#var promptlines[20] {$promptlines[20] }}; 
+	#var promptlines[20] {<aca>$promptlines[20]};
+}
+
+
+#function {add_chat_line_chat} {
+    #list promptlines set {1} $promptlines[2];
+    #list promptlines set {2} $promptlines[3];
+    #list promptlines set {3} $promptlines[4];
+    #list promptlines set {4} $promptlines[5];
+    #list promptlines set {5} $promptlines[6];
+    #list promptlines set {6} $promptlines[7];
+    #list promptlines set {7} $promptlines[8];
+    #list promptlines set {8} $promptlines[9];
+    #list promptlines set {9} $promptlines[10];
+    #list promptlines set {10} $promptlines[11];
+    #list promptlines set {11} $promptlines[12];
+    #list promptlines set {12} $promptlines[13];
+    #list promptlines set {13} $promptlines[14];
+    #list promptlines set {14} $promptlines[15];
+    #list promptlines set {15} $promptlines[16];
+    #list promptlines set {16} $promptlines[17];
+    #list promptlines set {17} $promptlines[18];
+    #list promptlines set {18} $promptlines[19];
+    #list promptlines set {19} $promptlines[20];
+    #list promptlines set {20} {%1};
+	
+	#format slen {%L} {$promptlines[20]};
+	#math slen {85 - $slen};
+	#loop 1 $slen {z} {#var promptlines[20] {$promptlines[20] }}; 
+	#var promptlines[20] {<cac>$promptlines[20]};
+}
+
+#function {add_chat_line_yellow} {
+    #list promptlines set {1} $promptlines[2];
+    #list promptlines set {2} $promptlines[3];
+    #list promptlines set {3} $promptlines[4];
+    #list promptlines set {4} $promptlines[5];
+    #list promptlines set {5} $promptlines[6];
+    #list promptlines set {6} $promptlines[7];
+    #list promptlines set {7} $promptlines[8];
+    #list promptlines set {8} $promptlines[9];
+    #list promptlines set {9} $promptlines[10];
+    #list promptlines set {10} $promptlines[11];
+    #list promptlines set {11} $promptlines[12];
+    #list promptlines set {12} $promptlines[13];
+    #list promptlines set {13} $promptlines[14];
+    #list promptlines set {14} $promptlines[15];
+    #list promptlines set {15} $promptlines[16];
+    #list promptlines set {16} $promptlines[17];
+    #list promptlines set {17} $promptlines[18];
+    #list promptlines set {18} $promptlines[19];
+    #list promptlines set {19} $promptlines[20];
+    #list promptlines set {20} {%1};
+	
+	#format slen {%L} {$promptlines[20]};
+	#math slen {85 - $slen};
+	#loop 1 $slen {z} {#var promptlines[20] {$promptlines[20] }}; 
+	#var promptlines[20] {<cca>$promptlines[20]};
+}
+
+#function {add_chat_line_red} {
+    #list promptlines set {1} $promptlines[2];
+    #list promptlines set {2} $promptlines[3];
+    #list promptlines set {3} $promptlines[4];
+    #list promptlines set {4} $promptlines[5];
+    #list promptlines set {5} $promptlines[6];
+    #list promptlines set {6} $promptlines[7];
+    #list promptlines set {7} $promptlines[8];
+    #list promptlines set {8} $promptlines[9];
+    #list promptlines set {9} $promptlines[10];
+    #list promptlines set {10} $promptlines[11];
+    #list promptlines set {11} $promptlines[12];
+    #list promptlines set {12} $promptlines[13];
+    #list promptlines set {13} $promptlines[14];
+    #list promptlines set {14} $promptlines[15];
+    #list promptlines set {15} $promptlines[16];
+    #list promptlines set {16} $promptlines[17];
+    #list promptlines set {17} $promptlines[18];
+    #list promptlines set {18} $promptlines[19];
+    #list promptlines set {19} $promptlines[20];
+    #list promptlines set {20} {%1};
+	
+	#format slen {%L} {$promptlines[20]};
+	#math slen {85 - $slen};
+	#loop 1 $slen {z} {#var promptlines[20] {$promptlines[20] }}; 
+	#var promptlines[20] {<caa>$promptlines[20]};
+}
+
+
 #function {add_chat_lines} {
   #nop format maxwidth {%C};
   #var maxwidth 85;
@@ -447,6 +561,160 @@ refresh_chat_prompt
 	#var buffline2 {${buffline2} };
       };
       #var __r @add_combat_line_yellow{$buffline2};
+  };
+
+	refresh_chat_prompt;
+}
+
+#function {add_chat_lines_yellow} {
+  #nop format maxwidth {%C};
+  #var maxwidth 85;
+  #var letters2 0;
+  #var buffline2 {};
+#line {strip} {#var uncolored_line %1};
+  #parse {%1} {char2} {
+    #math letters2 {$letters2+1};
+    #format strcurrsize2 {%L} {$buffline2};
+    #if {$strcurrsize2 == 0} {
+      #var buffline2 { };
+    };
+    #if {$strcurrsize2 + 1 < $maxwidth} {
+      #var buffline2 {${buffline2}${char2}};
+    };
+    #if {$strcurrsize2 + 1 == $maxwidth} {
+      #var buffline2 {${buffline2}};
+      #var __r @add_chat_line_yellow{$buffline2};
+      #nop var buffline2 {${bgcolor}<088>};
+      #var buffline2 {};
+      #var buffline2 {${buffline2}${char2}};
+      #var letters 0;
+    };
+  };
+  #if {$strcurrsize2 > 0} {
+      #if {$strcurrsize2 + 1 == $maxwidth} {
+	#var buffline2 {${buffline2} };
+      } {
+	#math {padder2} {$maxwidth - $strcurrsize2 - 2};
+	#loop {1} {$padder2} {ii2} {#var buffline2 {$buffline2}};
+	#var buffline2 {${buffline2} };
+      };
+      #var __r @add_chat_line_yellow{$buffline2};
+  };
+
+	refresh_chat_prompt;
+}
+
+
+#function {add_chat_lines_green} {
+  #nop format maxwidth {%C};
+  #var maxwidth 85;
+  #var letters2 0;
+  #var buffline2 {};
+#line {strip} {#var uncolored_line %1};
+  #parse {%1} {char2} {
+    #math letters2 {$letters2+1};
+    #format strcurrsize2 {%L} {$buffline2};
+    #if {$strcurrsize2 == 0} {
+      #var buffline2 { };
+    };
+    #if {$strcurrsize2 + 1 < $maxwidth} {
+      #var buffline2 {${buffline2}${char2}};
+    };
+    #if {$strcurrsize2 + 1 == $maxwidth} {
+      #var buffline2 {${buffline2}};
+      #var __r @add_chat_line_green{$buffline2};
+      #nop var buffline2 {${bgcolor}<088>};
+      #var buffline2 {};
+      #var buffline2 {${buffline2}${char2}};
+      #var letters 0;
+    };
+  };
+  #if {$strcurrsize2 > 0} {
+      #if {$strcurrsize2 + 1 == $maxwidth} {
+	#var buffline2 {${buffline2} };
+      } {
+	#math {padder2} {$maxwidth - $strcurrsize2 - 2};
+	#loop {1} {$padder2} {ii2} {#var buffline2 {$buffline2}};
+	#var buffline2 {${buffline2} };
+      };
+      #var __r @add_chat_line_green{$buffline2};
+  };
+
+	refresh_chat_prompt;
+}
+
+#function {add_chat_lines_chat} {
+  #nop format maxwidth {%C};
+  #var maxwidth 85;
+  #var letters2 0;
+  #var buffline2 {};
+#line {strip} {#var uncolored_line %1};
+  #parse {%1} {char2} {
+    #math letters2 {$letters2+1};
+    #format strcurrsize2 {%L} {$buffline2};
+    #if {$strcurrsize2 == 0} {
+      #var buffline2 { };
+    };
+    #if {$strcurrsize2 + 1 < $maxwidth} {
+      #var buffline2 {${buffline2}${char2}};
+    };
+    #if {$strcurrsize2 + 1 == $maxwidth} {
+      #var buffline2 {${buffline2}};
+      #var __r @add_chat_line_chat{$buffline2};
+      #nop var buffline2 {${bgcolor}<088>};
+      #var buffline2 {};
+      #var buffline2 {${buffline2}${char2}};
+      #var letters 0;
+    };
+  };
+  #if {$strcurrsize2 > 0} {
+      #if {$strcurrsize2 + 1 == $maxwidth} {
+	#var buffline2 {${buffline2} };
+      } {
+	#math {padder2} {$maxwidth - $strcurrsize2 - 2};
+	#loop {1} {$padder2} {ii2} {#var buffline2 {$buffline2}};
+	#var buffline2 {${buffline2} };
+      };
+      #var __r @add_chat_line_chat{$buffline2};
+  };
+
+	refresh_chat_prompt;
+}
+
+
+#function {add_chat_lines_red} {
+  #nop format maxwidth {%C};
+  #var maxwidth 85;
+  #var letters2 0;
+  #var buffline2 {};
+#line {strip} {#var uncolored_line %1};
+  #parse {%1} {char2} {
+    #math letters2 {$letters2+1};
+    #format strcurrsize2 {%L} {$buffline2};
+    #if {$strcurrsize2 == 0} {
+      #var buffline2 { };
+    };
+    #if {$strcurrsize2 + 1 < $maxwidth} {
+      #var buffline2 {${buffline2}${char2}};
+    };
+    #if {$strcurrsize2 + 1 == $maxwidth} {
+      #var buffline2 {${buffline2}};
+      #var __r @add_chat_line_red{$buffline2};
+      #nop var buffline2 {${bgcolor}<088>};
+      #var buffline2 {};
+      #var buffline2 {${buffline2}${char2}};
+      #var letters 0;
+    };
+  };
+  #if {$strcurrsize2 > 0} {
+      #if {$strcurrsize2 + 1 == $maxwidth} {
+	#var buffline2 {${buffline2} };
+      } {
+	#math {padder2} {$maxwidth - $strcurrsize2 - 2};
+	#loop {1} {$padder2} {ii2} {#var buffline2 {$buffline2}};
+	#var buffline2 {${buffline2} };
+      };
+      #var __r @add_chat_line_red{$buffline2};
   };
 
 	refresh_chat_prompt;

@@ -24,13 +24,13 @@
 
 #action {%1 {mruczy|mowi|burczy|dudni|krzyczy|nuci}%* do ciebie: %4} 
 {
-  #var rstuw @add_chat_lines{<ffa>[<faf>rozmowa<ffa>] <088><faf>%0};
+  #var rstuw @add_chat_lines_chat{<ffa>[<faf>rozmowa<ffa>] <088><faf>%0};
   #line gag;
 }
 
 #action {%1 {mruczy|mowi|burczy|dudni|krzyczy|nuci}%*: %4}
 {
-  #var rstuw @add_chat_lines{<ffa>[<faf>rozmowa<ffa>] <088><faf>%0};
+  #var rstuw @add_chat_lines_chat{<ffa>[<faf>rozmowa<ffa>] <088><faf>%0};
   #line gag;
 }
 

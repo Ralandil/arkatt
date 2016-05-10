@@ -19,11 +19,12 @@
   #if {$v == 4} {#variable mob {$ofiara[-2] $ofiara[-1]}} {#variable mob {$ofiara[$v]}};
   #math {count[Ty][$mob][cnt]} {$count[Ty][$mob][cnt]+1};
   #math {count[Ot][$mob][cnt]} {$count[Ot][$mob][cnt]+1};
+  #math {average} {$count[Ty][$mob][cnt]/$count[Ot][$mob][cnt]};
 
-  #var rstuw @add_chat_lines{<118><ccc>[<fca> .~.~. <ccc>] %0};
+  #var rstuw @add_chat_lines{<118><ccc>[<fca> .~.~. <ccc>] Zabiles  : <afa>%2};
   #var rstuw @add_chat_lines{<118><ccc>[<fca>(p...q)<ccc>] Ty       : <afa>${count}[Ty][$mob][cnt]<088>};
   #var rstuw @add_chat_lines{<118><ccc>[<fca>  |||  <ccc>] Druzyna  : <afa>$count[Ot][$mob][cnt]<088>};
-  #var rstuw @add_chat_lines{<118><ccc>[<fca>  `-'  <ccc>] Srednia  : <afa>$count[Ot][$mob][cnt]<088>};
+  #var rstuw @add_chat_lines{<118><ccc>[<fca>  `-'  <ccc>] Srednia  : <afa>$average%<088>};
 
   #var r @set_quickbind_yellow{wez_monety};
   #line gag;
@@ -49,8 +50,11 @@
   #math {count[Ot][$mob][cnt]} {$count[Ot][$mob][cnt]+1};
   #var r @set_quickbind_yellow{wez_monety};
 
-  #sh {<118><FAA><fff>[**ZGON**]<088> %0<088><aaa>,<088>};
-  #sh {<118><FAA><fff>[**ZGON**]<088> <afa> ${count}[Ty][$mob][cnt]/$count[Ot][$mob][cnt] <088>};
+  #math {average} {$count[Ty][$mob][cnt]/$count[Ot][$mob][cnt]};
+  #var rstuw @add_chat_lines{<118><ccc>[<fca> .~.~. <ccc>] %1 zabil <afa>%3};
+  #var rstuw @add_chat_lines{<118><ccc>[<fca>(p...q)<ccc>] Ty       : <afa>${count}[Ty][$mob][cnt]<088>};
+  #var rstuw @add_chat_lines{<118><ccc>[<fca>  |||  <ccc>] Druzyna  : <afa>$count[Ot][$mob][cnt]<088>};
+  #var rstuw @add_chat_lines{<118><ccc>[<fca>  `-'  <ccc>] Srednia  : <afa>$average%<088>};
 
   #line gag;
 }

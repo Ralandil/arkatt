@@ -191,20 +191,20 @@
 #action {^%* wyprowadzic %* w jednym momencie konczac walke%*%*.$} {#var kl @add_combat_lines_yellow{<118><ffa>[leg 7/7] %0};#line gag;};
 
 #nop polprzezroczysty migotliwy topor
-#action {^Impet ciosu %* rozszczepia materie polprzezroczystego migotliwego topora, ktory niczym magiczny pocisk przenika %*, nieznacznie %*.$} {#var kl @add_combat_lines_mag{<118><acf>[dra 1/5] %0};#line gag;}
-#action {^Impet ciosu %* rozszczepia materie polprzezroczystego migotliwego topora, ktory niczym magiczny pocisk przenika %*, lekko %*.$} {#var kl @add_combat_lines_mag{<118><acf>[dra 2/5] %0};#line gag;}
-#action {^Impet ciosu %* rozszczepia materie polprzezroczystego migotliwego topora, ktory niczym magiczny pocisk przenika %*, powaznie %*.$} {#var kl @add_combat_lines_mag{<118><acf>[dra 3/5] %0};#line gag;}
-#action {^Impet ciosu %* rozszczepia materie polprzezroczystego migotliwego topora, ktory niczym magiczny pocisk przenika %*, potwornie %*.$} {#var kl @add_combat_lines_mag{<118><acf>[dra 4/5] %0};#line gag;}
-#action {^Impet ciosu %* rozszczepia materie polprzezroczystego migotliwego topora, ktory niczym magiczny pocisk przenika %*, gleboko %*.$} {#var kl @add_combat_lines_mag{<118><acf>[dra 5/5] %0};#line gag;}
+#action {^Impet ciosu %* rozszczepia materie polprzezroczyst%*, ktory niczym magiczny pocisk przenika %*, nieznacznie %*.$} {#var kl @add_combat_lines_mag{<118><acf>[dra 1/5] %0};#line gag;}
+#action {^Impet ciosu %* rozszczepia materie polprzezroczyst%*, ktory niczym magiczny pocisk przenika %*, lekko %*.$} {#var kl @add_combat_lines_mag{<118><acf>[dra 2/5] %0};#line gag;}
+#action {^Impet ciosu %* rozszczepia materie polprzezroczyst%*, ktory niczym magiczny pocisk przenika %*, powaznie %*.$} {#var kl @add_combat_lines_mag{<118><acf>[dra 3/5] %0};#line gag;}
+#action {^Impet ciosu %* rozszczepia materie polprzezroczyst%*, ktory niczym magiczny pocisk przenika %*, potwornie %*.$} {#var kl @add_combat_lines_mag{<118><acf>[dra 4/5] %0};#line gag;}
+#action {^Impet ciosu %* rozszczepia materie polprzezroczyst%*, ktory niczym magiczny pocisk przenika %*, gleboko %*.$} {#var kl @add_combat_lines_mag{<118><acf>[dra 5/5] %0};#line gag;}
 
 #nop lsniaca plomienista tarcza
 
 #nop GLAD
 #action {^Mocnym uderzeniem %* oszalamia %* i ciosem %* zadaje %*.} {#var kl @add_combat_lines_yellow{<118><ffa>[gla ?/?] %0};#line gag;}; 
 #nop Ciosem polprzezroczystego migotliwego topora w tulow Belgat(NA) zadaje gargantuicznemu szarawemu trollowi nieduza rane i uderzeniem lsniacej plomienistej tarczy odpycha go w tyl.
-Ta dziwna poswiata formuje sie w wirujaca kule przeplatajacych sie ze soba zoltych i pomaranczowych jezorow plynnego ognia, ktore wystrzeliwuja w kierunku zwalistego zielonkawego trolla. Parzace plomienie
-omiataja jego cialo pozostawiajac jedynie nieznaczne obrazenia.
-Belgat(NA) odpycha zwalistego zielonkawego trolla lsniaca plomienista tarcza i lekko kaleczy go ciosem polprzezroczystego migotliwego topora w leb.
+#nop Ta dziwna poswiata formuje sie w wirujaca kule przeplatajacych sie ze soba zoltych i pomaranczowych jezorow plynnego ognia, ktore wystrzeliwuja w kierunku zwalistego zielonkawego trolla. Parzace plomienie
+#nop omiataja jego cialo pozostawiajac jedynie nieznaczne obrazenia.
+#nop Belgat(NA) odpycha zwalistego zielonkawego trolla lsniaca plomienista tarcza i lekko kaleczy go ciosem polprzezroczystego migotliwego topora w leb.
 
 
 
