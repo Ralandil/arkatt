@@ -29,9 +29,12 @@
 #read $path/ziola.tin
 #read $path/baza.txt
 #read $path/compare.tin
+#read $path/gmcpmapper.txt
 #CONFIG LOG PLAIN
 #format {logfile} {${logpath}/%t.html} {%Y-%m-%d};
 #log append $logfile;
 #var lastmove none;
 sleep 1 {#chat call 127.0.0.1 6666};
 sleep 1 {testprompt};
+
+#var gmcp_saving 0;

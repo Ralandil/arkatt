@@ -164,6 +164,10 @@
 #EVENT {IAC SB GMCP room.info IAC SE}{
 	#var ROOM_INFO {%0};
 
+	#if {$gmcp_saving < 1} {
+		cg;
+	};
+
 	#var pr_n { };
 	#var pr_s { };
 	#var pr_e { };
@@ -203,9 +207,9 @@
 		#if {$mnamelen > 0} {
 			#replace {ROOM_INFO[map][name]} { } {};
 			#replace {ROOM_INFO[map][name]} {'} {};
-			asciimap;
+			#nop asciimap;
 		};
-			asciicompas;
+			#nop asciicompas;
 		
 
 
@@ -214,6 +218,9 @@
 	#var ruch_kompasu {none};
 	#var kompas_dziala {0};
 	testprompt;
+	refresh_chat_prompt;
+	
+
 }
 
 #var isNstandard 1
@@ -227,7 +234,13 @@
 #var isUPstandard 1
 #var isDNstandard 1
 
-#action {<CHAT> mapper chats to everyone, 'room:id:%1'} {#var current_room_id %1;#line gag;}
+#action {<CHAT> mapper chats to everyone, 'room:id:%1'} {
+	#var current_room_id %1;
+	#if {$gmcp_saving > 0} {
+		sg;
+	};
+	#line gag;
+}
 #action {<CHAT> mapper chats to everyone, 'exit:end'} {testprompt;#line gag;}
 #action {<CHAT> mapper chats to everyone, 'exit:start'} {#line gag;}
 #action {<CHAT> You chat to %1, %2} {#line gag}
