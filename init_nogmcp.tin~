@@ -22,14 +22,14 @@
 #read $path/statki.tin;
 #read $path/gmcpchat.tin;
 #read $path/data/quickbinds_data.tin;
-#read $path/data/statki.tin;
-#nop read $path/data/dylki.tin;
-#read $path/zgony.tin;
-#read $path/items.tin;
-#read $path/ziola.tin;
-#read $path/baza.txt;
-#read $path/compare.tin;
-#read $path/gmcpmapper.tin;
+#read $path/data/statki.tin
+#nop read $path/data/dylki.tin
+#read $path/zgony.tin
+#read $path/items.tin
+#read $path/ziola.tin
+#read $path/baza.txt
+#read $path/compare.tin
+#read $path/gmcpmapper.txt
 #CONFIG LOG PLAIN
 #format {logfile} {${logpath}/%t.html} {%Y-%m-%d};
 #log append $logfile;
