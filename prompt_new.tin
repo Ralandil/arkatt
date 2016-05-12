@@ -79,13 +79,13 @@
 #var pane_progress01_04 {<118><fff> 1/ 4<088>}
 
 #NOP KON
-#var pane_hp_07_07 {${kondycja_kolor_77}       <088>}
-#var pane_hp_06_07 {${kondycja_kolor_67}      ${blok1} <088>}
-#var pane_hp_05_07 {${kondycja_kolor_57}     ${blok2} ${blok1} <088>}
-#var pane_hp_04_07 {${kondycja_kolor_47}    ${blok1} ${blok2} ${blok1} <088>}
-#var pane_hp_03_07 {${kondycja_kolor_37}   ${blok2} ${blok1} ${blok2} ${blok1} <088>}
-#var pane_hp_02_07 {${kondycja_kolor_27}  ${blok1} ${blok2} ${blok1} ${blok2} ${blok1} <088>}
-#var pane_hp_01_07 {${kondycja_kolor_17} ${blok2} ${blok1} ${blok2} ${blok1} ${blok2} ${blok1} <088>}
+#var pane_hp_07_07 {${kondycja_kolor_77}TWOJEHP<088>}
+#var pane_hp_06_07 {${kondycja_kolor_67}TWOJEH${blok1}P<088>}
+#var pane_hp_05_07 {${kondycja_kolor_57}TWOJE${blok2}H${blok1}P<088>}
+#var pane_hp_04_07 {${kondycja_kolor_47}TWOJ${blok1}E${blok2}H${blok1}P<088>}
+#var pane_hp_03_07 {${kondycja_kolor_37}TWO${blok2}J${blok1}E${blok2}E${blok1}P<088>}
+#var pane_hp_02_07 {${kondycja_kolor_27}TW${blok1}O${blok2}J${blok1}E${blok2}H${blok1}P<088>}
+#var pane_hp_01_07 {${kondycja_kolor_17}T${blok2}W${blok1}O${blok2}J${blok1}E${blok2}H${blok1}P<088>}
 
 
 #var quickbind_alias_red {<G01>       <088>};
