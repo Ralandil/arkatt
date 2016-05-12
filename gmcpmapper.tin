@@ -14,6 +14,9 @@
 	#if {$ril < 1} {
 		#sh {<caa>MAPPER: brak <acc>GMCP <caa>w tej lokacji!};
 	} {
+		#replace {roominfo_n} { } {};
+		#replace {roominfo_n} {'} {};
+
 		#var savedroom {$gmcp_rooms_db[$roominfo_n][$roominfo_x][$roominfo_y]};
 		#format srl {%L} {$savedroom};
 		#if {$srl < 1} {
@@ -42,6 +45,9 @@
 	#if {$ril < 1} {
 		#sh {<caa>MAPPER: brak <acc>GMCP <caa>w tej lokacji!};
 	} {
+		#replace {roominfo_n} { } {};
+		#replace {roominfo_n} {'} {};
+
 		#var savedroom {$gmcp_rooms_db[$roominfo_n][$roominfo_x][$roominfo_y]};
 		#format srl {%L} {$savedroom};
 		#if {$srl < 1} {
