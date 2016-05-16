@@ -20,8 +20,6 @@
   
 
   #var ecmp[$cmp_obj] $cmp_str$cmp_dex$cmp_vit;
-  testprompt;
-  refresh_chat_prompt;
 }
 
 #action {Masz wrazenie, ze jest rownie silny jak ty.} {#line gag;#var cmp_tot 0;#var cmp_str 0};

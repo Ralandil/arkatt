@@ -2,65 +2,102 @@
 #chat init 6666
 #chat name mapper
 
+
 #action {^room:enter} {
-	#chat message all room:enter	
+	#chat message all room:enter;
+	#line gag;
 }
 
 #action {exit:rebind:%1} {
-	#chat message all %1
+	#chat message all %1;
+	#line gag;
 }
 
 #action {exit:custom:%1} {
-	#chat message all custom:%1
+	#chat message all custom:%1;
+	#line gag;
 }
 
 #action {^<CHAT> %1 chats to you, 'navigate:exit:{nw|ne|sw|se|n|w|s|e|u|d}'}
 {
-	#sh catch;
 	#mapper #send navigate:exit:%2;
+	#line gag;
 } {5}
 
 #action {^<CHAT> %1 chats to you, 'map:undo'}
 {
 	#mapper #send map:undo;
+	#line gag;
 }
 #action {^<CHAT> %1 chats to you, 'revert'}
 {
 	#mapper #send revert;
+	#line gag;
 }
 #action {^<CHAT> %1 chats to you, 'undo'}
 {
 	#mapper #send undo;
+	#line gag;
 }
 
 
 #action {^<CHAT> %1 chats to you, 'lookup:%2'}
 {
 	#mapper #send lookup:%2;
+	#line gag;
 } {1}
 
 #action {^<CHAT> %1 chats to you, 'navigate:follow:%2'}
 {
 	#mapper #send navigate:follow:%2;
+	#line gag;
 } {1}
 
 #action {^<CHAT> %1 chats to you, 'navigate:exit:%2'}
 {
 	#mapper #send navigate:custom:%2;
+	#line gag;
 } {6}
 #action {^<CHAT> %1 chats to you, 'navigate:custom:%2'}
 {
 	#mapper #send navigate:custom:%2;
+	#line gag;
 } {6}
 
 #action {^exit:start} {
 	#chat message all exit:start;
+	#line gag;
 }
 
 #action {^exit:end} {
 	#chat message all exit:end;
+	#line gag;
 }
 
 #action {^room:id:%1} {
-	#chat message all room:id:%1
+	#chat message all room:id:%1;
+	#line gag;
 }
+
+#split 0 22;
+
+#loop {2} {21} {lc} {#line substitute {variables} {#prompt {line${lc}} {$line$lc} {$lc}};};
+
+#loop {2} {21} {lc} {
+	#line substitute {variables} {
+		#action {~<CHAT> %* chats to you, 'line$lc-%*'} {
+			#var line${lc} {%2};
+			#sh {line${lc}};
+			#line gag;
+		};
+	};
+};
+
+#action {~<CHAT> %* chats to you, 'chat%*'} {
+	#sh {%2};
+	#line gag;
+};
+
+
+#action {<CHAT>} {#line gag;} {7};
+

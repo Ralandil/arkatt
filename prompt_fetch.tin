@@ -1,23 +1,4 @@
-#var zmebar10 {<ACA><118><aaa>                                                                      <088>};
-#var zmebar9 {<ACA><118><aaa> wypoczety                                                     <088><G02>       <088>};
-#var zmebar8 {<ACA><118><aaa> troche zmeczony                                        <088><G02>              <088>};
-#var zmebar7 {<CCA><118><aaa> zmeczony                                        <088><G02>                     <088>};
-#var zmebar6 {<CCA><118><aaa> bardzo zmeczony                          <088><G02>                            <088>};
-#var zmebar5 {<CCA><118><aaa> nieco wyczerpany                  <088><G02>                                   <088>};
-#var zmebar4 {<CCA><118><aaa> wyczerpany                 <088><G02>                                          <088>};
-#var zmebar3 {<CAA><118><fff> bardzo wyczerpany   <088><G02>                                                 <088>};
-#var zmebar2 {<CAA><118><fff> wycienczony  <088><G02>                                                        <088>};
-#var zmebar1 {<CAA><118><fff> calkow<118><G02><fff>icie wycienczony                                               <088>};
-
-#var hpbar7 {<ACA><118><aaa>                                                                      <088>};
-#var hpbar6 {<G02><118><aaa>          <088><ACA>                                                            <088>};
-#var hpbar5 {<G02><118><aaa>                    <088><ACA>                                                  <088>};
-#var hpbar4 {<G02><118><aaa>                              <088><ACA>                                        <088>};
-#var hpbar3 {<G02><118><aaa>                                        <088><ACA>                              <088>};
-#var hpbar2 {<G02><118><aaa>                                                  <088><ACA>                    <088>};
-#var hpbar1 {<G02><118><aaa>                                                            <088><ACA>          <088>};
-
-
+#nop {headache}{0} {improve}{0}{intox}{0}{mana}{8}{panic}{0}
 
 #sub {>} {};
 #sub {^%} {};
@@ -25,7 +6,6 @@
 #EVENT {IAC SB GMCP char.state IAC SE} {
 	#var CHAR_STATE {%0};
 
-	#sh $CHAR_STATE;
 	#if {"$CHAR_STATE[fatigue]" == "0"} {#var pr_zmeczenie {<118><afa> 0/ 9<088>};};
 	#if {"$CHAR_STATE[fatigue]" == "1"} {#var pr_zmeczenie {<118><afa> 1/ 9<088>};};
 	#if {"$CHAR_STATE[fatigue]" == "2"} {#var pr_zmeczenie {<118><afa> 2/ 9<088>};};
@@ -35,38 +15,45 @@
 	#if {"$CHAR_STATE[fatigue]" == "6"} {#var pr_zmeczenie {<118><faa> 6/ 9<088>};};
 	#if {"$CHAR_STATE[fatigue]" == "7"} {#var pr_zmeczenie {<118><faa> 7/ 9<088>};};
 	#if {"$CHAR_STATE[fatigue]" == "8"} {#var pr_zmeczenie {<118><faa> 8/ 9<088>};};
-	#if {"$CHAR_STATE[fatigue]" == "9"} {#var pr_zmeczenie {<118><faa> 8/ 9<088>};};
+	#if {"$CHAR_STATE[fatigue]" == "9"} {#var pr_zmeczenie {<118><faa> 9/ 9<088>};};
 
-	#if {"$CHAR_STATE[hp]" == "6"} {#var hp_bar {<118><afa> 7/ 7<088>};};
-	#if {"$CHAR_STATE[hp]" == "5"} {#var hp_bar {<118><afa> 6/ 7<088>};};
-	#if {"$CHAR_STATE[hp]" == "4"} {#var hp_bar {<118><afa> 5/ 7<088>};};
-	#if {"$CHAR_STATE[hp]" == "3"} {#var hp_bar {<118><afa> 4/ 7<088>};};
-	#if {"$CHAR_STATE[hp]" == "2"} {#var hp_bar {<118><afa> 3/ 7<088>};};
-	#if {"$CHAR_STATE[hp]" == "1"} {#var hp_bar {<118><afa> 2/ 7<088>};};
-	#if {"$CHAR_STATE[hp]" == "0"} {#var hp_bar {<118><afa> 1/ 7<088>};};
+	#if {"$CHAR_STATE[hp]" == "6"} {#var pr_zycie <088><aca>[#######]<088>;#var hp_bar {<118><afa> 7/ 7<088>};#var rpp @refreshprompt{};};
+	#if {"$CHAR_STATE[hp]" == "5"} {#var pr_zycie <088><aca>[ ######]<088>;#var hp_bar {<118><afa> 6/ 7<088>};#var rpp @refreshprompt{};};
+	#if {"$CHAR_STATE[hp]" == "4"} {#var pr_zycie <088><cca>[  #####]<088>;#var hp_bar {<118><afa> 5/ 7<088>};#var rpp @refreshprompt{};};
+	#if {"$CHAR_STATE[hp]" == "3"} {#var pr_zycie <088><cca>[   ####]<088>;#var hp_bar {<118><afa> 4/ 7<088>};#var rpp @refreshprompt{};};
+	#if {"$CHAR_STATE[hp]" == "2"} {#var pr_zycie <088><caa>[    ###]<088>;#var hp_bar {<118><afa> 3/ 7<088>};#var rpp @refreshprompt{};};
+	#if {"$CHAR_STATE[hp]" == "1"} {#var pr_zycie <088><caa>[     ##]<088>;#var hp_bar {<118><afa> 2/ 7<088>};#var rpp @refreshprompt{};};
+	#if {"$CHAR_STATE[hp]" == "0"} {#var pr_zycie <088><caa>[      #]<088>;#var hp_bar {<118><afa> 1/ 7<088>};#var rpp @refreshprompt{};};
 
-	#var rpp @refreshprompt{};
-}
+	#if {"$CHAR_STATE[encumberance]" == "6"} {#var pr_obci {<118><afa> 6/ 6<088>};};
+	#if {"$CHAR_STATE[encumberance]" == "5"} {#var pr_obci {<118><afa> 5/ 6<088>};};
+	#if {"$CHAR_STATE[encumberance]" == "4"} {#var pr_obci {<118><afa> 4/ 6<088>};};
+	#if {"$CHAR_STATE[encumberance]" == "3"} {#var pr_obci {<118><afa> 3/ 6<088>};};
+	#if {"$CHAR_STATE[encumberance]" == "2"} {#var pr_obci {<118><afa> 2/ 6<088>};};
+	#if {"$CHAR_STATE[encumberance]" == "1"} {#var pr_obci {<118><afa> 1/ 6<088>};};
+	#if {"$CHAR_STATE[encumberance]" == "0"} {#var pr_obci {<118><afa> 0/ 6<088>};};
 
-#action {Jestes trzezwy, ale masz %1 kaca.}
-{
-  #sh Masz %1 kaca.
-}
-#action {Jestes fizycznie %1 i w %2 formie, zas mentalnie %3.} 
-{
-	#showme Jestes %1.;
-	#showme Jestes w %2 formie.;
-	#showme Jestes mentalnie %3.;
-}
-#action {Czujesz sie %1 i jestes %2.} 
-{
-	#showme Jestes %2.;
-}
-#action {%1 pic i jestes %2.} 
-{
-	#format low {%l} {%1};
-	#showme Czujesz, ze $low pic.;
-	#showme Jestes %2.;
+	#if {"$CHAR_STATE[form]" == "6"} {#var pr_form {<118><afa> 6/ 6<088>};};
+	#if {"$CHAR_STATE[form]" == "5"} {#var pr_form {<118><afa> 5/ 6<088>};};
+	#if {"$CHAR_STATE[form]" == "4"} {#var pr_form {<118><afa> 4/ 6<088>};};
+	#if {"$CHAR_STATE[form]" == "3"} {#var pr_form {<118><afa> 3/ 6<088>};};
+	#if {"$CHAR_STATE[form]" == "2"} {#var pr_form {<118><afa> 2/ 6<088>};};
+	#if {"$CHAR_STATE[form]" == "1"} {#var pr_form {<118><afa> 1/ 6<088>};};
+	#if {"$CHAR_STATE[form]" == "0"} {#var pr_form {<118><afa> 0/ 6<088>};};
+
+	#if {"$CHAR_STATE[stuffed]" == "3"} {#var pr_glod {<118><afa> 0/ 3<088>};};
+	#if {"$CHAR_STATE[stuffed]" == "2"} {#var pr_glod {<118><ffa> 1/ 3<088>};};
+	#if {"$CHAR_STATE[stuffed]" == "1"} {#var pr_glod {<118><faa> 2/ 3<088>};};
+	#if {"$CHAR_STATE[stuffed]" == "0"} {#var pr_glod {<118><faa> 3/ 3<088>};};
+
+	#if {"$CHAR_STATE[soaked]" == "3"} {#var pr_smad {<118><afa> 0/ 3<088>};};
+	#if {"$CHAR_STATE[soaked]" == "2"} {#var pr_smad {<118><ffa> 1/ 3<088>};};
+	#if {"$CHAR_STATE[soaked]" == "1"} {#var pr_smad {<118><faa> 2/ 3<088>};};
+	#if {"$CHAR_STATE[soaked]" == "0"} {#var pr_smad {<118><faa> 3/ 3<088>};};
+		
+	#sh prompt1;
+	#sh prompt2;
+	#sh prompt3;
 }
 
 #action {Masz nowa poczte od %1.}
@@ -74,16 +61,13 @@
 	#system notify-send -i konsolekalendar ARKADIA "Nowa poczta od : %1";
 	#var pr_poczta {<510>**<088>};
 	#var r @pasek_zolty{Nowa poczta od %1};
-	#var rpp @refreshprompt{};;
 	#line gag;
 }
 
 #action {Nie masz zadnych nieprzeczytanych listow.}
 {
 	#var pr_poczta <afa>--<088>;
-	#var rpp @refreshprompt{};;
 }
-
 
 
 #nop CHLANIE;
@@ -115,180 +99,7 @@
 #action {^Jestes ciezko ranny.$} {#var hpbar $hpbar2;#var pr_zycie $pane_hp_02_07;#var rpp @refreshprompt{};;#line gag};
 #action {^Jestes ledwo zywy.$} {#var hpbar $hpbar1;#var pr_zycie $pane_hp_01_07;#var rpp @refreshprompt{};;#line gag};
 
-#alias {prompt_zmeczenie_10a} {
-#var prompt_zmeczenie_10 {<afa>#<088>};
-#var prompt_zmeczenie_9 {<afa>#<088>};
-#var prompt_zmeczenie_8 {<afa>#<088>};
-#var prompt_zmeczenie_7 {<ffa>#<088>};
-#var prompt_zmeczenie_6 {<ffa>#<088>};
-#var prompt_zmeczenie_5 {<ffa>#<088>};
-#var prompt_zmeczenie_4 {<faa>#<088>};
-#var prompt_zmeczenie_3 {<faa>#<088>};
-#var prompt_zmeczenie_2 {<faa>#<088>};
-#var prompt_zmeczenie_1 {<faa>#<088>};
-}
-#alias {prompt_zmeczenie_9a} {
-#var prompt_zmeczenie_10 {<afa> <088>};
-#var prompt_zmeczenie_9 {<afa>#<088>};
-#var prompt_zmeczenie_8 {<afa>#<088>};
-#var prompt_zmeczenie_7 {<ffa>#<088>};
-#var prompt_zmeczenie_6 {<ffa>#<088>};
-#var prompt_zmeczenie_5 {<ffa>#<088>};
-#var prompt_zmeczenie_4 {<faa>#<088>};
-#var prompt_zmeczenie_3 {<faa>#<088>};
-#var prompt_zmeczenie_2 {<faa>#<088>};
-#var prompt_zmeczenie_1 {<faa>#<088>};
-}
-#alias {prompt_zmeczenie_8a} {
-#var prompt_zmeczenie_10 {<afa> <088>};
-#var prompt_zmeczenie_9 {<afa> <088>};
-#var prompt_zmeczenie_8 {<afa>#<088>};
-#var prompt_zmeczenie_7 {<ffa>#<088>};
-#var prompt_zmeczenie_6 {<ffa>#<088>};
-#var prompt_zmeczenie_5 {<ffa>#<088>};
-#var prompt_zmeczenie_4 {<faa>#<088>};
-#var prompt_zmeczenie_3 {<faa>#<088>};
-#var prompt_zmeczenie_2 {<faa>#<088>};
-#var prompt_zmeczenie_1 {<faa>#<088>};
-}
-#alias {prompt_zmeczenie_7a} {
-#var prompt_zmeczenie_10 {<afa> <088>};
-#var prompt_zmeczenie_9 {<afa> <088>};
-#var prompt_zmeczenie_8 {<afa> <088>};
-#var prompt_zmeczenie_7 {<ffa>#<088>};
-#var prompt_zmeczenie_6 {<ffa>#<088>};
-#var prompt_zmeczenie_5 {<ffa>#<088>};
-#var prompt_zmeczenie_4 {<faa>#<088>};
-#var prompt_zmeczenie_3 {<faa>#<088>};
-#var prompt_zmeczenie_2 {<faa>#<088>};
-#var prompt_zmeczenie_1 {<faa>#<088>};
-}
-#alias {prompt_zmeczenie_6a} {
-#var prompt_zmeczenie_10 {<afa> <088>};
-#var prompt_zmeczenie_9 {<afa> <088>};
-#var prompt_zmeczenie_8 {<afa> <088>};
-#var prompt_zmeczenie_7 {<ffa> <088>};
-#var prompt_zmeczenie_6 {<ffa>#<088>};
-#var prompt_zmeczenie_5 {<ffa>#<088>};
-#var prompt_zmeczenie_4 {<faa>#<088>};
-#var prompt_zmeczenie_3 {<faa>#<088>};
-#var prompt_zmeczenie_2 {<faa>#<088>};
-#var prompt_zmeczenie_1 {<faa>#<088>};
-}
-#alias {prompt_zmeczenie_5a} {
-#var prompt_zmeczenie_10 {<afa> <088>};
-#var prompt_zmeczenie_9 {<afa> <088>};
-#var prompt_zmeczenie_8 {<afa> <088>};
-#var prompt_zmeczenie_7 {<ffa> <088>};
-#var prompt_zmeczenie_6 {<ffa> <088>};
-#var prompt_zmeczenie_5 {<ffa>#<088>};
-#var prompt_zmeczenie_4 {<faa>#<088>};
-#var prompt_zmeczenie_3 {<faa>#<088>};
-#var prompt_zmeczenie_2 {<faa>#<088>};
-#var prompt_zmeczenie_1 {<faa>#<088>};
-}
-#alias {prompt_zmeczenie_4a} {
-#var prompt_zmeczenie_10 {<afa> <088>};
-#var prompt_zmeczenie_9 {<afa> <088>};
-#var prompt_zmeczenie_8 {<afa> <088>};
-#var prompt_zmeczenie_7 {<ffa> <088>};
-#var prompt_zmeczenie_6 {<ffa> <088>};
-#var prompt_zmeczenie_5 {<ffa> <088>};
-#var prompt_zmeczenie_4 {<faa>#<088>};
-#var prompt_zmeczenie_3 {<faa>#<088>};
-#var prompt_zmeczenie_2 {<faa>#<088>};
-#var prompt_zmeczenie_1 {<faa>#<088>};
-}
-#alias {prompt_zmeczenie_3a} {
-#var prompt_zmeczenie_10 {<afa> <088>};
-#var prompt_zmeczenie_9 {<afa> <088>};
-#var prompt_zmeczenie_8 {<afa> <088>};
-#var prompt_zmeczenie_7 {<ffa> <088>};
-#var prompt_zmeczenie_6 {<ffa> <088>};
-#var prompt_zmeczenie_5 {<ffa> <088>};
-#var prompt_zmeczenie_4 {<faa> <088>};
-#var prompt_zmeczenie_3 {<faa>#<088>};
-#var prompt_zmeczenie_2 {<faa>#<088>};
-#var prompt_zmeczenie_1 {<faa>#<088>};
-}
-#alias {prompt_zmeczenie_2a} {
-#var prompt_zmeczenie_10 {<afa> <088>};
-#var prompt_zmeczenie_9 {<afa> <088>};
-#var prompt_zmeczenie_8 {<afa> <088>};
-#var prompt_zmeczenie_7 {<ffa> <088>};
-#var prompt_zmeczenie_6 {<ffa> <088>};
-#var prompt_zmeczenie_5 {<ffa> <088>};
-#var prompt_zmeczenie_4 {<faa> <088>};
-#var prompt_zmeczenie_3 {<faa> <088>};
-#var prompt_zmeczenie_2 {<faa>#<088>};
-#var prompt_zmeczenie_1 {<faa>#<088>};
-}
-#alias {prompt_zmeczenie_1a} {
-#var prompt_zmeczenie_10 {<afa> <088>};
-#var prompt_zmeczenie_9 {<afa> <088>};
-#var prompt_zmeczenie_8 {<afa> <088>};
-#var prompt_zmeczenie_7 {<ffa> <088>};
-#var prompt_zmeczenie_6 {<ffa> <088>};
-#var prompt_zmeczenie_5 {<ffa> <088>};
-#var prompt_zmeczenie_4 {<faa> <088>};
-#var prompt_zmeczenie_3 {<faa> <088>};
-#var prompt_zmeczenie_2 {<faa> <088>};
-#var prompt_zmeczenie_1 {<faa>#<088>};
-}
 
-#nop STAMINA;
-#action {Jestes w pelni wypoczety} {prompt_zmeczenie_10a;#var zmebar $zmebar10;#var zmeczenie_string {w pelni wypoczety};#var pr_zmeczenie <118><afa>10/10<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes wypoczety} {prompt_zmeczenie_9a;#var zmebar $zmebar9;#var zmeczenie_string {wypoczety};#var pr_zmeczenie <118><afa> 9/10<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes troche zmeczony} {prompt_zmeczenie_8a;#var zmebar $zmebar8;#var zmeczenie_string {troche zmeczony};#var pr_zmeczenie <118><afa> 8/10<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes zmeczony} {prompt_zmeczenie_7a;#var zmebar $zmebar7;#var zmeczenie_string {zmeczony};#var pr_zmeczenie <118><ffa> 7/10<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes bardzo zmeczony} {prompt_zmeczenie_6a;#var zmebar $zmebar6;#var zmeczenie_string {bardzo zmeczony};#var pr_zmeczenie <118><ffa> 6/10<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes nieco wyczerpany} {prompt_zmeczenie_5a;#var zmebar $zmebar5;#var zmeczenie_string {nieco wyczerpany};#var pr_zmeczenie <118><ffa> 5/10<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes wyczerpany} {prompt_zmeczenie_4a;#var zmebar $zmebar4;#var zmeczenie_string {wyczerpany};#var pr_zmeczenie <118><faa> 4/10<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes bardzo wyczerpany} {prompt_zmeczenie_3a;#var zmebar $zmebar3;#var zmeczenie_string {bardzo wyczerpany};#var pr_zmeczenie <118><faa> 3/10<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes wycienczony} {prompt_zmeczenie_2a;#var zmebar $zmebar2;#var zmeczenie_string {wycienczony};#var pr_zmeczenie <118><faa> 2/10<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes calkowicie wycienczony} {prompt_zmeczenie_1a;#var zmebar $zmebar1;#var zmeczenie_string {calkowicie wycienczony};#var pr_zmeczenie <118><faa> 1/10<088>;#var rpp @refreshprompt{};;#line gag};
-
-
-#nop MANA;
-#action {Jestes mentalnie u kresu sil.} {#var pr_mana <118><faa> 1/ 9<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes mentalnie wykonczon{y|a}.} {#var pr_mana <118><faa> 2/ 9<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes mentalnie wyczerpan{y|a}.} {#var pr_mana <118><faa> 3/ 9<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes mentalnie w zlej kondycji.} {#var pr_mana <118><ffa> 4/ 9<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes mentalnie bardzo zmeczon{y|a}.} {#var pr_mana <118><ffa> 5/ 9<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes mentalnie zmeczon{y|a}.} {#var pr_mana <118><ffa> 6/ 9<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes mentalnie oslabion{y|a}.} {#var pr_mana <118><afa> 7/ 9<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes mentalnie lekko oslabion{y|a}.} {#var pr_mana <118><afa> 8/ 9<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes mentalnie w pelni sil.} {#var pr_mana <118><afa> 9/ 9<088>;#var rpp @refreshprompt{};;#line gag};
-
-#nop PRAGNIENIE;
-#action {Czujesz, ze chce ci sie bardzo pic.} {#var pr_smad <118><faa> 1/ 4<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Czujesz, ze chce ci sie pic.} {#var pr_smad <118><faa> 2/ 4<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Czujesz, ze troche chce ci sie pic.} {#var pr_smad <118><ffa> 3/ 4<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Czujesz, ze nie chce ci sie pic.} {#var pr_smad <118><afa> 4/ 4<088>;#var rpp @refreshprompt{};;#line gag};
-
-#nop GLOD;
-#action {Jestes bardzo glodny.} {#var pr_glod <118><faa> 1/ 4<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes glodny.} {#var pr_glod <118><faa> 2/ 4<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes najedzony.} {#var pr_glod <118><ffa> 3/ 4<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes bardzo najedzony.} {#var pr_glod <118><afa> 4/ 4<088>;#var rpp @refreshprompt{};;#line gag};
-
-#nop FORMA
-#action {Jestes w przecietnej formie.} {#var pr_form <118><faa> 1/ 7<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes w niezlej formie.} {#var pr_form <118><faa> 2/ 7<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes w dosc dobrej formie.} {#var pr_form <118><ffa> 3/ 7<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes w dobrej formie.} {#var pr_form <118><ffa> 4/ 7<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes w bardzo dobrej formie.} {#var pr_form <118><ffa> 5/ 7<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes w doskonalej formie.} {#var pr_form <118><afa> 6/ 7<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes w nieziemskiej formie.} {#var pr_form <118><afa> 7/ 7<088>;#var rpp @refreshprompt{};;#line gag};
-
-#nop OBCIAZENIE;
-#action {Twoj ekwipunek nie wadzi ci ani troche.} {#var pr_obci <118><afa> 7/ 7<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Ciezar twego ekwipunku wadzi ci troche.} {#var pr_obci <118><afa> 6/ 7<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Ciezar twego ekwipunku daje ci sie we znaki.} {#var pr_obci <118><ffa> 5/ 7<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Ciezar twego ekwipunku jest dosyc klopotliwy.} {#var pr_obci <118><ffa> 4/ 7<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Twoj ekwipunek jest wyjatkowo ciezki.} {#var pr_obci <118><ffa> 3/ 7<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Twoj ekwipunek jest niemilosiernie ciezki.} {#var pr_obci <118><faa> 2/ 7<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Twoj ekwipunek prawie przygniata cie do ziemi.} {#var pr_obci <118><faa> 1/ 7<088>;#var rpp @refreshprompt{};;#line gag};
 
 
 #nop format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>; 

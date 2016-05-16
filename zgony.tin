@@ -21,10 +21,10 @@
   #math {count[Ot][$mob][cnt]} {$count[Ot][$mob][cnt]+1};
   #math {average} {$count[Ty][$mob][cnt]/$count[Ot][$mob][cnt]};
 
-  #var rstuw @add_chat_lines{<118><ccc>[<fca> .~.~. <ccc>] Zabiles  : <afa>%2};
-  #var rstuw @add_chat_lines{<118><ccc>[<fca>(p...q)<ccc>] Ty       : <afa>${count}[Ty][$mob][cnt]<088>};
-  #var rstuw @add_chat_lines{<118><ccc>[<fca>  |||  <ccc>] Druzyna  : <afa>$count[Ot][$mob][cnt]<088>};
-  #var rstuw @add_chat_lines{<118><ccc>[<fca>  `-'  <ccc>] Srednia  : <afa>$average%<088>};
+  #sh {<118><ccc>[<fca> .~.~. <ccc>] Zabiles  : <afa>%2};
+  #sh {<118><ccc>[<fca>(p...q)<ccc>] Ty       : <afa>${count}[Ty][$mob][cnt]<088>};
+  #sh {<118><ccc>[<fca>  |||  <ccc>] Druzyna  : <afa>$count[Ot][$mob][cnt]<088>};
+  #sh {<118><ccc>[<fca>  `-'  <ccc>] Srednia  : <afa>$average%<088>};
 
   #var r @set_quickbind_yellow{wez_monety};
   #line gag;
@@ -51,10 +51,10 @@
   #var r @set_quickbind_yellow{wez_monety};
 
   #math {average} {$count[Ty][$mob][cnt]/$count[Ot][$mob][cnt]};
-  #var rstuw @add_chat_lines{<118><ccc>[<fca> .~.~. <ccc>] %1 zabil <afa>%3};
-  #var rstuw @add_chat_lines{<118><ccc>[<fca>(p...q)<ccc>] Ty       : <afa>${count}[Ty][$mob][cnt]<088>};
-  #var rstuw @add_chat_lines{<118><ccc>[<fca>  |||  <ccc>] Druzyna  : <afa>$count[Ot][$mob][cnt]<088>};
-  #var rstuw @add_chat_lines{<118><ccc>[<fca>  `-'  <ccc>] Srednia  : <afa>$average%<088>};
+  #sh {<118><ccc>[<fca> .~.~. <ccc>] %1 zabil <afa>%3};
+  #sh {<118><ccc>[<fca>(p...q)<ccc>] Ty       : <afa>${count}[Ty][$mob][cnt]<088>};
+  #sh {<118><ccc>[<fca>  |||  <ccc>] Druzyna  : <afa>$count[Ot][$mob][cnt]<088>};
+  #sh {<118><ccc>[<fca>  `-'  <ccc>] Srednia  : <afa>$average%<088>};
 
   #line gag;
 }

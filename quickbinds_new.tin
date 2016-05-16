@@ -22,7 +22,6 @@
   #alias qb_dim_F1 {#var quickbind_alias_F1 $quickbind_alias_F1_dimmed};
   #line substitute {variables} {#macro {$KEY_F1} {%1;qb_dim_F1;testprompt}};
   #sh {<118><caa>> <088><118><CAA><fff>  WROG  F1  <088>  <118><CAA><fff> %1 <088> };
-  testprompt;
   #alias {1} {%1;qb_dim_F1;testprompt};
 }
 
@@ -36,7 +35,6 @@
   #alias qb_dim_F2 {#var quickbind_alias_F2 $quickbind_alias_F2_dimmed};
   #line substitute {variables} {#macro {$KEY_F2} {%1;qb_dim_F2;testprompt}};
   #sh {<118><caa>> <088><118><CAA><fff>  WROG  F2  <088>  <118><CAA><fff> %1 <088> };
-  testprompt;
   #alias {2} {%1;qb_dim_F2;testprompt};
 }
 
@@ -50,7 +48,6 @@
   #alias qb_dim_F3 {#var quickbind_alias_F3 $quickbind_alias_F3_dimmed};
   #line substitute {variables} {#macro {$KEY_F3} {%1;qb_dim_F3;testprompt}};
   #sh {<118><caa>> <088><118><CAA><fff>  WROG  F3  <088>  <118><CAA><fff> %1 <088> };
-  testprompt;
   #alias {3} {%1;qb_dim_F3;testprompt};
 }
 
@@ -64,7 +61,6 @@
   #alias qb_dim_F4 {#var quickbind_alias_F4 $quickbind_alias_F4_dimmed};
   #line substitute {variables} {#macro {$KEY_F4} {%1;qb_dim_F4;testprompt}};
   #sh {<118><caa>> <088><118><CAA><fff>  WROG  F4  <088>  <118><CAA><fff> %1 <088> };
-  testprompt;
   #alias {4} {%1;qb_dim_F4;testprompt};
 }
 
@@ -78,7 +74,6 @@
   #alias qb_dim_F5 {#var quickbind_alias_F5 $quickbind_alias_F5_dimmed};
   #line substitute {variables} {#macro {$KEY_F5} {%1;qb_dim_F5;testprompt}};
   #sh {<118><caa>> <088><118><CAA><fff>  WROG  F5  <088>  <118><CAA><fff> %1 <088> };
-  testprompt;
   #alias {5} {%1;qb_dim_F5;testprompt};
 }
 
@@ -92,7 +87,6 @@
   #alias qb_dim_F6 {#var quickbind_alias_F6 $quickbind_alias_F6_dimmed};
   #line substitute {variables} {#macro {$KEY_F6} {%1;qb_dim_F6;testprompt}};
   #sh {<118><caa>> <088><118><CAA><fff>  WROG  F6  <088>  <118><CAA><fff> %1 <088> };
-  testprompt;
   #alias {6} {%1;qb_dim_F6;testprompt};
 }
 
@@ -106,7 +100,6 @@
   #alias qb_dim_F7 {#var quickbind_alias_F1 $quickbind_alias_F7_dimmed};
   #line substitute {variables} {#macro {$KEY_F7} {%1;qb_dim_F7;testprompt}};
   #sh {<118><caa>> <088><118><CAA><fff>  WROG  F7  <088>  <118><CAA><fff> %1 <088> };
-  testprompt;
   #alias {7} {%1;qb_dim_F7;testprompt};
 }
 
@@ -120,7 +113,6 @@
   #alias qb_dim_F8 {#var quickbind_alias_F8 $quickbind_alias_F8_dimmed};
   #line substitute {variables} {#macro {$KEY_F8} {%1;qb_dim_F8;testprompt}};
   #sh {<118><caa>> <088><118><CAA><fff>  WROG  F8  <088>  <118><CAA><fff> %1 <088> };
-  testprompt;
   #alias {8} {%1;qb_dim_F8;testprompt};
 }
 
@@ -134,7 +126,6 @@
   #alias qb_dim_F9 {#var quickbind_alias_F9 $quickbind_alias_F9_dimmed};
   #line substitute {variables} {#macro {$KEY_F9} {%1;qb_dim_F9;testprompt}};
   #sh {<118><caa>> <088><118><CAA><fff>  WROG  F9  <088>  <118><CAA><fff> %1 <088> };
-  testprompt;
   #alias {9} {%1;qb_dim_F9;testprompt};
 }
 
@@ -149,7 +140,6 @@
   #alias qb_dim_F10 {#var quickbind_alias_F10 $quickbind_alias_F10_dimmed};
   #line substitute {variables} {#macro {$KEY_F10} {%1;qb_dim_F10;testprompt}};
   #sh {<118><caa>> <088><118><CAA><fff>  WROG  F10 <088>  <118><CAA><fff> %1 <088> };
-  testprompt;
   #alias {10} {%1;qb_dim_F1;testprompt};
 }
 
@@ -163,7 +153,6 @@
   #alias qb_dim_F11 {#var quickbind_alias_F11 $quickbind_alias_F11_dimmed};
   #line substitute {variables} {#macro {$KEY_F11} {%1;qb_dim_F11;testprompt}};
   #sh {<118><caa>> <088><118><CAA><fff>  WROG  F11 <088>  <118><CAA><fff> %1 <088> };
-  testprompt;
   #alias {11} {%1;qb_dim_F11;testprompt};
 }
 
@@ -177,7 +166,6 @@
   #alias qb_dim_F12 {#var quickbind_alias_F12 $quickbind_alias_F12_dimmed};
   #line substitute {variables} {#macro {$KEY_F12} {%1;qb_dim_F12;testprompt}};
   #sh {<118><caa>> <088><118><CAA><fff>  WROG  F12 <088>  <118><CAA><fff> %1 <088> };
-  testprompt;
   #alias {12} {%1;qb_dim_F12;testprompt};
 }
 
@@ -186,7 +174,6 @@
   #alias qb_dim_cel {#var quickbind_cel $quickbind_cel_dimmed};
   #line substitute {variables} {#macro {[} {%1;qb_dim_cel;testprompt}};  
   #var quickbind_cel {<118><FAA><fff>CEL<088>};
-  testprompt;
   #alias {1} {%1;qb_dim_cel;testprompt};
 }
 

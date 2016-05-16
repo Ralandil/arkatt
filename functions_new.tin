@@ -1,9 +1,6 @@
 #var margin {32}
 #var marginstr {                               }
 
-#alias {test_len} {#sh {Wyszczerzony zlosliwy goblin wykonuje zamaszyste ciecie krzywym krotkim nozem
-mierzac w ciebie, lecz tobie udaje sie je zbic z linii ataku ciezka dluga halabarda.}};
-
 #function {parselen} {
   #return %1;
 };

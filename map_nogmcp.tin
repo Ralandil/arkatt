@@ -210,17 +210,13 @@
 			#nop asciimap;
 		};
 			#nop asciicompas;
-		
-
-
 	};
-			team_clean_compare;
+	team_clean_compare;
 	#var ruch_kompasu {none};
 	#var kompas_dziala {0};
-	#var rpp @refreshprompt{};;
-	#var rcp @refresh_top_prompt{};
-	
-
+	#sh prompt3;
+	#sh prompt2;
+	#sh prompt1;
 }
 
 #var isNstandard 1
@@ -241,13 +237,17 @@
 	};
 	#line gag;
 }
-#action {<CHAT> mapper chats to everyone, 'exit:end'} {#var rpp @refreshprompt{};;#line gag;}
+#action {<CHAT> mapper chats to everyone, 'exit:end'} {
+	#sh prompt3;
+	#sh prompt2;
+	#sh prompt1;
+	#line gag;
+}
 #action {<CHAT> mapper chats to everyone, 'exit:start'} {#line gag;}
 #action {<CHAT> You chat to %1, %2} {#line gag}
 
 
 #action {^<CHAT> mapper chats to everyone, 'room:enter'} {
-	#line gag;
 	  #var isSstandard 1;
 	  #line substitute {variables} {#macro {$KEY_PAD_S} {move_s}};
 	  #alias s {move_s};
@@ -278,6 +278,7 @@
 	  #var isDNstandard 1;
 	  #line substitute {variables} {#macro {$KEY_PAD_D} {move_d}};
 	  #alias d {move_d};
+	#line gag;
 }
 
 #nop catch empty exits

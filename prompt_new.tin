@@ -133,7 +133,7 @@
 #var promtleft {${bgcolor}$promtleft<088>};
 
 #nop split 2 6
-#split 22 3
+#split 0 3
 
 
 #unprompt {prompt5} { $pr_nw  $pr_n  $pr_ne  zm$pr_zmeczenie mn$pr_mana    $wrogowie_prompt[1] $wrogowie_prompt[5] $wrogowie_prompt[9] $wrogowie_prompt[13] $wrogowie_prompt[17]   $pr_wrog$pr_zycie $druzyna_prompt[4] $druzyna_prompt[8] $druzyna_prompt[12] $druzyna_prompt[16]} {5};
@@ -162,9 +162,26 @@
 
 #function {refreshprompt}
 {
-#sh prompt1;
-#sh prompt2;
-#sh prompt3;
+	#chat message mapper {line2-   $pr_wrog$pr_zycie              <088>|<088>$ecmp[1] $wrogowie_prompt[1] <088>};
+	#chat message mapper {line3-$druzyna_prompt[1] <088>|<088>$ecmp[2] $wrogowie_prompt[2] <088>};
+	#chat message mapper {line4-$druzyna_prompt[2] <088>|<088>$ecmp[3] $wrogowie_prompt[3] <088>};
+	#chat message mapper {line5-$druzyna_prompt[3] <088>|<088>$ecmp[4] $wrogowie_prompt[4] <088>};
+	#chat message mapper {line6-$druzyna_prompt[4] <088>|<088>$ecmp[5] $wrogowie_prompt[5] <088>};
+	#chat message mapper {line7-$druzyna_prompt[5] <088>|<088>$ecmp[6] $wrogowie_prompt[6] <088>};
+	#chat message mapper {line8-$druzyna_prompt[6] <088>|<088>$ecmp[7] $wrogowie_prompt[7] <088>};
+	#chat message mapper {line9-$druzyna_prompt[7] <088>|<088>$ecmp[8] $wrogowie_prompt[8] <088>};
+	#chat message mapper {line10-$druzyna_prompt[8] <088>|<088>$ecmp[9] $wrogowie_prompt[9] <088>};
+	#chat message mapper {line11-$druzyna_prompt[9] <088>|<088>$ecmp[10] $wrogowie_prompt[10] <088>};
+	#chat message mapper {line12-$druzyna_prompt[10] <088>|<088>$ecmp[11] $wrogowie_prompt[11] <088>};
+	#chat message mapper {line13-$druzyna_prompt[11] <088>|<088>$ecmp[12] $wrogowie_prompt[12] <088>};
+	#chat message mapper {line14-$druzyna_prompt[12] <088>|<088>$ecmp[13] $wrogowie_prompt[13] <088>};
+	#chat message mapper {line15-$druzyna_prompt[13] <088>|<088>$ecmp[14] $wrogowie_prompt[14] <088>};
+	#chat message mapper {line16-$druzyna_prompt[14] <088>|<088>$ecmp[15] $wrogowie_prompt[15] <088>};
+	#chat message mapper {line17-$druzyna_prompt[15] <088>|<088>$ecmp[16] $wrogowie_prompt[16] <088>};
+	#chat message mapper {line18-$druzyna_prompt[16] <088>|<088>$ecmp[17] $wrogowie_prompt[17] <088>};
+	#chat message mapper {line19-$druzyna_prompt[17] <088>|<088>$ecmp[18] $wrogowie_prompt[18] <088>};
+	#chat message mapper {line20-$druzyna_prompt[18] <088>|<088>$ecmp[19] $wrogowie_prompt[19] <088>};
+	#chat message mapper {line21-$druzyna_prompt[19] <088>|<088>$ecmp[20] $wrogowie_prompt[20] <088>};
 }
 
 

@@ -1,206 +1,206 @@
 #NOP TWOJE CIOSY OGOLNE;
-#action {^Ledwo muskasz %*, trafiajac %* w %*.%D$} {#var kl @add_combat_lines_green{<118><afa>[1/6]     %0};#line gag;};
-#action {^Lekko ranisz %*, trafiajac %* w %*.%D$} {#var kl @add_combat_lines_green{<118><afa>[2/6]     %0};#line gag;};
-#action {^Ranisz %*, trafiajac %* w %*.%D$} {#var kl @add_combat_lines_green{<118><afa>[3/6]     %0};#line gag;};
-#action {^Powaznie ranisz %*, trafiajac %* w %*.%D$} {#var kl @add_combat_lines_green{<118><afa>[4/6]     %0};#line gag;};
-#action {^Bardzo ciezko ranisz %*, trafiajac %* w %*.%D$} {#var kl @add_combat_lines_green{<118><afa>[5/6]     %0};#line gag;};
-#action {^Masakrujesz %*, trafiajac %* w %*.%D$} {#var kl @add_combat_lines_green{<118><afa>[6/6]     %0};#line gag;};
+#action {~^Ledwo muskasz %*, trafiajac %* w %*.%D$} {#sh {<118><afa>[1/6]     <088>%0<aaa>,};#line gag;};
+#action {~^Lekko ranisz %*, trafiajac %* w %*.%D$} {#sh {<118><afa>[2/6]     <088>%0<aaa>,};#line gag;};
+#action {~^Ranisz %*, trafiajac %* w %*.%D$} {#sh {<118><afa>[3/6]     <088>%0<aaa>,};#line gag;};
+#action {~^Powaznie ranisz %*, trafiajac %* w %*.%D$} {#sh {<118><afa>[4/6]     <088>%0<aaa>,};#line gag;};
+#action {~^Bardzo ciezko ranisz %*, trafiajac %* w %*.%D$} {#sh {<118><afa>[5/6]     <088>%0<aaa>,};#line gag;};
+#action {~^Masakrujesz %*, trafiajac %* w %*.%D$} {#sh {<118><afa>[6/6]     <088>%0<aaa>,};#line gag;};
 #NOP TWOJE CIOSY ZAWOD;
 #NOP * STRAZNIK *;
-#action {^%* {pozostawiajac ledwie sinca|ledwie zahaczajac}.$} {#var kl @add_combat_lines_green{<118><afa>[str 1/6] %0};#line gag;};
-#action {^%*{pozostawiajac krwawiace zadrapanie|lekko raniac}.$} {#var kl @add_combat_lines_green{<118><afa>[str 2/6] %0};#line gag;};
-#action {^%*{pozostawiajac dluga, poszarpana rane|mocno raniac}.$} {#var kl @add_combat_lines_green{<118><afa>[str 3/6] %0};#line gag;};
-#action {^%*{pozostawiajac gleboka rane z wystajacymi na wierzchu tkankami|bardzo mocno raniac}.$} {#var kl @add_combat_lines_green{<118><afa>[str 4/6] %0};#line gag;};
-#action {^%*, zadajac smiertelne obrazenia.$} {#var kl @add_combat_lines_green{<118><afa>[str 5/6] %0};#line gag;};
-#action {^%*. Widzisz, jak {jego|jej} szeroko otwarte w bezgranicznym zdumieniu oczy zachodza mgla.$} {#var kl @add_combat_lines_green{<118><afa>[str 6/6] %0}#line gag;};
+#action {~^%* {pozostawiajac ledwie sinca|ledwie zahaczajac}.$} {#sh {<118><afa>[str 1/6] <088>%0<aaa>,};#line gag;};
+#action {~^%*{pozostawiajac krwawiace zadrapanie|lekko raniac}.$} {#sh {<118><afa>[str 2/6] <088>%0<aaa>,};#line gag;};
+#action {~^%*{pozostawiajac dluga, poszarpana rane|mocno raniac}.$} {#sh {<118><afa>[str 3/6] <088>%0<aaa>,};#line gag;};
+#action {~^%*{pozostawiajac gleboka rane z wystajacymi na wierzchu tkankami|bardzo mocno raniac}.$} {#sh {<118><afa>[str 4/6] <088>%0<aaa>,};#line gag;};
+#action {~^%*, zadajac smiertelne obrazenia.$} {#sh {<118><afa>[str 5/6] <088>%0<aaa>,};#line gag;};
+#action {~^%*. Widzisz, jak {jego|jej} szeroko otwarte w bezgranicznym zdumieniu oczy zachodza mgla.$} {#sh {<118><afa>[str 6/6] <088>%0}#line gag;};
 #NOP * SREBRZYSTA KOSA BOJOWA *;
 #NOP CIOSY WROGA W CIEBIE OGOLNE;
-#action {^%* ledwo muska cie %*, trafiajac cie w %*.$} {#var kl @add_combat_lines_red{<118><faa>[1/6]     %0};#line gag;} {2};
-#action {^%* lekko rani cie %*, trafiajac cie w %*.$} {#var kl @add_combat_lines_red{<118><faa>[2/6]     %0};#line gag;} {2};
-#action {^%* rani cie %*, trafiajac cie w %*.$} {#var kl @add_combat_lines_red{<118><faa>[3/6]     %0};#line gag;} {2};
-#action {^%* powaznie rani cie %*, trafiajac cie w %*.$} {#var kl @add_combat_lines_red{<118><faa>[4/6]     %0};#line gag;} {2};
-#action {^%* bardzo ciezko rani cie %*, trafiajac cie w %*.$} {#var kl @add_combat_lines_red{<118><faa>[5/6]     %0};#line gag;} {2};
-#action {^%* masakruje cie %*, trafiajac cie w %*.$} {#var kl @add_combat_lines_red{<118><faa>[6/6]     %0};#line gag;} {2};
+#action {~^%* ledwo muska cie %*, trafiajac cie w %*.$} {#sh {<118><faa>[1/6]     <088>%0<aaa>,};#line gag;} {2};
+#action {~^%* lekko rani cie %*, trafiajac cie w %*.$} {#sh {<118><faa>[2/6]     <088>%0<aaa>,};#line gag;} {2};
+#action {~^%* rani cie %*, trafiajac cie w %*.$} {#sh {<118><faa>[3/6]     <088>%0<aaa>,};#line gag;} {2};
+#action {~^%* powaznie rani cie %*, trafiajac cie w %*.$} {#sh {<118><faa>[4/6]     <088>%0<aaa>,};#line gag;} {2};
+#action {~^%* bardzo ciezko rani cie %*, trafiajac cie w %*.$} {#sh {<118><faa>[5/6]     <088>%0<aaa>,};#line gag;} {2};
+#action {~^%* masakruje cie %*, trafiajac cie w %*.$} {#sh {<118><faa>[6/6]     <088>%0<aaa>,};#line gag;} {2};
 #NOP TWOJE UNIKI;
-#action {^%* nie udaje sie trafic ciebie %*.$} {#var kl @add_combat_lines{<118><ccc>[unk]     %0};#line gag;};
-#action {^%* probuje cie trafic %*, lecz tobie udaje sie {|uniknac tego ciosu|go uniknac}.$} {#var kl @add_combat_lines{<118><ccc>[unk]     %0};#line gag;};
-#action {^Nagle %* wykonuje zamaszysty cios %*, lecz tobie udaje sie go uniknac.$} {#var kl @add_combat_lines{<118><ccc>[unk]     %0};#line gag;};
-#action {^%* bierze potezny zamach i wyprowadza %* cios, ktory ma cie zmasakrowac. %* nawet przez chwile ci nie zagrazajac. Uswiadamiasz sobie jednak, ze nastepnym razem mozesz nie miec tyle szczescia!} {#var kl @add_combat_lines{<118><ccc>[unk]     %0};#line gag;};
-#action {^Odbiwszy sie od ziemi %* doskakuje do ciebie, nieumiejetnie probujac trafic cie %*.$} {#var kl @add_combat_lines{<118><ccc>[unk]     %0};#line gag;};
-#action {^W slepiach %* pojawia sie nienawistny blysk, gdy zdecydowanym uderzeniem %* przecina powietrze tuz przed twoja glowa.$} {#var kl @add_combat_lines{<118><ccc>[unk]     %0};#line gag;};
+#action {~^%* nie udaje sie trafic ciebie %*.$} {#sh {<118><ccc>[unk]     <088>%0<aaa>,};#line gag;};
+#action {~^%* probuje cie trafic %*, lecz tobie udaje sie {|uniknac tego ciosu|go uniknac}.$} {#sh {<118><ccc>[unk]     <088>%0<aaa>,};#line gag;};
+#action {~^Nagle %* wykonuje zamaszysty cios %*, lecz tobie udaje sie go uniknac.$} {#sh {<118><ccc>[unk]     <088>%0<aaa>,};#line gag;};
+#action {~^%* bierze potezny zamach i wyprowadza %* cios, ktory ma cie zmasakrowac. %* nawet przez chwile ci nie zagrazajac. Uswiadamiasz sobie jednak, ze nastepnym razem mozesz nie miec tyle szczescia!} {#sh {<118><ccc>[unk]     <088>%0<aaa>,};#line gag;};
+#action {~^Odbiwszy sie od ziemi %* doskakuje do ciebie, nieumiejetnie probujac trafic cie %*.$} {#sh {<118><ccc>[unk]     <088>%0<aaa>,};#line gag;};
+#action {~^W slepiach %* pojawia sie nienawistny blysk, gdy zdecydowanym uderzeniem %* przecina powietrze tuz przed twoja glowa.$} {#sh {<118><ccc>[unk]     <088>%0<aaa>,};#line gag;};
 #NOP KOASA;
-#action {^Kaleczysz lekko %* swoja srebrzysta kosa bojowa.$} {#var kl @add_combat_lines_mag{<118><acf>[kos 1/8] %0};#line gag;};
-#action {^Lekko ranisz %* w %* cieciem swojej srebrzystej kosy bojowej.$} {#var kl @add_combat_lines_mag{<118><acf>[kos 2/8] %0};#line gag;};
-#action {^Kaleczysz %* swojej srebrzystej kosy bojowej.$} {#var kl @add_combat_lines_mag{<118><acf>[kos 3/8] %0};#line gag;};
-#action {^Wyrywasz krwawe kawalki ciala %* swojej srebrzystej kosy bojowej.$} {#var kl @add_combat_lines_mag{<118><acf>[kos 4/8] %0};#line gag;};
-#action {^Wykonujesz potezny cios srebrzysta kosa bojowa, raniac %*.$} {#var kl @add_combat_lines_mag{<118><acf>[kos 5/8] %0};#line gag;};
-#action {^Potezne uderzenie twojej srebrzystej kosy bojowej dosiega %*.$} {#var kl @add_combat_lines_mag{<118><acf>[kos 6/8] %0};#line gag;};
-#action {^Masakrujesz %* srebrzysta kosa bojowa, trafiajac %*. Na ostrzu pozostaja krwawe kawalki ciala.$} {#var kl @add_combat_lines_mag{<118><acf>[kos 7/8] %0};#line gag;};
-#action {^Slyszysz ohydny dzwiek rozdzieranej tkanki i kruszonych kosci, gdy %*. Ostrze gleboko wnika w cialo, tak ze krew tryska szerokim strumieniem z rany.$} {#var kl @add_combat_lines_mag{<118><acf>[kos 8/8] %0};#line gag;};
-#action {^Momentalnie dostrzegajac stan wroga, decydujesz sie na ostateczny cios. %* bojowej. %* mgla.}
-	 {#var kl @add_combat_lines_mag{<118><acf>[kos 8/8] %0};#line gag;};
+#action {~^Kaleczysz lekko %* swoja srebrzysta kosa bojowa.$} {#sh {<118><acf>[kos 1/8] <088>%0<aaa>,};#line gag;};
+#action {~^Lekko ranisz %* w %* cieciem swojej srebrzystej kosy bojowej.$} {#sh {<118><acf>[kos 2/8] <088>%0<aaa>,};#line gag;};
+#action {~^Kaleczysz %* swojej srebrzystej kosy bojowej.$} {#sh {<118><acf>[kos 3/8] <088>%0<aaa>,};#line gag;};
+#action {~^Wyrywasz krwawe kawalki ciala %* swojej srebrzystej kosy bojowej.$} {#sh {<118><acf>[kos 4/8] <088>%0<aaa>,};#line gag;};
+#action {~^Wykonujesz potezny cios srebrzysta kosa bojowa, raniac %*.$} {#sh {<118><acf>[kos 5/8] <088>%0<aaa>,};#line gag;};
+#action {~^Potezne uderzenie twojej srebrzystej kosy bojowej dosiega %*.$} {#sh {<118><acf>[kos 6/8] <088>%0<aaa>,};#line gag;};
+#action {~^Masakrujesz %* srebrzysta kosa bojowa, trafiajac %*. Na ostrzu pozostaja krwawe kawalki ciala.$} {#sh {<118><acf>[kos 7/8] <088>%0<aaa>,};#line gag;};
+#action {~^Slyszysz ohydny dzwiek rozdzieranej tkanki i kruszonych kosci, gdy %*. Ostrze gleboko wnika w cialo, tak ze krew tryska szerokim strumieniem z rany.$} {#sh {<118><acf>[kos 8/8] <088>%0<aaa>,};#line gag;};
+#action {~^Momentalnie dostrzegajac stan wroga, decydujesz sie na ostateczny cios. %* bojowej. %* mgla.}
+	 {#sh {<118><acf>[kos 8/8] <088>%0<aaa>,};#line gag;};
 #NOP TWOJE PAROWANIE:
-#action {^%* cios %*, lecz uderzenie zatrzymuje sie na %*.$} {#var kl @add_combat_lines{<118><ccc>[par]     %0};#line gag;};
-#action {^%* w ciebie, lecz tobie udaje sie {|je zbic z linii ataku|zbic je z linii ataku|go sparowac} %*.$} {#var kl @add_combat_lines{<118><ccc>[par]     %0};#line gag;};
-#action {^%* trafia cie %*, lecz caly impet uderzenia zostaje wyparowany przez %*.$} {#var kl @add_combat_lines{<118><ccc>[par]     %0};#line gag;};
-#action {^%* cios %*, lecz sprawnie parujesz %*.$} {#var kl @add_combat_lines{<118><ccc>[par]     %0};#line gag;};
-#action {^%* zbijasz na bok niespodziewany cios %*.$} {#var kl @add_combat_lines{<118><ccc>[par]     %0};#line gag;};
-#action {^Ustawiasz sie bokiem wobec %* i gdy %* odbija sie od ziemi %* odrzucasz %* dobre kilka stop na bok.$} {#var kl @add_combat_lines{<118><ccc>[par]     %0};#line gag;};
-#action {^%* z impetem skacze na ciebie, nie ma jednak dosc sily, by wyprowadzic cios zdolny przebic %*.$} {#var kl @add_combat_lines{<118><ccc>[par]     %0};#line gag;};
-#action {^Z gardla %* wydobywa sie %* ryk, gdy %* uderzenie zeslizguje sie po %*.$} {#var kl @add_combat_lines{<118><ccc>[par]     %0};#line gag;};
+#action {~^%* cios %*, lecz uderzenie zatrzymuje sie na %*.$} {#sh {<118><ccc>[par]     <088>%0<aaa>,};#line gag;};
+#action {~^%* w ciebie, lecz tobie udaje sie {|je zbic z linii ataku|zbic je z linii ataku|go sparowac} %*.$} {#sh {<118><ccc>[par]     <088>%0<aaa>,};#line gag;};
+#action {~^%* trafia cie %*, lecz caly impet uderzenia zostaje wyparowany przez %*.$} {#sh {<118><ccc>[par]     <088>%0<aaa>,};#line gag;};
+#action {~^%* cios %*, lecz sprawnie parujesz %*.$} {#sh {<118><ccc>[par]     <088>%0<aaa>,};#line gag;};
+#action {~^%* zbijasz na bok niespodziewany cios %*.$} {#sh {<118><ccc>[par]     <088>%0<aaa>,};#line gag;};
+#action {~^Ustawiasz sie bokiem wobec %* i gdy %* odbija sie od ziemi %* odrzucasz %* dobre kilka stop na bok.$} {#sh {<118><ccc>[par]     <088>%0<aaa>,};#line gag;};
+#action {~^%* z impetem skacze na ciebie, nie ma jednak dosc sily, by wyprowadzic cios zdolny przebic %*.$} {#sh {<118><ccc>[par]     <088>%0<aaa>,};#line gag;};
+#action {~^Z gardla %* wydobywa sie %* ryk, gdy %* uderzenie zeslizguje sie po %*.$} {#sh {<118><ccc>[par]     <088>%0<aaa>,};#line gag;};
 #NOP ZAMASZYSTY CIOS;
-#action {^Nagle %* wykonuje zamaszysty cios %*, ktory ledwo muska cie w %*.%D$} {#var kl @add_combat_lines_red{<118><faa>[1/6]     %0};#line gag;} {2};
-#action {^Nagle %* wykonuje zamaszysty cios %*, ktory lekko rani cie w %*.%D$} {#var kl @add_combat_lines_red{<118><faa>[2/6]     %0};#line gag;} {2};
-#action {^Nagle %* wykonuje zamaszysty cios %*, ktory rani cie w %*.%D$} {#var kl @add_combat_lines_red{<118><faa>[3/6]     %0};#line gag;} {2};
-#action {^Nagle %* wykonuje zamaszysty cios %*, ktory powaznie rani cie w %*.%D$} {#var kl @add_combat_lines_red{<118><faa>[4/6]     %0};#line gag;} {2};
-#action {^Nagle %* wykonuje zamaszysty cios %*, ktory bardzo ciezko rani cie w %*.%D$} {#var kl @add_combat_lines_red{<118><faa>[5/6]     %0};#line gag;} {2};
-#action {^Nagle %* wykonuje zamaszysty cios %*, ktory masakruje cie w %*.%D$} {#var kl @add_combat_lines_red{<118><faa>[6/6]     %0};#line gag;} {2};
+#action {~^Nagle %* wykonuje zamaszysty cios %*, ktory ledwo muska cie w %*.%D$} {#sh {<118><faa>[1/6]     <088>%0<aaa>,};#line gag;} {2};
+#action {~^Nagle %* wykonuje zamaszysty cios %*, ktory lekko rani cie w %*.%D$} {#sh {<118><faa>[2/6]     <088>%0<aaa>,};#line gag;} {2};
+#action {~^Nagle %* wykonuje zamaszysty cios %*, ktory rani cie w %*.%D$} {#sh {<118><faa>[3/6]     <088>%0<aaa>,};#line gag;} {2};
+#action {~^Nagle %* wykonuje zamaszysty cios %*, ktory powaznie rani cie w %*.%D$} {#sh {<118><faa>[4/6]     <088>%0<aaa>,};#line gag;} {2};
+#action {~^Nagle %* wykonuje zamaszysty cios %*, ktory bardzo ciezko rani cie w %*.%D$} {#sh {<118><faa>[5/6]     <088>%0<aaa>,};#line gag;} {2};
+#action {~^Nagle %* wykonuje zamaszysty cios %*, ktory masakruje cie w %*.%D$} {#sh {<118><faa>[6/6]     <088>%0<aaa>,};#line gag;} {2};
 #NOP SNOTLINGI;
-#action {^Odbiwszy sie od ziemi %* doskakuje do ciebie i piszczac przerazliwie bije cie lekko w %*.$} {#var kl @add_combat_lines_red{<118><afa>[sno ?/?] %0};#line gag;};
-#action {^Odbiwszy sie od ziemi %* doskakuje do ciebie i piszczac przerazliwie bije cie odczuwalnie w %*.$} {#var kl @add_combat_lines_red{<118><afa>[sno ?/?] %0};#line gag;};
+#action {~^Odbiwszy sie od ziemi %* doskakuje do ciebie i piszczac przerazliwie bije cie lekko w %*.$} {#sh {<118><afa>[sno ?/?] <088>%0<aaa>,};#line gag;};
+#action {~^Odbiwszy sie od ziemi %* doskakuje do ciebie i piszczac przerazliwie bije cie odczuwalnie w %*.$} {#sh {<118><afa>[sno ?/?] <088>%0<aaa>,};#line gag;};
 #NOP GOBLINOIDY;
-#action {^W slepiach %* pojawia sie nienawistny blysk, gdy zdecydowanym uderzeniem %* kaleczy ci %*.$} {#var kl @add_combat_lines_red{<118><faa>[gob 1/?] %0};#line gag;};
-#action {^W slepiach %* pojawia sie nienawistny blysk, gdy zdecydowanym uderzeniem %* rozkrawia ci %*.$} {#var kl @add_combat_lines_red{<118><faa>[gob 2/?] %0};#line gag;};
-#action {^%* doskakuje do %*.$} {#var kl @add_combat_lines_yellow{<118><ffa>[gob ?/?] %0};#line gag;} {6};
+#action {~^W slepiach %* pojawia sie nienawistny blysk, gdy zdecydowanym uderzeniem %* kaleczy ci %*.$} {#sh {<118><faa>[gob 1/?] <088>%0<aaa>,};#line gag;};
+#action {~^W slepiach %* pojawia sie nienawistny blysk, gdy zdecydowanym uderzeniem %* rozkrawia ci %*.$} {#sh {<118><faa>[gob 2/?] <088>%0<aaa>,};#line gag;};
+#action {~^%* doskakuje do %*.$} {#sh {<118><ffa>[gob ?/?] <088>%0<aaa>,};#line gag;} {6};
 #NOP TROLLE
-#action {^Jedna z ran zwalistego szarawego trolla zamyka sie z ohydnym mlasnieciem.$}
- {#var kl @add_combat_lines_red{<118><faa>[trl ?/?] %0};#line gag;} {6};
+#action {~^Jedna z ran zwalistego szarawego trolla zamyka sie z ohydnym mlasnieciem.$}
+ {#sh {<118><faa>[trl ?/?] <088>%0<aaa>,};#line gag;} {6};
 #NOP * FANATYK *;
-#action {^%* rzuca sie do ataku. %* trafia cie w %* ledwo muskajac %*.$} {#var kl @add_combat_lines_red{<118><faa>[fan 1/7] %0};#line gag;};
-#action {^%* rzuca sie do ataku. %* trafia cie w %* lekko raniac %*.$} {#var kl @add_combat_lines_red{<118><faa>[fan 2/7] %0};#line gag;};
-#action {^%* rzuca sie do ataku. %* trafia cie w %* {^lekko |powaznie |bardzo ciezko }raniac %*.$} {#var kl @add_combat_lines_red{<118><faa>[fan 3/7] %0};#line gag;};
-#action {^%* rzuca sie do ataku. %* trafia cie w %* powaznie raniac %*.$} {#var kl @add_combat_lines_red{<118><faa>[fan 4/7] %0};#line gag;};
-#action {^%* rzuca sie do ataku. %* trafia cie w %* bardzo ciezko raniac %*.$} {#var kl @add_combat_lines_red{<118><faa>[fan 5/7] %0};#line gag;};
-#action {^%* rzuca sie do ataku. %* trafia cie w %* masakrujac %*.$} {#var kl @add_combat_lines_red{<118><faa>[fan 6/7] %0};#line gag;};
-#action {^%* staje pewnie %* uderzenie %*. %* trafia cie, zaglebiajac bron w twoim ciele. Stoisz przez chwile nieruchomo a potem, tracac wladze w nogach, osuwasz sie na ziemie. Z trudem przebijajac wzrokiem klebiaca ci sie przed oczami mgle zauwazasz, jak na twarzy %* pojawia sie szyderczy, posepny usmiech...$} {#var kl @add_combat_lines_red{<118><faa>[fan 7/7] %0};#line gag;};
+#action {~^%* rzuca sie do ataku. %* trafia cie w %* ledwo muskajac %*.$} {#sh {<118><faa>[fan 1/7] <088>%0<aaa>,};#line gag;};
+#action {~^%* rzuca sie do ataku. %* trafia cie w %* lekko raniac %*.$} {#sh {<118><faa>[fan 2/7] <088>%0<aaa>,};#line gag;};
+#action {~^%* rzuca sie do ataku. %* trafia cie w %* {^lekko |powaznie |bardzo ciezko }raniac %*.$} {#sh {<118><faa>[fan 3/7] <088>%0<aaa>,};#line gag;};
+#action {~^%* rzuca sie do ataku. %* trafia cie w %* powaznie raniac %*.$} {#sh {<118><faa>[fan 4/7] <088>%0<aaa>,};#line gag;};
+#action {~^%* rzuca sie do ataku. %* trafia cie w %* bardzo ciezko raniac %*.$} {#sh {<118><faa>[fan 5/7] <088>%0<aaa>,};#line gag;};
+#action {~^%* rzuca sie do ataku. %* trafia cie w %* masakrujac %*.$} {#sh {<118><faa>[fan 6/7] <088>%0<aaa>,};#line gag;};
+#action {~^%* staje pewnie %* uderzenie %*. %* trafia cie, zaglebiajac bron w twoim ciele. Stoisz przez chwile nieruchomo a potem, tracac wladze w nogach, osuwasz sie na ziemie. Z trudem przebijajac wzrokiem klebiaca ci sie przed oczami mgle zauwazasz, jak na twarzy %* pojawia sie szyderczy, posepny usmiech...$} {#sh {<118><faa>[fan 7/7] <088>%0<aaa>,};#line gag;};
 #NOP WALKA INNYCH
-#action {^%* ledwo muska %*.$} {#var kl @add_combat_lines_yellow{<118><ffa>[1/6]     %0};#line gag;};
-#action {^%* lekko rani %*.$} {#var kl @add_combat_lines_yellow{<118><ffa>[2/6]     %0};#line gag;};
-#action {^%* rani %*.$} {#var kl @add_combat_lines_yellow{<118><ffa>[3/6]     %0};#line gag;} {7};
-#action {^%* powaznie rani %*.$} {#var kl @add_combat_lines_yellow{<118><ffa>[4/6]     %0};#line gag;};
-#action {^%* bardzo ciezko rani %*.$} {#var kl @add_combat_lines_yellow{<118><ffa>[5/6]     %0};#line gag;};
-#action {^%* masakruje %*.$} {#var kl @add_combat_lines_yellow{<118><ffa>[6/6]     %0};#line gag;};
-#action {^%* probuje trafic %*.$} {#var kl @add_combat_lines{<118><ccc>[mis]     %0};#line gag;};
-#action {^%* nie udaje sie trafic %*.$} {#var kl @add_combat_lines{<118><ccc>[mis]     %0};#line gag;};
-#action {^%* trafia %* lecz caly impet %*.$} {#var kl @add_combat_lines{<118><ccc>[par]     %0};#line gag;};
-#action {^%* lecz temu udaje sie %*.$} {#var kl @add_combat_lines{<118><ccc>[unk]     %0};#line gag;};
-#action {^%* lecz ten paruje %*.$} {#var kl @add_combat_lines{<118><ccc>[par]     %0};#line gag;};
-#action {^%* lecz ten zbija %*.$} {#var kl @add_combat_lines{<118><ccc>[par]     %0};#line gag;};
-#action {^%* lecz ten oslania %*.$} {#var kl @add_combat_lines{<118><ccc>[par]     %0};#line gag;};
-#action {^%* ustawia sie bokiem %*.$} {#var kl @add_combat_lines{<118><ccc>[par]     %0};#line gag;};
-#action {^%* zbija na bok %*.$} {#var kl @add_combat_lines{<118><ccc>[par]     %0};#line gag;};
+#action {~^%* ledwo muska %*.$} {#sh {<118><ffa>[1/6]     <088>%0<aaa>,};#line gag;};
+#action {~^%* lekko rani %*.$} {#sh {<118><ffa>[2/6]     <088>%0<aaa>,};#line gag;};
+#action {~^%* rani %*.$} {#sh {<118><ffa>[3/6]     <088>%0<aaa>,};#line gag;} {7};
+#action {~^%* powaznie rani %*.$} {#sh {<118><ffa>[4/6]     <088>%0<aaa>,};#line gag;};
+#action {~^%* bardzo ciezko rani %*.$} {#sh {<118><ffa>[5/6]     <088>%0<aaa>,};#line gag;};
+#action {~^%* masakruje %*.$} {#sh {<118><ffa>[6/6]     <088>%0<aaa>,};#line gag;};
+#action {~^%* probuje trafic %*.$} {#sh {<118><ccc>[mis]     <088>%0<aaa>,};#line gag;};
+#action {~^%* nie udaje sie trafic %*.$} {#sh {<118><ccc>[mis]     <088>%0<aaa>,};#line gag;};
+#action {~^%* trafia %* lecz caly impet %*.$} {#sh {<118><ccc>[par]     <088>%0<aaa>,};#line gag;};
+#action {~^%* lecz temu udaje sie %*.$} {#sh {<118><ccc>[unk]     <088>%0<aaa>,};#line gag;};
+#action {~^%* lecz ten paruje %*.$} {#sh {<118><ccc>[par]     <088>%0<aaa>,};#line gag;};
+#action {~^%* lecz ten zbija %*.$} {#sh {<118><ccc>[par]     <088>%0<aaa>,};#line gag;};
+#action {~^%* lecz ten oslania %*.$} {#sh {<118><ccc>[par]     <088>%0<aaa>,};#line gag;};
+#action {~^%* ustawia sie bokiem %*.$} {#sh {<118><ccc>[par]     <088>%0<aaa>,};#line gag;};
+#action {~^%* zbija na bok %*.$} {#sh {<118><ccc>[par]     <088>%0<aaa>,};#line gag;};
 
 #NOP UNIKI WROGA;
-#action {^Nie udaje ci sie trafic %*.$} {#var kl @add_combat_lines{<118><ccc>[unk]     %0};#line gag;};
-#action {^Probujesz trafic %*, lecz %* {|unika|uskakuje przed} {|twojego|twoim} {|ciosu|ciosem}.$} {#var kl @add_combat_lines{<118><ccc>[unk]     %0};#line gag;};
-#action {^Wykorzystujac dogodna sytuacje rzucasz sie na %*, pragnac pchnac %*, jednak twoj nieskoordynowany ruch nie jest w stanie nikogo zaskoczyc.$} {#var kl @add_combat_lines{<118><ccc>[unk]     %0};#line gag;};
-#action {^Zamierzasz sie na %* swym %*, jednak %* z latwoscia unika twojego ciosu.$} {#var kl @add_combat_lines{<118><ccc>[unk]     %0};#line gag;};
-#action {^Sprezasz sie do skoku probujac ugodzic %*, lecz tracisz koncentracje i twoj niecelny cios mija cel o wlos.$} {#var kl @add_combat_lines{<118><ccc>[unk]     %0};#line gag;};
-#action {^Pewnym, lekkim krokiem ruszasz w kierunku %*. Zaciskasz mocniej palce na rekojesci %* gotow{y|a} do zadania morderczego pchniecia. Jestes juz tuz, tuz przy ofierze gdy nagle jeden niewlasciwy krok przesadza o wszystkim! Zahaczasz o cos stopa i przy wtorze zdradzajacego twa obecnosc loskotu z trudem lapiesz rownowage!$} {#var kl @add_combat_lines{<118><ccc>[unk]     %0};#line gag;};
-#action {^%* twoja bron ze swistem przecina powietrze po %* udanym uniku.$} {#var kl @add_combat_lines{<118><ccc>[unk]     %0};#line gag;};
-#action {^Wykorzystujac brak broni u przeciwnika, w mgnieniu oka wyprowadzasz cios %* mierzac w %*. Nieznacznie tracisz rownowage, gdy twoja bron ze swistem przecina powietrze po %* udanym uniku.$} {#var kl @add_combat_lines{<118><ccc>[unk]     %0};#line gag;};
-#action {^Nie udaje ci sie trafic %*.$} {#var kl @add_combat_lines{<118><ccc>[unk]     %0};#line gag;};
-#action {^Probujesz trafic %*, lecz %* {|unika|uskakuje przed} {|twojego|twoim} {|ciosu|ciosem}.$} {#var kl @add_combat_lines{<118><ccc>[unk]     %0};#line gag;};
-#action {^Wykorzystujac dogodna sytuacje rzucasz sie na %*, pragnac pchnac %*, jednak twoj nieskoordynowany ruch nie jest w stanie nikogo zaskoczyc.$} {#var kl @add_combat_lines{<118><ccc>[unk]     %0};#line gag;};
-#action {^Zamierzasz sie na %* swym %*, jednak %* z latwoscia unika twojego ciosu.$} {#var kl @add_combat_lines{<118><ccc>[unk]     %0};#line gag;};
-#action {^Sprezasz sie do skoku probujac ugodzic %*, lecz tracisz koncentracje i twoj niecelny cios mija cel o wlos.$} {#var kl @add_combat_lines{<118><ccc>[unk]     %0};#line gag;};
-#action {^Pewnym, lekkim krokiem ruszasz w kierunku %*. Zaciskasz mocniej palce na rekojesci %* gotow{|a|y} do zadania morderczego pchniecia. Jestes juz tuz, tuz przy ofierze gdy nagle jeden niewlasciwy krok przesadza o wszystkim! Zahaczasz o cos stopa i przy wtorze zdradzajacego twa obecnosc loskotu z trudem lapiesz rownowage!$} {#var kl @add_combat_lines{<118><ccc>[unk]     %0};#line gag;};
-#action {^Blyskawicznym pchnieciem %* trafiasz %* w %*. W ostatniej chwili przeciwnik cofa sie gwaltownie o krok, przez co ostrze nie wchodzi w %* cialo dosc gleboko.$} {#var kl @add_combat_lines{<118><ccc>[unk]     %0};#line gag;};
-#action {^Wyprowadzasz gwaltowne pchniecie w %*, jednakze ostrze %* przecina tylko powietrze.$} {#var kl @add_combat_lines{<118><ccc>[unk]     %0};#line gag;};
+#action {~^Nie udaje ci sie trafic %*.$} {#sh {<118><ccc>[unk]     <088>%0<aaa>,};#line gag;};
+#action {~^Probujesz trafic %*, lecz %* {|unika|uskakuje przed} {|twojego|twoim} {|ciosu|ciosem}.$} {#sh {<118><ccc>[unk]     <088>%0<aaa>,};#line gag;};
+#action {~^Wykorzystujac dogodna sytuacje rzucasz sie na %*, pragnac pchnac %*, jednak twoj nieskoordynowany ruch nie jest w stanie nikogo zaskoczyc.$} {#sh {<118><ccc>[unk]     <088>%0<aaa>,};#line gag;};
+#action {~^Zamierzasz sie na %* swym %*, jednak %* z latwoscia unika twojego ciosu.$} {#sh {<118><ccc>[unk]     <088>%0<aaa>,};#line gag;};
+#action {~^Sprezasz sie do skoku probujac ugodzic %*, lecz tracisz koncentracje i twoj niecelny cios mija cel o wlos.$} {#sh {<118><ccc>[unk]     <088>%0<aaa>,};#line gag;};
+#action {~^Pewnym, lekkim krokiem ruszasz w kierunku %*. Zaciskasz mocniej palce na rekojesci %* gotow{y|a} do zadania morderczego pchniecia. Jestes juz tuz, tuz przy ofierze gdy nagle jeden niewlasciwy krok przesadza o wszystkim! Zahaczasz o cos stopa i przy wtorze zdradzajacego twa obecnosc loskotu z trudem lapiesz rownowage!$} {#sh {<118><ccc>[unk]     <088>%0<aaa>,};#line gag;};
+#action {~^%* twoja bron ze swistem przecina powietrze po %* udanym uniku.$} {#sh {<118><ccc>[unk]     <088>%0<aaa>,};#line gag;};
+#action {~^Wykorzystujac brak broni u przeciwnika, w mgnieniu oka wyprowadzasz cios %* mierzac w %*. Nieznacznie tracisz rownowage, gdy twoja bron ze swistem przecina powietrze po %* udanym uniku.$} {#sh {<118><ccc>[unk]     <088>%0<aaa>,};#line gag;};
+#action {~^Nie udaje ci sie trafic %*.$} {#sh {<118><ccc>[unk]     <088>%0<aaa>,};#line gag;};
+#action {~^Probujesz trafic %*, lecz %* {|unika|uskakuje przed} {|twojego|twoim} {|ciosu|ciosem}.$} {#sh {<118><ccc>[unk]     <088>%0<aaa>,};#line gag;};
+#action {~^Wykorzystujac dogodna sytuacje rzucasz sie na %*, pragnac pchnac %*, jednak twoj nieskoordynowany ruch nie jest w stanie nikogo zaskoczyc.$} {#sh {<118><ccc>[unk]     <088>%0<aaa>,};#line gag;};
+#action {~^Zamierzasz sie na %* swym %*, jednak %* z latwoscia unika twojego ciosu.$} {#sh {<118><ccc>[unk]     <088>%0<aaa>,};#line gag;};
+#action {~^Sprezasz sie do skoku probujac ugodzic %*, lecz tracisz koncentracje i twoj niecelny cios mija cel o wlos.$} {#sh {<118><ccc>[unk]     <088>%0<aaa>,};#line gag;};
+#action {~^Pewnym, lekkim krokiem ruszasz w kierunku %*. Zaciskasz mocniej palce na rekojesci %* gotow{|a|y} do zadania morderczego pchniecia. Jestes juz tuz, tuz przy ofierze gdy nagle jeden niewlasciwy krok przesadza o wszystkim! Zahaczasz o cos stopa i przy wtorze zdradzajacego twa obecnosc loskotu z trudem lapiesz rownowage!$} {#sh {<118><ccc>[unk]     <088>%0<aaa>,};#line gag;};
+#action {~^Blyskawicznym pchnieciem %* trafiasz %* w %*. W ostatniej chwili przeciwnik cofa sie gwaltownie o krok, przez co ostrze nie wchodzi w %* cialo dosc gleboko.$} {#sh {<118><ccc>[unk]     <088>%0<aaa>,};#line gag;};
+#action {~^Wyprowadzasz gwaltowne pchniecie w %*, jednakze ostrze %* przecina tylko powietrze.$} {#sh {<118><ccc>[unk]     <088>%0<aaa>,};#line gag;};
 
 #NOP TU SKONCZYLEM SPRAWDZAC
 
 
 #nop ESPA
-#action {^%* muska %* swoim polyskliwym smuklym espadonem.$} {#var kl @add_combat_lines_mag{<118><acf>[esp 1/7] %0};#line gag;}
-#action {^%* bez wysilku niezbyt mocno rani %* swojego polyskliwego smuklego espadona.$} {#var kl @add_combat_lines_mag{<118><acf>[esp 2/7] %0};#line gag;}
-#action {^%* skutecznym uderzeniem swojego polyskliwego smuklego espadona %*.$} {#var kl @add_combat_lines_mag{<118><acf>[esp 3/7] %0};#line gag;}
-#action {^%* bierze mocny zamach i poteznym ciosem polyskliwego smuklego espadona %*.$} {#var kl @add_combat_lines_mag{<118><acf>[esp 4/7] %0};#line gag;}
-#action {^%* wyprowadza%*uderzenie znad glowy swoim polyskliwym smukylm espadonem %*.$} {#var kl @add_combat_lines_mag{<118><acf>[esp 5/7] %0};#line gag;}
-#action {Korzystajac z nieuwagi %* robiac unik doskakuje do %* swym polyskliwym smuklym espadonem %*.$} {#var kl @add_combat_lines_mag{<118><acf>[esp 6/7] %0};#line gag;}
-#action {^%* unosi nagle swoj espadon poziomo do ramion i uderza %*.$} {#var kl @add_combat_lines_mag{<118><acf>[esp 7/7] %0};#line gag;}
-#action {^%* z okrzykiem na ustach dopada %* tnac straszliwie z szerokiego zamachu %*.$} {#var kl @add_combat_lines_mag{<118><acf>[esp 7/7] %0};#line gag;}
+#action {~^%* muska %* swoim polyskliwym smuklym espadonem.$} {#sh {<118><acf>[esp 1/7] <088>%0<aaa>,};#line gag;}
+#action {~^%* bez wysilku niezbyt mocno rani %* swojego polyskliwego smuklego espadona.$} {#sh {<118><acf>[esp 2/7] <088>%0<aaa>,};#line gag;}
+#action {~^%* skutecznym uderzeniem swojego polyskliwego smuklego espadona %*.$} {#sh {<118><acf>[esp 3/7] <088>%0<aaa>,};#line gag;}
+#action {~^%* bierze mocny zamach i poteznym ciosem polyskliwego smuklego espadona %*.$} {#sh {<118><acf>[esp 4/7] <088>%0<aaa>,};#line gag;}
+#action {~^%* wyprowadza%*uderzenie znad glowy swoim polyskliwym smukylm espadonem %*.$} {#sh {<118><acf>[esp 5/7] <088>%0<aaa>,};#line gag;}
+#action {Korzystajac z nieuwagi %* robiac unik doskakuje do %* swym polyskliwym smuklym espadonem %*.$} {#sh {<118><acf>[esp 6/7] <088>%0<aaa>,};#line gag;}
+#action {~^%* unosi nagle swoj espadon poziomo do ramion i uderza %*.$} {#sh {<118><acf>[esp 7/7] <088>%0<aaa>,};#line gag;}
+#action {~^%* z okrzykiem na ustach dopada %* tnac straszliwie z szerokiego zamachu %*.$} {#sh {<118><acf>[esp 7/7] <088>%0<aaa>,};#line gag;}
 
 
 #nop MIECZNIK
-#action {^%* poprawia chwyt na %* muskajac%*.$} {#var kl @add_combat_lines_yellow{<118><ffa>[mie 1/7] %0};#line gag;} {5};
-#action {^%* poprawia chwyt na %* ledwo zacina%*.$} {#var kl @add_combat_lines_yellow{<118><ffa>[mie 1/7] %0};#line gag;} {5};
-#action {^%* poprawia chwyt na %* niemalze rozcina%*.$} {#var kl @add_combat_lines_yellow{<118><ffa>[mie 6/7] %0};#line gag;} {5};
+#action {~^%* poprawia chwyt na %* muskajac%*.$} {#sh {<118><ffa>[mie 1/7] <088>%0<aaa>,};#line gag;} {5};
+#action {~^%* poprawia chwyt na %* ledwo zacina%*.$} {#sh {<118><ffa>[mie 1/7] <088>%0<aaa>,};#line gag;} {5};
+#action {~^%* poprawia chwyt na %* niemalze rozcina%*.$} {#sh {<118><ffa>[mie 6/7] <088>%0<aaa>,};#line gag;} {5};
 
 
-#action {^%*Nie zwazajac na nic%*{rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia chwyt na|niespodziewanie skreca%*|wyrzuca do przodu}%* ledwo zacina%*.$}
-   {#var kl @add_combat_lines_yellow{<118><ffa>[mie 1/7] %0};#line gag;} {5};
-#action {^%*Nie zwazajac na nic%*{rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia chwyt na|niespodziewanie skreca%*|wyrzuca do przodu}%* muskajac%*.$}
-   {#var kl @add_combat_lines_yellow{<118><ffa>[mie 1/7] %0};#line gag;} {5};
-#action {^%*Nie zwazajac na nic%*{rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia%*chwyt na|niespodziewanie skreca%*|wyrzuca%do przodu}%* bolesnie zacina%*.$}
-   {#var kl @add_combat_lines_yellow{<118><ffa>[mie 2/7] %0};#line gag;} {5};
-#action {^%*Nie zwazajac na nic%*{rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia%*chwyt na|niespodziewanie skreca%*|wyrzuca%* do przodu}%* plytko tnie%*.$}
-   {#var kl @add_combat_lines_yellow{<118><ffa>[mie 3/7] %0};#line gag;} {5};
-#action {^%*Nie zwazajac na nic%*{rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia%*chwyt na|niespodziewanie skreca%*|wyrzuca%* do przodu}%* tnie%*.$}
-   {#var kl @add_combat_lines_yellow{<118><ffa>[mie 4/7] %0};#line gag;} {8};
-#action {^%*Nie zwazajac na nic{%*rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia%*chwyt na|niespodziewanie skreca%*|wyrzuca%* do przodu}%* gleboko%*.$}
-   {#var kl @add_combat_lines_yellow{<118><ffa>[mie 5/7] %0};#line gag;} {5};
-#action {^%*Nie zwazajac na nic{%*rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia%*chwyt na|niespodziewanie skreca%*|wyrzuca%* do przodu}%* niemalze rozcina%*.$}
-   {#var kl @add_combat_lines_yellow{<118><ffa>[mie 6/7] %0};#line gag;} {5};
-#action {^%*Nie zwazajac na nic{%*rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia%*chwyt na|niespodziewanie skreca%*|wyrzuca%* do przodu}%* {z potworna moca tnie|z nieprzyjemny chrzestem}%*.$}
-   {#var kl @add_combat_lines_yellow{<118><ffa>[mie 7/7] %0};#line gag;} {5};
+#action {~^%*Nie zwazajac na nic%*{rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia chwyt na|niespodziewanie skreca%*|wyrzuca do przodu}%* ledwo zacina%*.$}
+   {#sh {<118><ffa>[mie 1/7] <088>%0<aaa>,};#line gag;} {5};
+#action {~^%*Nie zwazajac na nic%*{rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia chwyt na|niespodziewanie skreca%*|wyrzuca do przodu}%* muskajac%*.$}
+   {#sh {<118><ffa>[mie 1/7] <088>%0<aaa>,};#line gag;} {5};
+#action {~^%*Nie zwazajac na nic%*{rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia%*chwyt na|niespodziewanie skreca%*|wyrzuca%do przodu}%* bolesnie zacina%*.$}
+   {#sh {<118><ffa>[mie 2/7] <088>%0<aaa>,};#line gag;} {5};
+#action {~^%*Nie zwazajac na nic%*{rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia%*chwyt na|niespodziewanie skreca%*|wyrzuca%* do przodu}%* plytko tnie%*.$}
+   {#sh {<118><ffa>[mie 3/7] <088>%0<aaa>,};#line gag;} {5};
+#action {~^%*Nie zwazajac na nic%*{rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia%*chwyt na|niespodziewanie skreca%*|wyrzuca%* do przodu}%* tnie%*.$}
+   {#sh {<118><ffa>[mie 4/7] <088>%0<aaa>,};#line gag;} {8};
+#action {~^%*Nie zwazajac na nic{%*rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia%*chwyt na|niespodziewanie skreca%*|wyrzuca%* do przodu}%* gleboko%*.$}
+   {#sh {<118><ffa>[mie 5/7] <088>%0<aaa>,};#line gag;} {5};
+#action {~^%*Nie zwazajac na nic{%*rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia%*chwyt na|niespodziewanie skreca%*|wyrzuca%* do przodu}%* niemalze rozcina%*.$}
+   {#sh {<118><ffa>[mie 6/7] <088>%0<aaa>,};#line gag;} {5};
+#action {~^%*Nie zwazajac na nic{%*rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia%*chwyt na|niespodziewanie skreca%*|wyrzuca%* do przodu}%* {z potworna moca tnie|z nieprzyjemny chrzestem}%*.$}
+   {#sh {<118><ffa>[mie 7/7] <088>%0<aaa>,};#line gag;} {5};
 
-#action {^%*{nie zwazajac na nic %*rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia%*chwyt na|niespodziewanie skreca%*|wyrzuca%* do przodu}%* ledwo zacina%*.$}
-   {#var kl @add_combat_lines_yellow{<118><ffa>[mie 1/7] %0};#line gag;} {5};
-#action {^%*{nie zwazajac na nic %*rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia%*chwyt na|niespodziewanie skreca%*|wyrzuca%* do przodu}%* bolesnie zacina%*.$}
-   {#var kl @add_combat_lines_yellow{<118><ffa>[mie 2/7] %0};#line gag;} {5};
-#action {^%*{nie zwazajac na nic %*rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia%*chwyt na|niespodziewanie skreca%*|wyrzuca%* do przodu}%* plytko tnie%*.$}
-   {#var kl @add_combat_lines_yellow{<118><ffa>[mie 3/7] %0};#line gag;} {5};
-#action {^%*{nie zwazajac na nic %*rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia%*chwyt na|niespodziewanie skreca%*|wyrzuca%* do przodu}%* {plytko |gleboko |potworna moca} tnie%*.$}
-   {#var kl @add_combat_lines_yellow{<118><ffa>[mie 4/7] %0};#line gag;} {5};
-#action {^%*{nie zwazajac na nic %*rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia%*chwyt na|niespodziewanie skreca%*|wyrzuca%* do przodu}%* gleboko%*.$}
-   {#var kl @add_combat_lines_yellow{<118><ffa>[mie 5/7] %0};#line gag;} {5};
-#action {^%*{nie zwazajac na nic %*rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia%*chwyt na|niespodziewanie skreca%*|wyrzuca%* do przodu}%* niemalze rozcina%*.$}
-   {#var kl @add_combat_lines_yellow{<118><ffa>[mie 6/7] %0};#line gag;} {5};
-#action {^%*{nie zwazajac na nic %*rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia%*chwyt na|niespodziewanie skreca%*|wyrzuca%* do przodu}%* {z potworna moca tnie|z nieprzyjemny chrzestem}%*.$}
-   {#var kl @add_combat_lines_yellow{<118><ffa>[mie 7/7] %0};#line gag;} {5};
+#action {~^%*{nie zwazajac na nic %*rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia%*chwyt na|niespodziewanie skreca%*|wyrzuca%* do przodu}%* ledwo zacina%*.$}
+   {#sh {<118><ffa>[mie 1/7] <088>%0<aaa>,};#line gag;} {5};
+#action {~^%*{nie zwazajac na nic %*rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia%*chwyt na|niespodziewanie skreca%*|wyrzuca%* do przodu}%* bolesnie zacina%*.$}
+   {#sh {<118><ffa>[mie 2/7] <088>%0<aaa>,};#line gag;} {5};
+#action {~^%*{nie zwazajac na nic %*rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia%*chwyt na|niespodziewanie skreca%*|wyrzuca%* do przodu}%* plytko tnie%*.$}
+   {#sh {<118><ffa>[mie 3/7] <088>%0<aaa>,};#line gag;} {5};
+#action {~^%*{nie zwazajac na nic %*rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia%*chwyt na|niespodziewanie skreca%*|wyrzuca%* do przodu}%* {plytko |gleboko |potworna moca} tnie%*.$}
+   {#sh {<118><ffa>[mie 4/7] <088>%0<aaa>,};#line gag;} {5};
+#action {~^%*{nie zwazajac na nic %*rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia%*chwyt na|niespodziewanie skreca%*|wyrzuca%* do przodu}%* gleboko%*.$}
+   {#sh {<118><ffa>[mie 5/7] <088>%0<aaa>,};#line gag;} {5};
+#action {~^%*{nie zwazajac na nic %*rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia%*chwyt na|niespodziewanie skreca%*|wyrzuca%* do przodu}%* niemalze rozcina%*.$}
+   {#sh {<118><ffa>[mie 6/7] <088>%0<aaa>,};#line gag;} {5};
+#action {~^%*{nie zwazajac na nic %*rozpoczyna%*|rusza%* do przodu, w pol kroku|poprawia%*chwyt na|niespodziewanie skreca%*|wyrzuca%* do przodu}%* {z potworna moca tnie|z nieprzyjemny chrzestem}%*.$}
+   {#sh {<118><ffa>[mie 7/7] <088>%0<aaa>,};#line gag;} {5};
 
 
 #NOP * LEGIONISTA *;
-#action {^%* unosi swoja %* i szybko przesuwa sie %*, bezskutecznie probujac skryc sie za %* przed atakami %*.$} {#var kl @add_combat_lines_yellow{<118><ffa>[leg wyc] %0};#line gag;};
-#action {^%* unosi swoja %* i szybko przesuwa sie za %*, kryjac sie przed atakami %*.$} {#var kl @add_combat_lines_yellow{<118><ffa>[leg wyc] %0};#line gag;};
+#action {~^%* unosi swoja %* i szybko przesuwa sie %*, bezskutecznie probujac skryc sie za %* przed atakami %*.$} {#sh {<118><ffa>[leg wyc] <088>%0<aaa>,};#line gag;};
+#action {~^%* unosi swoja %* i szybko przesuwa sie za %*, kryjac sie przed atakami %*.$} {#sh {<118><ffa>[leg wyc] <088>%0<aaa>,};#line gag;};
 
 
 #NOP PAROWANIE WROGA;
-#action {^Slamazarnym wymachem %* probujesz wytracic %* szable z %*. Przeciwnik nie daje sie jednak zaskoczyc, zbijajac w pore twoje uderzenie na bok.$} {#var kl @add_combat_lines{<118><ccc>
-     %0};#line gag;};
-#action {^%* uderzenie zostaje jednak sparowane przez %*.$} {#var kl @add_combat_lines{<118><ccc>[par]     %0};#line gag;};
-#action {^Trafiasz %*, lecz caly impet uderzenia zostaje wyparowany przez %*.$} {#var kl @add_combat_lines{<118><ccc>[par]     %0};#line gag;};
-#action {^%* mierzac w %*, lecz %* {zbija je z linii ataku|oslania sie|je zbija z linii ataku} %*.$} {#var kl @add_combat_lines{<118><ccc>[par]     %0};#line gag;};
-#action {^%* paruje cios %*, unikajac wszelkich ran.$} {#var kl @add_combat_lines{<118><ccc>[par]     %0};#line gag;};
-#action {^Wyprowadzasz szybkie pchniecie %* w %*, lecz %* {zbija je z linii ataku|oslania sie|je zbija z linii ataku} %*.$} {#var kl @add_combat_lines{<118><ccc>[par]     %0};#line gag;};
-#action {^%* zbija twoj atak oszczednym uderzeniem %*.$} {#var kl @add_combat_lines{<118><ccc>[par]     %0};#line gag;};
-#action {^Trafiasz %*, lecz caly impet uderzenia zostaje wyparowany przez %*.$} {#var kl @add_combat_lines{<118><ccc>[par]     %0};#line gag;};
-#action {^%* paruje cios %*, unikajac wszelkich ran.$} {#var kl @add_combat_lines{<118><ccc>[par]     %0};#line gag;};
-#action {^%* zbija twoj atak oszczednym uderzeniem %*.$} {#var kl @add_combat_lines{<118><ccc>[par]     %0};#line gag;};
-#action {^Wyprowadzasz szybkie pchniecie %* w %*, lecz %* {zbija je z linii ataku|oslania sie|je zbija z linii ataku} %*.$} {#var kl @add_combat_lines{<118><ccc>[par]     %0};#line gag;};
+#action {~^Slamazarnym wymachem %* probujesz wytracic %* szable z %*. Przeciwnik nie daje sie jednak zaskoczyc, zbijajac w pore twoje uderzenie na bok.$} {#sh {<118><ccc>
+     <088>%0<aaa>,};#line gag;};
+#action {~^%* uderzenie zostaje jednak sparowane przez %*.$} {#sh {<118><ccc>[par]     <088>%0<aaa>,};#line gag;};
+#action {~^Trafiasz %*, lecz caly impet uderzenia zostaje wyparowany przez %*.$} {#sh {<118><ccc>[par]     <088>%0<aaa>,};#line gag;};
+#action {~^%* mierzac w %*, lecz %* {zbija je z linii ataku|oslania sie|je zbija z linii ataku} %*.$} {#sh {<118><ccc>[par]     <088>%0<aaa>,};#line gag;};
+#action {~^%* paruje cios %*, unikajac wszelkich ran.$} {#sh {<118><ccc>[par]     <088>%0<aaa>,};#line gag;};
+#action {~^Wyprowadzasz szybkie pchniecie %* w %*, lecz %* {zbija je z linii ataku|oslania sie|je zbija z linii ataku} %*.$} {#sh {<118><ccc>[par]     <088>%0<aaa>,};#line gag;};
+#action {~^%* zbija twoj atak oszczednym uderzeniem %*.$} {#sh {<118><ccc>[par]     <088>%0<aaa>,};#line gag;};
+#action {~^Trafiasz %*, lecz caly impet uderzenia zostaje wyparowany przez %*.$} {#sh {<118><ccc>[par]     <088>%0<aaa>,};#line gag;};
+#action {~^%* paruje cios %*, unikajac wszelkich ran.$} {#sh {<118><ccc>[par]     <088>%0<aaa>,};#line gag;};
+#action {~^%* zbija twoj atak oszczednym uderzeniem %*.$} {#sh {<118><ccc>[par]     <088>%0<aaa>,};#line gag;};
+#action {~^Wyprowadzasz szybkie pchniecie %* w %*, lecz %* {zbija je z linii ataku|oslania sie|je zbija z linii ataku} %*.$} {#sh {<118><ccc>[par]     <088>%0<aaa>,};#line gag;};
 
 #nop LEGIONISTA
-#action {^%* wyprowadzic %* {przecinajac tylko powietrze|nie czyniac najmniejszej krzywdy}%*.$} {#var kl @add_combat_lines_yellow{<118><ffa>[leg 0/7] %0};#line gag;};
-#action {^%* wyprowadzic %* powodujac tylko ledwo zauwazalne obrazenie%*.$} {#var kl @add_combat_lines_yellow{<118><ffa>[leg 1/7] %0};#line gag;};
-#action {^%* wyprowadzic %* powodujac tylko nieznaczne obrazenia%*.$} {#var kl @add_combat_lines_yellow{<118><ffa>[leg 2/7] %0};#line gag;};
-#action {^%* wyprowadzic %* powodujac niemale obrazenia%*.$} {#var kl @add_combat_lines_yellow{<118><ffa>[leg 3/7] %0};#line gag;};
-#action {^%* wyprowadzic %* powodujac liczne i glebokie obrazenia%*.$} {#var kl @add_combat_lines_yellow{<118><ffa>[leg 4/7] %0};#line gag;};
-#action {^%* wyprowadzic %* powodujac rozlegle obrazenia%*.$} {#var kl @add_combat_lines_yellow{<118><ffa>[leg 5/7] %0};#line gag;};
-#action {^%* wyprowadzic %* powodujac prawieze smiertelne obrazenia%*.$} {#var kl @add_combat_lines_yellow{<118><ffa>[leg 6/7] %0};#line gag;};
-#action {^%* wyprowadzic %* w jednym momencie konczac walke%*%*.$} {#var kl @add_combat_lines_yellow{<118><ffa>[leg 7/7] %0};#line gag;};
+#action {~^%* wyprowadzic %* {przecinajac tylko powietrze|nie czyniac najmniejszej krzywdy}%*.$} {#sh {<118><ffa>[leg 0/7] <088>%0<aaa>,};#line gag;};
+#action {~^%* wyprowadzic %* powodujac tylko ledwo zauwazalne obrazenie%*.$} {#sh {<118><ffa>[leg 1/7] <088>%0<aaa>,};#line gag;};
+#action {~^%* wyprowadzic %* powodujac tylko nieznaczne obrazenia%*.$} {#sh {<118><ffa>[leg 2/7] <088>%0<aaa>,};#line gag;};
+#action {~^%* wyprowadzic %* powodujac niemale obrazenia%*.$} {#sh {<118><ffa>[leg 3/7] <088>%0<aaa>,};#line gag;};
+#action {~^%* wyprowadzic %* powodujac liczne i glebokie obrazenia%*.$} {#sh {<118><ffa>[leg 4/7] <088>%0<aaa>,};#line gag;};
+#action {~^%* wyprowadzic %* powodujac rozlegle obrazenia%*.$} {#sh {<118><ffa>[leg 5/7] <088>%0<aaa>,};#line gag;};
+#action {~^%* wyprowadzic %* powodujac prawieze smiertelne obrazenia%*.$} {#sh {<118><ffa>[leg 6/7] <088>%0<aaa>,};#line gag;};
+#action {~^%* wyprowadzic %* w jednym momencie konczac walke%*%*.$} {#sh {<118><ffa>[leg 7/7] <088>%0<aaa>,};#line gag;};
 
 #nop polprzezroczysty migotliwy topor
-#action {^Impet ciosu %* rozszczepia materie polprzezroczyst%*, ktory niczym magiczny pocisk przenika %*, nieznacznie %*.$} {#var kl @add_combat_lines_mag{<118><acf>[dra 1/5] %0};#line gag;}
-#action {^Impet ciosu %* rozszczepia materie polprzezroczyst%*, ktory niczym magiczny pocisk przenika %*, lekko %*.$} {#var kl @add_combat_lines_mag{<118><acf>[dra 2/5] %0};#line gag;}
-#action {^Impet ciosu %* rozszczepia materie polprzezroczyst%*, ktory niczym magiczny pocisk przenika %*, powaznie %*.$} {#var kl @add_combat_lines_mag{<118><acf>[dra 3/5] %0};#line gag;}
-#action {^Impet ciosu %* rozszczepia materie polprzezroczyst%*, ktory niczym magiczny pocisk przenika %*, potwornie %*.$} {#var kl @add_combat_lines_mag{<118><acf>[dra 4/5] %0};#line gag;}
-#action {^Impet ciosu %* rozszczepia materie polprzezroczyst%*, ktory niczym magiczny pocisk przenika %*, gleboko %*.$} {#var kl @add_combat_lines_mag{<118><acf>[dra 5/5] %0};#line gag;}
+#action {~^Impet ciosu %* rozszczepia materie polprzezroczyst%*, ktory niczym magiczny pocisk przenika %*, nieznacznie %*.$} {#sh {<118><acf>[dra 1/5] <088>%0<aaa>,};#line gag;}
+#action {~^Impet ciosu %* rozszczepia materie polprzezroczyst%*, ktory niczym magiczny pocisk przenika %*, lekko %*.$} {#sh {<118><acf>[dra 2/5] <088>%0<aaa>,};#line gag;}
+#action {~^Impet ciosu %* rozszczepia materie polprzezroczyst%*, ktory niczym magiczny pocisk przenika %*, powaznie %*.$} {#sh {<118><acf>[dra 3/5] <088>%0<aaa>,};#line gag;}
+#action {~^Impet ciosu %* rozszczepia materie polprzezroczyst%*, ktory niczym magiczny pocisk przenika %*, potwornie %*.$} {#sh {<118><acf>[dra 4/5] <088>%0<aaa>,};#line gag;}
+#action {~^Impet ciosu %* rozszczepia materie polprzezroczyst%*, ktory niczym magiczny pocisk przenika %*, gleboko %*.$} {#sh {<118><acf>[dra 5/5] <088>%0<aaa>,};#line gag;}
 
 #nop lsniaca plomienista tarcza
 
 #nop GLAD
-#action {^Mocnym uderzeniem %* oszalamia %* i ciosem %* zadaje %*.} {#var kl @add_combat_lines_yellow{<118><ffa>[gla ?/?] %0};#line gag;}; 
+#action {~^Mocnym uderzeniem %* oszalamia %* i ciosem %* zadaje %*.} {#sh {<118><ffa>[gla ?/?] <088>%0<aaa>,};#line gag;}; 
 #nop Ciosem polprzezroczystego migotliwego topora w tulow Belgat(NA) zadaje gargantuicznemu szarawemu trollowi nieduza rane i uderzeniem lsniacej plomienistej tarczy odpycha go w tyl.
 #nop Ta dziwna poswiata formuje sie w wirujaca kule przeplatajacych sie ze soba zoltych i pomaranczowych jezorow plynnego ognia, ktore wystrzeliwuja w kierunku zwalistego zielonkawego trolla. Parzace plomienie
 #nop omiataja jego cialo pozostawiajac jedynie nieznaczne obrazenia.

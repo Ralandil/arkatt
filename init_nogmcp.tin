@@ -8,11 +8,11 @@
 #read $path/ocena_zbroi.tin;
 #read $path/prompt_fetch.tin;
 #read $path/prompt_new.tin;
-#read $path/topprompt.tin;
+#nop read $path/topprompt.tin;
 #read $path/kill.tin;
 #read $path/keys_nogmcp.tin;
 #read $path/walka_mini.tin;
-#read $path/walka4_colors.tin;
+#nop read $path/walka4_colors.tin;
 #read $path/alias.tin;
 #read $path/worki3.tin;
 #read $path/sleep.tin;
