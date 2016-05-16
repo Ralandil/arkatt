@@ -1,5 +1,30 @@
 #nop split 17 6
 #nop PROMPT TOP
+
+#function {refresh_top_prompt} {
+  #sh chatline2;
+  #sh chatline3;
+  #sh chatline4;
+  #sh chatline5;
+  #sh chatline6;
+  #sh chatline7;
+  #sh chatline8;
+  #sh chatline9;
+  #sh chatline10;
+  #sh chatline11;
+  #sh chatline12;
+  #sh chatline13;
+  #sh chatline14;
+  #sh chatline15;
+  #sh chatline16;
+  #sh chatline17;
+  #sh chatline18;
+  #sh chatline19;
+  #sh chatlineA;
+  #sh chatlineB;
+
+}
+
 #alias {refresh_chat_prompt} {
   #nop sh chatline1;
   #sh chatline2;
@@ -31,26 +56,26 @@
 
 #var staticframe {<afa>    }
 
-#prompt {chatline2} { $druzyna_prompt[19]   $ecmp[20] $wrogowie_prompt[20]   $promptlines[1]  $promptlines[21]} {-2}
-#prompt {chatline3} { $druzyna_prompt[18]   $ecmp[19] $wrogowie_prompt[19]   $promptlines[2]  $promptlines[22]} {-3}
-#prompt {chatline4} { $druzyna_prompt[17]   $ecmp[18] $wrogowie_prompt[18]   $promptlines[3]  $promptlines[23]} {-4}
-#prompt {chatline5} { $druzyna_prompt[16]   $ecmp[17] $wrogowie_prompt[17]   $promptlines[4]  $promptlines[24]} {-5}
-#prompt {chatline6} { $druzyna_prompt[15]   $ecmp[16] $wrogowie_prompt[16]   $promptlines[5]  $promptlines[25]} {-6}
-#prompt {chatline7} { $druzyna_prompt[14]   $ecmp[15] $wrogowie_prompt[15]   $promptlines[6]  $promptlines[26]} {-7}
-#prompt {chatline8} { $druzyna_prompt[13]   $ecmp[14] $wrogowie_prompt[14]   $promptlines[7]  $promptlines[27]} {-8}
-#prompt {chatline9} { $druzyna_prompt[12]   $ecmp[13] $wrogowie_prompt[13]   $promptlines[8]  $promptlines[28]} {-9}
-#prompt {chatline10} { $druzyna_prompt[11]   $ecmp[12] $wrogowie_prompt[12]   $promptlines[9]  $promptlines[29]} {-10}
-#prompt {chatline11} { $druzyna_prompt[10]   $ecmp[11] $wrogowie_prompt[11]   $promptlines[10]  $promptlines[30]} {-11}
-#prompt {chatline12} { $druzyna_prompt[9]   $ecmp[10] $wrogowie_prompt[10]   $promptlines[11]  $promptlines[31]} {-12}
-#prompt {chatline13} { $druzyna_prompt[8]   $ecmp[9] $wrogowie_prompt[9]   $promptlines[12]  $promptlines[32]} {-13}
-#prompt {chatline14} { $druzyna_prompt[7]   $ecmp[8] $wrogowie_prompt[8]   $promptlines[13]  $promptlines[33]} {-14}
-#prompt {chatline15} { $druzyna_prompt[6]   $ecmp[7] $wrogowie_prompt[7]   $promptlines[14]  $promptlines[34]} {-15}
-#prompt {chatline16} { $druzyna_prompt[5]   $ecmp[6] $wrogowie_prompt[6]   $promptlines[15]  $promptlines[35]} {-16}
-#prompt {chatline17} { $druzyna_prompt[4]   $ecmp[5] $wrogowie_prompt[5]   $promptlines[16]  $promptlines[36]} {-17}
-#prompt {chatline18} { $druzyna_prompt[3]   $ecmp[4] $wrogowie_prompt[4]   $promptlines[17]  $promptlines[37]} {-18}
-#prompt {chatline19} { $druzyna_prompt[2]   $ecmp[3] $wrogowie_prompt[3]   $promptlines[18]  $promptlines[38]} {-19}
-#prompt {chatlineA} { $druzyna_prompt[1]   $ecmp[2] $wrogowie_prompt[2]   $promptlines[19]  $promptlines[39]} {-20}
-#prompt {chatlineB} {  $pr_wrog$pr_zycie   $ecmp[1] $wrogowie_prompt[1]   $promptlines[20]  $promptlines[40]} {-21}
+#prompt {chatline2} { $druzyna_prompt[19] <088>|<088>$ecmp[20] $wrogowie_prompt[20] <088>|<088>$promptlines[1]<088>|<088>$promptlines[21]} {-2}
+#prompt {chatline3} { $druzyna_prompt[18] <088>|<088>$ecmp[19] $wrogowie_prompt[19] <088>|<088>$promptlines[2]<088>|<088>$promptlines[22]} {-3}
+#prompt {chatline4} { $druzyna_prompt[17] <088>|<088>$ecmp[18] $wrogowie_prompt[18] <088>|<088>$promptlines[3]<088>|<088>$promptlines[23]} {-4}
+#prompt {chatline5} { $druzyna_prompt[16] <088>|<088>$ecmp[17] $wrogowie_prompt[17] <088>|<088>$promptlines[4]<088>|<088>$promptlines[24]} {-5}
+#prompt {chatline6} { $druzyna_prompt[15] <088>|<088>$ecmp[16] $wrogowie_prompt[16] <088>|<088>$promptlines[5]<088>|<088>$promptlines[25]} {-6}
+#prompt {chatline7} { $druzyna_prompt[14] <088>|<088>$ecmp[15] $wrogowie_prompt[15] <088>|<088>$promptlines[6]<088>|<088>$promptlines[26]} {-7}
+#prompt {chatline8} { $druzyna_prompt[13] <088>|<088>$ecmp[14] $wrogowie_prompt[14] <088>|<088>$promptlines[7]<088>|<088>$promptlines[27]} {-8}
+#prompt {chatline9} { $druzyna_prompt[12] <088>|<088>$ecmp[13] $wrogowie_prompt[13] <088>|<088>$promptlines[8]<088>|<088>$promptlines[28]} {-9}
+#prompt {chatline10} { $druzyna_prompt[11] <088>|<088>$ecmp[12] $wrogowie_prompt[12] <088>|<088>$promptlines[9]<088>|<088>$promptlines[29]} {-10}
+#prompt {chatline11} { $druzyna_prompt[10] <088>|<088>$ecmp[11] $wrogowie_prompt[11] <088>|<088>$promptlines[10]<088>|<088>$promptlines[30]} {-11}
+#prompt {chatline12} { $druzyna_prompt[9] <088>|<088>$ecmp[10] $wrogowie_prompt[10] <088>|<088>$promptlines[11]<088>|<088>$promptlines[31]} {-12}
+#prompt {chatline13} { $druzyna_prompt[8] <088>|<088>$ecmp[9] $wrogowie_prompt[9] <088>|<088>$promptlines[12]<088>|<088>$promptlines[32]} {-13}
+#prompt {chatline14} { $druzyna_prompt[7] <088>|<088>$ecmp[8] $wrogowie_prompt[8] <088>|<088>$promptlines[13]<088>|<088>$promptlines[33]} {-14}
+#prompt {chatline15} { $druzyna_prompt[6] <088>|<088>$ecmp[7] $wrogowie_prompt[7] <088>|<088>$promptlines[14]<088>|<088>$promptlines[34]} {-15}
+#prompt {chatline16} { $druzyna_prompt[5] <088>|<088>$ecmp[6] $wrogowie_prompt[6] <088>|<088>$promptlines[15]<088>|<088>$promptlines[35]} {-16}
+#prompt {chatline17} { $druzyna_prompt[4] <088>|<088>$ecmp[5] $wrogowie_prompt[5] <088>|<088>$promptlines[16]<088>|<088>$promptlines[36]} {-17}
+#prompt {chatline18} { $druzyna_prompt[3] <088>|<088>$ecmp[4] $wrogowie_prompt[4] <088>|<088>$promptlines[17]<088>|<088>$promptlines[37]} {-18}
+#prompt {chatline19} { $druzyna_prompt[2] <088>|<088>$ecmp[3] $wrogowie_prompt[3] <088>|<088>$promptlines[18]<088>|<088>$promptlines[38]} {-19}
+#prompt {chatlineA} { $druzyna_prompt[1] <088>|<088>$ecmp[2] $wrogowie_prompt[2] <088>|<088>$promptlines[19]<088>|<088>$promptlines[39]} {-20}
+#prompt {chatlineB} {    $pr_wrog$pr_zycie   <088>|<088>$ecmp[1] $wrogowie_prompt[1] <088>|<088>$promptlines[20]<088>|<088>$promptlines[40]} {-21}
 
 
 refresh_chat_prompt
@@ -373,7 +398,7 @@ refresh_chat_prompt
       #var __r @add_chat_line{$buffline};
   };
 
-	refresh_chat_prompt;
+	#var rcp @refresh_top_prompt{};
 }
 
 #function {add_combat_lines} {
@@ -409,7 +434,7 @@ refresh_chat_prompt
       #var __r2 @add_combat_line{$buffline2};
   };
 
-	refresh_chat_prompt;
+	#var rcp @refresh_top_prompt{};
 }
 
 #function {add_combat_lines_green} {
@@ -447,7 +472,7 @@ refresh_chat_prompt
       #var __r @add_combat_line_green{$buffline2};
   };
 
-	refresh_chat_prompt;
+	#var rcp @refresh_top_prompt{};
 }
 
 #function {add_combat_lines_red} {
@@ -485,7 +510,7 @@ refresh_chat_prompt
       #var __r @add_combat_line_red{$buffline2};
   };
 
-	refresh_chat_prompt;
+	#var rcp @refresh_top_prompt{};
 }
 
 
@@ -524,7 +549,7 @@ refresh_chat_prompt
       #var __r @add_combat_line_mag{$buffline2};
   };
 
-	refresh_chat_prompt;
+	#var rcp @refresh_top_prompt{};
 }
 
 
@@ -563,7 +588,7 @@ refresh_chat_prompt
       #var __r @add_combat_line_yellow{$buffline2};
   };
 
-	refresh_chat_prompt;
+	#var rcp @refresh_top_prompt{};
 }
 
 #function {add_chat_lines_yellow} {
@@ -601,7 +626,7 @@ refresh_chat_prompt
       #var __r @add_chat_line_yellow{$buffline2};
   };
 
-	refresh_chat_prompt;
+	#var rcp @refresh_top_prompt{};
 }
 
 
@@ -640,7 +665,7 @@ refresh_chat_prompt
       #var __r @add_chat_line_green{$buffline2};
   };
 
-	refresh_chat_prompt;
+	#var rcp @refresh_top_prompt{};
 }
 
 #function {add_chat_lines_chat} {
@@ -678,7 +703,7 @@ refresh_chat_prompt
       #var __r @add_chat_line_chat{$buffline2};
   };
 
-	refresh_chat_prompt;
+	#var rcp @refresh_top_prompt{};
 }
 
 
@@ -717,5 +742,5 @@ refresh_chat_prompt
       #var __r @add_chat_line_red{$buffline2};
   };
 
-	refresh_chat_prompt;
+	#var rcp @refresh_top_prompt{};
 }

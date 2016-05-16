@@ -165,7 +165,7 @@
 	#var ROOM_INFO {%0};
 
 	#if {$gmcp_saving < 1} {
-		cg;
+		#nop cg;
 	};
 
 	#var pr_n { };
@@ -217,8 +217,8 @@
 			team_clean_compare;
 	#var ruch_kompasu {none};
 	#var kompas_dziala {0};
-	testprompt;
-	refresh_chat_prompt;
+	#var rpp @refreshprompt{};;
+	#var rcp @refresh_top_prompt{};
 	
 
 }
@@ -241,7 +241,7 @@
 	};
 	#line gag;
 }
-#action {<CHAT> mapper chats to everyone, 'exit:end'} {testprompt;#line gag;}
+#action {<CHAT> mapper chats to everyone, 'exit:end'} {#var rpp @refreshprompt{};;#line gag;}
 #action {<CHAT> mapper chats to everyone, 'exit:start'} {#line gag;}
 #action {<CHAT> You chat to %1, %2} {#line gag}
 

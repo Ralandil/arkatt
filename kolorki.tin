@@ -340,14 +340,20 @@
 
 
 
-#high {stary matowy pancerz} {<fff>};
-#high {strzelisty zasniedzialy helm} {<fff>};
-#high {snieznobialy lsniacy pancerz} {<fff>};
-#high {strzelisty zlocisty helm} {<fff>};
+#high {stary matowy pancerz} {<118><caf>};
+#high {strzelisty zasniedzialy helm} {<118><caf>};
+#high {snieznobialy lsniacy pancerz} {<118><caf>};
+#high {strzelisty zlocisty helm} {<118><caf>};
+#high {srebrzysta kose bojowa} {<118><caf>};
+#high {srebrzysta kosa bojowa} {<118><caf>};
+#high {krysztalowa olejna lampa} {<118><aaf>};
+#high {krysztalowa olejna lampe} {<118><aaf>};
 
-#sub {srebrzysta kose bojowa} {<faf>sr<ebf>eb<dcf>rz<cdf>ys<aef>ta <aff>ko<bef>se <cdf>bo<dcf>jo<ebf>wa<088>}
-#sub {srebrzysta kosa bojowa} {<faf>sr<ebf>eb<dcf>rz<cdf>ys<aef>ta <aff>ko<bef>sa <cdf>bo<dcf>jo<ebf>wa<088>}
-#sub {srebrzystej kosy bojowej} {<faf>sr<ebf>eb<dcf>rz<cdf>ys<aef>tej <aff>ko<bef>sy <cdf>bo<dcf>jo<ebf>wej<088>}
+#high {polyskliwy smukly espadon} {<118><caf>};
+
+#nop sub {srebrzysta kose bojowa} {<faf>sr<ebf>eb<dcf>rz<cdf>ys<aef>ta <aff>ko<bef>se <cdf>bo<dcf>jo<ebf>wa<088>}
+#nop sub {srebrzysta kosa bojowa} {<faf>sr<ebf>eb<dcf>rz<cdf>ys<aef>ta <aff>ko<bef>sa <cdf>bo<dcf>jo<ebf>wa<088>}
+#nop sub {srebrzystej kosy bojowej} {<faf>sr<ebf>eb<dcf>rz<cdf>ys<aef>tej <aff>ko<bef>sy <cdf>bo<dcf>jo<ebf>wej<088>}
 
 #sub {adamantytowa szpiczasta partyzana} {<bda>ada<bea>man<aea>tyt<cea>owa <bea>szp<ada>icz<aea>asta <dfa>part<cfa>rtyz<bfa>ana<088>}
 #sub {adamantytowa szpiczasta partyzane} {<bda>ada<bea>man<aea>tyt<cea>owa <bea>szp<ada>icz<aea>asta <dfa>part<cfa>rtyz<bfa>ane<088>}

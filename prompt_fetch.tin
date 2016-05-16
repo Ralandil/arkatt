@@ -19,44 +19,33 @@
 
 
 
+#sub {>} {};
+#sub {^%} {};
 
-#UNEVENT {IAC SB GMCP char.state IAC SE} {
+#EVENT {IAC SB GMCP char.state IAC SE} {
 	#var CHAR_STATE {%0};
 
-	#sh $CHAR_STATE[];
+	#sh $CHAR_STATE;
+	#if {"$CHAR_STATE[fatigue]" == "0"} {#var pr_zmeczenie {<118><afa> 0/ 9<088>};};
+	#if {"$CHAR_STATE[fatigue]" == "1"} {#var pr_zmeczenie {<118><afa> 1/ 9<088>};};
+	#if {"$CHAR_STATE[fatigue]" == "2"} {#var pr_zmeczenie {<118><afa> 2/ 9<088>};};
+	#if {"$CHAR_STATE[fatigue]" == "3"} {#var pr_zmeczenie {<118><ffa> 3/ 9<088>};};
+	#if {"$CHAR_STATE[fatigue]" == "4"} {#var pr_zmeczenie {<118><ffa> 4/ 9<088>};};
+	#if {"$CHAR_STATE[fatigue]" == "5"} {#var pr_zmeczenie {<118><ffa> 5/ 9<088>};};
+	#if {"$CHAR_STATE[fatigue]" == "6"} {#var pr_zmeczenie {<118><faa> 6/ 9<088>};};
+	#if {"$CHAR_STATE[fatigue]" == "7"} {#var pr_zmeczenie {<118><faa> 7/ 9<088>};};
+	#if {"$CHAR_STATE[fatigue]" == "8"} {#var pr_zmeczenie {<118><faa> 8/ 9<088>};};
+	#if {"$CHAR_STATE[fatigue]" == "9"} {#var pr_zmeczenie {<118><faa> 8/ 9<088>};};
 
-	#if {"$CHAR_STATE[fatigue]" == "0"} {
-	  #var pr_zmeczenie {<118><afa> 0/ 9<088>};
-	};
-	#if {"$CHAR_STATE[fatigue]" == "1"} {
-	  #var pr_zmeczenie {<118><afa> 1/ 9<088>};
-	};
-	#if {"$CHAR_STATE[fatigue]" == "2"} {
-	  #var pr_zmeczenie {<118><afa> 2/ 9<088>};
-	};
-	#if {"$CHAR_STATE[fatigue]" == "3"} {
-	  #var pr_zmeczenie {<118><ffa> 3/ 9<088>};
-	};
-	#if {"$CHAR_STATE[fatigue]" == "4"} {
-	  #var pr_zmeczenie {<118><ffa> 4/ 9<088>};
-	};
-	#if {"$CHAR_STATE[fatigue]" == "5"} {
-	  #var pr_zmeczenie {<118><ffa> 5/ 9<088>};
-	};
-	#if {"$CHAR_STATE[fatigue]" == "6"} {
-	  #var pr_zmeczenie {<118><faa> 6/ 9<088>};
-	};
-	#if {"$CHAR_STATE[fatigue]" == "7"} {
-	  #var pr_zmeczenie {<118><faa> 7/ 9<088>};
-	};
-	#if {"$CHAR_STATE[fatigue]" == "8"} {
-	  #var pr_zmeczenie {<118><faa> 8/ 9<088>};
-	};
-	#if {"$CHAR_STATE[fatigue]" == "9"} {
-	  #var pr_zmeczenie {<118><faa> 8/ 9<088>};
-	};
+	#if {"$CHAR_STATE[hp]" == "6"} {#var hp_bar {<118><afa> 7/ 7<088>};};
+	#if {"$CHAR_STATE[hp]" == "5"} {#var hp_bar {<118><afa> 6/ 7<088>};};
+	#if {"$CHAR_STATE[hp]" == "4"} {#var hp_bar {<118><afa> 5/ 7<088>};};
+	#if {"$CHAR_STATE[hp]" == "3"} {#var hp_bar {<118><afa> 4/ 7<088>};};
+	#if {"$CHAR_STATE[hp]" == "2"} {#var hp_bar {<118><afa> 3/ 7<088>};};
+	#if {"$CHAR_STATE[hp]" == "1"} {#var hp_bar {<118><afa> 2/ 7<088>};};
+	#if {"$CHAR_STATE[hp]" == "0"} {#var hp_bar {<118><afa> 1/ 7<088>};};
 
-	testprompt
+	#var rpp @refreshprompt{};
 }
 
 #action {Jestes trzezwy, ale masz %1 kaca.}
@@ -85,46 +74,46 @@
 	#system notify-send -i konsolekalendar ARKADIA "Nowa poczta od : %1";
 	#var pr_poczta {<510>**<088>};
 	#var r @pasek_zolty{Nowa poczta od %1};
-	testprompt;
+	#var rpp @refreshprompt{};;
 	#line gag;
 }
 
 #action {Nie masz zadnych nieprzeczytanych listow.}
 {
 	#var pr_poczta <afa>--<088>;
-	testprompt;
+	#var rpp @refreshprompt{};;
 }
 
 
 
 #nop CHLANIE;
-#action {Masz potwornego kaca.} {#var pr_upicie <118><faa>-6/10<088>;testprompt;#line gag};
-#action {Masz straszliwego kaca.} {#var pr_upicie <118><faa>-5/10<088>;testprompt;#line gag};
-#action {Masz niezlego kaca.} {#var pr_upicie <118><faa>-4/10<088>;testprompt;#line gag};
-#action {Masz drazniacego kaca.} {#var pr_upicie <118><faa>-3/10<088>;testprompt;#line gag};
-#action {Masz niemilego kaca.} {#var pr_upicie <118><faa>-2/10<088>;testprompt;#line gag};
-#action {Masz lekkiego kaca.} {#var pr_upicie <118><faa>-1/10<088>;testprompt;#line gag};
-#action {Jestes trzezwy.} {#var pr_upicie <118><afa> 0/10<088>;testprompt;#line gag};
-#action {Bol glowy przechodzi.} {#var pr_upicie <118><afa> 0/10<088>;testprompt;#line gag};
-#action {Jestes podchmielony.} {#var pr_upicie <118><afa> 1/10<088>;testprompt;#line gag};
-#action {Jestes lekko podpity.} {#var pr_upicie <118><afa> 2/10<088>;testprompt;#line gag};
-#action {Jestes podpity.} {#var pr_upicie <118><afa> 3/10<088>;testprompt;#line gag};  
-#action {Jestes wstawiony.} {#var pr_upicie <118><ffa> 4/10<088>;testprompt;#line gag};
-#action {Jestes mocno wstawiony.} {#var pr_upicie <118><ffa> 5/10<088>;testprompt;#line gag};
-#action {Jestes pijany.} {#var pr_upicie <118><ffa> 6/10<088>;testprompt;#line gag};
-#action {Jestes schlany.} {#var pr_upicie <118><faa> 7/10<088>;testprompt;#line gag};
-#action {Jestes napruty.} {#var pr_upicie <118><faa> 8/10<088>;testprompt;#line gag};
-#action {Jestes nawalony.} {#var pr_upicie <118><faa> 9/10<088>;testprompt;#line gag};
-#action {Jestes pijany jak bela.} {#var pr_upicie <118><faa>10/10<088>;testprompt;#line gag};
+#action {Masz potwornego kaca.} {#var pr_upicie <118><faa>-6/10<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Masz straszliwego kaca.} {#var pr_upicie <118><faa>-5/10<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Masz niezlego kaca.} {#var pr_upicie <118><faa>-4/10<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Masz drazniacego kaca.} {#var pr_upicie <118><faa>-3/10<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Masz niemilego kaca.} {#var pr_upicie <118><faa>-2/10<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Masz lekkiego kaca.} {#var pr_upicie <118><faa>-1/10<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes trzezwy.} {#var pr_upicie <118><afa> 0/10<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Bol glowy przechodzi.} {#var pr_upicie <118><afa> 0/10<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes podchmielony.} {#var pr_upicie <118><afa> 1/10<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes lekko podpity.} {#var pr_upicie <118><afa> 2/10<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes podpity.} {#var pr_upicie <118><afa> 3/10<088>;#var rpp @refreshprompt{};;#line gag};  
+#action {Jestes wstawiony.} {#var pr_upicie <118><ffa> 4/10<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes mocno wstawiony.} {#var pr_upicie <118><ffa> 5/10<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes pijany.} {#var pr_upicie <118><ffa> 6/10<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes schlany.} {#var pr_upicie <118><faa> 7/10<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes napruty.} {#var pr_upicie <118><faa> 8/10<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes nawalony.} {#var pr_upicie <118><faa> 9/10<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes pijany jak bela.} {#var pr_upicie <118><faa>10/10<088>;#var rpp @refreshprompt{};;#line gag};
 
 #nop KONDYCJA;
-#action {^Jestes w swietnej kondycji.$} {#var hpbar $hpbar7;#var pr_zycie $pane_hp_07_07;testprompt;#line gag};
-#action {^Jestes w dobrym stanie.$} {#var hpbar $hpbar6;#var pr_zycie $pane_hp_06_07;testprompt;#line gag};
-#action {^Jestes lekko ranny.$} {#var hpbar $hpbar5;#var pr_zycie $pane_hp_05_07;testprompt;#line gag};
-#action {^Jestes ranny.$} {#var hpbar $hpbar4;#var pr_zycie $pane_hp_04_07;testprompt;#line gag};
-#action {^Jestes w zlej kondycji.$} {#var hpbar $hpbar3;#var pr_zycie $pane_hp_03_07;testprompt;#line gag};
-#action {^Jestes ciezko ranny.$} {#var hpbar $hpbar2;#var pr_zycie $pane_hp_02_07;testprompt;#line gag};
-#action {^Jestes ledwo zywy.$} {#var hpbar $hpbar1;#var pr_zycie $pane_hp_01_07;testprompt;#line gag};
+#action {^Jestes w swietnej kondycji.$} {#var hpbar $hpbar7;#var pr_zycie $pane_hp_07_07;#var rpp @refreshprompt{};;#line gag};
+#action {^Jestes w dobrym stanie.$} {#var hpbar $hpbar6;#var pr_zycie $pane_hp_06_07;#var rpp @refreshprompt{};;#line gag};
+#action {^Jestes lekko ranny.$} {#var hpbar $hpbar5;#var pr_zycie $pane_hp_05_07;#var rpp @refreshprompt{};;#line gag};
+#action {^Jestes ranny.$} {#var hpbar $hpbar4;#var pr_zycie $pane_hp_04_07;#var rpp @refreshprompt{};;#line gag};
+#action {^Jestes w zlej kondycji.$} {#var hpbar $hpbar3;#var pr_zycie $pane_hp_03_07;#var rpp @refreshprompt{};;#line gag};
+#action {^Jestes ciezko ranny.$} {#var hpbar $hpbar2;#var pr_zycie $pane_hp_02_07;#var rpp @refreshprompt{};;#line gag};
+#action {^Jestes ledwo zywy.$} {#var hpbar $hpbar1;#var pr_zycie $pane_hp_01_07;#var rpp @refreshprompt{};;#line gag};
 
 #alias {prompt_zmeczenie_10a} {
 #var prompt_zmeczenie_10 {<afa>#<088>};
@@ -248,58 +237,58 @@
 }
 
 #nop STAMINA;
-#action {Jestes w pelni wypoczety} {prompt_zmeczenie_10a;#var zmebar $zmebar10;#var zmeczenie_string {w pelni wypoczety};#var pr_zmeczenie <118><afa>10/10<088>;testprompt;#line gag};
-#action {Jestes wypoczety} {prompt_zmeczenie_9a;#var zmebar $zmebar9;#var zmeczenie_string {wypoczety};#var pr_zmeczenie <118><afa> 9/10<088>;testprompt;#line gag};
-#action {Jestes troche zmeczony} {prompt_zmeczenie_8a;#var zmebar $zmebar8;#var zmeczenie_string {troche zmeczony};#var pr_zmeczenie <118><afa> 8/10<088>;testprompt;#line gag};
-#action {Jestes zmeczony} {prompt_zmeczenie_7a;#var zmebar $zmebar7;#var zmeczenie_string {zmeczony};#var pr_zmeczenie <118><ffa> 7/10<088>;testprompt;#line gag};
-#action {Jestes bardzo zmeczony} {prompt_zmeczenie_6a;#var zmebar $zmebar6;#var zmeczenie_string {bardzo zmeczony};#var pr_zmeczenie <118><ffa> 6/10<088>;testprompt;#line gag};
-#action {Jestes nieco wyczerpany} {prompt_zmeczenie_5a;#var zmebar $zmebar5;#var zmeczenie_string {nieco wyczerpany};#var pr_zmeczenie <118><ffa> 5/10<088>;testprompt;#line gag};
-#action {Jestes wyczerpany} {prompt_zmeczenie_4a;#var zmebar $zmebar4;#var zmeczenie_string {wyczerpany};#var pr_zmeczenie <118><faa> 4/10<088>;testprompt;#line gag};
-#action {Jestes bardzo wyczerpany} {prompt_zmeczenie_3a;#var zmebar $zmebar3;#var zmeczenie_string {bardzo wyczerpany};#var pr_zmeczenie <118><faa> 3/10<088>;testprompt;#line gag};
-#action {Jestes wycienczony} {prompt_zmeczenie_2a;#var zmebar $zmebar2;#var zmeczenie_string {wycienczony};#var pr_zmeczenie <118><faa> 2/10<088>;testprompt;#line gag};
-#action {Jestes calkowicie wycienczony} {prompt_zmeczenie_1a;#var zmebar $zmebar1;#var zmeczenie_string {calkowicie wycienczony};#var pr_zmeczenie <118><faa> 1/10<088>;testprompt;#line gag};
+#action {Jestes w pelni wypoczety} {prompt_zmeczenie_10a;#var zmebar $zmebar10;#var zmeczenie_string {w pelni wypoczety};#var pr_zmeczenie <118><afa>10/10<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes wypoczety} {prompt_zmeczenie_9a;#var zmebar $zmebar9;#var zmeczenie_string {wypoczety};#var pr_zmeczenie <118><afa> 9/10<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes troche zmeczony} {prompt_zmeczenie_8a;#var zmebar $zmebar8;#var zmeczenie_string {troche zmeczony};#var pr_zmeczenie <118><afa> 8/10<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes zmeczony} {prompt_zmeczenie_7a;#var zmebar $zmebar7;#var zmeczenie_string {zmeczony};#var pr_zmeczenie <118><ffa> 7/10<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes bardzo zmeczony} {prompt_zmeczenie_6a;#var zmebar $zmebar6;#var zmeczenie_string {bardzo zmeczony};#var pr_zmeczenie <118><ffa> 6/10<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes nieco wyczerpany} {prompt_zmeczenie_5a;#var zmebar $zmebar5;#var zmeczenie_string {nieco wyczerpany};#var pr_zmeczenie <118><ffa> 5/10<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes wyczerpany} {prompt_zmeczenie_4a;#var zmebar $zmebar4;#var zmeczenie_string {wyczerpany};#var pr_zmeczenie <118><faa> 4/10<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes bardzo wyczerpany} {prompt_zmeczenie_3a;#var zmebar $zmebar3;#var zmeczenie_string {bardzo wyczerpany};#var pr_zmeczenie <118><faa> 3/10<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes wycienczony} {prompt_zmeczenie_2a;#var zmebar $zmebar2;#var zmeczenie_string {wycienczony};#var pr_zmeczenie <118><faa> 2/10<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes calkowicie wycienczony} {prompt_zmeczenie_1a;#var zmebar $zmebar1;#var zmeczenie_string {calkowicie wycienczony};#var pr_zmeczenie <118><faa> 1/10<088>;#var rpp @refreshprompt{};;#line gag};
 
 
 #nop MANA;
-#action {Jestes mentalnie u kresu sil.} {#var pr_mana <118><faa> 1/ 9<088>;testprompt;#line gag};
-#action {Jestes mentalnie wykonczon{y|a}.} {#var pr_mana <118><faa> 2/ 9<088>;testprompt;#line gag};
-#action {Jestes mentalnie wyczerpan{y|a}.} {#var pr_mana <118><faa> 3/ 9<088>;testprompt;#line gag};
-#action {Jestes mentalnie w zlej kondycji.} {#var pr_mana <118><ffa> 4/ 9<088>;testprompt;#line gag};
-#action {Jestes mentalnie bardzo zmeczon{y|a}.} {#var pr_mana <118><ffa> 5/ 9<088>;testprompt;#line gag};
-#action {Jestes mentalnie zmeczon{y|a}.} {#var pr_mana <118><ffa> 6/ 9<088>;testprompt;#line gag};
-#action {Jestes mentalnie oslabion{y|a}.} {#var pr_mana <118><afa> 7/ 9<088>;testprompt;#line gag};
-#action {Jestes mentalnie lekko oslabion{y|a}.} {#var pr_mana <118><afa> 8/ 9<088>;testprompt;#line gag};
-#action {Jestes mentalnie w pelni sil.} {#var pr_mana <118><afa> 9/ 9<088>;testprompt;#line gag};
+#action {Jestes mentalnie u kresu sil.} {#var pr_mana <118><faa> 1/ 9<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes mentalnie wykonczon{y|a}.} {#var pr_mana <118><faa> 2/ 9<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes mentalnie wyczerpan{y|a}.} {#var pr_mana <118><faa> 3/ 9<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes mentalnie w zlej kondycji.} {#var pr_mana <118><ffa> 4/ 9<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes mentalnie bardzo zmeczon{y|a}.} {#var pr_mana <118><ffa> 5/ 9<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes mentalnie zmeczon{y|a}.} {#var pr_mana <118><ffa> 6/ 9<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes mentalnie oslabion{y|a}.} {#var pr_mana <118><afa> 7/ 9<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes mentalnie lekko oslabion{y|a}.} {#var pr_mana <118><afa> 8/ 9<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes mentalnie w pelni sil.} {#var pr_mana <118><afa> 9/ 9<088>;#var rpp @refreshprompt{};;#line gag};
 
 #nop PRAGNIENIE;
-#action {Czujesz, ze chce ci sie bardzo pic.} {#var pr_smad <118><faa> 1/ 4<088>;testprompt;#line gag};
-#action {Czujesz, ze chce ci sie pic.} {#var pr_smad <118><faa> 2/ 4<088>;testprompt;#line gag};
-#action {Czujesz, ze troche chce ci sie pic.} {#var pr_smad <118><ffa> 3/ 4<088>;testprompt;#line gag};
-#action {Czujesz, ze nie chce ci sie pic.} {#var pr_smad <118><afa> 4/ 4<088>;testprompt;#line gag};
+#action {Czujesz, ze chce ci sie bardzo pic.} {#var pr_smad <118><faa> 1/ 4<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Czujesz, ze chce ci sie pic.} {#var pr_smad <118><faa> 2/ 4<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Czujesz, ze troche chce ci sie pic.} {#var pr_smad <118><ffa> 3/ 4<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Czujesz, ze nie chce ci sie pic.} {#var pr_smad <118><afa> 4/ 4<088>;#var rpp @refreshprompt{};;#line gag};
 
 #nop GLOD;
-#action {Jestes bardzo glodny.} {#var pr_glod <118><faa> 1/ 4<088>;testprompt;#line gag};
-#action {Jestes glodny.} {#var pr_glod <118><faa> 2/ 4<088>;testprompt;#line gag};
-#action {Jestes najedzony.} {#var pr_glod <118><ffa> 3/ 4<088>;testprompt;#line gag};
-#action {Jestes bardzo najedzony.} {#var pr_glod <118><afa> 4/ 4<088>;testprompt;#line gag};
+#action {Jestes bardzo glodny.} {#var pr_glod <118><faa> 1/ 4<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes glodny.} {#var pr_glod <118><faa> 2/ 4<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes najedzony.} {#var pr_glod <118><ffa> 3/ 4<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes bardzo najedzony.} {#var pr_glod <118><afa> 4/ 4<088>;#var rpp @refreshprompt{};;#line gag};
 
 #nop FORMA
-#action {Jestes w przecietnej formie.} {#var pr_form <118><faa> 1/ 7<088>;testprompt;#line gag};
-#action {Jestes w niezlej formie.} {#var pr_form <118><faa> 2/ 7<088>;testprompt;#line gag};
-#action {Jestes w dosc dobrej formie.} {#var pr_form <118><ffa> 3/ 7<088>;testprompt;#line gag};
-#action {Jestes w dobrej formie.} {#var pr_form <118><ffa> 4/ 7<088>;testprompt;#line gag};
-#action {Jestes w bardzo dobrej formie.} {#var pr_form <118><ffa> 5/ 7<088>;testprompt;#line gag};
-#action {Jestes w doskonalej formie.} {#var pr_form <118><afa> 6/ 7<088>;testprompt;#line gag};
-#action {Jestes w nieziemskiej formie.} {#var pr_form <118><afa> 7/ 7<088>;testprompt;#line gag};
+#action {Jestes w przecietnej formie.} {#var pr_form <118><faa> 1/ 7<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes w niezlej formie.} {#var pr_form <118><faa> 2/ 7<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes w dosc dobrej formie.} {#var pr_form <118><ffa> 3/ 7<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes w dobrej formie.} {#var pr_form <118><ffa> 4/ 7<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes w bardzo dobrej formie.} {#var pr_form <118><ffa> 5/ 7<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes w doskonalej formie.} {#var pr_form <118><afa> 6/ 7<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Jestes w nieziemskiej formie.} {#var pr_form <118><afa> 7/ 7<088>;#var rpp @refreshprompt{};;#line gag};
 
 #nop OBCIAZENIE;
-#action {Twoj ekwipunek nie wadzi ci ani troche.} {#var pr_obci <118><afa> 7/ 7<088>;testprompt;#line gag};
-#action {Ciezar twego ekwipunku wadzi ci troche.} {#var pr_obci <118><afa> 6/ 7<088>;testprompt;#line gag};
-#action {Ciezar twego ekwipunku daje ci sie we znaki.} {#var pr_obci <118><ffa> 5/ 7<088>;testprompt;#line gag};
-#action {Ciezar twego ekwipunku jest dosyc klopotliwy.} {#var pr_obci <118><ffa> 4/ 7<088>;testprompt;#line gag};
-#action {Twoj ekwipunek jest wyjatkowo ciezki.} {#var pr_obci <118><ffa> 3/ 7<088>;testprompt;#line gag};
-#action {Twoj ekwipunek jest niemilosiernie ciezki.} {#var pr_obci <118><faa> 2/ 7<088>;testprompt;#line gag};
-#action {Twoj ekwipunek prawie przygniata cie do ziemi.} {#var pr_obci <118><faa> 1/ 7<088>;testprompt;#line gag};
+#action {Twoj ekwipunek nie wadzi ci ani troche.} {#var pr_obci <118><afa> 7/ 7<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Ciezar twego ekwipunku wadzi ci troche.} {#var pr_obci <118><afa> 6/ 7<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Ciezar twego ekwipunku daje ci sie we znaki.} {#var pr_obci <118><ffa> 5/ 7<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Ciezar twego ekwipunku jest dosyc klopotliwy.} {#var pr_obci <118><ffa> 4/ 7<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Twoj ekwipunek jest wyjatkowo ciezki.} {#var pr_obci <118><ffa> 3/ 7<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Twoj ekwipunek jest niemilosiernie ciezki.} {#var pr_obci <118><faa> 2/ 7<088>;#var rpp @refreshprompt{};;#line gag};
+#action {Twoj ekwipunek prawie przygniata cie do ziemi.} {#var pr_obci <118><faa> 1/ 7<088>;#var rpp @refreshprompt{};;#line gag};
 
 
 #nop format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>; 

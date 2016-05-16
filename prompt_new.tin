@@ -156,11 +156,16 @@
 
 #unprompt {prompt1} {          fo$pr_form <088>za$prompt_zaslona_tick $quickbind_cel $walkmodep $wrogowie_prompt[4] $wrogowie_prompt[8] $wrogowie_prompt[12] $wrogowie_prompt[16] $wrogowie_prompt[20]  $druzyna_prompt[3] $druzyna_prompt[7] $druzyna_prompt[11] $druzyna_prompt[15] $druzyna_prompt[19]} {2};
 
-#prompt {prompt3} { $pr_nw  $pr_n  $pr_ne       <aff>Kondycja      :<088>             <aff>Pragnienie    :<088>  $pr_smad      <aff>Ciezar        :<088>  $pr_obci      <faf>Chodzenie     <aff>:<088>   $walkmodep} {3};
-#prompt {prompt2} { $pr_w  o  $pr_e       <aff>Mana          :<088>  $pr_mana      <aff>Glod          :<088>  $pr_glod      <aff>Forma         :<088>  $pr_form      $quickbind_cel} {2};
-#prompt {prompt1} { $pr_sw  $pr_s  $pr_se       <aff>Zmeczenie     :<088>  $pr_zmeczenie      <aff>Upicie        :<088>  $pr_upicie      <aff>Postepy       :<088>  $pr_exp      } {1};
+#prompt {prompt3} {<088> $pr_nw  $pr_n  $pr_ne       <aff>Kondycja      :<088>  $hp_bar      <aff>Pragnienie    :<088>  $pr_smad      <aff>Ciezar        :<088>  $pr_obci      <faf>Chodzenie     <aff>:<088>   $walkmodep} {3};
+#prompt {prompt2} {<088> $pr_w  o  $pr_e       <aff>Mana          :<088>  $pr_mana      <aff>Glod          :<088>  $pr_glod      <aff>Forma         :<088>  $pr_form      $quickbind_cel} {2};
+#prompt {prompt1} {<088> $pr_sw  $pr_s  $pr_se       <aff>Zmeczenie     :<088>  $pr_zmeczenie      <aff>Upicie        :<088>  $pr_upicie      <aff>Postepy       :<088>  $pr_exp      } {1};
 
-
+#function {refreshprompt}
+{
+#sh prompt1;
+#sh prompt2;
+#sh prompt3;
+}
 
 
 #alias {testprompt} 
@@ -168,12 +173,4 @@
 #sh prompt1;
 #sh prompt2;
 #sh prompt3;
-#nop sh prompt4;
-#nop sh prompt5;
-#nop sh prompt6;
-#nop sh prompt7;
-#nop sh prompt8;
-#nop sh prompt9;
-#nop sh prompt10;
-#nop sh prompt11;
 }
