@@ -1,4 +1,4 @@
-#nop {headache}{0} {improve}{0}{intox}{0}{mana}{8}{panic}{0}
+#nop {headache}{0} {intox}{0}{panic}{0}
 
 #sub {>} {};
 #sub {^%} {};
@@ -6,50 +6,77 @@
 #EVENT {IAC SB GMCP char.state IAC SE} {
 	#var CHAR_STATE {%0};
 
-	#if {"$CHAR_STATE[fatigue]" == "0"} {#var pr_zmeczenie {<118><afa> 0/ 9<088>};};
-	#if {"$CHAR_STATE[fatigue]" == "1"} {#var pr_zmeczenie {<118><afa> 1/ 9<088>};};
-	#if {"$CHAR_STATE[fatigue]" == "2"} {#var pr_zmeczenie {<118><afa> 2/ 9<088>};};
-	#if {"$CHAR_STATE[fatigue]" == "3"} {#var pr_zmeczenie {<118><ffa> 3/ 9<088>};};
-	#if {"$CHAR_STATE[fatigue]" == "4"} {#var pr_zmeczenie {<118><ffa> 4/ 9<088>};};
-	#if {"$CHAR_STATE[fatigue]" == "5"} {#var pr_zmeczenie {<118><ffa> 5/ 9<088>};};
-	#if {"$CHAR_STATE[fatigue]" == "6"} {#var pr_zmeczenie {<118><faa> 6/ 9<088>};};
-	#if {"$CHAR_STATE[fatigue]" == "7"} {#var pr_zmeczenie {<118><faa> 7/ 9<088>};};
-	#if {"$CHAR_STATE[fatigue]" == "8"} {#var pr_zmeczenie {<118><faa> 8/ 9<088>};};
-	#if {"$CHAR_STATE[fatigue]" == "9"} {#var pr_zmeczenie {<118><faa> 9/ 9<088>};};
+	#if {"$CHAR_STATE[fatigue]" == "0"} {#var pr_zmeczenie {<118><aca> 0/ 9<088>};};
+	#if {"$CHAR_STATE[fatigue]" == "1"} {#var pr_zmeczenie {<118><aca> 1/ 9<088>};};
+	#if {"$CHAR_STATE[fatigue]" == "2"} {#var pr_zmeczenie {<118><aca> 2/ 9<088>};};
+	#if {"$CHAR_STATE[fatigue]" == "3"} {#var pr_zmeczenie {<118><cca> 3/ 9<088>};};
+	#if {"$CHAR_STATE[fatigue]" == "4"} {#var pr_zmeczenie {<118><cca> 4/ 9<088>};};
+	#if {"$CHAR_STATE[fatigue]" == "5"} {#var pr_zmeczenie {<118><cca> 5/ 9<088>};};
+	#if {"$CHAR_STATE[fatigue]" == "6"} {#var pr_zmeczenie {<118><caa> 6/ 9<088>};};
+	#if {"$CHAR_STATE[fatigue]" == "7"} {#var pr_zmeczenie {<118><caa> 7/ 9<088>};};
+	#if {"$CHAR_STATE[fatigue]" == "8"} {#var pr_zmeczenie {<118><caa> 8/ 9<088>};};
+	#if {"$CHAR_STATE[fatigue]" == "9"} {#var pr_zmeczenie {<118><caa> 9/ 9<088>};};
 
-	#if {"$CHAR_STATE[hp]" == "6"} {#var pr_zycie <088><aca>[#######]<088>;#var hp_bar {<118><afa> 7/ 7<088>};#var rpp @refreshprompt{};};
-	#if {"$CHAR_STATE[hp]" == "5"} {#var pr_zycie <088><aca>[ ######]<088>;#var hp_bar {<118><afa> 6/ 7<088>};#var rpp @refreshprompt{};};
-	#if {"$CHAR_STATE[hp]" == "4"} {#var pr_zycie <088><cca>[  #####]<088>;#var hp_bar {<118><afa> 5/ 7<088>};#var rpp @refreshprompt{};};
-	#if {"$CHAR_STATE[hp]" == "3"} {#var pr_zycie <088><cca>[   ####]<088>;#var hp_bar {<118><afa> 4/ 7<088>};#var rpp @refreshprompt{};};
-	#if {"$CHAR_STATE[hp]" == "2"} {#var pr_zycie <088><caa>[    ###]<088>;#var hp_bar {<118><afa> 3/ 7<088>};#var rpp @refreshprompt{};};
-	#if {"$CHAR_STATE[hp]" == "1"} {#var pr_zycie <088><caa>[     ##]<088>;#var hp_bar {<118><afa> 2/ 7<088>};#var rpp @refreshprompt{};};
-	#if {"$CHAR_STATE[hp]" == "0"} {#var pr_zycie <088><caa>[      #]<088>;#var hp_bar {<118><afa> 1/ 7<088>};#var rpp @refreshprompt{};};
+	#if {"$CHAR_STATE[hp]" == "6"} {#var pr_zycie <088><aca>[#######]<088>;#var hp_bar {<118><aca> 7/ 7<088>};#var rpp @refreshprompt{};};
+	#if {"$CHAR_STATE[hp]" == "5"} {#var pr_zycie <088><aca>[ ######]<088>;#var hp_bar {<118><aca> 6/ 7<088>};#var rpp @refreshprompt{};};
+	#if {"$CHAR_STATE[hp]" == "4"} {#var pr_zycie <088><cca>[  #####]<088>;#var hp_bar {<118><cca> 5/ 7<088>};#var rpp @refreshprompt{};};
+	#if {"$CHAR_STATE[hp]" == "3"} {#var pr_zycie <088><cca>[   ####]<088>;#var hp_bar {<118><cca> 4/ 7<088>};#var rpp @refreshprompt{};};
+	#if {"$CHAR_STATE[hp]" == "2"} {#var pr_zycie <088><caa>[    ###]<088>;#var hp_bar {<118><caa> 3/ 7<088>};#var rpp @refreshprompt{};};
+	#if {"$CHAR_STATE[hp]" == "1"} {#var pr_zycie <088><caa>[     ##]<088>;#var hp_bar {<118><caa> 2/ 7<088>};#var rpp @refreshprompt{};};
+	#if {"$CHAR_STATE[hp]" == "0"} {#var pr_zycie <088><caa>[      #]<088>;#var hp_bar {<118><caa> 1/ 7<088>};#var rpp @refreshprompt{};};
 
-	#if {"$CHAR_STATE[encumberance]" == "6"} {#var pr_obci {<118><afa> 6/ 6<088>};};
-	#if {"$CHAR_STATE[encumberance]" == "5"} {#var pr_obci {<118><afa> 5/ 6<088>};};
-	#if {"$CHAR_STATE[encumberance]" == "4"} {#var pr_obci {<118><afa> 4/ 6<088>};};
-	#if {"$CHAR_STATE[encumberance]" == "3"} {#var pr_obci {<118><afa> 3/ 6<088>};};
-	#if {"$CHAR_STATE[encumberance]" == "2"} {#var pr_obci {<118><afa> 2/ 6<088>};};
-	#if {"$CHAR_STATE[encumberance]" == "1"} {#var pr_obci {<118><afa> 1/ 6<088>};};
-	#if {"$CHAR_STATE[encumberance]" == "0"} {#var pr_obci {<118><afa> 0/ 6<088>};};
+	#if {"$CHAR_STATE[encumberance]" == "6"} {#var pr_obci {<118><caa> 6/ 6<088>};};
+	#if {"$CHAR_STATE[encumberance]" == "5"} {#var pr_obci {<118><caa> 5/ 6<088>};};
+	#if {"$CHAR_STATE[encumberance]" == "4"} {#var pr_obci {<118><caa> 4/ 6<088>};};
+	#if {"$CHAR_STATE[encumberance]" == "3"} {#var pr_obci {<118><cca> 3/ 6<088>};};
+	#if {"$CHAR_STATE[encumberance]" == "2"} {#var pr_obci {<118><cca> 2/ 6<088>};};
+	#if {"$CHAR_STATE[encumberance]" == "1"} {#var pr_obci {<118><aca> 1/ 6<088>};};
+	#if {"$CHAR_STATE[encumberance]" == "0"} {#var pr_obci {<118><aca> 0/ 6<088>};};
 
-	#if {"$CHAR_STATE[form]" == "6"} {#var pr_form {<118><afa> 6/ 6<088>};};
-	#if {"$CHAR_STATE[form]" == "5"} {#var pr_form {<118><afa> 5/ 6<088>};};
-	#if {"$CHAR_STATE[form]" == "4"} {#var pr_form {<118><afa> 4/ 6<088>};};
-	#if {"$CHAR_STATE[form]" == "3"} {#var pr_form {<118><afa> 3/ 6<088>};};
-	#if {"$CHAR_STATE[form]" == "2"} {#var pr_form {<118><afa> 2/ 6<088>};};
-	#if {"$CHAR_STATE[form]" == "1"} {#var pr_form {<118><afa> 1/ 6<088>};};
-	#if {"$CHAR_STATE[form]" == "0"} {#var pr_form {<118><afa> 0/ 6<088>};};
+	#if {"$CHAR_STATE[form]" == "6"} {#var pr_form {<118><aca> 6/ 6<088>};};
+	#if {"$CHAR_STATE[form]" == "5"} {#var pr_form {<118><aca> 5/ 6<088>};};
+	#if {"$CHAR_STATE[form]" == "4"} {#var pr_form {<118><cca> 4/ 6<088>};};
+	#if {"$CHAR_STATE[form]" == "3"} {#var pr_form {<118><cca> 3/ 6<088>};};
+	#if {"$CHAR_STATE[form]" == "2"} {#var pr_form {<118><cca> 2/ 6<088>};};
+	#if {"$CHAR_STATE[form]" == "1"} {#var pr_form {<118><caa> 1/ 6<088>};};
+	#if {"$CHAR_STATE[form]" == "0"} {#var pr_form {<118><caa> 0/ 6<088>};};
 
-	#if {"$CHAR_STATE[stuffed]" == "3"} {#var pr_glod {<118><afa> 0/ 3<088>};};
-	#if {"$CHAR_STATE[stuffed]" == "2"} {#var pr_glod {<118><ffa> 1/ 3<088>};};
-	#if {"$CHAR_STATE[stuffed]" == "1"} {#var pr_glod {<118><faa> 2/ 3<088>};};
-	#if {"$CHAR_STATE[stuffed]" == "0"} {#var pr_glod {<118><faa> 3/ 3<088>};};
+	#if {"$CHAR_STATE[stuffed]" == "3"} {#var pr_glod {<118><aca> 0/ 3<088>};};
+	#if {"$CHAR_STATE[stuffed]" == "2"} {#var pr_glod {<118><cca> 1/ 3<088>};};
+	#if {"$CHAR_STATE[stuffed]" == "1"} {#var pr_glod {<118><caa> 2/ 3<088>};};
+	#if {"$CHAR_STATE[stuffed]" == "0"} {#var pr_glod {<118><caa> 3/ 3<088>};};
 
-	#if {"$CHAR_STATE[soaked]" == "3"} {#var pr_smad {<118><afa> 0/ 3<088>};};
-	#if {"$CHAR_STATE[soaked]" == "2"} {#var pr_smad {<118><ffa> 1/ 3<088>};};
-	#if {"$CHAR_STATE[soaked]" == "1"} {#var pr_smad {<118><faa> 2/ 3<088>};};
-	#if {"$CHAR_STATE[soaked]" == "0"} {#var pr_smad {<118><faa> 3/ 3<088>};};
+	#if {"$CHAR_STATE[soaked]" == "3"} {#var pr_smad {<118><aca> 0/ 3<088>};};
+	#if {"$CHAR_STATE[soaked]" == "2"} {#var pr_smad {<118><cca> 1/ 3<088>};};
+	#if {"$CHAR_STATE[soaked]" == "1"} {#var pr_smad {<118><caa> 2/ 3<088>};};
+	#if {"$CHAR_STATE[soaked]" == "0"} {#var pr_smad {<118><caa> 3/ 3<088>};};
+
+	#if {"$CHAR_STATE[improve]" == "0"} {#var pr_exp {<118><fff> 0/15<088>};};
+	#if {"$CHAR_STATE[improve]" == "1"} {#var pr_exp {<118><fff> 1/15<088>};};
+	#if {"$CHAR_STATE[improve]" == "2"} {#var pr_exp {<118><fff> 2/15<088>};};
+	#if {"$CHAR_STATE[improve]" == "3"} {#var pr_exp {<118><fff> 3/15<088>};};
+	#if {"$CHAR_STATE[improve]" == "4"} {#var pr_exp {<118><fff> 4/15<088>};};
+	#if {"$CHAR_STATE[improve]" == "5"} {#var pr_exp {<118><fff> 5/15<088>};};
+	#if {"$CHAR_STATE[improve]" == "6"} {#var pr_exp {<118><fff> 6/15<088>};};
+	#if {"$CHAR_STATE[improve]" == "7"} {#var pr_exp {<118><fff> 7/15<088>};};
+	#if {"$CHAR_STATE[improve]" == "8"} {#var pr_exp {<118><fff> 8/15<088>};};
+	#if {"$CHAR_STATE[improve]" == "9"} {#var pr_exp {<118><fff> 9/15<088>};};
+	#if {"$CHAR_STATE[improve]" == "10"} {#var pr_exp {<118><fff> 10/15<088>};};
+	#if {"$CHAR_STATE[improve]" == "11"} {#var pr_exp {<118><fff> 11/15<088>};};
+	#if {"$CHAR_STATE[improve]" == "12"} {#var pr_exp {<118><fff> 12/15<088>};};
+	#if {"$CHAR_STATE[improve]" == "13"} {#var pr_exp {<118><fff> 13/15<088>};};
+	#if {"$CHAR_STATE[improve]" == "14"} {#var pr_exp {<118><fff> 14/15<088>};};
+	#if {"$CHAR_STATE[improve]" == "15"} {#var pr_exp {<118><fff> 15/15<088>};};
+				
+	#if {"$CHAR_STATE[mana]" == "8"} {#var pr_mana {<118><aca> 9/ 9<088>};};
+	#if {"$CHAR_STATE[mana]" == "7"} {#var pr_mana {<118><aca> 8/ 9<088>};};
+	#if {"$CHAR_STATE[mana]" == "6"} {#var pr_mana {<118><aca> 7/ 9<088>};};
+	#if {"$CHAR_STATE[mana]" == "5"} {#var pr_mana {<118><cca> 6/ 9<088>};};
+	#if {"$CHAR_STATE[mana]" == "4"} {#var pr_mana {<118><cca> 5/ 9<088>};};
+	#if {"$CHAR_STATE[mana]" == "3"} {#var pr_mana {<118><cca> 4/ 9<088>};};
+	#if {"$CHAR_STATE[mana]" == "2"} {#var pr_mana {<118><caa> 3/ 9<088>};};
+	#if {"$CHAR_STATE[mana]" == "1"} {#var pr_mana {<118><caa> 2/ 9<088>};};
+	#if {"$CHAR_STATE[mana]" == "0"} {#var pr_mana {<118><caa> 1/ 9<088>};};
 		
 	#sh prompt1;
 	#sh prompt2;
@@ -89,15 +116,6 @@
 #action {Jestes napruty.} {#var pr_upicie <118><faa> 8/10<088>;#var rpp @refreshprompt{};;#line gag};
 #action {Jestes nawalony.} {#var pr_upicie <118><faa> 9/10<088>;#var rpp @refreshprompt{};;#line gag};
 #action {Jestes pijany jak bela.} {#var pr_upicie <118><faa>10/10<088>;#var rpp @refreshprompt{};;#line gag};
-
-#nop KONDYCJA;
-#action {^Jestes w swietnej kondycji.$} {#var hpbar $hpbar7;#var pr_zycie $pane_hp_07_07;#var rpp @refreshprompt{};;#line gag};
-#action {^Jestes w dobrym stanie.$} {#var hpbar $hpbar6;#var pr_zycie $pane_hp_06_07;#var rpp @refreshprompt{};;#line gag};
-#action {^Jestes lekko ranny.$} {#var hpbar $hpbar5;#var pr_zycie $pane_hp_05_07;#var rpp @refreshprompt{};;#line gag};
-#action {^Jestes ranny.$} {#var hpbar $hpbar4;#var pr_zycie $pane_hp_04_07;#var rpp @refreshprompt{};;#line gag};
-#action {^Jestes w zlej kondycji.$} {#var hpbar $hpbar3;#var pr_zycie $pane_hp_03_07;#var rpp @refreshprompt{};;#line gag};
-#action {^Jestes ciezko ranny.$} {#var hpbar $hpbar2;#var pr_zycie $pane_hp_02_07;#var rpp @refreshprompt{};;#line gag};
-#action {^Jestes ledwo zywy.$} {#var hpbar $hpbar1;#var pr_zycie $pane_hp_01_07;#var rpp @refreshprompt{};;#line gag};
 
 
 

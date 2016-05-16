@@ -48,7 +48,7 @@
  
 }
 
-#function {update_teams}
+#alias {update_teams}
 {
   #unvar team {};
   #unvar othe {};
@@ -83,43 +83,40 @@
     #else {
       #if {"$obda2[$vob][team]" == "true"} {	
       
-      	#regex {$obda2[$vob][desc]} {%w %w %w} {#var team_curr_nick {&3}} {#var team_curr_nick {$obda2[$vob][desc]}};
-		#format {team_curr_nick} {%-7s} {$team_curr_nick};
-		#format {team_curr_nick} {%.7s} {$team_curr_nick};
+      	#nop regex {$obda2[$vob][desc]} {%w %w %w} {#var team_curr_nick {&3}} {#var team_curr_nick {$obda2[$vob][desc]}};
+		#nop format {team_curr_nick} {%-7s} {$team_curr_nick};
+		#nop format {team_curr_nick} {%.7s} {$team_curr_nick};
 
-	#if {$obda2[$vob][hp] == 6} {#var team_curr_hp <088><aca>[#######]<088> };
-	#if {$obda2[$vob][hp] == 5} {#var team_curr_hp <088><aca>[ ######]<088> };
-	#if {$obda2[$vob][hp] == 4} {#var team_curr_hp <088><cca>[  #####]<088> };
-	#if {$obda2[$vob][hp] == 3} {#var team_curr_hp <088><cca>[   ####]<088> };
-	#if {$obda2[$vob][hp] == 2} {#var team_curr_hp <088><caa>[    ###]<088> };
-	#if {$obda2[$vob][hp] == 1} {#var team_curr_hp <088><caa>[     ##]<088> };
-	#if {$obda2[$vob][hp] == 0} {#var team_curr_hp <088><FAA><fff>[!LEDWO!]<088> };
+	#nop if {$obda2[$vob][hp] == 6} {#var team_curr_hp <088><aca>[#######]<088> };
+	#nop if {$obda2[$vob][hp] == 5} {#var team_curr_hp <088><aca>[ ######]<088> };
+	#nop if {$obda2[$vob][hp] == 4} {#var team_curr_hp <088><cca>[  #####]<088> };
+	#nop if {$obda2[$vob][hp] == 3} {#var team_curr_hp <088><cca>[   ####]<088> };
+	#nop if {$obda2[$vob][hp] == 2} {#var team_curr_hp <088><caa>[    ###]<088> };
+	#nop if {$obda2[$vob][hp] == 1} {#var team_curr_hp <088><caa>[     ##]<088> };
+	#nop if {$obda2[$vob][hp] == 0} {#var team_curr_hp <088><FAA><fff>[!LEDWO!]<088> };
 	
-	#var team[$team_index][desc] {$team_curr_hp $team_curr_nick};
-
-	#var team[$team_index][enemies] 0;
-	#var team[$team_index][tag] $vob;
+	#nop var team[$team_index][desc] {$team_curr_hp $team_curr_nick};
+	#nop var team[$team_index][enemies] 0;
+	#nop var team[$team_index][tag] $vob;
+	
 	#math indexvalue {96 + $team_index};
 	#format indexchar {%a} {$indexvalue};
 
 	#foreach {$obda2[]} {vos} {
 	  #if {"$obda2[$vos][attack_num]" == "$vob"} {
 	  	#var obda2[$vos][enemies] {$indexchar};
-	    #math {team[$team_index][enemies]} {$team[$team_index][enemies] + 1};
+	    #nop math {team[$team_index][enemies]} {$team[$team_index][enemies] + 1};
 	  };
 	};
 	
-	#format team_enemies {%+2s} {$team[$team_index][enemies]};
-	#if {"$team_enemies" == " 0"} {#var team_enemies {  }};
-	
-	#var druzyna_prompt[$team_index] {<088>[$indexchar]<188><faa>$team_enemies$team[$team_index][desc]  };
-
-	#line substitute {variables} {#alias rz$indexchar {wskaz ob_$team[$team_index][tag] jako cel obrony;rozkaz druzynie zaslonic ob_$team[$team_index][tag]}};
-	#line substitute {variables} {#alias z$indexchar {zaslon ob_$team[$team_index][tag]}};
-	#line substitute {variables} {#alias z${indexchar}2 {opcje grupa 2;zaslon ob_$team[$team_index][tag];opcje grupa 1}};
-	#line substitute {variables} {#alias z${indexchar}3 {opcje grupa 3;zaslon ob_$team[$team_index][tag];opcje grupa 1}};
-	#line substitute {variables} {#alias z${indexchar}4 {opcje grupa 4;zaslon ob_$team[$team_index][tag];opcje grupa 1}};
-	
+	#nop format team_enemies {%+2s} {$team[$team_index][enemies]};
+	#nop if {"$team_enemies" == " 0"} {#var team_enemies {  }};
+	#nop var druzyna_prompt[$team_index] {<088>[$indexchar]<188><faa>$team_enemies$team[$team_index][desc]  };
+	#nop line substitute {variables} {#alias rz$indexchar {wskaz ob_$team[$team_index][tag] jako cel obrony;rozkaz druzynie zaslonic ob_$team[$team_index][tag]}};
+	#nop line substitute {variables} {#alias z$indexchar {zaslon ob_$team[$team_index][tag]}};
+	#nop line substitute {variables} {#alias z${indexchar}2 {opcje grupa 2;zaslon ob_$team[$team_index][tag];opcje grupa 1}};
+	#nop line substitute {variables} {#alias z${indexchar}3 {opcje grupa 3;zaslon ob_$team[$team_index][tag];opcje grupa 1}};
+	#nop line substitute {variables} {#alias z${indexchar}4 {opcje grupa 4;zaslon ob_$team[$team_index][tag];opcje grupa 1}};
 	#math {team_index} {$team_index + 1};	
   }; 
   #else {
@@ -192,54 +189,43 @@
 #nop sh HACK1;
 	#var team_index {1};
   #foreach {$obda2[]} {vob} {  
-      #if {"$obda2[$vob][team]" == "true"} {	
-	      	#regex {$obda2[$vob][desc]} {%w %w %w} {#var team_curr_nick {&3}} {#var team_curr_nick {$obda2[$vob][desc]}};
+      #if {"$obda2[$vob][team]" == "true"} {
+      	#regex {$obda2[$vob][desc]} {%w %w %w} {#var team_curr_nick {&3}} {#var team_curr_nick {$obda2[$vob][desc]}};
 		#format {team_curr_nick} {%-7s} {$team_curr_nick};
 		#format {team_curr_nick} {%.7s} {$team_curr_nick};
-
-	#if {$obda2[$vob][hp] == 6} {#var team_curr_hp <088><aca>[#######]<088> };
-	#if {$obda2[$vob][hp] == 5} {#var team_curr_hp <088><aca>[ ######]<088> };
-	#if {$obda2[$vob][hp] == 4} {#var team_curr_hp <088><cca>[  #####]<088> };
-	#if {$obda2[$vob][hp] == 3} {#var team_curr_hp <088><cca>[   ####]<088> };
-	#if {$obda2[$vob][hp] == 2} {#var team_curr_hp <088><caa>[    ###]<088> };
-	#if {$obda2[$vob][hp] == 1} {#var team_curr_hp <088><caa>[     ##]<088> };
-	#if {$obda2[$vob][hp] == 0} {#var team_curr_hp <088><FAA><fff>[!LEDWO!]<088> };
-	
-	#var team[$team_index][desc] {$team_curr_hp <aca>$team_curr_nick<088>};
- 
+		#if {$obda2[$vob][hp] == 6} {#var team_curr_hp <088><aca>[#######]<088> };
+		#if {$obda2[$vob][hp] == 5} {#var team_curr_hp <088><aca>[ ######]<088> };
+		#if {$obda2[$vob][hp] == 4} {#var team_curr_hp <088><cca>[  #####]<088> };
+		#if {$obda2[$vob][hp] == 3} {#var team_curr_hp <088><cca>[   ####]<088> };
+		#if {$obda2[$vob][hp] == 2} {#var team_curr_hp <088><caa>[    ###]<088> };
+		#if {$obda2[$vob][hp] == 1} {#var team_curr_hp <088><caa>[     ##]<088> };
+		#if {$obda2[$vob][hp] == 0} {#var team_curr_hp <088><FAA><fff>[!LEDWO!]<088> };
+		#var team[$team_index][desc] {$team_curr_hp <aca>$team_curr_nick<088>};
 		#var team[$team_index][enemies] 0;
 		#var team[$team_index][tag] $vob;
 		#math indexvalue {96 + $team_index};
 		#format indexchar {%a} {$indexvalue};
-
 		#foreach {$obda2[]} {vos} {
 		  #if {"$obda2[$vos][attack_num]" == "$vob"} {
 		    #math {team[$team_index][enemies]} {$team[$team_index][enemies] + 1};
 		  };
 		};
-	
 		#format team_enemies {%+2s} {$team[$team_index][enemies]};
 		#if {"$team_enemies" == " 0"} {#var team_enemies {  }};
-
 		#var enemy_shortcut $obda2[$vob][enemies];
 		#format {esl} {%L} {$enemy_shortcut};
 		#if {"$esl" == "1"} { } {#var enemy_shortcut {<aaa>A<088>}};
-	
 		#var druzyna_prompt[$team_index] {<088>[$indexchar]<188><faa>$team_enemies$team[$team_index][desc] <088>$enemy_shortcut  };
 		#math {team_index} {$team_index + 1};	
   	};
   };
 #nop EOH;
-
-    
     #loop {$team_index} {19} {z} {
         #var druzyna_prompt[$z] {<fff>                           <088>};
     };
     #loop {$othe_index} {20} {zz} {
-      #nop var wrogowie_prompt[$zz] {<fff>                         <088>};
       #var wrogowie_prompt[$zz] {<fff>               <088>};
-    };
-        
+    };        
     #var rpp @refreshprompt{};
 }
 
@@ -252,7 +238,7 @@
 			#unvar {obda2[&0]}
          	}
         };
-	#var r @update_teams{};
+	update_teams;
 }
 
 #event {IAC SB GMCP objects.data IAC SE} 
@@ -263,7 +249,7 @@
       #var {obda2[$vob][&0]} {$obda[$vob][&0]};
     }
   };
-  #var r @update_teams{};
+  update_teams;
 }
 
 
