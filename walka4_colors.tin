@@ -37,7 +37,7 @@
 #action {~^Potezne uderzenie twojej srebrzystej kosy bojowej dosiega %*.$} {#sh {<118><acf>[kos 6/8] <088>%0<aaa>,};#line gag;};
 #action {~^Masakrujesz %* srebrzysta kosa bojowa, trafiajac %*. Na ostrzu pozostaja krwawe kawalki ciala.$} {#sh {<118><acf>[kos 7/8] <088>%0<aaa>,};#line gag;};
 #action {~^Slyszysz ohydny dzwiek rozdzieranej tkanki i kruszonych kosci, gdy %*. Ostrze gleboko wnika w cialo, tak ze krew tryska szerokim strumieniem z rany.$} {#sh {<118><acf>[kos 8/8] <088>%0<aaa>,};#line gag;};
-#action {~^Momentalnie dostrzegajac stan wroga, decydujesz sie na ostateczny cios. %* bojowej. %* mgla.}
+#action {~^Momentalnie dostrzegajac stan wroga, decydujesz sie na ostateczny cios. %* bojowej. %* mgla.$}
 	 {#sh {<118><acf>[kos 8/8] <088>%0<aaa>,};#line gag;};
 #NOP TWOJE PAROWANIE:
 #action {~^%* cios %*, lecz uderzenie zatrzymuje sie na %*.$} {#sh {<118><ccc>[par]     <088>%0<aaa>,};#line gag;};
@@ -200,7 +200,7 @@
 #nop lsniaca plomienista tarcza
 
 #nop GLAD
-#action {~^Mocnym uderzeniem %* oszalamia %* i ciosem %* zadaje %*.} {#sh {<118><ffa>[gla ?/?] <088>%0<aaa>,};#line gag;}; 
+#action {~^Mocnym uderzeniem %* oszalamia %* i ciosem %* zadaje %*.$} {#sh {<118><ffa>[gla ?/?] <088>%0<aaa>,};#line gag;}; 
 #nop Ciosem polprzezroczystego migotliwego topora w tulow Belgat(NA) zadaje gargantuicznemu szarawemu trollowi nieduza rane i uderzeniem lsniacej plomienistej tarczy odpycha go w tyl.
 #nop Ta dziwna poswiata formuje sie w wirujaca kule przeplatajacych sie ze soba zoltych i pomaranczowych jezorow plynnego ognia, ktore wystrzeliwuja w kierunku zwalistego zielonkawego trolla. Parzace plomienie
 #nop omiataja jego cialo pozostawiajac jedynie nieznaczne obrazenia.
