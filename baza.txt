@@ -1334,7 +1334,7 @@
 #var postacis[szczuply szarooki polelf][NPC] {Jenner};
 #var postacic[czujny czarnooki elf][LE] {Jennever};
 #var postacib[blekitnooki opanowany mezczyzna][CN] {Jens};
-#var postacik[krotkowlosy mlody mezczyzna][NPC] {Jeralt};
+#var postacik[krotkowlosy mlody mezczyzna][MC] {Jeralt};
 #var postacip[przysadzisty zreczny mezczyzna][NPC] {Jerik};
 #var postaciz[zarosniety czerwonowlosy ogr][NPC] {Jhared};
 #var postacim[mloda blekitnooka kobieta][GP] {Jinesh};
@@ -2229,7 +2229,8 @@
 #var postaciw[wysoki rudobrody mezczyzna][NPC] {Sigurd};
 #var postaciw[wysoki ostrouchy elf][CN] {Silchas};
 #var postacik[krotkowlosy mlody mezczyzna][NPC] {Siliusz};
-#var postacik[krotkowlosy mlody mezczyzna][ZS] {Jeralt};
+#var postacik[krotkowlosy mlody mezczyzna][MC] {Jeralt};
+#var postacik[krotkowlosy mlody mutant][MC] {Jeralt};
 #var postacim[mlodziutka uprzejma polelfka][NPC] {Siliya};
 #var postacic[ciemnooki smagly polelf][PE] {Silkathas};
 #var postacis[skromna energiczna kobieta][NPC] {Simone};
