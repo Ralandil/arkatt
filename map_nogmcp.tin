@@ -232,9 +232,7 @@
 
 #action {<CHAT> mapper chats to everyone, 'room:id:%1'} {
 	#var current_room_id %1;
-	#if {$gmcp_saving > 0} {
-		sg;
-	};
+	#nop if {$gmcp_saving > 0} {sg;};
 	#line gag;
 }
 #action {<CHAT> mapper chats to everyone, 'exit:end'} {

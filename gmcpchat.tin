@@ -9,13 +9,25 @@
 		#sh $MESSAGE_INFO[text];
 	};
 	#elseif {"$MESSAGE_INFO[type]" == "combat"} {
-		#sh $MESSAGE_INFO[text];
+		#regex {$MESSAGE_INFO[text]} {%izabil} {
+		  #sh $MESSAGE_INFO[text];
+		} {
+		  #var rr @add_chat_lines{$MESSAGE_INFO[text]};
+		};
 	};
 	#elseif {"$MESSAGE_INFO[type]" == "combat.team"} {
-		#sh $MESSAGE_INFO[text];
+		#regex {$MESSAGE_INFO[text]} {%izabil} {
+		  #sh $MESSAGE_INFO[text];
+		} {
+		  #var rr @add_chat_lines{$MESSAGE_INFO[text]};
+		};
 	};
 	#elseif {"$MESSAGE_INFO[type]" == "combat.others"} {
-		#sh $MESSAGE_INFO[text];
+		#regex {$MESSAGE_INFO[text]} {%izabil} {
+		  #sh $MESSAGE_INFO[text];
+		} {
+		  #var rr @add_chat_lines{$MESSAGE_INFO[text]};
+		};
 	};
 	
 }

@@ -8,7 +8,7 @@
 #read $path/ocena_zbroi.tin;
 #read $path/prompt_fetch.tin;
 #read $path/prompt_new.tin;
-#nop read $path/topprompt.tin;
+#read $path/combatprompt.tin;
 #read $path/kill.tin;
 #read $path/keys_nogmcp.tin;
 #read $path/walka_mini.tin;

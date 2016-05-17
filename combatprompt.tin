@@ -1,0 +1,205 @@
+#nop split 17 6
+#nop PROMPT TOP
+#alias {refresh_chat_prompt} {
+  #nop sh chatline1;
+  #sh chatline2;
+  #sh chatline3;
+  #sh chatline4;
+  #sh chatline5;
+  #sh chatline6;
+}
+
+#list promptlines {clear}
+#list promptlines add {<afa>    }
+#list promptlines add {<afa>    }
+#list promptlines add {<afa>    }
+#list promptlines add {<afa>    }
+#list promptlines add {<afa>    }
+#list promptlines add {<afa>    }
+#list promptlines add {<afa>    }
+#list promptlines add {<afa>    }
+#list promptlines add {<afa>    }
+#list promptlines add {<afa>    }
+#list promptlines add {<afa>    }
+#list promptlines add {<afa>    }
+#list promptlines add {<afa>    }
+#list promptlines add {<afa>    }
+#list promptlines add {<afa>    }
+#list promptlines add {<afa>    }
+
+#var staticframe {<afa>    }
+
+#prompt {chatline2} {$promptlines[1]} {-2}
+#prompt {chatline3} {$promptlines[2]} {-3}
+#prompt {chatline4} {$promptlines[3]} {-4}
+#prompt {chatline5} {$promptlines[4]} {-5}
+#prompt {chatline6} {$promptlines[5]} {-6}
+
+#format maxwidth {%C}
+#loop {1} {$maxwidth} {iii} {
+  #if {$iii == 1} {
+    #var staticframe {${bgcolor}+};
+    #list promptlines set {1} {};
+    #list promptlines set {2} {};
+    #list promptlines set {3} {};
+    #list promptlines set {4} {};
+  };
+  #elseif {$iii == $maxwidth}  {
+    #var staticframe {${staticframe}${bgcolor}+};
+    #list promptlines set {1} {$promptlines[1]};
+    #list promptlines set {2} {$promptlines[2]};
+    #list promptlines set {3} {$promptlines[3]};
+    #list promptlines set {4} {$promptlines[4]};
+  };
+  #else {
+    #var staticframe {${staticframe}${bgcolor}-};
+    #list promptlines set {1} {$promptlines[1] };
+    #list promptlines set {2} {$promptlines[2] };
+    #list promptlines set {3} {$promptlines[3] };
+    #list promptlines set {4} {$promptlines[4] };
+  }
+}
+
+refresh_chat_prompt
+
+
+
+
+
+#function {add_chat_line} {
+    #list promptlines set {1} $promptlines[2];
+    #list promptlines set {2} $promptlines[3];
+    #list promptlines set {3} $promptlines[4];
+    #list promptlines set {4} $promptlines[5];
+    #list promptlines set {5} {%1};
+    refresh_chat_prompt
+}
+
+#function {add_chat_lines} {
+  #format maxwidth {%C};
+  #var letters 0;
+  #var buffline {};
+  #parse {%1} {char} {
+    #math letters {$letters+1};
+    #format strcurrsize {%L} {$buffline};
+    #if {$strcurrsize == 0} {
+      #var buffline { };
+    };
+    #if {$strcurrsize + 1 < $maxwidth} {
+      #var buffline {${buffline}${char}};
+    };
+    #if {$strcurrsize + 1 == $maxwidth} {
+      #var buffline {${buffline}};
+      #var __r @add_chat_line{$buffline};
+      #var buffline {${bgcolor}<088>};
+      #var buffline {${buffline}${char}};
+      #var letters 0;
+    };
+  };
+  #if {$strcurrsize > 0} {
+      #if {$strcurrsize + 1 == $maxwidth} {
+	#var buffline {${buffline} };
+      } {
+	#math {padder} {$maxwidth - $strcurrsize - 2};
+	#loop {1} {$padder} {ii} {#var buffline {$buffline}};
+	#var buffline {${buffline} };
+      };
+      #var __r @add_chat_line{$buffline};
+  }
+}
+
+
+#nop  ############################################################### CHAT2
+
+
+#list chatterlines {clear}
+#list chatterlines add {<afa>    }
+#list chatterlines add {<afa>    }
+#list chatterlines add {<afa>    }
+#list chatterlines add {<afa>    }
+#list chatterlines add {<afa>    }
+#list chatterlines add {<afa>    }
+#list chatterlines add {<afa>    }
+#list chatterlines add {<afa>    }
+#list chatterlines add {<afa>    }
+#list chatterlines add {<afa>    }
+#list chatterlines add {<afa>    }
+#list chatterlines add {<afa>    }
+#list chatterlines add {<afa>    }
+#list chatterlines add {<afa>    }
+#list chatterlines add {<afa>    }
+#list chatterlines add {<afa>    }
+
+#var staticframe {<afa>    }
+
+#format maxwidth2 {38}
+#loop {1} {$maxwidth2} {iii} {
+  #if {$iii == 1} {
+    #var staticframe {${bgcolor}+};
+    #list chatterlines set {1} {};
+    #list chatterlines set {2} {};
+    #list chatterlines set {3} {};
+    #list chatterlines set {4} {};
+  };
+  #elseif {$iii == $maxwidth2}  {
+    #var staticframe {${staticframe}${bgcolor}+};
+    #list chatterlines set {1} {$chatterlines[1]};
+    #list chatterlines set {2} {$chatterlines[2]};
+    #list chatterlines set {3} {$chatterlines[3]};
+    #list chatterlines set {4} {$chatterlines[4]};
+  };
+  #else {
+    #var staticframe {${staticframe}${bgcolor}-};
+    #list chatterlines set {1} {$chatterlines[1] };
+    #list chatterlines set {2} {$chatterlines[2] };
+    #list chatterlines set {3} {$chatterlines[3] };
+    #list chatterlines set {4} {$chatterlines[4] };
+  }
+}
+
+
+
+
+
+#function {add_chatter_line} {
+    #list chatterlines set {1} $chatterlines[2];
+    #list chatterlines set {2} $chatterlines[3];
+    #list chatterlines set {3} $chatterlines[4];
+    #list chatterlines set {4} $chatterlines[5];
+    #list chatterlines set {5} {%1};
+}
+
+#function {add_chatter_lines} {
+  #format maxwidth2 38;
+  #var letters2 0;
+  #var buffline2 {};
+  #parse {%1} {char2} {
+    #math letters2 {$letters2+1};
+    #format strcurrsize2 {%L} {$buffline2};
+    #if {$strcurrsize2 == 0} {
+      #var buffline2 {<088>};
+    };
+    #if {$strcurrsize2 + 1 < $maxwidth2} {
+      #var buffline2 {${buffline2}${char2}};
+    };
+    #if {$strcurrsize2 + 1 == $maxwidth2} {
+      #var buffline2 {${buffline2}};
+      #var __r @add_chatter_line{$buffline2};
+      #var buffline2 {<g08>};
+      #var buffline2 {${buffline2}${char2}};
+      #var letters2 0;
+    };
+  };
+  #if {$strcurrsize2 > 0} {
+      #if {$strcurrsize2 + 1 == $maxwidth2} {
+	#var buffline2 {${buffline2} };
+      } {
+	#math {padder2} {$maxwidth2 - $strcurrsize2 - 2};
+	#loop {1} {$padder2} {iia} {#var buffline2 {$buffline2}};
+	#var buffline {${buffline} };
+      };
+      #var __r @add_chatter_line{$buffline2};
+  }
+  #return {0};
+}
+
