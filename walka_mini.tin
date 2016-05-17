@@ -103,7 +103,7 @@
     #var koko @start_zaslona_ticker{};
     #line gag;
 }
-#action {^%* probujesz zaslonic %* przed ciosami %*, jednak nie jestes w stanie tego uczynic.%D$}
+#action {^%* probujesz zaslonic %* przed ciosami %*, jednak nie jestes w stanie tego uczynic.$}
 {
 	#sh {<118><faa>[zaslona] <088>%0<aaa>,};
     #var koko @start_zaslona_ticker{};
