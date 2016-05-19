@@ -339,9 +339,14 @@
     #sh prompt1;
     #sh prompt2;
     #sh prompt3;
+    #bell;
     #line gag;
 } {1};
 
+#action {~^%* wskazuje %* jako cel obrony.$}
+{
+    #bell;
+}
 
 
 #high {stary matowy pancerz} {<118><caf>};
