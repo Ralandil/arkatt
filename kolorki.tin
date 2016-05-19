@@ -332,7 +332,6 @@
 }
 
 
-#unaction {^%* wskazuje %* jako cel ataku.$} ;
 #action {~^%* wskazuje %* jako cel ataku.$} {
 	#sh {<118><fca>[wskazan] %0<aaa>,};
     #var ret @set_quickbind_red{nazabij cel ataku};
