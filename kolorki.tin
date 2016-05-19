@@ -1,3 +1,16 @@
+#alias {color_defs} {
+    #loop {96} {102} {vvv} {
+        #format charR {%a} {$vvv};
+        #loop {96} {102} {vvvv} {
+            #format charG {%a} {$vvvv};
+            #loop {96} {102} {vvvvv} {
+                #format charB {%a} {$vvvvv};
+                #sh {<$charR$charG$charB>$charR$charG$charB};
+            }
+        }
+    }
+}
+
 #action {^Jest %1 w stanie wyroznic kilka sladow na ziemi. Najswiezsze prowadza na zachod.$}
 {
     #sh { };
