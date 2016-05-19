@@ -26,6 +26,7 @@
 }
 
 
+
 #function {set_quickbind_F2} {
   #var quickbind_alias_F2 {};
   #format {quickbind_alias_F2} {%-7s} {%1};
