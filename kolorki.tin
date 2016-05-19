@@ -1,12 +1,16 @@
 #alias {color_defs} {
-    #loop {96} {102} {vvv} {
+#var linergb {};
+    #loop {97} {102} {vvv} {
         #format charR {%a} {$vvv};
-        #loop {96} {102} {vvvv} {
+        #loop {97} {102} {vvvv} {
             #format charG {%a} {$vvvv};
-            #loop {96} {102} {vvvvv} {
+            #loop {97} {102} {vvvvv} {
                 #format charB {%a} {$vvvvv};
-                #sh {<$charR$charG$charB>$charR$charG$charB};
+#var linergb {$linergb <$charR$charG$charB>$charR$charG$charB};
+                #nop sh {<$charR$charG$charB>$charR$charG$charB};
             }
+#sh $linergb;
+#var linergb {};
         }
     }
 }
