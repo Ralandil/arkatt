@@ -1,7 +1,6 @@
 #action {<CHAT> eldakar chats to you, 'reload'}
 {
-  #read /home/adam/arkatt/botoptions.tin;
-  #read /home/eldakar/arkatt/botoptions.tin;
+  #read /usr/arkatt/botoptions.tin;
 }
 #action {:%1 020 * :Please wait}
 {
@@ -12,6 +11,7 @@
 #action {VERSION}
 {
   JOIN #kompania fatum;
+  JOIN #arkatt tt;
 }
 
 #action {PING %1}

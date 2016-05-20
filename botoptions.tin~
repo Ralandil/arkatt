@@ -1,0 +1,25 @@
+#action {<CHAT> eldakar chats to you, 'reload'}
+{
+  #read /home/adam/arkatt/botoptions.tin;
+  #read /home/eldakar/arkatt/botoptions.tin;
+}
+#action {:%1 020 * :Please wait}
+{
+  NICK eldbot;
+  USER eldbot 8 * : eld bot
+}
+
+#action {VERSION}
+{
+  JOIN #kompania fatum;
+}
+
+#action {PING %1}
+{
+  PONG %1
+}
+#chat init
+#chat name ircbot
+
+#action {:%1!%2 PRIVMSG #kompania :%3} {#chat message all {CHANNEL %1: %3};}
+#action {:%1!%2 PRIVMSG %3 :%4} {#chat message all {MESSAGE %3: %4};} {6}
