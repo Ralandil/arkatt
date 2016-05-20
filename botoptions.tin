@@ -39,3 +39,8 @@
 	PRIVMSG #kompania dajopa - daje opa;
 	PRIVMSG #kompania magiki - ostatnio zdobyte magiki;
 } {2};
+
+#action {:%1!:%2 PRIVMSG #arkatt :ACTION %3 calerian}
+{
+	PRIVMSG #arkatt %1???
+} {2};
