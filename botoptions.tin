@@ -33,6 +33,22 @@
 {
 	MODE #arkatt +o %1
 } {2};
+#action {:%1!%2 PRIVMSG #arkatt :calerian, dajopa}
+{
+	MODE #arkatt +o %1
+} {2};
+#action {:%1!%2 PRIVMSG #arkatt :calerian%*dajopa}
+{
+	MODE #arkatt +o %1
+} {2};
+#action {:%1!%2 PRIVMSG #kompania :calerian, dajopa}
+{
+	MODE #kompania +o %1
+} {2};
+#action {:%1!%2 PRIVMSG #kompania :calerian%*dajopa}
+{
+	MODE #kompania +o %1
+} {2};
 #action {:%1!%2 PRIVMSG #kompania :calerian: pomoc}
 {
 	PRIVMSG #kompania pomoc - wyswietla pomoc;
