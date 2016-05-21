@@ -343,7 +343,6 @@
     #format lower_dir {%l} {%2}
     #line substitute {variables} {#alias {$lower_dir} {#send %2;#chat message mapper navigate:exit:$lower_dir}};
 
-	asciicompas;
     #line gag;
 } {5}
 

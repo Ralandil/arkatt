@@ -52,6 +52,7 @@
 {
   #unvar team {};
   #unvar othe {};
+#var team[][desc] {};
   #unvar team_enemies {};
   #unvar othe_enemies {};
   #var team_index 1;
@@ -70,7 +71,8 @@
 	      #var myattackers {0};
 	      #foreach {$obda2[]} {vos} {
 			  #if {"$obda2[$vos][attack_num]" == "$vob"} {
-		 	 	#var obda2[$vos][enemies] {<faa>*<088>};
+		 	 	#var obda2[$vos][enemies] {$pr_zycie  <faa>CIEBIE!<088>};
+                #var team[0][desc] {$pr_zycie  <faa>CIEBIE!<088>};
 			    #math {myattackers} {$myattackers + 1};
 			  };
 		};
@@ -90,20 +92,20 @@
 			#format indexchar {%a} {$indexvalue};
 			#foreach {$obda2[]} {vos} {
 	  			#if {"$obda2[$vos][attack_num]" == "$vob"} {
-	  				#var obda2[$vos][enemies] {$indexchar};
-	   	 			#nop math {team[$team_index][enemies]} {$team[$team_index][enemies] + 1};
+	  				#var obda2[$vos][enemies] {$team[$team_index][desc]};
+	   	 			#nop {team[$team_index][enemies]} {$team[$team_index][enemies] + 1};
 	  			};
 			};
 			#format team_enemies {%+2s} {$team[$team_index][enemies]};
 			#if {"$team_enemies" == " 0"} {#var team_enemies {  }};
-			#var druzyna_prompt[$team_index] {<088>[$indexchar]<188><faa>$team_enemies$team[$team_index][desc]  };
+            #var team[$team_index][enemies] {$team_enemies};
+			#var druzyna_prompt[$team_index] {<088>[$indexchar]<188><faa>$team_enemies$team[$team_index][desc]  $obda2[$vob][enemies]};
 			#line substitute {variables} {#alias rz$indexchar {wskaz ob_$team[$team_index][tag] jako cel obrony;rozkaz druzynie zaslonic ob_$team[$team_index][tag]}};
 			#line substitute {variables} {#alias z$indexchar {zaslon ob_$team[$team_index][tag]}};
 			#line substitute {variables} {#alias z${indexchar}2 {opcje grupa 2;zaslon ob_$team[$team_index][tag];opcje grupa 1}};
 			#line substitute {variables} {#alias z${indexchar}3 {opcje grupa 3;zaslon ob_$team[$team_index][tag];opcje grupa 1}};
 			#line substitute {variables} {#alias z${indexchar}4 {opcje grupa 4;zaslon ob_$team[$team_index][tag];opcje grupa 1}};
 			#math {team_index} {$team_index + 1};
-			#line gag;
 		}; 
 		#else {
 			#regex {$obda2[$vob][desc]} {%w %w %w} {#var other_curr_nick {&3}} {#var other_curr_nick {$obda2[$vob][desc]}};
@@ -123,7 +125,7 @@
 			#format indexchar {%a} {$indexvalue};
 			#foreach {$obda2[]} {vos} {
 				#if {"$obda2[$vos][attack_num]" == "$vob"} {
-				  	#var obda2[$vos][enemies] {$indexchar};
+				  	#var obda2[$vos][enemies] {$othe[$othe_index][desc]};
 				    #math {othe[$othe_index][enemies]} {$othe[$othe_index][enemies] + 1};
 			  };
 			};
@@ -132,11 +134,13 @@
 			#if {"$esl" == "1"} {#var a b;} {#var enemy_shortcut {<aaa>A<088>}};
 			#format other_enemies {%+2s} {$othe[$othe_index][enemies]};
 			#if {"$other_enemies" == " 0"} {#var other_enemies {  }};
+            #var othe[$othe_index][enemies] {$othe_enemies};
 			#if {"$obda2[$vob][attack_target]" == "true"} {
-				#var wrogowie_prompt[$othe_index] {<088>[$indexchar]<188><fff>$other_enemies$othe[$othe_index][desc]<119><ffa>< <088>$enemy_shortcut};
-			} {
-				#var wrogowie_prompt[$othe_index] {<088>[$indexchar]<188><fff>$other_enemies$othe[$othe_index][desc]<aaa>< <088>$enemy_shortcut};
-			};
+#var wrogowie_prompt[$othe_index] {<088>[$indexchar]<188><fff>$other_enemies$othe[$othe_index][desc]<119><ffa>< <088> $obda2[$vob][enemies]};
+            };
+            #else {
+#var wrogowie_prompt[$othe_index] {<088>[$indexchar]<188><fff>$other_enemies$othe[$othe_index][desc]<aaa>< <088> $obda2[$vob][enemies]};
+            };
 			#line substitute {variables} {
 				#alias oc$indexchar {
 					ocen ob_$othe[$othe_index][tag];
@@ -187,7 +191,7 @@
 			#var enemy_shortcut $obda2[$vob][enemies];
 			#format {esl} {%L} {$enemy_shortcut};
 			#if {"$esl" == "1"} {#var a b;} {#var enemy_shortcut {<aaa>A<088>}};
-			#var druzyna_prompt[$team_index] {<088>[$indexchar]<188><faa>$team_enemies$team[$team_index][desc] <088>$enemy_shortcut  };
+			#var druzyna_prompt[$team_index] {<088>[$indexchar]<188><faa>$team_enemies$team[$team_index][desc] <088> $obda2[$vob][enemies]};
 			#math {team_index} {$team_index + 1};	
   		};
 	};

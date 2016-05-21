@@ -1,7 +1,5 @@
 #nop {headache}{0} {intox}{0}{panic}{0}
 
-#sub {>} {};
-#sub {^%} {};
 
 #EVENT {IAC SB GMCP char.state IAC SE} {
 	#var CHAR_STATE {%0};
