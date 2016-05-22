@@ -364,6 +364,21 @@
     #bell;
 }
 
+#action {$*.     Temat: %*} {
+    #var topicpart {%0};
+    #format topicpart {%.30s} {<cca>$topicpart};
+    #line gag;
+}
+#action {%*. *R* Temat: %*} {
+    #var topicpart {%0};
+    #format topicpart {%.30s} {<088>$topicpart};
+    #line gag;
+}
+#action {^Nadawca: %1}{
+    #var nadawcapart {%1};
+    #ec { $topicpart $nadawcapart<088>};
+    #line gag;
+}
 
 #high {stary matowy pancerz} {<118><caf>};
 #high {strzelisty zasniedzialy helm} {<118><caf>};
