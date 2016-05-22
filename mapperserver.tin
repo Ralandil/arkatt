@@ -101,3 +101,9 @@
 
 #action {<CHAT>} {#line gag;} {7};
 
+#action {^bind:%1} {#chat message all %0};
+#action {^info:%1} {#chat message all %0};
+#action {^trigger:%1} {#chat message all %0};
+
+
+

@@ -197,7 +197,7 @@
 	};
 	#nop EOH;
     #loop {$team_index} {19} {z} {
-        #var druzyna_prompt[$z] {<fff>                           <088>};
+        #var druzyna_prompt[$z] {<fff>                                           <088>};
     };
     #loop {$othe_index} {20} {zz} {
       #var wrogowie_prompt[$zz] {<fff>               <088>};

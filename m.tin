@@ -16,11 +16,11 @@
 #var wiele {44};
 #chat init 5555;
 #chat name eldakar;
-#var KEY_F1 {\e[[A};
-#var KEY_F2 {\e[[B};
-#var KEY_F3 {\e[[C};
-#var KEY_F4 {\e[[D};
-#var KEY_F5 {\e[[E};
+#var KEY_F1 {\eOP};
+#var KEY_F2 {\eOQ};
+#var KEY_F3 {\eOR};
+#var KEY_F4 {\eOS};
+#var KEY_F5 {\e[15~};
 #var KEY_F6 {\e[17~};
 #var KEY_F7 {\e[18~};
 #var KEY_F8 {\e[19~};

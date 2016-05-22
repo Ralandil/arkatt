@@ -93,7 +93,6 @@
 #var quickbind_alias_yellow {<G01>       <088>};
 #var quickbind_alias_green {<G01>       <088>};
 
-#var pr_zycie $pane_hp_07_07;
 #var pr_mana $pane_progress_none;
 #var pr_exp {<118><fff> 1/16};
 #var pr_zmeczenie $pane_progress_none;
@@ -162,7 +161,7 @@
 
 #function {refreshprompt}
 {
-	#chat message mapper {line2-   $pr_wrog$pr_zycie              <088>|<088>$ecmp[1] $wrogowie_prompt[1] <088>};
+	#chat message mapper {line2-   $pr_wrog$pr_zycie                              <088>|<088>$ecmp[1] $wrogowie_prompt[1] <088>};
 	#chat message mapper {line3-$druzyna_prompt[1] <088>|<088>$ecmp[2] $wrogowie_prompt[2] <088>};
 	#chat message mapper {line4-$druzyna_prompt[2] <088>|<088>$ecmp[3] $wrogowie_prompt[3] <088>};
 	#chat message mapper {line5-$druzyna_prompt[3] <088>|<088>$ecmp[4] $wrogowie_prompt[4] <088>};

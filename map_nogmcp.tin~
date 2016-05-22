@@ -385,12 +385,12 @@
 
 
 #nop chat options
-#action {^<CHAT> ircbot chats to everyone, 'MESSAGE %1: %2'}
+#action {^<CHAT> %* chats to everyone, 'MESSAGE %1: %2'}
 {
-  #sh {<118><afa>#PRIV [%1] <aff>%2<088>};
+  #sh {<118><faf>[zaslona]#PRIV [%1] <aff>%2<088>};
   #line gag;
 }
-#action {^<CHAT> ircbot chats to everyone, 'CHANNEL %1: %2'}
+#action {^<CHAT> %* chats to everyone, 'CHANNEL %1: %2'}
 {
   #sh {<118><afa>#KOMPANIA [%1]: <aff>%2<088>};
   #line gag;
@@ -399,3 +399,5 @@
 {
   #chat message ircbot kompania %0;
 }
+
+
