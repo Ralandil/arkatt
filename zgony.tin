@@ -1,4 +1,4 @@
-#action {%* umarl.$} {#line gag;}
+#unaction {%* umarl.$} {#line gag;}
 
 #ACTION {^Zabil{es|as} %2.$}
 {
@@ -21,12 +21,11 @@
   #math {count[Ot][$mob][cnt]} {$count[Ot][$mob][cnt]+1};
   #math {average} {$count[Ty][$mob][cnt]/$count[Ot][$mob][cnt]};
 
-  #sh {<118><ccc>[<fca> .~.~. <ccc>] Zabiles  : <afa>%2};
-  #sh {<118><ccc>[<fca>(p...q)<ccc>] Ty       : <afa>${count}[Ty][$mob][cnt]<088>};
-  #sh {<118><ccc>[<fca>  |||  <ccc>] Druzyna  : <afa>$count[Ot][$mob][cnt]<088>};
-  #sh {<118><ccc>[<fca>  `-'  <ccc>] Srednia  : <afa>$average%<088>};
+#echo {<caa>[zabiles] <faa>%2<088> <caa>(${count}[Ty][$mob][cnt] / $count[Ot][$mob][cnt])<088>};
+#sh {<CHAT> mapper chats to everyone, 'bind:f2:wez monety z ciala'};
+#sh {<CHAT> mapper chats to everyone, 'bind:f3:wez kamienie z ciala'};
+#sh {<CHAT> mapper chats to everyone, 'bind:f4:nawytnij trofeum z ciala'};
 
-  #var r @set_quickbind_yellow{wez_monety};
   #line gag;
 }
 
@@ -51,10 +50,11 @@
   #var r @set_quickbind_yellow{wez_monety};
 
   #math {average} {$count[Ty][$mob][cnt]/$count[Ot][$mob][cnt]};
-  #sh {<118><ccc>[<fca> .~.~. <ccc>] %1 zabil <afa>%3};
-  #sh {<118><ccc>[<fca>(p...q)<ccc>] Ty       : <afa>${count}[Ty][$mob][cnt]<088>};
-  #sh {<118><ccc>[<fca>  |||  <ccc>] Druzyna  : <afa>$count[Ot][$mob][cnt]<088>};
-  #sh {<118><ccc>[<fca>  `-'  <ccc>] Srednia  : <afa>$average%<088>};
+
+#echo {<caa>[zabil  ] %1 <faa>%3<088> <caa>(${count}[Ty][$mob][cnt] / $count[Ot][$mob][cnt])<088>};
+#sh {<CHAT> mapper chats to everyone, 'bind:f2:wez monety z ciala'};
+#sh {<CHAT> mapper chats to everyone, 'bind:f3:wez kamienie z ciala'};
+#sh {<CHAT> mapper chats to everyone, 'bind:f4:nawytnij trofeum z ciala'};
 
   #line gag;
 }
