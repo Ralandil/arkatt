@@ -41,51 +41,6 @@
 #var compass_u {+}
 #var compass_centre {${cl_kolko} <088>}
 #var prompt_zaslona_tick {-};
-#var pane_progress_none {<118><088>     <088>}
-#var pane_progress20_20 {<118><088>     <088>}
-
-#NOP MAN / PRA
-#var pane_progress08_09 {<118><fff> 8/ 9<088>}
-#var pane_progress07_09 {<118><fff> 7/ 9<088>}
-#var pane_progress06_09 {<118><fff> 6/ 9<088>}
-#var pane_progress05_09 {<118><fff> 5/ 9<088>}
-#var pane_progress04_09 {<118><fff> 4/ 9<088>}
-#var pane_progress03_09 {<118><fff> 3/ 9<088>}
-#var pane_progress02_09 {<118><fff> 2/ 9<088>}
-#var pane_progress01_09 {<118><fff> 1/ 9<088>}
-
-#NOP CIE
-#var pane_progress06_07 {<118><fff> 6/ 7<088>}
-#var pane_progress05_07 {<118><fff> 5/ 7<088>}
-#var pane_progress04_07 {<118><fff> 4/ 7<088>}
-#var pane_progress03_07 {<118><fff> 3/ 7<088>}
-#var pane_progress02_07 {<118><fff> 2/ 7<088>}
-#var pane_progress01_07 {<118><fff> 1/ 7<088>}
-
-#NOP UPI / ZME
-#var pane_progress09_10 {<118><fff> 9/10<088>}
-#var pane_progress08_10 {<118><fff> 8/10<088>}
-#var pane_progress07_10 {<118><fff> 7/10<088>}
-#var pane_progress06_10 {<118><fff> 6/10<088>}
-#var pane_progress05_10 {<118><fff> 5/10<088>}
-#var pane_progress04_10 {<118><fff> 4/10<088>}
-#var pane_progress03_10 {<118><fff> 3/10<088>}
-#var pane_progress02_10 {<118><fff> 2/10<088>}
-#var pane_progress01_10 {<118><fff> 1/10<088>}
-
-#NOP GLO
-#var pane_progress03_04 {<118><fff> 3/ 4<088>}
-#var pane_progress02_04 {<118><fff> 2/ 4<088>}
-#var pane_progress01_04 {<118><fff> 1/ 4<088>}
-
-#NOP KON
-#var pane_hp_07_07 {${kondycja_kolor_77}TWOJEHP<088>}
-#var pane_hp_06_07 {${kondycja_kolor_67}TWOJEH${blok1}P<088>}
-#var pane_hp_05_07 {${kondycja_kolor_57}TWOJE${blok2}H${blok1}P<088>}
-#var pane_hp_04_07 {${kondycja_kolor_47}TWOJ${blok1}E${blok2}H${blok1}P<088>}
-#var pane_hp_03_07 {${kondycja_kolor_37}TWO${blok2}J${blok1}E${blok2}E${blok1}P<088>}
-#var pane_hp_02_07 {${kondycja_kolor_27}TW${blok1}O${blok2}J${blok1}E${blok2}H${blok1}P<088>}
-#var pane_hp_01_07 {${kondycja_kolor_17}T${blok2}W${blok1}O${blok2}J${blok1}E${blok2}H${blok1}P<088>}
 
 
 #var quickbind_alias_red {<G01>       <088>};
@@ -121,40 +76,22 @@
 #var pr_wy {w};
 #var pr_ctr {<ffa>+<088>};
 
+#split 0 9
 
-#var bgcolor {<AAA><aba>};
-#var hframe {${bgcolor}|<088>};
-
-#var promtleft {}
-#format {cols} {%C}
-#math {prmtmv} {($cols - 124) / 2}
-#format {promtleft} {%+${prmtmv}s}
-#var promtleft {${bgcolor}$promtleft<088>};
-
-#nop split 2 6
-#split 7 5
-
-
-#unprompt {prompt5} { $pr_nw  $pr_n  $pr_ne  zm$pr_zmeczenie mn$pr_mana    $wrogowie_prompt[1] $wrogowie_prompt[5] $wrogowie_prompt[9] $wrogowie_prompt[13] $wrogowie_prompt[17]   $pr_wrog$pr_zycie $druzyna_prompt[4] $druzyna_prompt[8] $druzyna_prompt[12] $druzyna_prompt[16]} {5};
-#unprompt {prompt4} { $pr_w  o  $pr_e  up$pr_upicie pr$pr_smad    $wrogowie_prompt[2] $wrogowie_prompt[6] $wrogowie_prompt[10] $wrogowie_prompt[14] $wrogowie_prompt[18]  $druzyna_prompt[1] $druzyna_prompt[5] $druzyna_prompt[9] $druzyna_prompt[13] $druzyna_prompt[17]} {4};
-#unprompt {prompt3} { $pr_sw  $pr_s  $pr_se  ci$pr_obci gl$pr_glod    $wrogowie_prompt[3] $wrogowie_prompt[7] $wrogowie_prompt[11] $wrogowie_prompt[15] $wrogowie_prompt[19]  $druzyna_prompt[2] $druzyna_prompt[6] $druzyna_prompt[10] $druzyna_prompt[14] $druzyna_prompt[18]} {3};
-#unprompt {prompt2} {          fo$pr_form <088>za$prompt_zaslona_tick $quickbind_cel $walkmodep $wrogowie_prompt[4] $wrogowie_prompt[8] $wrogowie_prompt[12] $wrogowie_prompt[16] $wrogowie_prompt[20]  $druzyna_prompt[3] $druzyna_prompt[7] $druzyna_prompt[11] $druzyna_prompt[15] $druzyna_prompt[19]} {2};
-
-#unprompt {prompt11} { $asciimapv[1]<088> <aff>|<088>  <afa>#<088>  $prompt_zmeczenie_10  $ticker_zaslona_sec5   <afa>#<088>   <afa>Nazwa lokacji<088>               <aff>Czas          :<088>           <aff> wrogowie                     <aff> druzyna   <088>} {11};
-#unprompt {prompt10} { $asciimapv[2]<088> <aff>|<088>  <afa>#<088>  $prompt_zmeczenie_9  $ticker_zaslona_sec5   <afa>#<088>                               <aff>Zgony         :<088>         <aff>|<088> $ecmp[1] $wrogowie_prompt[1] $ecmp[11] $wrogowie_prompt[11]   $pr_wrog$pr_zycie $druzyna_prompt[10]<088>} {10};
-#unprompt {prompt9}  { $asciimapv[3]<088> <aff>|<088>  <afa>#<088>  $prompt_zmeczenie_8  $ticker_zaslona_sec4   <afa>#<088>   $quickbind_cel <g04>Nie walczysz<088>                                    <aff>|<088> $ecmp[2] $wrogowie_prompt[2] $ecmp[12] $wrogowie_prompt[12]  $druzyna_prompt[1] $druzyna_prompt[11]<088>} {9};
-#unprompt {prompt8}  { $asciimapv[4]<088> <aff>|<088>  <ffa>#<088>  $prompt_zmeczenie_7  $ticker_zaslona_sec4   <ffa>#<088>                                                       <aff>|<088> $ecmp[3] $wrogowie_prompt[3] $ecmp[13] $wrogowie_prompt[13]  $druzyna_prompt[2] $druzyna_prompt[12]<088>} {8};
-#unprompt {prompt7}  { $asciimapv[5]<088> <aff>|<088>  <ffa>#<088>  $prompt_zmeczenie_6  $ticker_zaslona_sec3   <ffa>#<088>   <aff>Kondycja      :<088>             <aff>Pragnienie    :<088>  $pr_smad  <aff>|<088> $ecmp[4] $wrogowie_prompt[4] $ecmp[14] $wrogowie_prompt[14]  $druzyna_prompt[3] $druzyna_prompt[13]<088>} {7};
-#unprompt {prompt6}  { $asciimapv[6]<088> <aff>|<088>  <ffa>#<088>  $prompt_zmeczenie_5  $ticker_zaslona_sec3   <ffa>#<088>   <aff>Mana          :<088>  $pr_mana      <aff>Glod          :<088>  $pr_glod  <aff>|<088> $ecmp[5] $wrogowie_prompt[5] $ecmp[15] $wrogowie_prompt[15]  $druzyna_prompt[4] $druzyna_prompt[14]<088>} {6};
-#unprompt {prompt5}  { $asciimapv[7]<088> <aff>|<088>  <faa>#<088>  $prompt_zmeczenie_4  $ticker_zaslona_sec2   <faa>#<088>   <aff>Zmeczenie     :<088>  $pr_zmeczenie      <aff>Upicie        :<088>  $pr_upicie  <aff>|<088> $ecmp[6] $wrogowie_prompt[6] $ecmp[16] $wrogowie_prompt[16]  $druzyna_prompt[5] $druzyna_prompt[15]<088>} {5};
-#unprompt {prompt4}  { $asciimapv[8]<088> <aff>|<088>  <faa>#<088>  $prompt_zmeczenie_3  $ticker_zaslona_sec2   <faa>#<088>                               <aff>Ciezar        :<088>  $pr_obci  <aff>|<088> $ecmp[7] $wrogowie_prompt[7] $ecmp[17] $wrogowie_prompt[17]  $druzyna_prompt[6] $druzyna_prompt[16]<088>} {4};
-#unprompt {prompt3}  { $asciimapv[9]<088> <aff>|<088>  <faa>#<088>  $prompt_zmeczenie_2  $ticker_zaslona_sec1   <faa>#<088>   <aff>Forma         :<088>  $pr_form                              <aff>|<088> $ecmp[8] $wrogowie_prompt[8] $ecmp[18] $wrogowie_prompt[18]  $druzyna_prompt[7] $druzyna_prompt[17]<088>} {3};
-#unprompt {prompt2}  { $asciimapv[10]<088> <aff>|<088>  <faa>#<088>  $prompt_zmeczenie_1  $ticker_zaslona_sec1   <faa>#<088>   <aff>Postepy       :<088>  $pr_exp      <faf>Chodzenie     <aff>:<088>   $walkmodep    <aff>|<088> $ecmp[9] $wrogowie_prompt[9] $ecmp[19] $wrogowie_prompt[19]  $druzyna_prompt[8] $druzyna_prompt[18]<088>} {2};
-#unprompt {prompt1}  { $asciimapv[11]<088> <aff>|<088>  <fff>H<088>  <fff>V<088>  <fff>Z<088>   <fff>E<088>                 za $prompt_zaslona_tick                                  <aff>|<088> $ecmp[10] $wrogowie_prompt[10] $ecmp[20] $wrogowie_prompt[20]  $druzyna_prompt[9] $druzyna_prompt[19]<088>} {1};
+#var display_function_1 {                                   };
+#var display_function_2 {                                   };
+#var display_function_3 {                                   };
+#var display_function_4 {                                   };
+#var display_function_5 {                                   };
+#var display_function_6 {                                   };
+#var display_function_7 {                                   };
+#var display_function_8 {                                   };
+#var display_function_9 {                                   };
 
 
-#unprompt {prompt1} {          fo$pr_form <088>za$prompt_zaslona_tick $quickbind_cel $walkmodep $wrogowie_prompt[4] $wrogowie_prompt[8] $wrogowie_prompt[12] $wrogowie_prompt[16] $wrogowie_prompt[20]  $druzyna_prompt[3] $druzyna_prompt[7] $druzyna_prompt[11] $druzyna_prompt[15] $druzyna_prompt[19]} {2};
-
+#prompt {prompt7} { <088><aff>f1: $display_function_1 <088><aff>f4: $display_function_4 <088><aff>f7:<088> $display_function_7} {8};
+#prompt {prompt6} { <088><aff>f2: $display_function_2 <088><aff>f5: $display_function_5 <088><aff>f8:<088> $display_function_8} {7};
+#prompt {prompt5} { <088><aff>f3: $display_function_3 <088><aff>f6: $display_function_6 <088><aff>f9:<088> $display_function_9} {6};
 #prompt {prompt3} {<088> $pr_nw  $pr_n  $pr_ne       <aff>Kondycja      :<088>  $hp_bar      <aff>Pragnienie    :<088>  $pr_smad      <aff>Ciezar        :<088>  $pr_obci      <faf>Chodzenie     <aff>:<088>   $walkmodep} {4};
 #prompt {prompt2} {<088> $pr_w  o  $pr_e       <aff>Mana          :<088>  $pr_mana      <aff>Glod          :<088>  $pr_glod      <aff>Forma         :<088>  $pr_form      $quickbind_cel} {3};
 #prompt {prompt1} {<088> $pr_sw  $pr_s  $pr_se       <aff>Zmeczenie     :<088>  $pr_zmeczenie      <aff>Upicie        :<088>  $pr_upicie      <aff>Postepy       :<088>  $pr_exp      } {2};
@@ -185,8 +122,11 @@
 
 
 #alias {testprompt} 
-{          
-#sh prompt1;
-#sh prompt2;
+{
+#sh prompt7;
+#sh prompt6;
+#sh prompt5;
 #sh prompt3;
+#sh prompt2;
+#sh prompt1;
 }

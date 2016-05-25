@@ -1,11 +1,16 @@
+#var ocen_wrogow_rec {0};
+
 #alias {ocen_wrogow}
 {
+  #var weakest_target {1};
+  #var strongest_target {1};
   team_clean_compare;
   #if {$othe_index > 1} {sleep 0.3 oca};
+
   #if {$othe_index > 2} {sleep 0.3 ocb};
   #if {$othe_index > 3} {sleep 0.3 occ};
   #if {$othe_index > 4} {sleep 0.3 ocd};
-  sleep 0.2 testprompt
+  sleep 0.2;
 }
 
 #alias {f9} 

@@ -349,12 +349,16 @@
 }
 
 
+#alias {odznaczcel} {
+    nazabij cel ataku;
+    #var display_function_1 {<faa>                                  <088>};
+    #sh prompt7;
+}
 #action {~^%* wskazuje %* jako cel ataku.$} {
-	#sh {<118><fca>[wskazan] %0<aaa>,};
-    #var ret @set_quickbind_red{nazabij cel ataku};
-    #sh prompt1;
-    #sh prompt2;
-    #sh prompt3;
+    #var display_function_1 {<faa>zabij cel ataku                   <088>};
+    #macro {$KEY_F1} {odznaczcel};
+	#echo {<118><fca>[wskazan] %0};
+    #sh prompt7;
     #bell;
     #line gag;
 } {1};

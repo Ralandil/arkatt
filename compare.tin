@@ -4,8 +4,11 @@
 #var cmp_tot 0;
 #var cmp_obj {};
 
+
 #alias cmp_sumup
 {
+  #math cmp_tot {$cmp_str + $cmp_dex + $cmp_vit};
+
   #if {$cmp_str > 0} {#var cmp_str {<afa>$cmp_str}};
   #elseif {$cmp_str < 0} {#math cmp_str {-1 * $cmp_str};#var cmp_str {<faa>$cmp_str}};
   #else {#var cmp_str {<ffa>$cmp_str}};
@@ -20,6 +23,8 @@
   
 
   #var ecmp[$cmp_obj] $cmp_str$cmp_dex$cmp_vit;
+#sh {<aff>[porowna] str:<088>$cmp_str<088> <aff>dex:<088>$cmp_dex <088><aff>vit:<088>$cmp_vit<088> <aff>total: <ffa>$cmp_tot<088>};
+#var rpp @refreshprompt{};
 }
 
 #action {Masz wrazenie, ze jest rownie silny jak ty.} {#line gag;#var cmp_tot 0;#var cmp_str 0};

@@ -8,7 +8,7 @@
 #read $path/ocena_zbroi.tin;
 #read $path/prompt_fetch.tin;
 #read $path/prompt_new.tin;
-#read $path/combatprompt.tin;
+#nop read $path/combatprompt.tin;
 #read $path/kill.tin;
 #read $path/keys_nogmcp.tin;
 #read $path/walka_mini.tin;
@@ -35,6 +35,5 @@
 #log append $logfile;
 #var lastmove none;
 sleep 1 {#chat call 127.0.0.1 6666};
-sleep 1 {testprompt};
 
 #var gmcp_saving 0;

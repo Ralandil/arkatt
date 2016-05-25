@@ -3,7 +3,7 @@
 {       
 	#send {\xFF\xFD\xC9\};
 	#nop send {\xFF\xFA\xC9core.supports.set [ "Core", "Objects", "Room", "Messages"]\xFF\xF0\};
-	#send {\xFF\xFA\xC9core.supports.set [ "Core", "Objects", "Room", "Messages", "Char"  ]\xFF\xF0\};
+	#send {\xFF\xFA\xC9core.supports.set [ "Core", "Objects", "Room", "Char"  ]\xFF\xF0\};
 }
 #config {debug telnet} {off};
 #var path /Users/eldakar/arkatt;

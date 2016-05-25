@@ -171,6 +171,14 @@
 }
 
 #function {set_quickbind_red} {
+  #format display_function_1 {%-35s} {<daa>zabij %2<088>};
+  #format display_function_1 {%.35s} {$display_function_1};
+  #format display_function_1_d {%-35s} {<daa>           <088>};
+  #format display_function_1 {%.35s} {$display_function_1_d};
+  #sh prompt7;
+#alias abcdefg {zabij cel ataku;#var display_function_1 $display_function_1_d;#sh prompt7};
+#line substitute {variables} {#macro {$KEY_F1} {abcdefg}};
+
   #var quickbind_cel_dimmed {<g02>CEL<088>};
   #alias qb_dim_cel {#var quickbind_cel $quickbind_cel_dimmed};
   #line substitute {variables} {#macro {[} {%1;qb_dim_cel;testprompt}};  
