@@ -351,12 +351,13 @@
 
 #alias {odznaczcel} {
     nazabij cel ataku;
-    #var display_function_1 {<faa>                                  <088>};
+    #var display_function_1 {<faa>                                   <088>};
     #sh prompt7;
 }
 #action {~^%* wskazuje %* jako cel ataku.$} {
-    #var display_function_1 {<faa>zabij cel ataku                   <088>};
+    #var display_function_1 {<faa>zabij cel ataku                    <088>};
     #macro {$KEY_F1} {odznaczcel};
+    #macro {[} {odznaczcel};
 	#echo {<118><fca>[wskazan] %0};
     #sh prompt7;
     #bell;
