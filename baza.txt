@@ -2790,6 +2790,7 @@
 #var postacik[jakostam wyglad][PE] {Khirk};
 #var pistacia[jakostam wyglad][GP] {Arren};
 #var postacid[jakistam wyglad][NA] {Dagor};
+#var postacic[ciemnooki smukly mezczyzna][GL] {Irwin};
 
 #list lista_wrogow {clear};
 #list lista_przyjaciol {clear};

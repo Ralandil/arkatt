@@ -1,5 +1,12 @@
 #var ocen_wrogow_rec {0};
 
+#alias {_zabij_}
+{
+    wskaz %1 jako cel ataku;
+    rozkaz druzynie zabic cel ataku;
+    nazabij cel ataku;
+}
+
 #alias {ocen_wrogow}
 {
   #var weakest_target {1};

@@ -1,0 +1,23 @@
+#high {Wiatr zwalnia nieco, a klebiace sie dookola ciebie tumany piachu i pylu powoli osiadaja na ziemi.} {<118><afa>};
+
+#action {Obok zaglebienia.}
+{
+#chat message mapper lookup:bcc74921-e4e0-11e4-aebc-2cf0ee2cbf2a;
+}
+
+#action {Przy rozpadlinie.}
+{
+#chat message mapper lookup:00a0d21c-e4d0-11e4-b78a-2cf0ee2cbf2a;
+}
+
+#high {Opuszczasz obszar ogarniety burza piaskowa.} {<118><afa>};
+#high {Ogarnia cie burza piaskowa!} {<118><faa>};
+
+#action {Wejscie do obozu.}
+{
+}
+
+#action {Przed soba zauwazasz kilkanascie zgrzebnych namiotow otoczonych ulozona z kamieni zapora. W barierze zauwazasz prowadzace do srodka przejscie.}
+{
+#chat message mapper lookup:c573a499-e4d5-11e4-9ee0-2cf0ee2cbf2a;
+}

@@ -92,3 +92,6 @@
 	}
 }
 #alias {oog} {over_gmcp_room};
+
+
+#action {Wykonuje komende 'idz} {cg};
