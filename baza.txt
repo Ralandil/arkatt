@@ -1,7 +1,8 @@
 #var kolorsojusz {<cfc>};
 #var kolorwrog {<118><faa>};
-#var kolorneutral {<ffd>};
-#var kolorgildia {<118><acf>};
+#var kolorneutral {<dca>};
+#var kolorgildia {<acf>};
+
 
 #var kolorygildii[NPC] {<dca>};
 #var kolorygildii[CKN] {$kolorneutral};
@@ -11,7 +12,7 @@
 #var kolorygildii[GL] {$kolorsojusz};
 #var kolorygildii[GP] {$kolorneutral};
 #var kolorygildii[KG] {$kolorgildia};
-#var kolorygildii[KGKS] {$kolorsojusz};
+#var kolorygildii[GS] {$kolorsojusz};
 #var kolorygildii[KM] {$kolorsojusz};
 #var kolorygildii[KS] {$kolorsojusz};
 #var kolorygildii[LE] {$kolorsojusz};
@@ -241,7 +242,7 @@
 #var postacim[mlody fiolkowooki elf][LE] {Aslinth};
 #var postaciz[zielonooka maloletnia kobieta][NPC] {Asmina};
 #var postacik[kruczowlosy muskularny polelf][RA] {Asparus};
-#var postacic[czerwonowlosy fiolkowooki elf][GP] {Aspenpin};
+#var postacic[czerwonowlosy fiolkowooki elf][GP] {AspeNPCin};
 #var postaciw[wysoki czarnowlosy mezczyzna][NPC] {Astartes};
 #var postaciw[wielkonosy gruby ogr][GP] {Astor};
 #var postacic[czerwonowlosa rumiana krasnoludka][SC] {Astrid};
@@ -295,19 +296,19 @@
 #var postaciu[umiesniony snieznobrody krasnolud][NPC] {Baldur};
 #var postacib[barczysty ogorzaly krasnolud][NPC] {Balgrin};
 #var postacio[opanowany bogaty krasnolud][NPC] {Balmir};
-#var postacis[stary przysadzisty krasnolud][KGKS] {Balsagoth};
+#var postacis[stary przysadzisty krasnolud][GS] {Balsagoth};
 #var postacik[kruczowlosy muskularny mezczyzna][NA] {Balwur};
 #var postacim[maly szarawy ogr][OK] {Bam};
 #var postaciu[umiesniony dojrzaly krasnolud][NPC] {Bambur};
 #var postacim[muskularny pogodny halfling][NPC] {Bandobras};
 #var postacim[malomowny tepy ogr][NPC] {Bara};
-#var postacim[masywny snieznobrody krasnolud][KGKS] {Barad};
+#var postacim[masywny snieznobrody krasnolud][GS] {Barad};
 #var postacip[przysadzisty powazny krasnolud][GP] {Barag};
 #var postacib[brodaty nerwowy mezczyzna][NPC] {Barbus};
 #var postacip[pekaty grozny krasnolud][NPC] {Barclay};
 #var postacic[czarnobrody wychudzony krasnolud][NPC] {Bardul};
 #var postaciz[zapracowany podstarzaly mezczyzna][NPC] {Barend};
-#var postacip[piwnooki wesoly krasnolud][KGKS] {Bargian};
+#var postacip[piwnooki wesoly krasnolud][GS] {Bargian};
 #var postacid[dlugobrody krepy krasnolud][NPC] {Bargo};
 #var postacik[kruczobrody umiesniony mezczyzna][RA] {Bargor};
 #var postacim[masywny ognistobrody krasnolud][GP] {Bargrin};
@@ -338,7 +339,7 @@
 #var postacih[hardy czarnobrody krasnolud][GP] {Belin};
 #var postacie[elegancka wysoka elfka][NPC] {Belleth};
 #var postacip[podstarzaly przygarbiony krasnolud][NPC] {Belmaras};
-#var postaciu[umiesniony przyjacielski krasnolud][KGKS] {Belmaras};
+#var postaciu[umiesniony przyjacielski krasnolud][GS] {Belmaras};
 #var postacin[niewysoki ponury krasnolud][MC] {Belmor};
 #var postacin[niewysoki ponury mutant][MC] {Belmor};
 #var postacid[dumny bialobrody krasnolud][GL] {Belor};
@@ -384,7 +385,7 @@
 #var postaciz[zgrzybiala garbata ogrzyca][NA] {Blumka};
 #var postaciz[zielonkawy czerwonooki ogr][OK] {Blurp};
 #var postacip[porywczy krzywonosy krasnolud][NPC] {Bodwar};
-#var postacip[pucolowaty pekaty krasnolud][KGKS] {Bofur};
+#var postacip[pucolowaty pekaty krasnolud][GS] {Bofur};
 #var postacip[puculowaty pekaty krasnolud][NPC] {Bofur};
 #var postacim[metnooki malomowny ogr][CN] {Bogo};
 #var postacid[dumny muskularny polelf][MC] {Bohard};
@@ -411,7 +412,7 @@
 #var postacih[hardy muskularny krasnolud][KM] {Borubar};
 #var postacid[dostojny blekitnooki krasnolud][NA] {Boskin};
 #var postacip[porywczy masywny mezczyzna][ZS] {Bostird};
-#var postacio[opanowany masywny krasnolud][KGKS] {Bragor};
+#var postacio[opanowany masywny krasnolud][GS] {Bragor};
 #var postacim[muskularny czarnobrody krasnolud][NPC] {Brah};
 #var postacio[opanowany wiekowy krasnolud][OHM] {Brandis};
 #var postacim[malomowny ogolony mutant][MC] {Brankovic};
@@ -431,7 +432,7 @@
 #var postacis[sedziwy srebrzystobrody krasnolud][NPC] {Brouver};
 #var postacir[rosly brazowooki mezczyzna][NPC] {Bruno};
 #var postacis[szarawy krwistooki ogr][GL] {Brur};
-#var postacip[porywczy grozny krasnolud][KGKS] {Brygu};
+#var postacip[porywczy grozny krasnolud][GS] {Brygu};
 #var postacic[ciemnoskory dlugoreki ogr][OK] {Buamsamdi};
 #var postaciu[usmiechnieta tega ogrzyca][NPC] {Buba};
 #var postaciz[zgrzybialy szpotawy ogr][GP] {Bubanga};
@@ -508,7 +509,7 @@
 #var postacid[dumna energiczna kobieta][NPC] {Cirvia};
 #var postacir[rozkapryszona kruczowlosa dziewczyna][NPC] {Claire};
 #var postacis[siwa stara kobieta][NPC] {Claudia};
-#var postacib[barczysty wesoly krasnolud][KGKS] {Clawarm};
+#var postacib[barczysty wesoly krasnolud][GS] {Clawarm};
 #var postacis[szpakowaty jasnooki mezczyzna][RA] {Cochis};
 #var postacip[przygarbiony mezczyzna][NPC] {Codan};
 #var postacik[kulawy brudny mezczyzna][NPC] {Codex};
@@ -677,7 +678,7 @@
 #var postacib[brzuchaty postawny mezczyzna][NPC] {Drouhard};
 #var postacir[rozmowny barylkowaty halfling][NPC] {Drubin};
 #var postaciw[wasaty potezny krasnolud][NPC] {Drumd};
-#var postacib[bladoskory smukly mezczyzna][NPC] {Drumelt};
+#var postacib[bladoskory smukly mezczyzna][GP] {Drumelt};
 #var postacir[rozjokarzony dlugobrody krasnolud][NPC] {Drumm};
 #var postacir[rozkojarzony dlugobrody krasnolud][NPC] {Drumm};
 #var postacis[spokojny malomowny krasnolud][NPC] {Drungar};
@@ -693,13 +694,13 @@
 #var postacip[powazny czarnoodziany mezczyzna][NPC] {Duncan};
 #var postacis[spokojny dlugowlosy mezczyzna][NPC] {Dunhar};
 #var postacim[masywny szarooki krasnolud][NPC] {Durghart};
-#var postacic[czarnowlosy muskularny krasnolud][KGKS] {Duruk};
-#var postacis[srebrnowlosy muskularny krasnolud][KGKS] {Duruk};
+#var postacic[czarnowlosy muskularny krasnolud][GS] {Duruk};
+#var postacis[srebrnowlosy muskularny krasnolud][GS] {Duruk};
 #var postacim[muskularny zielonooki krasnolud][OHM] {Dwalin};
-#var postacim[masywny porywczy krasnolud][KGKS] {Dwan};
+#var postacim[masywny porywczy krasnolud][GS] {Dwan};
 #var postacio[ostronosy skupiony mezczyzna][NPC] {Dwerl};
 #var postaciw[wesolooki niski krasnolud][NPC] {Dwinor};
-#var postacip[poobijany umiesniony krasnolud][NPC] {Dwinpen};
+#var postacip[poobijany umiesniony krasnolud][NPC] {DwiNPCen};
 #var postacic[czerwononosy dumny krasnolud][GP] {Dwinrim};
 #var postacik[krepy kedzierzawy mezczyzna][NPC] {Dytus};
 #var postaciz[zarosniety tlusciutki halfling][NPC] {Dzunikorn};
@@ -874,7 +875,7 @@
 #var postacio[ognistowlosy umiesniony mutant][MC] {Frey};
 #var postacir[rudowlosy rudobrody krasnolud][NPC] {Frian};
 #var postacil[leciwy wysoki halfling][NPC] {Friederich};
-#var postacim[muskularny srebrzystobrody krasnolud][KGKS] {Friili};
+#var postacim[muskularny srebrzystobrody krasnolud][GS] {Friili};
 #var postaciz[zapracowana mloda krasnoludka][NPC] {Frina};
 #var postacid[dojrzaly nerwowy mezczyzna][MC] {Fripp};
 #var postaciz[zielonooki zawiadiacki niziolek][OHM] {Frist};
@@ -911,7 +912,7 @@
 #var postacim[maloletnia zoltooka mutantka][MC] {Garena};
 #var postacij[jasnowlosy zimnooki mezczyzna][NPC] {Gargant};
 #var postacin[niski ciemnooki mezczyzna][RA] {Garlan};
-#var postacir[rumiany powazny krasnolud][KGKS] {Garlik};
+#var postacir[rumiany powazny krasnolud][GS] {Garlik};
 #var postacio[ogorzaly zarosniety krasnolud][NPC] {Garret};
 #var postaciw[wysoki przyjacielski mezczyzna][MC] {Garrick};
 #var postacin[niski garbaty krasnolud][NPC] {Gart};
@@ -949,7 +950,7 @@
 #var postaciz[zlosliwa piegowata niziolka][OHM] {Geronia};
 #var postacis[stary zrezygnowany gnom][NPC] {Geront};
 #var postacid[dlugowlosy niebieskooki mezczyzna][NPC] {Gerontius};
-#var postaciz[zlosliwy czarnooki krasnolud][KGKS] {Gerson};
+#var postaciz[zlosliwy czarnooki krasnolud][GS] {Gerson};
 #var postaciz[zadowolony barylkowaty krasnolud][NPC] {Gersth};
 #var postacip[piersiasta harda kobieta][GP] {Gertruda};
 #var postaciw[wyniosla sniada kobieta][NPC] {Gertrude};
@@ -973,7 +974,7 @@
 #var postacis[stanowczy zdecydowany mezczyzna][NPC] {Ghorzak};
 #var postacik[krzywonogi smierdzacy ogr][GP] {Ghrat};
 #var postacib[bialobrody wiekowy krasnolud][NPC] {Ghreed};
-#var postacic[ciezki barczysty krasnolud][KGKS] {Ghurt};
+#var postacic[ciezki barczysty krasnolud][GS] {Ghurt};
 #var postacio[otyly niski mezczyzna][NPC] {Giacomo};
 #var postacib[blady zylasty mezczyzna][NPC] {Giangaleazzo};
 #var postacic[czarnooka wiotka elfka][NPC] {Gianna};
@@ -1034,8 +1035,8 @@
 #var postacir[rosly twardoskory mezczyzna][NPC] {Gotard};
 #var postacir[rudowlosy brzuchaty krasnolud][KM] {Gothaard};
 #var postacio[ognistobrody hardy krasnolud][KS] {Gothrin};
-#var postacio[opanowany srebrzystobrody krasnolud][KGKS] {Gotmir};
-#var postacim[masywny czarnowlosy krasnolud][KGKS] {Gotran};
+#var postacio[opanowany srebrzystobrody krasnolud][GS] {Gotmir};
+#var postacim[masywny czarnowlosy krasnolud][GS] {Gotran};
 #var postacim[malutki sinonosy gnom][NPC] {Gotth};
 #var postacip[pucolowaty piegowaty halfling][NPC] {Gottschalk};
 #var postacip[pulchny niewysoki mezczyzna][NPC] {Gottwald};
@@ -1068,15 +1069,15 @@
 #var postacig[ruby dostatnioodziany mezczyzna][NPC] {Grohard};
 #var postacis[spocony umiesniony mezczyzna][NPC] {Grold};
 #var postacio[ogromny lysy ogr][GP] {Grolkar};
-#var postacip[przyjacielski umiesniony krasnolud][KGKS] {Gron};
+#var postacip[przyjacielski umiesniony krasnolud][GS] {Gron};
 #var postacin[niski siwobrody krasnolud][NPC] {Grond};
 #var postacio[ogromny ponury mutant][MC] {Grot};
 #var postacic[ciemnoskory krwistooki ogr][KS] {Grothan};
 #var postaciw[wielki bystry mezczyzna][NPC] {Grotl};
 #var postacio[ogromny zarosniety ogr][GL] {Groum};
 #var postacin[niski spokojny krasnolud][KS] {Groz};
-#var postacik[krepy brodaty krasnolud][KGKS] {Grrid};
-#var postacic[czarnooki hardy krasnolud][KGKS] {Gruer};
+#var postacik[krepy brodaty krasnolud][GS] {Grrid};
+#var postacic[czarnooki hardy krasnolud][GS] {Gruer};
 #var postacib[barylkowaty lysy ogr][GP] {Grumish};
 #var postaciz[zwalisty hardy ogr][KS] {Grumsh};
 #var postacio[ogromny powazny mutant][MC] {Grung};
@@ -1237,7 +1238,7 @@
 #var postacim[mlody ciemnowlosy mezczyzna][NPC] {Huel};
 #var postacid[dojrzaly bezwzgledny mezczyzna][NPC] {Huggus};
 #var postacim[mlody bezwzgledny mezczyzna][KS] {Huggus};
-#var postacik[krepy stary krasnolud][KGKS] {Hugon};
+#var postacik[krepy stary krasnolud][GS] {Hugon};
 #var postacib[bialobrody plamiasty ogr][GP] {Hugr};
 #var postacib[bladoskory masywny ogr][GP] {Hullio};
 #var postacim[masywny podstarzaly krasnolud][NPC] {Huner};
@@ -1345,7 +1346,7 @@
 #var postacir[rosly rudowlosy mezczyzna][NPC] {Johanes};
 #var postacis[siwobrody wysoki mezczyzna][NPC] {Johann};
 #var postaciw[wysoki opalony mezczyzna][NPC] {Johannes};
-#var postacir[ruda piegowata krasnoludka][KGKS] {Jona};
+#var postacir[ruda piegowata krasnoludka][GS] {Jona};
 #var postacik[krzywonosy ponury krasnolud][GL] {Jorhn};
 #var postacir[rudowlosa piegowata krasnoludka][NPC] {Jorika};
 #var postacis[siwobrody rozwscieczony mezczyzna][NPC] {Jorn};
@@ -1431,7 +1432,7 @@
 #var postacio[ogorzaly hardy krasnolud][GP] {Khardd};
 #var postacis[szczerbaty zezowaty ogr][GP] {Khark};
 #var postacin[niski siwobrody krasnolud][NPC] {Kharrn};
-#var postacih[hardy srebrzystobrody krasnolud][KGKS] {Khazaad};
+#var postacih[hardy srebrzystobrody krasnolud][GS] {Khazaad};
 #var postacip[ponury bladoskory krasnolud][NPC] {Khazan};
 #var postacik[kudlaty barczysty krasnolud][NPC] {Khazog};
 #var postacik[kudlaty barczysty mutant][MC] {Khazog};
@@ -1523,7 +1524,7 @@
 #var postacid[dlugowlosy barczysty mezczyzna][OS] {Layamon};
 #var postacis[smagly szarooki mezczyzna][GP] {Lazzar};
 #var postacic[chudy dostojny elf][NPC] {Learat};
-#var postacij[jasnowlosy niebieskooki elf][GP] {Legalt};
+#var postacij[jasnowlosy niebieskooki elf][CN] {Legalt};
 #var postacis[szczuply czujny mezczyzna][NPC] {Legel};
 #var postacio[ognistobrody barczysty krasnolud][NPC] {Legnar};
 #var postacip[piegowata sniada krasnoludka][NPC] {Lenka};
@@ -1782,7 +1783,7 @@
 #var postacip[postawny niewysoki mezczyzna][NPC] {Muchobij};
 #var postaciz[zlosliwa bladoskora kobieta][GP] {Muerta};
 #var postacim[mlody skupiony mezczyzna][NPC] {Muircetach};
-#var postacih[hardy opalony krasnolud][KGKS] {Mungrim};
+#var postacih[hardy opalony krasnolud][GS] {Mungrim};
 #var postacip[plomiennobrody dumny krasnolud][OHM] {Murakor};
 #var postacig[arbaty pomarszczony ogr][GP] {Mursul};
 #var postacis[szkieletowaty brudny gnom][SC] {Musin};
@@ -1916,7 +1917,7 @@
 #var postacik[krotkowlosy umiesniony mezczyzna][NPC] {Ori};
 #var postaciz[zakatarzony sedziwy mezczyzna][NPC] {Ori};
 #var postacip[ponury zwalisty ogr][OK] {Orik};
-#var postacid[dlugowlosy mlody krasnolud][KGKS] {Ormen};
+#var postacid[dlugowlosy mlody krasnolud][GS] {Ormen};
 #var postacio[otyly czerwonolicy mezczyzna][NPC] {Ornard};
 #var postacin[niski zielonobrody krasnolud][KM] {Oror};
 #var postaciz[zarosniety hardy mutant][MC] {Orqun};
@@ -2222,7 +2223,7 @@
 #var postacig[ruby zadowolony sierzant][NPC] {SierzantNPC};
 #var postacio[otyly mlody mezczyzna][NPC] {SierzantNPC};
 #var postacie[energiczna opalona halflinka][NPC] {Sifri};
-#var postacid[dumny ognistowlosy krasnolud][KGKS] {Sigard};
+#var postacid[dumny ognistowlosy krasnolud][GS] {Sigard};
 #var postacip[podrastajacy pyzaty halfling][NPC] {Sigismond};
 #var postacij[jednooki zasuszony mutant][MC] {Siglik};
 #var postacin[nerwowy zaglodzony mezczyzna][GP] {Sigmur};
@@ -2246,7 +2247,7 @@
 #var postacis[spokojny jasnowlosy elf][NPC] {Sirllan};
 #var postacip[plomiennooki bezwzgledny elf][SC] {Sivlaryan};
 #var postacip[porywczy szarooki krasnolud][GP] {Skaggi};
-#var postacir[rudobrody grozny krasnolud][NPC] {Skalfli};
+#var postacir[rudobrody grozny krasnolud][GP] {Skalfli};
 #var postacib[brodaty muskularny mezczyzna][NPC] {Skammkell};
 #var postacis[smukly jasnooki elf][SC] {Skavo};
 #var postacij[jasnooki mlody gnom][SGW] {Skep};
@@ -2335,7 +2336,7 @@
 #var postacij[jednooki lysy krasnolud][NPC] {Terden};
 #var postacib[barczysty dumny mezczyzna][OS] {Terenes};
 #var postacim[muskularny bialowlosy mezczyzna][NPC] {Terix};
-#var postacis[smukly energiczny mezczyzna][NPC] {Terum};
+#var postacis[smukly energiczny mezczyzna][GL] {Terum};
 #var postacim[madry stary gnom][NPC] {Terunni};
 #var postacid[dlugowlosy siwobrody krasnolud][NPC] {Tezar};
 #var postacib[brodaty czarnooki krasnolud][GP] {Thaall};
@@ -2352,7 +2353,7 @@
 #var postacic[czarnoodziany zakapturzony mezczyzna][NPC] {Tharr};
 #var postaciw[wiekowy czujny mezczyzna][MC] {Tharr};
 #var postaciw[wiekowy czujny mutant][MC] {Tharr};
-#var postacio[okazaly grozny krasnolud][KGKS] {Thauron};
+#var postacio[okazaly grozny krasnolud][GS] {Thauron};
 #var postaciz[zawadiacka czarnooka kobieta][CN] {Theia};
 #var postacim[modrooki bladoskory elf][GP] {Thenael};
 #var postaciw[wasaty niebieskooki niziolek][NPC] {Theodor};
@@ -2368,7 +2369,7 @@
 #var postacik[kolorowooki niski mezczyzna][NPC] {Thomen};
 #var postaciz[zgrzybialy dlugobrody mezczyzna][KS] {Thord};
 #var postacib[barczysty jasnooki mezczyzna][NPC] {Thorden};
-#var postacik[krepy rudobrody krasnolud][KGKS] {Thorffin};
+#var postacik[krepy rudobrody krasnolud][GS] {Thorffin};
 #var postacip[pekata ciemnooka krasnoludka][NPC] {Thorfinna};
 #var postacib[blekitnooki spokojny krasnolud][GP] {Thorgar};
 #var postacim[malomowny barczysty mezczyzna][NPC] {Thorgard};
@@ -2391,7 +2392,7 @@
 #var postacid[dumny ciemnooki mutant][MC] {Thrangorn};
 #var postacip[ponury zgrzybialy ogr][GL] {Throg};
 #var postacik[krzywonosy krzywonogi krasnolud][CN] {Thus};
-#var postacid[dostojny niebieskooki krasnolud][KGKS] {Thyrrun};
+#var postacid[dostojny niebieskooki krasnolud][GS] {Thyrrun};
 #var postacil[lysy czerwonobrody krasnolud][NPC] {Tiall};
 #var postacin[niebieskooka kruczowlosa kobieta][NPC] {Tianalian};
 #var postacio[ogromny malomowny ogr][NA] {Tibauld};
@@ -2469,7 +2470,7 @@
 #var postacio[ogolony energiczny mezczyzna][NPC] {Ulkar};
 #var postacin[niepamietam tezniepamietam gnom][GP] {Ull};
 #var postacin[niepozorny czujny halfling][NPC] {Ulmin};
-#var postacie[energiczny brodaty krasnolud][KGKS] {Ulrad};
+#var postacie[energiczny brodaty krasnolud][GS] {Ulrad};
 #var postacij[jednooki ponury krasnolud][NPC] {Ulrik};
 #var postacib[blekitnooki bialowlosy elf][NPC] {Ulushalen};
 #var postacik[kulawy opalony mezczyzna][KS] {Ulver};
@@ -2565,7 +2566,7 @@
 #var postacim[madrooki porywczy elf][LE] {Veyun};
 #var postacik[kudlata krwistooka ogrzyca][GP] {Vian};
 #var postacim[metnooki kaleki mezczyzna][NPC] {Vic};
-#var postaciw[wasaty krzywonogi mezczyzna][KG] {Vicken};
+#var postaciw[wasaty krzywonogi mezczyzna][GP] {Vicken};
 #var postacim[masywny brodaty mezczyzna][NPC] {Vidius};
 #var postacim[mloda piersiasta polelfka][PE] {Vidris};
 #var postaciw[wysoki mlody mezczyzna][NPC] {Vieri};
@@ -2682,7 +2683,7 @@
 #var postaciu[umiesniony nieokrzesany mezczyzna][NPC] {Yan};
 #var postacio[ognistobrody muskularny krasnolud][KM] {Yanash};
 #var postaciw[wielkonosy zgryzliwy gnom][NPC] {Yancej};
-#var postacip[pulchna pomaranczowowlosa krasnoludka][KGKS] {Yanna};
+#var postacip[pulchna pomaranczowowlosa krasnoludka][GS] {Yanna};
 #var postacik[krotkowlosy gladkolicy mezczyzna][NPC] {Yannick};
 #var postacio[ociezaly dlugobrody krasnolud][NPC] {Yannick};
 #var postacib[barczysty zreczny mezczyzna][NPC] {Yarael};
@@ -2708,13 +2709,13 @@
 #var postacic[czarnooki mlody niziolek][OHM] {Ygl};
 #var postacim[masywny hardy ogr][GP] {Yiryk};
 #var postacip[popielatobrody wiekowy krasnolud][NPC] {Ymir};
-#var postacip[ponury masywny krasnolud][KGKS] {Yoel};
+#var postacip[ponury masywny krasnolud][GS] {Yoel};
 #var postacip[ponury jednooki krasnolud][CN] {Yorgi};
 #var postacim[masywny sniady krasnolud][KM] {Yrdan};
 #var postacij[jednooki wysoki mezczyzna][GP] {Yrs};
 #var postacij[jednooka niska kobieta][GL] {Ysar};
 #var postacib[bialobrody jasnooki krasnolud][GP] {Ythol};
-#var postacik[krepy hardy krasnolud][KGKS] {Yurga};
+#var postacik[krepy hardy krasnolud][GS] {Yurga};
 #var postacib[bladoskory piegowaty mezczyzna][MC] {Yuri};
 #var postaciw[wiekowy spiczastouchy gnom][NPC] {Yves};
 #var postacij[jasnowlosa szczupla kobieta][NPC] {Yvette};
@@ -2744,7 +2745,7 @@
 #var postacil[laskonogi pomarszczony ogr][GP] {Zergh};
 #var postaciw[wielkouchy kudlaty ogr][GP] {Zerolt};
 #var postacip[pracowity energiczny gnom][NPC] {Zetegen};
-#var postaciz[zlosliwy niewysoki halfling][GP] {Zetu};
+#var postaciz[zlosliwy niewysoki halfling][GL] {Zetu};
 #var postaciu[usmiechnieta otyla kobieta][NPC] {Zidia};
 #var postacip[pracowity rosly mezczyzna][NPC] {Ziemowit};
 #var postacir[rudobrody porywczy krasnolud][GP] {Zigrim};
@@ -2774,11 +2775,11 @@
 #var postaciz[zielonooki zawadiacki krasnolud][NPC] {Zuruen};
 #var postaciu[umorusany mlody mezczyzna][NPC] {Zvavik};
 #var postacik[klapouchy zielonooki gnom][SGW] {Zxar};
-#var postacib[bezwzgledny plomiennooki polelf][NA] {Shinru};
+#var postacib[bezwzgledny plomiennooki polelf][GP] {Shinru};
 #var postacin[niewysoki mezczyzna kristov][NPC] {Kristov};
 #var postacim[mlody mezczyzna rono][NPC] {Rono};
 #var postacim[jakis tam mezczyznaa][NPC] {Aldus};
-#var postacis[srebrnowlosa smagla elfka][GP] {Thaess};
+#var postacis[srebrnowlosa smagla elfka][LE] {Thaess};
 #var postacip[ponury wysoki elf][SC] {KtosSC};
 #var postacin[niebieskooka piegowata kobieta][MC] {KtosMC};
 #var postacis[smukly opanowany mutant][MC] {KtosMC};
@@ -2787,10 +2788,20 @@
 #var postacic[czarnooka bialoslosa elfka][GP] {Taneth};
 #var postacib[brzuchaty pyzaty halfling][GP] {KtosGP};
 #var postacik[kruczowlosy brzuchaty mezczyzna][GP] {KtosGP};
+#var postacic[ciemnooki smukly mezczyzna][GL] {Irwin};
 #var postacik[jakostam wyglad][PE] {Khirk};
 #var pistacia[jakostam wyglad][GP] {Arren};
 #var postacid[jakistam wyglad][NA] {Dagor};
-#var postacic[ciemnooki smukly mezczyzna][GL] {Irwin};
+#var postacid[jakistam wyglad][GP] {Sulruth};
+#var postacid[jakistam wyglad][MC] {Vesper};
+#var postacid[jakistam wyglad][GP] {Sulruth};
+#var postacid[jakistam wyglad][GP] {Gilmore};
+#var postacis[jakistam wyglad22][LE] {Solenay};
+#var postacic[jakistam wyglad33][GP] {Tarran};
+#var postacic[jakistam wyglad44][GP] {Sarven};
+#var postacic[jakistam wyglad55][GP] {Balkrag};
+#var postacic[jakistam wyglad66][GP] {Huggo};
+#var postacib[jakistam wyglad67][CN] {Bolryg};
 
 #list lista_wrogow {clear};
 #list lista_przyjaciol {clear};
@@ -2827,7 +2838,7 @@
 		#var postac_imie {$postacia[$postac][$gildia]};
 		#format len {%L} {$postac_imie};
 		#if {$len > 2} {
-		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>($kolorygildii[$gildia]$gildia<088>)<088>%1}}; 
+		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>|$kolorygildii[$gildia]$gildia<088>%1}}; 
 		  #var imiona {$imiona $postac_imie};
 		};
 		#nop sh $postac;
@@ -2842,7 +2853,7 @@
 		#var postac_imie {$postacib[$postac][$gildia]};
 		#format len {%L} {$postac_imie};
 		#if {$len > 2} {
-		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>($kolorygildii[$gildia]$gildia<088>)<088>%1}}; 
+		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>|$kolorygildii[$gildia]$gildia<088>%1}}; 
 			#var imiona {$imiona $postac_imie};
 		};
 		#nop sh $postac;
@@ -2858,7 +2869,7 @@
 		#var postac_imie {$postacic[$postac][$gildia]};
 		#format len {%L} {$postac_imie};
 		#if {$len > 2} {
-		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>($kolorygildii[$gildia]$gildia<088>)<088>%1}}; 
+		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>|$kolorygildii[$gildia]$gildia<088>%1}}; 
 			#var imiona {$imiona $postac_imie};
 		};
 		#nop sh $postac;
@@ -2874,7 +2885,7 @@
 		#var postac_imie {$postacid[$postac][$gildia]};
 		#format len {%L} {$postac_imie};
 		#if {$len > 2} {
-		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>($kolorygildii[$gildia]$gildia<088>)<088>%1}}; 
+		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>|$kolorygildii[$gildia]$gildia<088>%1}}; 
 			#var imiona {$imiona $postac_imie};
 		};
 		#nop sh $postac;
@@ -2890,7 +2901,7 @@
 		#var postac_imie {$postacie[$postac][$gildia]};
 		#format len {%L} {$postac_imie};
 		#if {$len > 2} {
-		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>($kolorygildii[$gildia]$gildia<088>)<088>%1}}; 
+		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>|$kolorygildii[$gildia]$gildia<088>%1}}; 
 			#var imiona {$imiona $postac_imie};
 		};
 		#nop sh $postac;
@@ -2906,7 +2917,7 @@
 		#var postac_imie {$postacif[$postac][$gildia]};
 		#format len {%L} {$postac_imie};
 		#if {$len > 2} {
-		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>($kolorygildii[$gildia]$gildia<088>)<088>%1}}; 
+		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>|$kolorygildii[$gildia]$gildia<088>%1}}; 
 			#var imiona {$imiona $postac_imie};
 		};
 		#nop sh $postac;
@@ -2922,7 +2933,7 @@
 		#var postac_imie {$postacig[$postac][$gildia]};
 		#format len {%L} {$postac_imie};
 		#if {$len > 2} {
-		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>($kolorygildii[$gildia]$gildia<088>)<088>%1}}; 
+		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>|$kolorygildii[$gildia]$gildia<088>%1}}; 
 			#var imiona {$imiona $postac_imie};
 		};
 		#nop sh $postac;
@@ -2938,7 +2949,7 @@
 		#var postac_imie {$postacih[$postac][$gildia]};
 		#format len {%L} {$postac_imie};
 		#if {$len > 2} {
-		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>($kolorygildii[$gildia]$gildia<088>)<088>%1}}; 
+		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>|$kolorygildii[$gildia]$gildia<088>%1}}; 
 			#var imiona {$imiona $postac_imie};
 		};
 		#nop sh $postac;
@@ -2954,7 +2965,7 @@
 		#var postac_imie {$postacii[$postac][$gildia]};
 		#format len {%L} {$postac_imie};
 		#if {$len > 2} {
-		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>($kolorygildii[$gildia]$gildia<088>)<088>%1}}; 
+		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>|$kolorygildii[$gildia]$gildia<088>%1}}; 
 			#var imiona {$imiona $postac_imie};
 		};
 		#nop sh $postac;
@@ -2970,7 +2981,7 @@
 		#var postac_imie {$postacij[$postac][$gildia]};
 		#format len {%L} {$postac_imie};
 		#if {$len > 2} {
-		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>($kolorygildii[$gildia]$gildia<088>)<088>%1}}; 
+		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>|$kolorygildii[$gildia]$gildia<088>%1}}; 
 			#var imiona {$imiona $postac_imie};
 		};
 		#nop sh $postac;
@@ -2986,7 +2997,7 @@
 		#var postac_imie {$postacik[$postac][$gildia]};
 		#format len {%L} {$postac_imie};
 		#if {$len > 2} {
-		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>($kolorygildii[$gildia]$gildia<088>)<088>%1}}; 
+		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>|$kolorygildii[$gildia]$gildia<088>%1}}; 
 			#var imiona {$imiona $postac_imie};
 		};
 		#nop sh $postac;
@@ -3002,7 +3013,7 @@
 		#var postac_imie {$postacil[$postac][$gildia]};
 		#format len {%L} {$postac_imie};
 		#if {$len > 2} {
-		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>($kolorygildii[$gildia]$gildia<088>)<088>%1}}; 
+		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>|$kolorygildii[$gildia]$gildia<088>%1}}; 
 			#var imiona {$imiona $postac_imie};
 		};
 		#nop sh $postac;
@@ -3018,7 +3029,7 @@
 		#var postac_imie {$postacim[$postac][$gildia]};
 		#format len {%L} {$postac_imie};
 		#if {$len > 2} {
-		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>($kolorygildii[$gildia]$gildia<088>)<088>%1}}; 
+		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>|$kolorygildii[$gildia]$gildia<088>%1}}; 
 			#var imiona {$imiona $postac_imie};
 		};
 		#nop sh $postac;
@@ -3034,7 +3045,7 @@
 		#var postac_imie {$postacin[$postac][$gildia]};
 		#format len {%L} {$postac_imie};
 		#if {$len > 2} {
-		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>($kolorygildii[$gildia]$gildia<088>)<088>%1}}; 
+		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>|$kolorygildii[$gildia]$gildia<088>%1}}; 
 			#var imiona {$imiona $postac_imie};
 		};
 		#nop sh $postac;
@@ -3054,7 +3065,7 @@
 		
 		#format len {%L} {$postac_imie};
 		#if {$len > 2} {
-		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>($kolorygildii[$gildia]$gildia<088>)<088>%1}}; 
+		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>|$kolorygildii[$gildia]$gildia<088>%1}}; 
 			#var imiona {$imiona $postac_imie};
 		};
 		#nop sh $postac;
@@ -3070,7 +3081,7 @@
 		#var postac_imie {$postacip[$postac][$gildia]};
 		#format len {%L} {$postac_imie};
 		#if {$len > 2} {
-		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>($kolorygildii[$gildia]$gildia<088>)<088>%1}}; 
+		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>|$kolorygildii[$gildia]$gildia<088>%1}}; 
 			#var imiona {$imiona $postac_imie};
 		};
 		#nop sh $postac;
@@ -3086,7 +3097,7 @@
 		#var postac_imie {$postacir[$postac][$gildia]};
 		#format len {%L} {$postac_imie};
 		#if {$len > 2} {
-		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>($kolorygildii[$gildia]$gildia<088>)<088>%1}}; 
+		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>|$kolorygildii[$gildia]$gildia<088>%1}}; 
 			#var imiona {$imiona $postac_imie};
 		};
 		#nop sh $postac;
@@ -3102,7 +3113,7 @@
 		#var postac_imie {$postacis[$postac][$gildia]};
 		#format len {%L} {$postac_imie};
 		#if {$len > 2} {
-		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>($kolorygildii[$gildia]$gildia<088>)<088>%1}}; 
+		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>|$kolorygildii[$gildia]$gildia<088>%1}}; 
 			#var imiona {$imiona $postac_imie};
 		};
 		#nop sh $postac;
@@ -3118,7 +3129,7 @@
 		#var postac_imie {$postacit[$postac][$gildia]};
 		#format len {%L} {$postac_imie};
 		#if {$len > 2} {
-		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>($kolorygildii[$gildia]$gildia<088>)<088>%1}}; 
+		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>|$kolorygildii[$gildia]$gildia<088>%1}}; 
 			#var imiona {$imiona $postac_imie};
 		};
 		#nop sh $postac;
@@ -3134,7 +3145,7 @@
 		#var postac_imie {$postaciu[$postac][$gildia]};
 		#format len {%L} {$postac_imie};
 		#if {$len > 2} {
-		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>($kolorygildii[$gildia]$gildia<088>)<088>%1}}; 
+		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>|$kolorygildii[$gildia]$gildia<088>%1}}; 
 			#var imiona {$imiona $postac_imie};
 		};
 		#nop sh $postac;
@@ -3150,7 +3161,7 @@
 		#var postac_imie {$postaciw[$postac][$gildia]};
 		#format len {%L} {$postac_imie};
 		#if {$len > 2} {
-		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>($kolorygildii[$gildia]$gildia<088>)<088>%1}}; 
+		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>|$kolorygildii[$gildia]$gildia<088>%1}}; 
 			#var imiona {$imiona $postac_imie};
 		};
 		#nop sh $postac;
@@ -3166,7 +3177,7 @@
 		#var postac_imie {$postaciy[$postac][$gildia]};
 		#format len {%L} {$postac_imie};
 		#if {$len > 2} {
-		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>($kolorygildii[$gildia]$gildia<088>)<088>%1}}; 
+		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>|$kolorygildii[$gildia]$gildia<088>%1}}; 
 			#var imiona {$imiona $postac_imie};
 		};
 		#nop sh $postac;
@@ -3182,7 +3193,7 @@
 		#var postac_imie {$postaciz[$postac][$gildia]};
 		#format len {%L} {$postac_imie};
 		#if {$len > 2} {
-		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>($kolorygildii[$gildia]$gildia<088>)<088>%1}}; 
+		  #line substitute {variables} {#sub {$postac_imie{ |\,|\.}} {$kolorygildii[$gildia]$postac_imie<088>|$kolorygildii[$gildia]$gildia<088>%1}}; 
 			#var imiona {$imiona $postac_imie};
 		};
 		#nop sh $postac;

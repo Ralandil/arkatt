@@ -47,7 +47,7 @@
 #NOP ustawia zmienna mob na ostatni element na liscie przymiotnikow moba (rzeczownik);
   #if {$v == 4} {#variable mob {$ofiara[-2] $ofiara[-1]}} {#variable mob {$ofiara[$v]}};
   #math {count[Ot][$mob][cnt]} {$count[Ot][$mob][cnt]+1};
-  #var r @set_quickbind_yellow{wez_monety};
+  #nop var r @set_quickbind_yellow{wez_monety};
 
   #math {average} {$count[Ty][$mob][cnt]/$count[Ot][$mob][cnt]};
 

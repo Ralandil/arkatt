@@ -12,7 +12,14 @@
 #var quickbind_alias_yellow_dimmed {<G01>       <088>};
 #var quickbind_alias_green_dimmed {<G01>       <088>};
 #var quickbind_cel {   };
-           
+
+
+#action {~^%* wskazuje %* jako cel ataku.$} {
+    #echo {<118><fca>[wskazan] %0};
+    zaznaczcel;
+    #line gag;
+} {1};
+
 #function {set_quickbind_F1} {
   #var quickbind_alias_F1 {};
   #format {quickbind_alias_F1} {%-7s} {%1};

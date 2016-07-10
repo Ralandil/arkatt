@@ -67,7 +67,12 @@
 
 #action {^%* probuje zaslonic %* przed ciosami %*, jednak nie jest w stanie tego uczynic.$}
 {
-	#sh {<118><ffa>[ZASLONA] <088>%0<aaa>,};#line gag;
+	#echo {<118><ffa>[ZASLONA] <088>%0<088>};
+    #line gag;
+}
+
+#action {Nie mozesz lamac niczyjego szyku, poki nie przestaniesz kryc sie za zaslona.}
+{
 }
 
 
@@ -89,11 +94,24 @@
 	#sh {<118><ffa>[ZASLONA] <088>%0<aaa>,};#line gag;
 }
 
-#NOP NEGATYWNE;
-#action {^%* zaslania %* przed twoimi ciosami.<088>%0.$}
+#action {~Bezskutecznie rzucasz sie na %*.}
 {
-	#sh {<118><faa>[ZASLONA] [] przelam] <088>%0<aaa>,};
-    #var r @set_quickbind_red{przelam obrone celu ataku};
+    #echo %0;
+    przelamcel;
+    #line gag;
+} {2};
+#action {~Atakujesz %* zagradza %*.}
+{
+#echo %0;
+przelamcel;
+#line gag;
+} {2};
+
+#NOP NEGATYWNE;
+#action {%* zaslania %* przed twoimi ciosami.<088>%0.$}
+{
+	#echo {<118><faa>[ZASLONA] <088>%0<aaa>,};
+    przelamcel;
     #line gag;
 }
   
@@ -115,6 +133,7 @@
 #action {^%* zaslania %* przed ciosami %*.$}
 {
 	#sh {<118><ffa>[ZASLONA] <088>%0<aaa>,};
+    przelamcel;
     #line gag;
 }
 
@@ -131,24 +150,24 @@
 
 #action {^Zrecznie zaslaniasz %* przed ciosami %*.$}
 {
-	#sh {<118><afa>[ZASLONA] [3 przestan] <088>%0<aaa>,};
-    #var r @set_quickbind_green{przestan zaslaniac};
+	#sh {<118><afa>[ZASLONA] <088>%0<aaa>,};
+    niezaslaniaj;
     #var koko @start_ZASLONA_ticker{};
     #line gag;
 }{2};
 
 #action {^Stajesz u boku %1, gotow w kazdej chwili %*}
 {
-	#sh {<118><afa>[ZASLONA] [3 przestan] <088>%0<aaa>,};
-    #var r @set_quickbind_green{przestan zaslaniac};
+	#sh {<118><afa>[ZASLONA] <088>%0<aaa>,};
+niezaslaniaj;
     #var koko @start_ZASLONA_ticker{};
     #line gag;
 }
 
 #action {^Z wprawa stajesz pomiedzy %* a %*, przyjmujac na siebie nadchodzace ciosy.$}
 {
-	#sh {<118><afa>[ZASLONA] [3 przestan] <088>%0<aaa>,};
-    #var r @set_quickbind_green{przestan zaslaniac};
+	#sh {<118><afa>[ZASLONA] <088>%0<aaa>,};
+niezaslaniaj;
     #var koko @start_ZASLONA_ticker{};
     #line gag;
 } {2}
@@ -188,17 +207,17 @@
 
 #action {^Slamazarnym wymachem %* probujesz wytracic %*. Przeciwnik nie daje sie jednak zaskoczyc, {|cofajac sie w pore|zbijajac w pore twoje uderzenie na bok}.$}
 {
-	#sh {<118><faa>[str]     <088>%0<aaa>,};
+	#sh {<118><faa>[str] <088>%0<aaa>,};
     #line gag;
 }
 
 #action {^Szybkim niczym mysl %* wytracasz %* z rak %*.$} {
-	#sh {<118><afa>[str]     <088>%0<aaa>,};
+	#sh {<118><afa>[str] <088>%0<aaa>,};
     #line gag;
 } {1}
 
 #action {^Szybkim niczym mysl %* wytracasz %* z reki %*.$} {
-	#sh {<118><afa>[str]     <088>%0<aaa>,};
+	#sh {<118><afa>[str] <088>%0<aaa>,};
     #line gag;
 } {1}
 
@@ -206,35 +225,34 @@
 #NOP INNE PRZYDATNE W WALCE;
 #action {^Bol %* staje sie mniej odczuwalny.$}
 {
-	#sh {<118><afa>[bron]    [3 dobadz] <088>%0<aaa>,};
-    #var r @set_quickbind_green{dobadz broni};
+	#sh {<118><afa>[bron] <088>%0<aaa>,};
     #line gag;
 }
 
 #action {^Nie mozesz dobyc %*, gdyz %*.$}
 {
-	#sh {<118><faa>[bron]    <088>%0<aaa>,};
+	#sh {<118><faa>[bron]  <088>%0<aaa>,};
     #line gag;
 }
 
 #action {^Uderzenie jest tak silne, ze bezwiednie puszczasz %*.$}
 {
-	#sh {<118><faa>[bron]    <088>%0<aaa>,};
+	#sh {<118><faa>[bron]  <088>%0<aaa>,};
     #line gag;
 }
 
 #action {^%* dobywa %*.$} {
-	#sh {<118><ffa>[bron]    <088>%0<aaa>,};
+	#sh {<118><ffa>[bron] <088>%0<aaa>,};
     #line gag;
 }
 
 #action {^Uderzenie jest tak silne, ze %* bezwiednie opuszcza %*.$}
 {
-	#sh {<118><ffa>[bron]    <088>%0<aaa>,};
+	#sh {<118><ffa>[bron]  <088>%0<aaa>,};
     #line gag;
 }
 
 #action {^Wskazujesz %* jako cel ataku.$}
 {
-	#sh {<118><afa>[cel]     <088>%0<aaa>,};
+	#sh {<118><afa>[cel] <088>%0<aaa>,};
 }

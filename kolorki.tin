@@ -349,18 +349,9 @@
 }
 
 
-#alias {odznaczcel} {
-    nazabij cel ataku;
-    #var display_function_1 {<faa>                                   <088>};
-    #sh prompt7;
-}
 #action {~^%* wskazuje %* jako cel ataku.$} {
-    #var display_function_1 {<faa>zabij cel ataku                    <088>};
-    #macro {$KEY_F1} {odznaczcel};
-    #macro {[} {odznaczcel};
 	#echo {<118><fca>[wskazan] %0};
-    #sh prompt7;
-    #bell;
+    zaznaczcel;
     #line gag;
 } {1};
 
@@ -402,8 +393,8 @@
 #nop sub {srebrzysta kosa bojowa} {<faf>sr<ebf>eb<dcf>rz<cdf>ys<aef>ta <aff>ko<bef>sa <cdf>bo<dcf>jo<ebf>wa<088>}
 #nop sub {srebrzystej kosy bojowej} {<faf>sr<ebf>eb<dcf>rz<cdf>ys<aef>tej <aff>ko<bef>sy <cdf>bo<dcf>jo<ebf>wej<088>}
 
-#sub {adamantytowa szpiczasta partyzana} {<bda>ada<bea>man<aea>tyt<cea>owa <bea>szp<ada>icz<aea>asta <dfa>part<cfa>rtyz<bfa>ana<088>}
-#sub {adamantytowa szpiczasta partyzane} {<bda>ada<bea>man<aea>tyt<cea>owa <bea>szp<ada>icz<aea>asta <dfa>part<cfa>rtyz<bfa>ane<088>}
-#sub {adamantytowa szpiczasta partyzana} {<bda>ada<bea>man<aea>tyt<cea>owa <bea>szp<ada>icz<aea>asta <dfa>part<cfa>rtyz<bfa>ana<088>}
+#nop sub {adamantytowa szpiczasta partyzana} {<bda>ada<bea>man<aea>tyt<cea>owa <bea>szp<ada>icz<aea>asta <dfa>part<cfa>rtyz<bfa>ana<088>}
+#nop sub {adamantytowa szpiczasta partyzane} {<bda>ada<bea>man<aea>tyt<cea>owa <bea>szp<ada>icz<aea>asta <dfa>part<cfa>rtyz<bfa>ane<088>}
+#nop sub {adamantytowa szpiczasta partyzana} {<bda>ada<bea>man<aea>tyt<cea>owa <bea>szp<ada>icz<aea>asta <dfa>part<cfa>rtyz<bfa>ana<088>}
 
 #sub {azurowy koscistobialy amulet} {<ddf>az<dff>uro<fdf>wy <ffd>kosc<eed>isto<fdf>bialy <ddf>amu<dff>let<088>};

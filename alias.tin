@@ -1,12 +1,74 @@
-#var ocen_wrogow_rec {0};
-
 #alias {_zabij_}
 {
+    #var display_function_2 {<faa>zabij cel ataku                    <088>};
     wskaz %1 jako cel ataku;
     rozkaz druzynie zabic cel ataku;
     nazabij cel ataku;
 }
 
+
+
+#alias {zaznaczcel} {
+    #var display_function_2 {<faa>zabij cel ataku                    <088>};
+    #macro {$KEY_F2} {odznaczcel};
+    #macro {[} {_zaznaczcel_};
+    #sh prompt6;
+    #bell;
+}
+
+#alias {_zaznaczcel_} {
+    nazabij cel ataku;
+    wskaz cel ataku jako cel ataku;
+    #var display_function_2 {<faa>                                   <088>};
+    #sh prompt6;
+}
+
+#alias {przelamcel} {
+    #var display_function_3 {<faa>przelam cel ataku                  <088>};
+    #macro {$KEY_F3} {_przelamcel_};
+    #sh prompt5;#sh prompt6;#sh prompt7;
+}
+#alias {_przelamcel_} {
+    przelam obrone celu ataku;
+    #var display_function_3 {<faa>                                   <088>};
+    #sh prompt5;#sh prompt6;#sh prompt7;
+}
+
+#alias {niezaslaniaj} {
+    #var display_function_3 {<ffa>przestan zaslaniac                 <088>};
+    #macro {$KEY_F3} {_niezaslaniaj_};
+    #sh prompt5;#sh prompt6;#sh prompt7;
+}
+
+#alias {_niezaslaniaj_} {
+    przestan zaslaniac;
+    #var display_function_3 {<faa>                                   <088>};
+    #sh prompt5;#sh prompt6;#sh prompt7;
+}
+
+
+#alias {_zbierz_}
+{
+    wez monety z pierwszego ciala;
+    wez monety z drugiego ciala;
+    wez monety z trzeciego ciala;
+    wez monety z czwartego ciala;
+    wez monety z piatego ciala;
+    wez kamienie z pierwszego ciala;
+    wez kamienie z drugiego ciala;
+    wez kamienie z trzeciego ciala;
+    wez kamienie z czwartego ciala;
+    wez kamienie z piatego ciala;
+    nawytnij trofeum z pierwszego ciala;
+    nawytnij trofeum z drugiego ciala;
+    nawytnij trofeum z trzeciego ciala;
+    nawytnij trofeum z czwartego ciala;
+    nawytnij trofeum z piatego ciala;
+}
+
+#macro {§} {_zbierz_};
+
+#var ocen_wrogow_rec {0};
 #alias {ocen_wrogow}
 {
   #var weakest_target {1};
@@ -279,13 +341,9 @@
 
 #alias {baza}
 {
-	#load /home/adam/arkatt/baza.txt;
+	#load /Users/eldakar/arkatt/baza.txt;
 }
 
-#alias {golem}
-{
-	wejdz w krzaki;n;e;przeczolgaj sie na polnoc;n;w
-}
 
 #var pojemnik_do {torby};
 #var pojemnik_co {torbe};
@@ -298,5 +356,9 @@
 #alias {wy}
 {
   wez %1 z $pojemnik_do;
+}
+#alias {costam}
+{
+skocz do stawu,przejdz za wodospad,n,pchnij sciane
 }
 
