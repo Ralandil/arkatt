@@ -96,10 +96,17 @@
 
 #action {~Bezskutecznie rzucasz sie na %*.}
 {
-    #echo %0;
+    #echo {<faa>[przebij] Bezskutecznie rzucasz sie na %2};
     przelamcel;
     #line gag;
 } {2};
+#action {Rzucasz sie na %* przebijajac sie przez {jego|jej} ochrone.}
+{
+    l#echo {<afa>[przebij] Rzucasz sie na %1 przebijajac sie przez %2 ochrone.};
+    zaznaczcel;
+    #line gag;
+}
+
 #action {~Atakujesz %* zagradza %*.}
 {
 #echo %0;

@@ -432,7 +432,7 @@
 #if {%2 == 9} {#line substitute {variables} {#macro {$KEY_F9} {%3;#line substitute {variables} {#format display_function_9 {%-34s %.34s} {<ada>  <088>}};#sh prompt7;#sh prompt6;#sh prompt5;}}};
 
 #line substitute {variables} {#format display_function_%2 {%-34s %.34s} {<ada>%3<088>}};
-#sh prompt5;#sh prompt6;#sh prompt7;
+testprompt;
 #line gag;
 }
 

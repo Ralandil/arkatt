@@ -10,9 +10,9 @@
 
 #alias {zaznaczcel} {
     #var display_function_2 {<faa>zabij cel ataku                    <088>};
-    #macro {$KEY_F2} {odznaczcel};
+    #macro {$KEY_F2} {_zaznaczcel_};
     #macro {[} {_zaznaczcel_};
-    #sh prompt6;
+testprompt;
     #bell;
 }
 
@@ -20,30 +20,30 @@
     nazabij cel ataku;
     wskaz cel ataku jako cel ataku;
     #var display_function_2 {<faa>                                   <088>};
-    #sh prompt6;
+testprompt;
 }
 
 #alias {przelamcel} {
     #var display_function_3 {<faa>przelam cel ataku                  <088>};
     #macro {$KEY_F3} {_przelamcel_};
-    #sh prompt5;#sh prompt6;#sh prompt7;
+    testprompt;
 }
 #alias {_przelamcel_} {
     przelam obrone celu ataku;
     #var display_function_3 {<faa>                                   <088>};
-    #sh prompt5;#sh prompt6;#sh prompt7;
+    testprompt;
 }
 
 #alias {niezaslaniaj} {
     #var display_function_3 {<ffa>przestan zaslaniac                 <088>};
     #macro {$KEY_F3} {_niezaslaniaj_};
-    #sh prompt5;#sh prompt6;#sh prompt7;
+    testprompt;
 }
 
 #alias {_niezaslaniaj_} {
     przestan zaslaniac;
     #var display_function_3 {<faa>                                   <088>};
-    #sh prompt5;#sh prompt6;#sh prompt7;
+    testprompt;
 }
 
 
@@ -341,7 +341,7 @@
 
 #alias {baza}
 {
-	#load /Users/eldakar/arkatt/baza.txt;
+	#read /Users/eldakar/arkatt/baza.txt;
 }
 
 

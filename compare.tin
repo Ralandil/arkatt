@@ -24,7 +24,8 @@
 
   #var ecmp[$cmp_obj] $cmp_str$cmp_dex$cmp_vit;
 #sh {<aff>[porowna] str:<088>$cmp_str<088> <aff>dex:<088>$cmp_dex <088><aff>vit:<088>$cmp_vit<088> <aff>total: <ffa>$cmp_tot<088>};
-#var rpp @refreshprompt{};
+#nop var rpp @refreshprompt{};
+testprompt;
 }
 
 #action {Masz wrazenie, ze jest rownie silny jak ty.} {#line gag;#var cmp_tot 0;#var cmp_str 0};

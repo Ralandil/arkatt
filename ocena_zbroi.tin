@@ -50,7 +50,7 @@
   #var wpn_wei {%2};
   #var wpn_vol {%4};
   #var wpn_mag { };
-  #line gag;
+  #nop line gag;
 }
 
 #action {Za %w pomoca mozna zadawac rany %2.} {
