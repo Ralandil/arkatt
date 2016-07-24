@@ -214,12 +214,7 @@
 	team_clean_compare;
 	#var ruch_kompasu {none};
 	#var kompas_dziala {0};
-#sh prompt7;
-#sh prompt6;
-#sh prompt5;
-#sh prompt3;
-#sh prompt2;
-#sh prompt1;
+    testprompt;
 }
 
 #var isNstandard 1
@@ -239,12 +234,7 @@
 	#line gag;
 }
 #action {<CHAT> mapper chats to everyone, 'exit:end'} {
-#sh prompt7;
-#sh prompt6;
-#sh prompt5;
-#sh prompt3;
-#sh prompt2;
-#sh prompt1;
+    testprompt;
 	#line gag;
 }
 #action {<CHAT> mapper chats to everyone, 'exit:start'} {#line gag;}
@@ -362,10 +352,9 @@
 #action {Nie masz na to sily.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
 #action {Probujesz otworzyc %1, ale nie udaje ci sie to.} {#var ret @set_quickbind_green{uderz w brame};#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
 #action {Jestes tak zmeczony, ze nie mozesz dalej podazac w tym kierunku.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+#action {Nie mozesz tego zrobic, gdyz} {#chat message mapper revert} {7};
 
 #action {Gorliwy ciemnowlosy mezczyzna stoi ci na drodze.} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
-#action {Nie mozesz tego zrobic, gdyz wiaze} {#sh <fff>ASUR<088>;#line gag;} {1};
-#action {Nie mozesz tego zrobic, gdyz} {#chat message mapper revert} {7};
 
 #action {Nie jestes upowazniony do wejscia do magazynu.} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
 #action {Podchodzisz pod drzwi na polnocy, ktore otwiera wielki mezczyzna i oceniajaco taksuje cie wzrokiem. Prycha pod nosem i bez} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};

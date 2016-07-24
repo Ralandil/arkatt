@@ -59,12 +59,12 @@
 	#if {"$CHAR_STATE[improve]" == "7"} {#var pr_exp {<118><fff> 7/15<088>};};
 	#if {"$CHAR_STATE[improve]" == "8"} {#var pr_exp {<118><fff> 8/15<088>};};
 	#if {"$CHAR_STATE[improve]" == "9"} {#var pr_exp {<118><fff> 9/15<088>};};
-	#if {"$CHAR_STATE[improve]" == "10"} {#var pr_exp {<118><fff> 10/15<088>};};
-	#if {"$CHAR_STATE[improve]" == "11"} {#var pr_exp {<118><fff> 11/15<088>};};
-	#if {"$CHAR_STATE[improve]" == "12"} {#var pr_exp {<118><fff> 12/15<088>};};
-	#if {"$CHAR_STATE[improve]" == "13"} {#var pr_exp {<118><fff> 13/15<088>};};
-	#if {"$CHAR_STATE[improve]" == "14"} {#var pr_exp {<118><fff> 14/15<088>};};
-	#if {"$CHAR_STATE[improve]" == "15"} {#var pr_exp {<118><fff> 15/15<088>};};
+	#if {"$CHAR_STATE[improve]" == "10"} {#var pr_exp {<118><fff>10/15<088>};};
+	#if {"$CHAR_STATE[improve]" == "11"} {#var pr_exp {<118><fff>11/15<088>};};
+	#if {"$CHAR_STATE[improve]" == "12"} {#var pr_exp {<118><fff>12/15<088>};};
+	#if {"$CHAR_STATE[improve]" == "13"} {#var pr_exp {<118><fff>13/15<088>};};
+	#if {"$CHAR_STATE[improve]" == "14"} {#var pr_exp {<118><fff>14/15<088>};};
+	#if {"$CHAR_STATE[improve]" == "15"} {#var pr_exp {<118><fff>15/15<088>};};
 				
 	#if {"$CHAR_STATE[mana]" == "8"} {#var pr_mana {<118><aca> 9/ 9<088>};};
 	#if {"$CHAR_STATE[mana]" == "7"} {#var pr_mana {<118><aca> 8/ 9<088>};};
@@ -76,9 +76,7 @@
 	#if {"$CHAR_STATE[mana]" == "1"} {#var pr_mana {<118><caa> 2/ 9<088>};};
 	#if {"$CHAR_STATE[mana]" == "0"} {#var pr_mana {<118><caa> 1/ 9<088>};};
 		
-	#sh prompt1;
-	#sh prompt2;
-	#sh prompt3;
+    testprompt;
 }
 
 #action {Masz nowa poczte od %1.}

@@ -62,7 +62,7 @@
       #if {$cnt == $len2} {#var ret {${ret}\n}};
       #if {$cnt == $len3} {#var ret {${ret}\n}};
       #if {$cnt == $len4} {#var ret {${ret}\n}};
-      
+
       #var ret {${ret}${c}};
     };
     #return $ret;  
@@ -367,12 +367,222 @@
 #var kondycja_kolor_57 {<ABA><188><aaa>};
 #var kondycja_kolor_67 {<ABA><188><aaa>};
 #var kondycja_kolor_77 {<ABA><188><aaa>};
-
 #var blok1 {<G01><188><fff>};
 #var blok2 {<G05><188><fff>};
-
 #nop var blok1 {<174>};
 #nop var blok2 {<174>};
+
+#nop prompt object colors TEAM;
+
+#var poc_team_name {<ada>};
+#var poc_team_init {<118><AAB>};
+#var poc_team_target {<cca>};
+#var poc_team_enemy {<faa>};
+#var poc_team_index {<ccc>};
+#var poc_team_bleed {<G04>};
+#var poc_team_danger {<BAA>};
+
+#sh {<118><AAD><cca>@ <AAC><ccc>A)<AAD><faa> 1<AAC><ada> E<AAD>ld<G01>ak<G04>ar<088>}
+
+#function {pbuild_team_id_37}
+{
+    #regex {%1} {%.%.%.%.%.%.} {#return {${poc_team_init}${poc_team_index}&1&2${poc_team_target}&3&4${poc_team_enemy}&5&6};};
+}
+#function {pbuild_team_id_27}
+{
+    #regex {%1} {%.%.%.%.%.%.} {#return {${poc_team_init}${poc_team_index}&1&2${poc_team_target}&3&4${poc_team_bleed}${poc_team_enemy}&5&6};};
+}
+#function {pbuild_team_id_17}
+{
+    #regex {%1} {%.%.%.%.%.%.} {#return {${poc_team_init}${poc_team_index}<AAF>&1&2${poc_team_bleed}${poc_team_target}&3&4${poc_team_enemy}&5&6};};
+}
+
+#function {pbuild_team_hp_77}
+{
+    #regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+    #nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+    #format {rt} {%l} {$rt};
+    #regex {$rt} {%.%.%.%.%.%.%.} {#return {${poc_team_init}${poc_team_name} &1&2&3&4&5&6&7<088>}};
+    #nop return $rt;
+}
+
+#function {pbuild_team_hp_67}
+{
+#regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+#nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+#format {rt} {%l} {$rt};
+#regex {$rt} {%.%.%.%.%.%.%.} {#return {${poc_team_init}${poc_team_name} &1&2&3&4&5${poc_team_bleed}&6&7<088>}};
+#nop return $rt;
+}
+
+#function {pbuild_team_hp_57}
+{
+#regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+#nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+#format {rt} {%l} {$rt};
+#regex {$rt} {%.%.%.%.%.%.%.} {#return {${poc_team_init}${poc_team_name} &1&2&3${poc_team_bleed}&4&5&6&7<088>}};
+#nop return $rt;
+}
+
+#function {pbuild_team_hp_47}
+{
+#regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+#nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+#format {rt} {%l} {$rt};
+#regex {$rt} {%.%.%.%.%.%.%.} {#return {${poc_team_init}${poc_team_name} &1${poc_team_bleed}&2&3&4&5&6&7<088>}};
+#nop return $rt;
+}
+
+#function {pbuild_team_hp_37}
+{
+#regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+#nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+#format {rt} {%l} {$rt};
+#regex {$rt} {%.%.%.%.%.%.%.} {#return {${poc_team_init}${poc_team_name}${poc_team_bleed} &1&2&3&4&5&6&7<088>}};
+#nop return $rt;
+}
+
+
+
+#var poc_enemy_name {<ddd>};
+#var poc_enemy_init {<118><BAA>};
+#var poc_enemy_target {<cca>};
+#var poc_enemy_enemy {<faa>};
+#var poc_enemy_index {<ccc>};
+#var poc_enemy_bleed {<G04>};
+#var poc_enemy_danger {<BAA>};
+
+#sh {<118><AAD><cca>@ <AAC><ccc>A)<AAD><faa> 1<AAC><ada> E<AAD>ld<G01>ak<G04>ar<088>}
+
+#function {pbuild_enemy_id_37}
+{
+#regex {%1} {%.%.%.%.%.%.} {#return {${poc_enemy_init}${poc_enemy_index}&1&2${poc_enemy_target}&3&4${poc_enemy_enemy}&5&6};};
+}
+#function {pbuild_enemy_id_27}
+{
+#regex {%1} {%.%.%.%.%.%.} {#return {${poc_enemy_init}${poc_enemy_index}&1&2${poc_enemy_target}&3&4${poc_enemy_bleed}${poc_enemy_enemy}&5&6};};
+}
+#function {pbuild_enemy_id_17}
+{
+#regex {%1} {%.%.%.%.%.%.} {#return {${poc_enemy_init}${poc_enemy_index}<FAA>&1&2${poc_enemy_bleed}${poc_enemy_target}&3&4${poc_enemy_enemy}&5&6};};
+}
+
+#function {pbuild_enemy_hp_77}
+{
+#regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+#nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+#format {rt} {%l} {$rt};
+#regex {$rt} {%.%.%.%.%.%.%.} {#return {${poc_enemy_init}${poc_enemy_name} &1&2&3&4&5&6&7<088>}};
+#nop return $rt;
+}
+
+#function {pbuild_enemy_hp_67}
+{
+#regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+#nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+#format {rt} {%l} {$rt};
+#regex {$rt} {%.%.%.%.%.%.%.} {#return {${poc_enemy_init}${poc_enemy_name} &1&2&3&4&5${poc_enemy_bleed}&6&7<088>}};
+#nop return $rt;
+}
+
+#function {pbuild_enemy_hp_57}
+{
+#regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+#nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+#format {rt} {%l} {$rt};
+#regex {$rt} {%.%.%.%.%.%.%.} {#return {${poc_enemy_init}${poc_enemy_name} &1&2&3${poc_enemy_bleed}&4&5&6&7<088>}};
+#nop return $rt;
+}
+
+#function {pbuild_enemy_hp_47}
+{
+#regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+#nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+#format {rt} {%l} {$rt};
+#regex {$rt} {%.%.%.%.%.%.%.} {#return {${poc_enemy_init}${poc_enemy_name} &1${poc_enemy_bleed}&2&3&4&5&6&7<088>}};
+#nop return $rt;
+}
+
+#function {pbuild_enemy_hp_37}
+{
+#regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+#nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+#format {rt} {%l} {$rt};
+#regex {$rt} {%.%.%.%.%.%.%.} {#return {${poc_enemy_init}${poc_enemy_name}${poc_enemy_bleed} &1&2&3&4&5&6&7<088>}};
+#nop return $rt;
+}
+
+
+
+
+#var poc_attacktarget_name {<ffa>};
+#var poc_attacktarget_init {<118><FAA>};
+#var poc_attacktarget_target {<ffa>};
+#var poc_attacktarget_attacktarget {<ffa>};
+#var poc_attacktarget_index {<ffa>};
+#var poc_attacktarget_bleed {<G04>};
+#var poc_attacktarget_danger {<FAA>};
+
+#sh {<118><AAD><cca>@ <AAC><ccc>A)<AAD><faa> 1<AAC><ada> E<AAD>ld<G01>ak<G04>ar<088>}
+
+#function {pbuild_attacktarget_id_37}
+{
+#regex {%1} {%.%.%.%.%.%.} {#return {${poc_attacktarget_init}${poc_attacktarget_index}&1&2${poc_attacktarget_target}&3&4${poc_attacktarget_attacktarget}&5&6};};
+}
+#function {pbuild_attacktarget_id_27}
+{
+#regex {%1} {%.%.%.%.%.%.} {#return {${poc_attacktarget_init}${poc_attacktarget_index}&1&2${poc_attacktarget_target}&3&4${poc_attacktarget_bleed}${poc_attacktarget_attacktarget}&5&6};};
+}
+#function {pbuild_attacktarget_id_17}
+{
+#regex {%1} {%.%.%.%.%.%.} {#return {${poc_attacktarget_init}${poc_attacktarget_index}<FAA>&1&2${poc_attacktarget_bleed}${poc_attacktarget_target}&3&4${poc_attacktarget_attacktarget}&5&6};};
+}
+
+#function {pbuild_attacktarget_hp_77}
+{
+#regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+#nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+#format {rt} {%l} {$rt};
+#regex {$rt} {%.%.%.%.%.%.%.} {#return {${poc_attacktarget_init}${poc_attacktarget_name} &1&2&3&4&5&6&7<088>}};
+#nop return $rt;
+}
+
+#function {pbuild_attacktarget_hp_67}
+{
+#regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+#nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+#format {rt} {%l} {$rt};
+#regex {$rt} {%.%.%.%.%.%.%.} {#return {${poc_attacktarget_init}${poc_attacktarget_name} &1&2&3&4&5${poc_attacktarget_bleed}&6&7<088>}};
+#nop return $rt;
+}
+
+#function {pbuild_attacktarget_hp_57}
+{
+#regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+#nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+#format {rt} {%l} {$rt};
+#regex {$rt} {%.%.%.%.%.%.%.} {#return {${poc_attacktarget_init}${poc_attacktarget_name} &1&2&3${poc_attacktarget_bleed}&4&5&6&7<088>}};
+#nop return $rt;
+}
+
+#function {pbuild_attacktarget_hp_47}
+{
+#regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+#nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+#format {rt} {%l} {$rt};
+#regex {$rt} {%.%.%.%.%.%.%.} {#return {${poc_attacktarget_init}${poc_attacktarget_name} &1${poc_attacktarget_bleed}&2&3&4&5&6&7<088>}};
+#nop return $rt;
+}
+
+#function {pbuild_attacktarget_hp_37}
+{
+#regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+#nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+#format {rt} {%l} {$rt};
+#regex {$rt} {%.%.%.%.%.%.%.} {#return {${poc_attacktarget_init}${poc_attacktarget_name}${poc_attacktarget_bleed} &1&2&3&4&5&6&7<088>}};
+#nop return $rt;
+}
+
 
 
 
@@ -485,7 +695,7 @@
 
 #function {__alias_enemy_57}
 {
-  #regex {%1} {%w %w %w} {#var rt {&1 &3}} {#var rt {%1}};#format {rt} {%.21s} {$rt};
+  #regex {%1} {%w %w %w} {#var rt {&1 &3}} {#var rt {%1}};#format {rt} {%.14s} {$rt};
   #format {rt} {%-21s} {$rt};
   #format {rt} {%l} {$rt};
   #regex {$rt} {%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.%.} {#var rt ${kondycja_kolor_57}&1&2&3&4&5&6&7&8&9&10&11&12&13&14&15${blok2}&16&17&18${blok1}&19&20&21<088>};

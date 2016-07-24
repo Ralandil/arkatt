@@ -1,3 +1,8 @@
+#unhigh {%1 %2 line};
+#high {%w %w line} {<ffa>};
+#high {%w %w chuste} {<faf>};
+#high {lekko podniszczony} {<ffa>};
+
 #alias {color_defs} {
 #var linergb {};
     #loop {97} {102} {vvv} {
@@ -15,7 +20,7 @@
     }
 }
 
-#action {^Jest %1 w stanie wyroznic kilka sladow na ziemi. Najswiezsze prowadza na zachod.$}
+#action {^Jest %1 w stanie wyroznic kilka sladow na ziemi. Najswiezsze prowadza na wschod.$}
 {
     #sh { };
     #sh {<118><fff>    \\   ----- };
@@ -343,7 +348,7 @@
 
 #action {^%1 atakuje cie!$}
 {
-  #sh {<179><FAA>%1 atakuje cie !};
+  #ec {<179><FAA>%1 atakuje cie !};
   #loop {1} {3} {c} {sleep .23 {#bell}};
   #nop system {beep -r 10 -l 100 &};
   #line gag;
@@ -376,6 +381,19 @@
     #ec { $topicpart $nadawcapart<088>};
     #line gag;
 }
+
+
+#action {Unosisz zakuta w stal reke i zlowieszczym gestem wskazujesz %*.}
+{
+    #echo {<118><ccf>  [  PANCERZ  ]  <088>%0<088>};
+    #line gag;
+};
+
+#action {Nie mozesz tego zrobic, gdyz wiaze %*} {
+    #echo {<118><ccf>  [    ASU    ]  <088>%0<088>};
+    #line gag;
+} {1};
+
 
 #high {stary matowy pancerz} {<118><caf>};
 #high {strzelisty zasniedzialy helm} {<118><caf>};

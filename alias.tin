@@ -1,9 +1,10 @@
 #alias {_zabij_}
 {
-    #var display_function_2 {<faa>zabij cel ataku                    <088>};
-    wskaz %1 jako cel ataku;
+    #nop var display_function_2 {<faa>zabij cel ataku                    <088>};
+    wskaz %0 jako cel ataku;
     rozkaz druzynie zabic cel ataku;
-    nazabij cel ataku;
+    drwskaz %0;
+    nazabij %0;
 }
 
 
@@ -292,6 +293,7 @@ testprompt;
 	#if {$wpochwie < 1} {
 		powyciagnij bron z uprzezy;
 		nadobadz broni;
+        dotknij run;
 		#var wpochwie {1};
 	};
 	#else {

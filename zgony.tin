@@ -21,10 +21,7 @@
   #math {count[Ot][$mob][cnt]} {$count[Ot][$mob][cnt]+1};
   #math {average} {$count[Ty][$mob][cnt]/$count[Ot][$mob][cnt]};
 
-#echo {<caa>[zabiles] <faa>%2<088> <caa>(${count}[Ty][$mob][cnt] / $count[Ot][$mob][cnt])<088>};
-#sh {<CHAT> mapper chats to everyone, 'bind:f5:wez monety z ciala'};
-#sh {<CHAT> mapper chats to everyone, 'bind:f6:wez kamienie z ciala'};
-#sh {<CHAT> mapper chats to everyone, 'bind:f7:nawytnij trofeum z ciala'};
+#echo {<118><faa>  [   ZABIL   ]  <088><faa>%0<088> <caa>(${count}[Ty][$mob][cnt] / $count[Ot][$mob][cnt])<088>};
 
   #line gag;
 }
@@ -51,10 +48,7 @@
 
   #math {average} {$count[Ty][$mob][cnt]/$count[Ot][$mob][cnt]};
 
-#echo {<caa>[zabil  ] %1 <faa>%3<088> <caa>(${count}[Ty][$mob][cnt] / $count[Ot][$mob][cnt])<088>};
-#sh {<CHAT> mapper chats to everyone, 'bind:f5:wez monety z ciala'};
-#sh {<CHAT> mapper chats to everyone, 'bind:f6:wez kamienie z ciala'};
-#sh {<CHAT> mapper chats to everyone, 'bind:f7:nawytnij trofeum z ciala'};
+#echo {<118><faa>  [   ZABIL   ]  <088><faa>%0<088> <caa>(${count}[Ty][$mob][cnt] / $count[Ot][$mob][cnt])<088>};
 
   #line gag;
 }

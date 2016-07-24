@@ -69,7 +69,7 @@
 #var pr_wy {w};
 #var pr_ctr {<ffa>+<088>};
 
-#split 0 11
+#split 0 7
 
 #var display_function_1 {                                   };
 #var display_function_2 {                                   };
@@ -86,15 +86,22 @@
 #unprompt {prompt6} { <088><aff>f2: $display_function_2 <088><aff>f5: $display_function_5 <088><aff>f8:<088> $display_function_8} {7};
 #unprompt {prompt5} { <088><aff>f3: $display_function_3 <088><aff>f6: $display_function_6 <088><aff>f9:<088> $display_function_9} {6};
 
-#prompt {prompt9} {   $pr_wrog<088>$hp_bar<088>         $druzyna_prompt[5] $druzyna_prompt[10] $druzyna_prompt[15] <088>$ecmp[1] $wrogowie_prompt[1] <088>$ecmp[6] $wrogowie_prompt[6] <088>$ecmp[11] $wrogowie_prompt[11] <088>$ecmp[16] $wrogowie_prompt[16]} {10};
-#prompt {prompt8} { $druzyna_prompt[1] $druzyna_prompt[6] $druzyna_prompt[11] $druzyna_prompt[16] <088>$ecmp[2] $wrogowie_prompt[2] <088>$ecmp[7] $wrogowie_prompt[7] <088>$ecmp[12] $wrogowie_prompt[12] <088>$ecmp[17] $wrogowie_prompt[17]} {9};
-#prompt {prompt7} { $druzyna_prompt[2] $druzyna_prompt[7] $druzyna_prompt[12] $druzyna_prompt[17] <088>$ecmp[3] $wrogowie_prompt[3] <088>$ecmp[8] $wrogowie_prompt[8] <088>$ecmp[13] $wrogowie_prompt[13] <088>$ecmp[18] $wrogowie_prompt[18]} {8};
-#prompt {prompt6} { $druzyna_prompt[3] $druzyna_prompt[8] $druzyna_prompt[13] $druzyna_prompt[18] <088>$ecmp[4] $wrogowie_prompt[4] <088>$ecmp[9] $wrogowie_prompt[9] <088>$ecmp[14] $wrogowie_prompt[14] <088>$ecmp[19] $wrogowie_prompt[19]} {7};
-#prompt {prompt5} { $druzyna_prompt[4] $druzyna_prompt[9] $druzyna_prompt[14] $druzyna_prompt[19] <088>$ecmp[5] $wrogowie_prompt[5] <088>$ecmp[10] $wrogowie_prompt[10] <088>$ecmp[15] $wrogowie_prompt[15] <088>$ecmp[20] $wrogowie_prompt[20]} {6};
+#unprompt {prompt9} {   $pr_wrog<088>$hp_bar<088>      $druzyna_prompt[5] $druzyna_prompt[10] $druzyna_prompt[15] <088>$ecmp[1] $wrogowie_prompt[1] <088>$ecmp[6] $wrogowie_prompt[6] <088>$ecmp[11] $wrogowie_prompt[11] <088>$ecmp[16] $wrogowie_prompt[16]} {10};
+#unprompt {prompt8} { $druzyna_prompt[1] $druzyna_prompt[6] $druzyna_prompt[11] $druzyna_prompt[16] <088>$ecmp[2] $wrogowie_prompt[2] <088>$ecmp[7] $wrogowie_prompt[7] <088>$ecmp[12] $wrogowie_prompt[12] <088>$ecmp[17] $wrogowie_prompt[17]} {9};
+#unprompt {prompt7} { $druzyna_prompt[2] $druzyna_prompt[7] $druzyna_prompt[12] $druzyna_prompt[17] <088>$ecmp[3] $wrogowie_prompt[3] <088>$ecmp[8] $wrogowie_prompt[8] <088>$ecmp[13] $wrogowie_prompt[13] <088>$ecmp[18] $wrogowie_prompt[18]} {8};
+#unprompt {prompt6} { $druzyna_prompt[3] $druzyna_prompt[8] $druzyna_prompt[13] $druzyna_prompt[18] <088>$ecmp[4] $wrogowie_prompt[4] <088>$ecmp[9] $wrogowie_prompt[9] <088>$ecmp[14] $wrogowie_prompt[14] <088>$ecmp[19] $wrogowie_prompt[19]} {7};
+#unprompt {prompt5} { $druzyna_prompt[4] $druzyna_prompt[9] $druzyna_prompt[14] $druzyna_prompt[19] <088>$ecmp[5] $wrogowie_prompt[5] <088>$ecmp[10] $wrogowie_prompt[10] <088>$ecmp[15] $wrogowie_prompt[15] <088>$ecmp[20] $wrogowie_prompt[20]} {6};
 
-#prompt {prompt3} { <088><aff>f1: $display_function_1 <088> $pr_nw  $pr_n  $pr_ne   <aff>Kondycja   :<088>  $hp_bar      <aff>Pragnienie :<088>  $pr_smad      <aff>Ciezar     :<088>  $pr_obci      <faf>Chodzenie     <aff>:<088>   $walkmodep} {4};
-#prompt {prompt2} { <088><aff>f2: $display_function_2 <088> $pr_w  o  $pr_e   <aff>Mana       :<088>  $pr_mana      <aff>Glod       :<088>  $pr_glod      <aff>Forma      :<088>  $pr_form      $quickbind_cel} {3};
-#prompt {prompt1} { <088><aff>f3: $display_function_3 <088> $pr_sw  $pr_s  $pr_se   <aff>Zmeczenie  :<088>  $pr_zmeczenie      <aff>Upicie     :<088>  $pr_upicie      <aff>Postepy    :<088>  $pr_exp      } {2};
+#unprompt {prompt3} { <088><aff>f1: $display_function_1 <088> $pr_nw  $pr_n  $pr_ne   <aff>Kondycja   :<088>  $hp_bar      <aff>Pragnienie :<088>  $pr_smad      <aff>Ciezar     :<088>  $pr_obci      <faf>Chodzenie     <aff>:<088>   $walkmodep} {4};
+#unprompt {prompt2} { <088><aff>f2: $display_function_2 <088> $pr_w  o  $pr_e   <aff>Mana       :<088>  $pr_mana      <aff>Glod       :<088>  $pr_glod      <aff>Forma      :<088>  $pr_form      $quickbind_cel} {3};
+#unprompt {prompt1} { <088><aff>f3: $display_function_3 <088> $pr_sw  $pr_s  $pr_se   <aff>Zmeczenie  :<088>  $pr_zmeczenie      <aff>Upicie     :<088>  $pr_upicie      <aff>Postepy    :<088>  $pr_exp      } {2};
+
+
+#prompt {prompt5} { <088><aff>f1: $display_function_1 <088>           <aff>Kon:<088> $hp_bar  <aff>Pra: <088>$pr_smad   ${prompt_avatar}$prompt_objects[5]$prompt_objects[10]$prompt_objects[15]$prompt_objects[20]} {6};
+#prompt {prompt4} { <088><aff>f2: $display_function_2 <088> $pr_nw  $pr_n  $pr_ne   <aff>Man:<088> $pr_mana  <aff>Glo: <088>$pr_glod   $prompt_objects[1]$prompt_objects[6]$prompt_objects[11]$prompt_objects[16]$prompt_objects[21]} {5};
+#prompt {prompt3} { <088><aff>f3: $display_function_3 <088> $pr_w  o  $pr_e   <aff>Zme:<088> $pr_zmeczenie  <aff>Upi: <088>$pr_upicie   $prompt_objects[2]$prompt_objects[7]$prompt_objects[12]$prompt_objects[17]$prompt_objects[22]} {4};
+#prompt {prompt2} { <088><aff>f4: $display_function_4 <088> $pr_sw  $pr_s  $pr_se   <aff>For:<088> $pr_form  <aff>Exp: <088>$pr_exp   $prompt_objects[3]$prompt_objects[8]$prompt_objects[13]$prompt_objects[18]$prompt_objects[23]} {3};
+#prompt {prompt1} { <088><aff>f5: $display_function_5 <088>           <aff>Cie: <088>$pr_obci  <faf>Cho: <088>   $walkmodep   $prompt_objects[4]$prompt_objects[9]$prompt_objects[14]$prompt_objects[19]$prompt_objects[24l]} {2};
 
 #function {refreshprompt}
 {
@@ -123,11 +130,8 @@
 
 #alias {testprompt}
 {
-#sh prompt9;
-#sh prompt8;
-#sh prompt7;
-#sh prompt6;
 #sh prompt5;
+#sh prompt4;
 #sh prompt3;
 #sh prompt2;
 #sh prompt1;
