@@ -518,12 +518,10 @@
 #var poc_attacktarget_name {<ffa>};
 #var poc_attacktarget_init {<118><FAA>};
 #var poc_attacktarget_target {<ffa>};
-#var poc_attacktarget_attacktarget {<ffa>};
+#var poc_attacktarget_attacktarget {<afa>};
 #var poc_attacktarget_index {<ffa>};
 #var poc_attacktarget_bleed {<G04>};
 #var poc_attacktarget_danger {<FAA>};
-
-#sh {<118><AAD><cca>@ <AAC><ccc>A)<AAD><faa> 1<AAC><ada> E<AAD>ld<G01>ak<G04>ar<088>}
 
 #function {pbuild_attacktarget_id_37}
 {
@@ -583,6 +581,72 @@
 #nop return $rt;
 }
 
+
+#var poc_neutral_name {<ddd>};
+#var poc_neutral_init {<118><ABA>};
+#var poc_neutral_target {<ddd>};
+#var poc_neutral_neutral {<faa>};
+#var poc_neutral_index {<ddd>};
+#var poc_neutral_bleed {<G04>};
+#var poc_neutral_danger {<ABA>};
+
+#function {pbuild_neutral_id_37}
+{
+#regex {%1} {%.%.%.%.%.%.} {#return {${poc_neutral_init}${poc_neutral_index}&1&2${poc_neutral_target}&3&4${poc_neutral_neutral}&5&6};};
+}
+#function {pbuild_neutral_id_27}
+{
+#regex {%1} {%.%.%.%.%.%.} {#return {${poc_neutral_init}${poc_neutral_index}&1&2${poc_neutral_target}&3&4${poc_neutral_bleed}${poc_neutral_neutral}&5&6};};
+}
+#function {pbuild_neutral_id_17}
+{
+#regex {%1} {%.%.%.%.%.%.} {#return {${poc_neutral_init}${poc_neutral_index}<FAA>&1&2${poc_neutral_bleed}${poc_neutral_target}&3&4${poc_neutral_neutral}&5&6};};
+}
+
+#function {pbuild_neutral_hp_77}
+{
+#regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+#nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+#format {rt} {%l} {$rt};
+#regex {$rt} {%.%.%.%.%.%.%.} {#return {${poc_neutral_init}${poc_neutral_name} &1&2&3&4&5&6&7<088>}};
+#nop return $rt;
+}
+
+#function {pbuild_neutral_hp_67}
+{
+#regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+#nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+#format {rt} {%l} {$rt};
+#regex {$rt} {%.%.%.%.%.%.%.} {#return {${poc_neutral_init}${poc_neutral_name} &1&2&3&4&5${poc_neutral_bleed}&6&7<088>}};
+#nop return $rt;
+}
+
+#function {pbuild_neutral_hp_57}
+{
+#regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+#nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+#format {rt} {%l} {$rt};
+#regex {$rt} {%.%.%.%.%.%.%.} {#return {${poc_neutral_init}${poc_neutral_name} &1&2&3${poc_neutral_bleed}&4&5&6&7<088>}};
+#nop return $rt;
+}
+
+#function {pbuild_neutral_hp_47}
+{
+#regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+#nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+#format {rt} {%l} {$rt};
+#regex {$rt} {%.%.%.%.%.%.%.} {#return {${poc_neutral_init}${poc_neutral_name} &1${poc_neutral_bleed}&2&3&4&5&6&7<088>}};
+#nop return $rt;
+}
+
+#function {pbuild_neutral_hp_37}
+{
+#regex {%1} {%w %w %w} {#var rt {&3}} {#var rt {%1}};#format {rt} {%.7s} {$rt};
+#nop format {rt} {%.7s} {%1};#format {rt} {%-7s} {$rt};
+#format {rt} {%l} {$rt};
+#regex {$rt} {%.%.%.%.%.%.%.} {#return {${poc_neutral_init}${poc_neutral_name}${poc_neutral_bleed} &1&2&3&4&5&6&7<088>}};
+#nop return $rt;
+}
 
 
 

@@ -25,43 +25,26 @@
   #var ecmp[19] {   };
   #var ecmp[20] {   };
 }
-#alias {find_enemy}
-{
- #if {"$przewodzisz_druzynie" == "1"} {
-    #sh <119>Przewodzisz, szukam wroga...<088>;
-    #var enemy_id 0;
-    
-    #foreach {$obda2[]} {vob} {  
-      #if {"$obda2[$vob][team]" == "false"} {
-	#if {"$obda2[$vob][enemy]" == "false"} {
-	    #regex {$obda2[$vob][desc]} {czarny ork} { };
-	};
-	#elseif {"$obda2[$vob][enemy]" == "true"} {
-
-	};
-      };  
-    };
-
-    
- };
- 
- 
-}
 
 #alias {update_teams}
 {
   #unvar team {};
   #unvar othe {};
-#var team[][desc] {};
+  #unvar neut {};
+  #var team[][desc] {};
   #unvar team_enemies {};
   #unvar othe_enemies {};
+  #unvar neut_enemies {};
   #var team_index 1;
   #var othe_index 1;
+  #var neut_index 1;
   #var self_id {};
   #unvar druzyna_prompt;
   #unvar wrogowie_prompt;
+  #unvar neutral_prompt;
   #unvar prompt_objects;
   #var prompt_index 1;
+
   #foreach {$obda2[]} {vob} {
     #if {"$obda2[$vob][avatar]" == "true"} {
     	#if {"$obda2[$vob][team_leader]" == "true"} {
@@ -82,12 +65,12 @@
 		#format pr_wrog {%+2s} $myattackers;
 		#nop var pr_wrog {<118><faa>$pr_wrog<088>};
         #if {$obda2[$self_id][hp] == 6} {#var prompt_avatar {@pbuild_team_id_37{--  $pr_wrog}@pbuild_team_hp_77{ty}}};
-#if {$obda2[$self_id][hp] == 5} {#var prompt_avatar {@pbuild_team_id_37{--  $pr_wrog}@pbuild_team_hp_67{ty}}};
-#if {$obda2[$self_id][hp] == 4} {#var prompt_avatar {@pbuild_team_id_37{--  $pr_wrog}@pbuild_team_hp_57{ty}}};
-#if {$obda2[$self_id][hp] == 3} {#var prompt_avatar {@pbuild_team_id_37{--  $pr_wrog}@pbuild_team_hp_47{ty}}};
-#if {$obda2[$self_id][hp] == 2} {#var prompt_avatar {@pbuild_team_id_37{--  $pr_wrog}@pbuild_team_hp_37{ty}}};
-#if {$obda2[$self_id][hp] == 1} {#var prompt_avatar {@pbuild_team_id_27{--  $pr_wrog}@pbuild_team_hp_37{ty}}};
-#if {$obda2[$self_id][hp] == 0} {#var prompt_avatar {@pbuild_team_id_17{--  $pr_wrog}@pbuild_team_hp_37{ty}}};
+        #if {$obda2[$self_id][hp] == 5} {#var prompt_avatar {@pbuild_team_id_37{--  $pr_wrog}@pbuild_team_hp_67{ty}}};
+        #if {$obda2[$self_id][hp] == 4} {#var prompt_avatar {@pbuild_team_id_37{--  $pr_wrog}@pbuild_team_hp_57{ty}}};
+        #if {$obda2[$self_id][hp] == 3} {#var prompt_avatar {@pbuild_team_id_37{--  $pr_wrog}@pbuild_team_hp_47{ty}}};
+        #if {$obda2[$self_id][hp] == 2} {#var prompt_avatar {@pbuild_team_id_37{--  $pr_wrog}@pbuild_team_hp_37{ty}}};
+        #if {$obda2[$self_id][hp] == 1} {#var prompt_avatar {@pbuild_team_id_27{--  $pr_wrog}@pbuild_team_hp_37{ty}}};
+        #if {$obda2[$self_id][hp] == 0} {#var prompt_avatar {@pbuild_team_id_17{--  $pr_wrog}@pbuild_team_hp_37{ty}}};
 	};
     #else {
     	#if {"$obda2[$vob][team]" == "true"} {	
@@ -118,18 +101,16 @@
 			#if {"$team_enemies" == " 0"} {#var team_enemies {  }};
             #var team[$team_index][enemies] {$team_enemies};
 
-#if {$obda2[$vob][hp] == 6} {#var druzyna_prompt[$team_index] {@pbuild_team_id_37{$indexchar]  $team_enemies}@pbuild_team_hp_77{$obda2[$vob][desc]}}};
-#if {$obda2[$vob][hp] == 5} {#var druzyna_prompt[$team_index] {@pbuild_team_id_37{$indexchar]  $team_enemies}@pbuild_team_hp_67{$obda2[$vob][desc]}}};
-#if {$obda2[$vob][hp] == 4} {#var druzyna_prompt[$team_index] {@pbuild_team_id_37{$indexchar]  $team_enemies}@pbuild_team_hp_57{$obda2[$vob][desc]}}};
-#if {$obda2[$vob][hp] == 3} {#var druzyna_prompt[$team_index] {@pbuild_team_id_37{$indexchar]  $team_enemies}@pbuild_team_hp_47{$obda2[$vob][desc]}}};
-#if {$obda2[$vob][hp] == 2} {#var druzyna_prompt[$team_index] {@pbuild_team_id_37{$indexchar]  $team_enemies}@pbuild_team_hp_37{$obda2[$vob][desc]}}};
-#if {$obda2[$vob][hp] == 1} {#var druzyna_prompt[$team_index] {@pbuild_team_id_27{$indexchar]  $team_enemies}@pbuild_team_hp_37{$obda2[$vob][desc]}}};
-#if {$obda2[$vob][hp] == 0} {#var druzyna_prompt[$team_index] {@pbuild_team_id_17{$indexchar]  $team_enemies}@pbuild_team_hp_37{$obda2[$vob][desc]}}};
+            #if {$obda2[$vob][hp] == 6} {#var druzyna_prompt[$team_index] {@pbuild_team_id_37{$indexchar]  $team_enemies}@pbuild_team_hp_77{$obda2[$vob][desc]}}};
+            #if {$obda2[$vob][hp] == 5} {#var druzyna_prompt[$team_index] {@pbuild_team_id_37{$indexchar]  $team_enemies}@pbuild_team_hp_67{$obda2[$vob][desc]}}};
+            #if {$obda2[$vob][hp] == 4} {#var druzyna_prompt[$team_index] {@pbuild_team_id_37{$indexchar]  $team_enemies}@pbuild_team_hp_57{$obda2[$vob][desc]}}};
+            #if {$obda2[$vob][hp] == 3} {#var druzyna_prompt[$team_index] {@pbuild_team_id_37{$indexchar]  $team_enemies}@pbuild_team_hp_47{$obda2[$vob][desc]}}};
+            #if {$obda2[$vob][hp] == 2} {#var druzyna_prompt[$team_index] {@pbuild_team_id_37{$indexchar]  $team_enemies}@pbuild_team_hp_37{$obda2[$vob][desc]}}};
+            #if {$obda2[$vob][hp] == 1} {#var druzyna_prompt[$team_index] {@pbuild_team_id_27{$indexchar]  $team_enemies}@pbuild_team_hp_37{$obda2[$vob][desc]}}};
+            #if {$obda2[$vob][hp] == 0} {#var druzyna_prompt[$team_index] {@pbuild_team_id_17{$indexchar]  $team_enemies}@pbuild_team_hp_37{$obda2[$vob][desc]}}};
 
-#nop var druzyna_prompt[$team_index] {<088>$indexchar]<188><faa>$team_enemies$team[$team_index][desc]};
-
-#nop var druzyna_prompt[$team_index] {@pbuild_team_id_37{$indexchar$team_enemies}@pbuild_team_hp_47{$team_curr_hp}};
-
+            #nop var druzyna_prompt[$team_index] {<088>$indexchar]<188><faa>$team_enemies$team[$team_index][desc]};
+            #nop var druzyna_prompt[$team_index] {@pbuild_team_id_37{$indexchar$team_enemies}@pbuild_team_hp_47{$team_curr_hp}};
 			#line substitute {variables} {#alias rz$indexchar {wskaz ob_$team[$team_index][tag] jako cel obrony;rozkaz druzynie zaslonic ob_$team[$team_index][tag]}};
 			#line substitute {variables} {#alias z$indexchar {zaslon ob_$team[$team_index][tag]}};
 			#line substitute {variables} {#alias z${indexchar}2 {opcje grupa 2;zaslon ob_$team[$team_index][tag];opcje grupa 1}};
@@ -137,7 +118,7 @@
 			#line substitute {variables} {#alias z${indexchar}4 {opcje grupa 4;zaslon ob_$team[$team_index][tag];opcje grupa 1}};
 			#math {team_index} {$team_index + 1};
 		}; 
-		#else {
+		#elseif {"$obda2[$vob][enemy]" == "true"} {
 			#regex {$obda2[$vob][desc]} {%w %w %w} {#var other_curr_nick {&3}} {#var other_curr_nick {$obda2[$vob][desc]}};
 			#format {other_curr_nick} {%-7s} {$other_curr_nick};
 			#format {other_curr_nick} {%.7s} {$other_curr_nick};
@@ -170,24 +151,24 @@
 			#format other_enemies {%+2s} {$othe[$othe_index][enemies]};
 			#if {"$other_enemies" == " 0"} {#var other_enemies {  }};
             #var othe[$othe_index][enemies] {$othe_enemies};
-			#if {"$obda2[$vob][attack_target]" == "true"} {
-#if {$obda2[$vob][hp] == 6} {#var wrogowie_prompt[$othe_index] {@pbuild_attacktarget_id_37{$indexchar]@ $other_enemies}@pbuild_attacktarget_hp_77{$obda2[$vob][desc]}}};
-#if {$obda2[$vob][hp] == 5} {#var wrogowie_prompt[$othe_index] {@pbuild_attacktarget_id_37{$indexchar]@ $other_enemies}@pbuild_attacktarget_hp_67{$obda2[$vob][desc]}}};
-#if {$obda2[$vob][hp] == 4} {#var wrogowie_prompt[$othe_index] {@pbuild_attacktarget_id_37{$indexchar]@ $other_enemies}@pbuild_attacktarget_hp_57{$obda2[$vob][desc]}}};
-#if {$obda2[$vob][hp] == 3} {#var wrogowie_prompt[$othe_index] {@pbuild_attacktarget_id_37{$indexchar]@ $other_enemies}@pbuild_attacktarget_hp_47{$obda2[$vob][desc]}}};
-#if {$obda2[$vob][hp] == 2} {#var wrogowie_prompt[$othe_index] {@pbuild_attacktarget_id_37{$indexchar]@ $other_enemies}@pbuild_attacktarget_hp_37{$obda2[$vob][desc]}}};
-#if {$obda2[$vob][hp] == 1} {#var wrogowie_prompt[$othe_index] {@pbuild_attacktarget_id_27{$indexchar]@ $other_enemies}@pbuild_attacktarget_hp_37{$obda2[$vob][desc]}}};
-#if {$obda2[$vob][hp] == 0} {#var wrogowie_prompt[$othe_index] {@pbuild_attacktarget_id_17{$indexchar]@ $other_enemies}@pbuild_attacktarget_hp_37{$obda2[$vob][desc]}}};
-#nop var wrogowie_prompt[$othe_index] {<088>$indexchar]<188><fff>$other_enemies$othe[$othe_index][desc]<119><ffa>< <088>};
+            #if {"$obda2[$vob][attack_target]" == "true"} {
+                #if {$obda2[$vob][hp] == 6} {#var wrogowie_prompt[$othe_index] {@pbuild_attacktarget_id_37{$indexchar]@ $other_enemies}@pbuild_attacktarget_hp_77{$obda2[$vob][desc]}}};
+                #if {$obda2[$vob][hp] == 5} {#var wrogowie_prompt[$othe_index] {@pbuild_attacktarget_id_37{$indexchar]@ $other_enemies}@pbuild_attacktarget_hp_67{$obda2[$vob][desc]}}};
+                #if {$obda2[$vob][hp] == 4} {#var wrogowie_prompt[$othe_index] {@pbuild_attacktarget_id_37{$indexchar]@ $other_enemies}@pbuild_attacktarget_hp_57{$obda2[$vob][desc]}}};
+                #if {$obda2[$vob][hp] == 3} {#var wrogowie_prompt[$othe_index] {@pbuild_attacktarget_id_37{$indexchar]@ $other_enemies}@pbuild_attacktarget_hp_47{$obda2[$vob][desc]}}};
+                #if {$obda2[$vob][hp] == 2} {#var wrogowie_prompt[$othe_index] {@pbuild_attacktarget_id_37{$indexchar]@ $other_enemies}@pbuild_attacktarget_hp_37{$obda2[$vob][desc]}}};
+                #if {$obda2[$vob][hp] == 1} {#var wrogowie_prompt[$othe_index] {@pbuild_attacktarget_id_27{$indexchar]@ $other_enemies}@pbuild_attacktarget_hp_37{$obda2[$vob][desc]}}};
+                #if {$obda2[$vob][hp] == 0} {#var wrogowie_prompt[$othe_index] {@pbuild_attacktarget_id_17{$indexchar]@ $other_enemies}@pbuild_attacktarget_hp_37{$obda2[$vob][desc]}}};
+                #nop var wrogowie_prompt[$othe_index] {<088>$indexchar]<188><fff>$other_enemies$othe[$othe_index][desc]<119><ffa>< <088>};
             };
             #else {
-#if {$obda2[$vob][hp] == 6} {#var wrogowie_prompt[$othe_index] {@pbuild_enemy_id_37{$indexchar]  $other_enemies}@pbuild_enemy_hp_77{$obda2[$vob][desc]}}};
-#if {$obda2[$vob][hp] == 5} {#var wrogowie_prompt[$othe_index] {@pbuild_enemy_id_37{$indexchar]  $other_enemies}@pbuild_enemy_hp_67{$obda2[$vob][desc]}}};
-#if {$obda2[$vob][hp] == 4} {#var wrogowie_prompt[$othe_index] {@pbuild_enemy_id_37{$indexchar]  $other_enemies}@pbuild_enemy_hp_57{$obda2[$vob][desc]}}};
-#if {$obda2[$vob][hp] == 3} {#var wrogowie_prompt[$othe_index] {@pbuild_enemy_id_37{$indexchar]  $other_enemies}@pbuild_enemy_hp_47{$obda2[$vob][desc]}}};
-#if {$obda2[$vob][hp] == 2} {#var wrogowie_prompt[$othe_index] {@pbuild_enemy_id_37{$indexchar]  $other_enemies}@pbuild_enemy_hp_37{$obda2[$vob][desc]}}};
-#if {$obda2[$vob][hp] == 1} {#var wrogowie_prompt[$othe_index] {@pbuild_enemy_id_27{$indexchar]  $other_enemies}@pbuild_enemy_hp_37{$obda2[$vob][desc]}}};
-#if {$obda2[$vob][hp] == 0} {#var wrogowie_prompt[$othe_index] {@pbuild_enemy_id_17{$indexchar]  $other_enemies}@pbuild_enemy_hp_37{$obda2[$vob][desc]}}};
+                #if {$obda2[$vob][hp] == 6} {#var wrogowie_prompt[$othe_index] {@pbuild_enemy_id_37{$indexchar]  $other_enemies}@pbuild_enemy_hp_77{$obda2[$vob][desc]}}};
+                #if {$obda2[$vob][hp] == 5} {#var wrogowie_prompt[$othe_index] {@pbuild_enemy_id_37{$indexchar]  $other_enemies}@pbuild_enemy_hp_67{$obda2[$vob][desc]}}};
+                #if {$obda2[$vob][hp] == 4} {#var wrogowie_prompt[$othe_index] {@pbuild_enemy_id_37{$indexchar]  $other_enemies}@pbuild_enemy_hp_57{$obda2[$vob][desc]}}};
+                #if {$obda2[$vob][hp] == 3} {#var wrogowie_prompt[$othe_index] {@pbuild_enemy_id_37{$indexchar]  $other_enemies}@pbuild_enemy_hp_47{$obda2[$vob][desc]}}};
+                #if {$obda2[$vob][hp] == 2} {#var wrogowie_prompt[$othe_index] {@pbuild_enemy_id_37{$indexchar]  $other_enemies}@pbuild_enemy_hp_37{$obda2[$vob][desc]}}};
+                #if {$obda2[$vob][hp] == 1} {#var wrogowie_prompt[$othe_index] {@pbuild_enemy_id_27{$indexchar]  $other_enemies}@pbuild_enemy_hp_37{$obda2[$vob][desc]}}};
+                #if {$obda2[$vob][hp] == 0} {#var wrogowie_prompt[$othe_index] {@pbuild_enemy_id_17{$indexchar]  $other_enemies}@pbuild_enemy_hp_37{$obda2[$vob][desc]}}};
             };
 			#line substitute {variables} {
 				#alias oc$indexchar {
@@ -208,6 +189,78 @@
 			#line substitute {variables} {#alias b$indexchar {zablokuj ob_$othe[$othe_index][tag]}};
 			#math {othe_index} {$othe_index + 1};
       	};
+#elseif {"$obda2[$vob][enemy]" == "false"} {
+#regex {$obda2[$vob][desc]} {%w %w %w} {#var neutral_curr_nick {&3}} {#var neutral_curr_nick {$obda2[$vob][desc]}};
+#format {neutral_curr_nick} {%-7s} {$neutral_curr_nick};
+#format {neutral_curr_nick} {%.7s} {$neutral_curr_nick};
+#if {$obda2[$vob][hp] == 6} {#var neutral_curr_hp <088><aca>[7/7]<088>};
+#if {$obda2[$vob][hp] == 5} {#var neutral_curr_hp <088><aca>[6/7]<088>};
+#if {$obda2[$vob][hp] == 4} {#var neutral_curr_hp <088><cca>[5/7]<088>};
+#if {$obda2[$vob][hp] == 3} {#var neutral_curr_hp <088><cca>[4/7]<088>};
+#if {$obda2[$vob][hp] == 2} {#var neutral_curr_hp <088><caa>[3/7]<088>};
+#if {$obda2[$vob][hp] == 1} {#var neutral_curr_hp <088><caa>[2/7]<088>};
+#if {$obda2[$vob][hp] == 0} {#var neutral_curr_hp <088><FAA><fff>[1/7]<088>};
+#var neut[$neut_index][desc] {$neutral_curr_hp $neutral_curr_nick};
+#var neut[$neut_index][enemies] 0;
+#var neut[$neut_index][tag] $vob;
+#math indexvalue { };
+#math indexvalue {96 + $neut_index};
+#format indexchar {%a} {$indexvalue};
+#if {$neut_index < 5} {
+#math attack_bind {1 + $neut_index};
+};
+
+#foreach {$obda2[]} {vos} {
+#if {"$obda2[$vos][attack_num]" == "$vob"} {
+#var obda2[$vos][enemies] {$neut[$neut_index][desc]};
+#math {neut[$neut_index][enemies]} {$neut[$neut_index][enemies] + 1};
+};
+};
+#var enemy_shortcut $obda2[$vob][enemies];
+#format {esl} {%L} {$enemy_shortcut};
+#if {"$esl" == "1"} {#var a b;} {#var enemy_shortcut {<aaa>A<088>}};
+#format neutral_enemies {%+2s} {$neut[$neut_index][enemies]};
+#if {"$neutral_enemies" == " 0"} {#var neutral_enemies {  }};
+#var neut[$neut_index][enemies] {$neut_enemies};
+#if {"$obda2[$vob][attack_target]" == "true"} {
+#if {$obda2[$vob][hp] == 6} {#var neutral_prompt[$neut_index] {@pbuild_neutral_id_37{$indexchar]@ $neutral_enemies}@pbuild_neutral_hp_77{$obda2[$vob][desc]}}};
+#if {$obda2[$vob][hp] == 5} {#var neutral_prompt[$neut_index] {@pbuild_neutral_id_37{$indexchar]@ $neutral_enemies}@pbuild_neutral_hp_67{$obda2[$vob][desc]}}};
+#if {$obda2[$vob][hp] == 4} {#var neutral_prompt[$neut_index] {@pbuild_neutral_id_37{$indexchar]@ $neutral_enemies}@pbuild_neutral_hp_57{$obda2[$vob][desc]}}};
+#if {$obda2[$vob][hp] == 3} {#var neutral_prompt[$neut_index] {@pbuild_neutral_id_37{$indexchar]@ $neutral_enemies}@pbuild_neutral_hp_47{$obda2[$vob][desc]}}};
+#if {$obda2[$vob][hp] == 2} {#var neutral_prompt[$neut_index] {@pbuild_neutral_id_37{$indexchar]@ $neutral_enemies}@pbuild_neutral_hp_37{$obda2[$vob][desc]}}};
+#if {$obda2[$vob][hp] == 1} {#var neutral_prompt[$neut_index] {@pbuild_neutral_id_27{$indexchar]@ $neutral_enemies}@pbuild_neutral_hp_37{$obda2[$vob][desc]}}};
+#if {$obda2[$vob][hp] == 0} {#var neutral_prompt[$neut_index] {@pbuild_neutral_id_17{$indexchar]@ $neutral_enemies}@pbuild_neutral_hp_37{$obda2[$vob][desc]}}};
+#nop var neutral_prompt[$neut_index] {<088>$indexchar]<188><fff>$neutral_enemies$neut[$neut_index][desc]<119><ffa>< <088>};
+};
+#else {
+#if {$obda2[$vob][hp] == 6} {#var neutral_prompt[$neut_index] {@pbuild_neutral_id_37{$indexchar]  $neutral_enemies}@pbuild_neutral_hp_77{$obda2[$vob][desc]}}};
+#if {$obda2[$vob][hp] == 5} {#var neutral_prompt[$neut_index] {@pbuild_neutral_id_37{$indexchar]  $neutral_enemies}@pbuild_neutral_hp_67{$obda2[$vob][desc]}}};
+#if {$obda2[$vob][hp] == 4} {#var neutral_prompt[$neut_index] {@pbuild_neutral_id_37{$indexchar]  $neutral_enemies}@pbuild_neutral_hp_57{$obda2[$vob][desc]}}};
+#if {$obda2[$vob][hp] == 3} {#var neutral_prompt[$neut_index] {@pbuild_neutral_id_37{$indexchar]  $neutral_enemies}@pbuild_neutral_hp_47{$obda2[$vob][desc]}}};
+#if {$obda2[$vob][hp] == 2} {#var neutral_prompt[$neut_index] {@pbuild_neutral_id_37{$indexchar]  $neutral_enemies}@pbuild_neutral_hp_37{$obda2[$vob][desc]}}};
+#if {$obda2[$vob][hp] == 1} {#var neutral_prompt[$neut_index] {@pbuild_neutral_id_27{$indexchar]  $neutral_enemies}@pbuild_neutral_hp_37{$obda2[$vob][desc]}}};
+#if {$obda2[$vob][hp] == 0} {#var neutral_prompt[$neut_index] {@pbuild_neutral_id_17{$indexchar]  $neutral_enemies}@pbuild_neutral_hp_37{$obda2[$vob][desc]}}};
+};
+#line substitute {variables} {
+#alias oc$indexchar {
+ocen ob_$neut[$neut_index][tag];
+porownaj sile z ob_$neut[$neut_index][tag];
+porownaj zrecznosc z ob_$neut[$neut_index][tag];
+porownaj wytrzymalosc z ob_$neut[$neut_index][tag];
+#var cmp_obj $neut_index;
+};
+};
+#line substitute {variables} {#alias zp$indexchar {zaslon przed ob_$neut[$neut_index][tag]}};
+#if {"$przewodzisz_druzynie" == "1"} {
+#line substitute {variables} {#alias k$indexchar {nazabij ob_$neut[$neut_index][tag];wskaz ob_$neut[$neut_index][tag] jako cel ataku}};
+#line substitute {variables} {#alias r$indexchar {nazabij ob_$neut[$neut_index][tag];wskaz ob_$neut[$neut_index][tag] jako cel ataku;rozkaz druzynie zabic cel ataku}};
+} {
+#line substitute {variables} {#alias k$indexchar {nazabij ob_$neut[$neut_index][tag]}};
+};
+#line substitute {variables} {#alias b$indexchar {zablokuj ob_$neut[$neut_index][tag]}};
+#math {neut_index} {$neut_index + 1};
+};
+
     };
   };
     #loop {$team_index} {19} {z} {
@@ -216,6 +269,7 @@
     #loop {$othe_index} {20} {zz} {
         #var wrogowie_prompt[$zz] {<fff>              <088>};
     };
+
     #loop {1} {$team_index} {z} {
         #var prompt_objects[$z] {$druzyna_prompt[$z]};
     };
@@ -229,6 +283,16 @@
             #math prompt_index {$prompt_index + 1};
         };
     };
+
+    #if {$neut_index > 1} {
+        #var prompt_objects[$prompt_index] {<fff>              <088>};
+        #math prompt_index {$prompt_index + 1};
+        #loop {1} {$neut_index} {zz} {
+            #var prompt_objects[$prompt_index] {$neutral_prompt[$zz]};
+            #math prompt_index {$prompt_index + 1};
+        };
+    };
+
     #loop {$prompt_index} {40} {zz} {#var prompt_objects[$zz] {};};
     testprompt;
 }
