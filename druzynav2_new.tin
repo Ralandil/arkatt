@@ -136,9 +136,13 @@
             #math indexvalue {96 + $othe_index};
             #format indexchar {%a} {$indexvalue};
             #if {$othe_index < 5} {
-                #math attack_bind {1 + $othe_index};
+                #math attack_bind {5 + $othe_index};
+                #nop sh {<CHAT> mapper chats to everyone, 'bind:f$attack_bind:<ffa>TEST<088>'<088>};
+                #line substitute {variables} {#var kill_functionkey {F$attack_bind}};
+                #line substitute {variables} {#macro {$KEY_F$attack_bind} {_zabij_ ob_$othe[$othe_index][tag]}};
+            } {
+                #var kill_functionkey {  };
             };
-
 			#foreach {$obda2[]} {vos} {
 				#if {"$obda2[$vos][attack_num]" == "$vob"} {
 				  	#var obda2[$vos][enemies] {$othe[$othe_index][desc]};
@@ -152,23 +156,22 @@
 			#if {"$other_enemies" == " 0"} {#var other_enemies {  }};
             #var othe[$othe_index][enemies] {$othe_enemies};
             #if {"$obda2[$vob][attack_target]" == "true"} {
-                #if {$obda2[$vob][hp] == 6} {#var wrogowie_prompt[$othe_index] {@pbuild_attacktarget_id_37{$indexchar]@ $other_enemies}@pbuild_attacktarget_hp_77{$obda2[$vob][desc]}}};
-                #if {$obda2[$vob][hp] == 5} {#var wrogowie_prompt[$othe_index] {@pbuild_attacktarget_id_37{$indexchar]@ $other_enemies}@pbuild_attacktarget_hp_67{$obda2[$vob][desc]}}};
-                #if {$obda2[$vob][hp] == 4} {#var wrogowie_prompt[$othe_index] {@pbuild_attacktarget_id_37{$indexchar]@ $other_enemies}@pbuild_attacktarget_hp_57{$obda2[$vob][desc]}}};
-                #if {$obda2[$vob][hp] == 3} {#var wrogowie_prompt[$othe_index] {@pbuild_attacktarget_id_37{$indexchar]@ $other_enemies}@pbuild_attacktarget_hp_47{$obda2[$vob][desc]}}};
-                #if {$obda2[$vob][hp] == 2} {#var wrogowie_prompt[$othe_index] {@pbuild_attacktarget_id_37{$indexchar]@ $other_enemies}@pbuild_attacktarget_hp_37{$obda2[$vob][desc]}}};
-                #if {$obda2[$vob][hp] == 1} {#var wrogowie_prompt[$othe_index] {@pbuild_attacktarget_id_27{$indexchar]@ $other_enemies}@pbuild_attacktarget_hp_37{$obda2[$vob][desc]}}};
-                #if {$obda2[$vob][hp] == 0} {#var wrogowie_prompt[$othe_index] {@pbuild_attacktarget_id_17{$indexchar]@ $other_enemies}@pbuild_attacktarget_hp_37{$obda2[$vob][desc]}}};
-                #nop var wrogowie_prompt[$othe_index] {<088>$indexchar]<188><fff>$other_enemies$othe[$othe_index][desc]<119><ffa>< <088>};
+#if {$obda2[$vob][hp] == 6} {#var wrogowie_prompt[$othe_index] {@pbuild_attacktarget_id_37{$indexchar $kill_functionkey$other_enemies}@pbuild_attacktarget_hp_77{$obda2[$vob][desc]}}};
+#if {$obda2[$vob][hp] == 5} {#var wrogowie_prompt[$othe_index] {@pbuild_attacktarget_id_37{$indexchar $kill_functionkey$other_enemies}@pbuild_attacktarget_hp_67{$obda2[$vob][desc]}}};
+#if {$obda2[$vob][hp] == 4} {#var wrogowie_prompt[$othe_index] {@pbuild_attacktarget_id_37{$indexchar $kill_functionkey$other_enemies}@pbuild_attacktarget_hp_57{$obda2[$vob][desc]}}};
+#if {$obda2[$vob][hp] == 3} {#var wrogowie_prompt[$othe_index] {@pbuild_attacktarget_id_37{$indexchar $kill_functionkey$other_enemies}@pbuild_attacktarget_hp_47{$obda2[$vob][desc]}}};
+#if {$obda2[$vob][hp] == 2} {#var wrogowie_prompt[$othe_index] {@pbuild_attacktarget_id_37{$indexchar $kill_functionkey$other_enemies}@pbuild_attacktarget_hp_37{$obda2[$vob][desc]}}};
+#if {$obda2[$vob][hp] == 1} {#var wrogowie_prompt[$othe_index] {@pbuild_attacktarget_id_27{$indexchar $kill_functionkey$other_enemies}@pbuild_attacktarget_hp_37{$obda2[$vob][desc]}}};
+#if {$obda2[$vob][hp] == 0} {#var wrogowie_prompt[$othe_index] {@pbuild_attacktarget_id_17{$indexchar $kill_functionkey$other_enemies}@pbuild_attacktarget_hp_37{$obda2[$vob][desc]}}};
             };
             #else {
-                #if {$obda2[$vob][hp] == 6} {#var wrogowie_prompt[$othe_index] {@pbuild_enemy_id_37{$indexchar]  $other_enemies}@pbuild_enemy_hp_77{$obda2[$vob][desc]}}};
-                #if {$obda2[$vob][hp] == 5} {#var wrogowie_prompt[$othe_index] {@pbuild_enemy_id_37{$indexchar]  $other_enemies}@pbuild_enemy_hp_67{$obda2[$vob][desc]}}};
-                #if {$obda2[$vob][hp] == 4} {#var wrogowie_prompt[$othe_index] {@pbuild_enemy_id_37{$indexchar]  $other_enemies}@pbuild_enemy_hp_57{$obda2[$vob][desc]}}};
-                #if {$obda2[$vob][hp] == 3} {#var wrogowie_prompt[$othe_index] {@pbuild_enemy_id_37{$indexchar]  $other_enemies}@pbuild_enemy_hp_47{$obda2[$vob][desc]}}};
-                #if {$obda2[$vob][hp] == 2} {#var wrogowie_prompt[$othe_index] {@pbuild_enemy_id_37{$indexchar]  $other_enemies}@pbuild_enemy_hp_37{$obda2[$vob][desc]}}};
-                #if {$obda2[$vob][hp] == 1} {#var wrogowie_prompt[$othe_index] {@pbuild_enemy_id_27{$indexchar]  $other_enemies}@pbuild_enemy_hp_37{$obda2[$vob][desc]}}};
-                #if {$obda2[$vob][hp] == 0} {#var wrogowie_prompt[$othe_index] {@pbuild_enemy_id_17{$indexchar]  $other_enemies}@pbuild_enemy_hp_37{$obda2[$vob][desc]}}};
+#if {$obda2[$vob][hp] == 6} {#var wrogowie_prompt[$othe_index] {@pbuild_enemy_id_37{$indexchar $kill_functionkey$other_enemies}@pbuild_enemy_hp_77{$obda2[$vob][desc]}}};
+#if {$obda2[$vob][hp] == 5} {#var wrogowie_prompt[$othe_index] {@pbuild_enemy_id_37{$indexchar $kill_functionkey$other_enemies}@pbuild_enemy_hp_67{$obda2[$vob][desc]}}};
+#if {$obda2[$vob][hp] == 4} {#var wrogowie_prompt[$othe_index] {@pbuild_enemy_id_37{$indexchar $kill_functionkey$other_enemies}@pbuild_enemy_hp_57{$obda2[$vob][desc]}}};
+#if {$obda2[$vob][hp] == 3} {#var wrogowie_prompt[$othe_index] {@pbuild_enemy_id_37{$indexchar $kill_functionkey$other_enemies}@pbuild_enemy_hp_47{$obda2[$vob][desc]}}};
+#if {$obda2[$vob][hp] == 2} {#var wrogowie_prompt[$othe_index] {@pbuild_enemy_id_37{$indexchar $kill_functionkey$other_enemies}@pbuild_enemy_hp_37{$obda2[$vob][desc]}}};
+#if {$obda2[$vob][hp] == 1} {#var wrogowie_prompt[$othe_index] {@pbuild_enemy_id_27{$indexchar $kill_functionkey$other_enemies}@pbuild_enemy_hp_37{$obda2[$vob][desc]}}};
+#if {$obda2[$vob][hp] == 0} {#var wrogowie_prompt[$othe_index] {@pbuild_enemy_id_17{$indexchar $kill_functionkey$other_enemies}@pbuild_enemy_hp_37{$obda2[$vob][desc]}}};
             };
 			#line substitute {variables} {
 				#alias oc$indexchar {
@@ -319,245 +322,3 @@ porownaj wytrzymalosc z ob_$neut[$neut_index][tag];
   };
   update_teams;
 }
-
-
-
-
-#action {^%1 jest w swietnej kondycji.$} {
-    #nop sh {<ccc>(<179>#######<088><ccc>)<088> %1};
-    #line gag;
-}
-	
-#action {^%1 jest w dobrym stanie.$} {
-    #nop sh {<ccc>(<179>###### <088><ccc>)<088> %1};
-    #line gag;
-};
-#action {^%1 jest lekko rann%..$} {
-    #nop sh {<ccc>(<179>#####  <088><ccc>)<088> %1};
-    #line gag;
-}
-#action {^%1 jest rann%..$} {
-    #nop sh {<ccc>(<179>####   <088><ccc>)<088> %1};
-    #line gag;
-}
-#action {^%1 jest w zlej kondycji.$} {
-    #nop sh {<ccc>(<179>###    <088><ccc>)<088> %1};
-    #line gag;
-}
-#action {^%1 jest ciezko rann%..$} {
-    #nop sh {<ccc>(<179>##     <088><ccc>)<088> %1};
-    #line gag;
-}
-#action {^%1 jest ledwo zyw%..$} {
-    #nop sh {<ccc>(<179><FAA>-LEDWO-<088><ccc>)<088> %1};
-    #line gag;
-}
-
-
-#action {^%1 jest w swietnej kondycji. Atakujesz {go|ja}.}
-{
-  	#var kokoko @add_combat_lines{<ccc>(<179>#######<088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ};
-  	#line gag;
-}
-#action {^%1 jest w swietnej kondycji. Atakujesz {go|ja} ty i %3.}
-{
-  	#var kokoko @add_combat_lines{<ccc>(<179>#######<088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ TY I %3};
-  	#line gag;
-}
-#action {^%1 jest w swietnej kondycji. Atakujesz {go|ja} ty, %69.}
-{
-  	#var kokoko @add_combat_lines{<ccc>(<179>#######<088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ TY, %69};
-  	#line gag;
-}
-#action {^%1 jest w dobrym stanie. Atakujesz {go|ja}.}
-{	
-  	#var kokoko @add_combat_lines{<ccc>(<179>###### <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ};
-  	#line gag;
-}
-#action {^%1 jest w dobrym stanie. Atakujesz {go|ja} ty i %3.}
-{
-  	#var kokoko @add_combat_lines{<ccc>(<179>###### <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ TY I %3};
-  	#line gag;
-}
-#action {^%1 jest w dobrym stanie. Atakujesz {go|ja} ty, %69.}
-{	
-  	#var kokoko @add_combat_lines{<ccc>(<179>###### <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ TY, %69};
-  	#line gag;
-}
-
-#action {^%1 jest lekko rann{y|a}. Atakujesz {go|ja}.}
-{
-  	#var kokoko @add_combat_lines{<ccc>(<179>#####  <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ};
-  	#line gag;
-}
-#action {^%1 jest lekko rann{y|a}. Atakujesz {go|ja} ty i %3.}
-{	
-  	#var kokoko @add_combat_lines{<ccc>(<179>#####  <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ TY I %3};
-  	#line gag;
-}
-
-
-#action {^%1 jest lekko rann{y|a}. Atakujesz {go|ja} ty, %69.}
-{	
-  	#var kokoko @add_combat_lines{<ccc>(<179>#####  <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ TY, %69};
-  	#line gag;
-}
-#action {^%1 jest rann{y|a}. Atakujesz {go|ja}.}
-{
-  	#var kokoko @add_combat_lines{<ccc>(<179>####   <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ};
-  	#line gag;
-}
-#action {^%1 jest rann{y|a}. Atakujesz {go|ja} ty i %3.}
-{
-  	#var kokoko @add_combat_lines{<ccc>(<179>####   <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ TY I %3};
-  	#line gag;
-}
-#action {^%1 jest rann{y|a}. Atakujesz {go|ja} ty, %69.}
-{	
-  	#var kokoko @add_combat_lines{<ccc>(<179>####   <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ TY, %69};
-  	#line gag;
-}
-
-
-#action {^%1 jest w zlej kondycji. Atakujesz {go|ja}.}
-{	
-  	#var kokoko @add_combat_lines{<ccc>(<179>###    <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ};
-  	#line gag;
-}
-#action {^%1 jest w zlej kondycji. Atakujesz {go|ja} ty i %3.}
-{	
-  	#var kokoko @add_combat_lines{<ccc>(<179>###    <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ TY I %3};
-  	#line gag;
-}
-#action {^%1 jest w zlej kondycji. Atakujesz {go|ja} ty, %69.}
-{	
-  	#var kokoko @add_combat_lines{<ccc>(<179>###    <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ TY, %69};
-  	#line gag;
-}
-
-
-#action {^%1 jest ciezko rann{y|a}. Atakujesz {go|ja}.}
-{
-  	#var kokoko @add_combat_lines{<ccc>(<179>##     <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ};
-  	#line gag;
-}
-#action {^%1 jest ciezko rann{y|a}. Atakujesz {go|ja} ty i %3.}
-{	
-  	#var kokoko @add_combat_lines{<ccc>(<179>##     <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ TY I %3};
-  	#line gag;
-}
-#action {^%1 jest ciezko rann{y|a}. Atakujesz {go|ja} ty, %69.}
-{	
-  	#var kokoko @add_combat_lines{<ccc>(<179>##     <088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ TY, %69};
-  	#line gag;
-}
-
-#action {^%1 jest ledwo zyw{y|a}. Atakujesz {go|ja}.}
-{	
-  	#var kokoko @add_combat_lines{<ccc>(<179><FAA>-LEDWO-<088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ};
-  	#line gag;
-}
-#action {^%1 jest ledwo zyw{y|a}. Atakujesz {go|ja} ty i %3.}
-{	
-  	#var kokoko @add_combat_lines{<ccc>(<179><FAA>-LEDWO-<088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ TY I %3};
-  	#line gag;
-}
-#action {^%1 jest ledwo zyw{y|a}. Atakujesz {go|ja} ty, %69.}
-{	
-  	#var kokoko @add_combat_lines{<ccc>(<179><FAA>-LEDWO-<088><ccc>)<088> %1 <119><faa> <<< ATAKUJESZ TY, %69};
-  	#line gag;
-}
-
-
-#action {^%1 jest w swietnej kondycji. Atakuj{e|a} {ja|go} %69.}
-{
-	#var kokoko @add_combat_lines{<ccc>(<179>#######<088><ccc>)<088> %1 <119><faa> <<< ATAKUJE GO %69};
-	#line gag;
-}
-
-#action {^%1 jest w dobrym stanie. Atakuj{e|a} {ja|go} %69.}
-{
-	#var kokoko @add_combat_lines{<ccc>(<179>###### <088><ccc>)<088> %1 <119><faa> <<< ATAKUJE GO %69};
-	#line gag;
-}
-
-#action {^%1 jest lekko rann{y|a}. Atakuj{e|a} {ja|go} %69.}
-{	
-	#var kokoko @add_combat_lines{<ccc>(<179>#####  <088><ccc>)<088> %1 <119><faa> <<< ATAKUJE GO %69};
-	#line gag;
-}
-
-
-#action {^%1 jest rann{y|a}. Atakuj{e|a} {ja|go} %69.}
-{
-	#var kokoko @add_combat_lines{<ccc>(<179>####   <088><ccc>)<088> %1 <119><faa> <<< ATAKUJE GO %69};
-	#line gag;
-}
-
-#action {^%1 jest w zlej kondycji. Atakuj{e|a} {ja|go} %69.}
-{	
-	#var kokoko @add_combat_lines{<ccc>(<179>###    <088><ccc>)<088> %1 <119><faa> <<< ATAKUJE GO %69};
-	#line gag;
-}
-
-#action {^%1 jest ciezko rann{y|a}. Atakuj{e|a} {ja|go} %69.}
-{	
-#var kokoko @add_combat_lines{<ccc>(<179>##     <088><ccc>)<088> %1 <119><faa> <<< ATAKUJE GO %69};
-	#line gag;
-}
-
-#action {^%1 jest ledwo zyw{y|a}. Atakuj{e|a} {ja|go} %69.}
-{
-	#var kokoko @add_combat_lines{<ccc>(<FAA><178>-LEDWO-<088><ccc>)<088> %1 <119><faa> <<< ATAKUJE GO %69};
-	#line gag;
-}
-
-
-#alias {wez_monety}
-{
-	wez monety z ciala;
-	odloz miedziane monety;
-	wloz monety do zalozonego plecaka;
-	wez kamienie z ciala;
-};
-
-#action {^%1 umarl.$} {
-	#var r @set_quickbind_yellow{wez_monety};
-}
-
-#action {^Jestes %1. Atakuj{e|a} cie %69.} {
-  #sh {Jestes %1.};
-  #line gag;
-  #nop var kokoko @add_combat_lines{<ccc>(<179>#######<088><ccc>)<088> <119><faa>### TY ### <FAA><118><fff><<< ATAKUJA CIE: %69<088>};#line gag;
-} {2};
-
-
-#action {^Jestes w swietnej kondycji. Atakuj{e|a} cie %69.} {
-  #sh {<ccc>(<179>#######<088><ccc>)<088> <faa>CIEBIE: %69<088>};#line gag;
-};
-
-#action {^Jestes w dobrym stanie. Atakuj{e|a} cie %69.} {
-  #sh {<ccc>(<179>###### <088><ccc>)<088> <faa>CIEBIE: %69<088>};#line gag;
-};
-
-#action {^Jestes lekko ranny. Atakuj{e|a} cie %69.} {
-  #sh {<ccc>(<179>#####  <088><ccc>)<088> <faa>CIEBIE: %69<088>};#line gag;
-};
-
-#action {^Jestes ranny. Atakuj{e|a} cie %69.} {
-  #sh {<ccc>(<179>####   <088><ccc>)<088> <faa>CIEBIE: %69<088>};#line gag;
-};
-
-#action {^Jestes w zlej kondycji. Atakuj{e|a} cie %69.} {
-  #sh {<ccc>(<179><faa>###    <088><ccc>)<088> <faa>CIEBIE: %69<088>};#line gag;
-};
-
-#action {^Jestes ciezko ranny. Atakuj{e|a} cie %69.} {
-  #sh {<ccc>(<179><faa>##     <088><ccc>)<088> <faa>CIEBIE: %69<088>};#line gag;
-};
-
-#action {^Jestes ledwo zywy. Atakuj{e|a} cie %69.} {
-  #sh {<ccc>(<FAA><178>-LEDWO-<088><ccc>)<088> <faa>CIEBIE: %69<088>};#line gag;
-};
-
-

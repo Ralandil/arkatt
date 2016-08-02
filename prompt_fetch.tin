@@ -1,6 +1,3 @@
-#nop {headache}{0} {intox}{0}{panic}{0}
-
-
 #EVENT {IAC SB GMCP char.state IAC SE} {
 	#var CHAR_STATE {%0};
     #if {"$CHAR_STATE[intox]" == "0"} {#var pr_upicie {<118><aca> 0/ 9<088>};};
@@ -18,7 +15,6 @@
     #if {"$CHAR_STATE[headache]" == "3"} {#var pr_upicie {<118><caa>-3/ 9<088>};};
     #if {"$CHAR_STATE[headache]" == "4"} {#var pr_upicie {<118><caa>-4/ 9<088>};};
     #if {"$CHAR_STATE[headache]" == "5"} {#var pr_upicie {<118><caa>-5/ 9<088>};};
-
 	#if {"$CHAR_STATE[fatigue]" == "0"} {#var pr_zmeczenie {<118><aca> 0/ 9<088>};};
 	#if {"$CHAR_STATE[fatigue]" == "1"} {#var pr_zmeczenie {<118><aca> 1/ 9<088>};};
 	#if {"$CHAR_STATE[fatigue]" == "2"} {#var pr_zmeczenie {<118><aca> 2/ 9<088>};};
@@ -29,7 +25,6 @@
 	#if {"$CHAR_STATE[fatigue]" == "7"} {#var pr_zmeczenie {<118><caa> 7/ 9<088>};};
 	#if {"$CHAR_STATE[fatigue]" == "8"} {#var pr_zmeczenie {<118><caa> 8/ 9<088>};};
 	#if {"$CHAR_STATE[fatigue]" == "9"} {#var pr_zmeczenie {<118><caa> 9/ 9<088>};};
-
 	#if {"$CHAR_STATE[hp]" == "6"} {#var pr_zycie <088><aca>[#######]<088>;#var hp_bar {<118><aca> 7/ 7<088>};testpromopt};
 	#if {"$CHAR_STATE[hp]" == "5"} {#var pr_zycie <088><aca>[ ######]<088>;#var hp_bar {<118><aca> 6/ 7<088>};testprompt;};
 	#if {"$CHAR_STATE[hp]" == "4"} {#var pr_zycie <088><cca>[  #####]<088>;#var hp_bar {<118><cca> 5/ 7<088>};testprompt;};
@@ -37,7 +32,6 @@
 	#if {"$CHAR_STATE[hp]" == "2"} {#var pr_zycie <088><caa>[    ###]<088>;#var hp_bar {<118><caa> 3/ 7<088>};testprompt;};
 	#if {"$CHAR_STATE[hp]" == "1"} {#var pr_zycie <088><caa>[     ##]<088>;#var hp_bar {<118><caa> 2/ 7<088>};testprompt;};
 	#if {"$CHAR_STATE[hp]" == "0"} {#var pr_zycie <088><caa>[      #]<088>;#var hp_bar {<118><caa> 1/ 7<088>};testprompt;};
-
 	#if {"$CHAR_STATE[encumberance]" == "6"} {#var pr_obci {<118><caa> 6/ 6<088>};};
 	#if {"$CHAR_STATE[encumberance]" == "5"} {#var pr_obci {<118><caa> 5/ 6<088>};};
 	#if {"$CHAR_STATE[encumberance]" == "4"} {#var pr_obci {<118><caa> 4/ 6<088>};};
@@ -45,7 +39,6 @@
 	#if {"$CHAR_STATE[encumberance]" == "2"} {#var pr_obci {<118><cca> 2/ 6<088>};};
 	#if {"$CHAR_STATE[encumberance]" == "1"} {#var pr_obci {<118><aca> 1/ 6<088>};};
 	#if {"$CHAR_STATE[encumberance]" == "0"} {#var pr_obci {<118><aca> 0/ 6<088>};};
-
 	#if {"$CHAR_STATE[form]" == "6"} {#var pr_form {<118><aca> 6/ 6<088>};};
 	#if {"$CHAR_STATE[form]" == "5"} {#var pr_form {<118><aca> 5/ 6<088>};};
 	#if {"$CHAR_STATE[form]" == "4"} {#var pr_form {<118><cca> 4/ 6<088>};};
@@ -53,17 +46,14 @@
 	#if {"$CHAR_STATE[form]" == "2"} {#var pr_form {<118><cca> 2/ 6<088>};};
 	#if {"$CHAR_STATE[form]" == "1"} {#var pr_form {<118><caa> 1/ 6<088>};};
 	#if {"$CHAR_STATE[form]" == "0"} {#var pr_form {<118><caa> 0/ 6<088>};};
-
 	#if {"$CHAR_STATE[stuffed]" == "3"} {#var pr_glod {<118><aca> 0/ 3<088>};};
 	#if {"$CHAR_STATE[stuffed]" == "2"} {#var pr_glod {<118><cca> 1/ 3<088>};};
 	#if {"$CHAR_STATE[stuffed]" == "1"} {#var pr_glod {<118><caa> 2/ 3<088>};};
 	#if {"$CHAR_STATE[stuffed]" == "0"} {#var pr_glod {<118><caa> 3/ 3<088>};};
-
 	#if {"$CHAR_STATE[soaked]" == "3"} {#var pr_smad {<118><aca> 0/ 3<088>};};
 	#if {"$CHAR_STATE[soaked]" == "2"} {#var pr_smad {<118><cca> 1/ 3<088>};};
 	#if {"$CHAR_STATE[soaked]" == "1"} {#var pr_smad {<118><caa> 2/ 3<088>};};
 	#if {"$CHAR_STATE[soaked]" == "0"} {#var pr_smad {<118><caa> 3/ 3<088>};};
-
 	#if {"$CHAR_STATE[improve]" == "0"} {#var pr_exp {<118><fff> 0/15<088>};};
 	#if {"$CHAR_STATE[improve]" == "1"} {#var pr_exp {<118><fff> 1/15<088>};};
 	#if {"$CHAR_STATE[improve]" == "2"} {#var pr_exp {<118><fff> 2/15<088>};};
@@ -80,7 +70,6 @@
 	#if {"$CHAR_STATE[improve]" == "13"} {#var pr_exp {<118><fff>13/15<088>};};
 	#if {"$CHAR_STATE[improve]" == "14"} {#var pr_exp {<118><fff>14/15<088>};};
 	#if {"$CHAR_STATE[improve]" == "15"} {#var pr_exp {<118><fff>15/15<088>};};
-				
 	#if {"$CHAR_STATE[mana]" == "8"} {#var pr_mana {<118><aca> 9/ 9<088>};};
 	#if {"$CHAR_STATE[mana]" == "7"} {#var pr_mana {<118><aca> 8/ 9<088>};};
 	#if {"$CHAR_STATE[mana]" == "6"} {#var pr_mana {<118><aca> 7/ 9<088>};};
@@ -90,7 +79,6 @@
 	#if {"$CHAR_STATE[mana]" == "2"} {#var pr_mana {<118><caa> 3/ 9<088>};};
 	#if {"$CHAR_STATE[mana]" == "1"} {#var pr_mana {<118><caa> 2/ 9<088>};};
 	#if {"$CHAR_STATE[mana]" == "0"} {#var pr_mana {<118><caa> 1/ 9<088>};};
-		
     testprompt;
 }
 
@@ -108,11 +96,6 @@
 }
 
 
-
-
-#nop format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>; 
-
-#nop EXP
 #action {^Nie poczyniles zadnych postepow, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 0/16};#line gag};
 #action {^Poczyniles minimalne postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 1/16};#line gag};
 #action {^Poczyniles nieznaczne postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 2/16};#line gag};

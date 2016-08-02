@@ -394,28 +394,40 @@
     #line gag;
 } {1};
 
+#nop poziomy zuzycia
+#high {(w znakomitym stanie)} {<118><afa>};
+#high {(w dobrym stanie)} {<118><ffa>};
+#high {(liczne walki wyryly na niej swoje pietno)} {<118><ffa>};
+#high {(w zlym stanie)} {<118><faa>};
 
+#nop poziomy magicznego zuzycia
+#high {(posluzy bardzo dlugo, w znakomitym stanie)} {<118><caf>};
+
+#nop wysokiej jakosci;
+#high {krysztalowa olejna lampa} {<118><aaf>};
+#high {krysztalowa olejna lampe} {<118><aaf>};
+#high {wysoki mlecznobialy helm} {<118><aaf>};
+#high {ciezkie mlecznobiale nareczaki} {<118><aaf>};
+#high {dluga dwustronna naginata} {<118><aaf>};
+#nop magicznej jakosci;
 #high {stary matowy pancerz} {<118><caf>};
 #high {strzelisty zasniedzialy helm} {<118><caf>};
 #high {snieznobialy lsniacy pancerz} {<118><caf>};
 #high {strzelisty zlocisty helm} {<118><caf>};
 #high {srebrzysta kose bojowa} {<118><caf>};
 #high {srebrzysta kosa bojowa} {<118><caf>};
-#high {krysztalowa olejna lampa} {<118><aaf>};
-#high {krysztalowa olejna lampe} {<118><aaf>};
-#high {wysoki mlecznobialy helm} {<118><aaf>};
-#high {ciezkie mlecznobiale nareczaki} {<118><aaf>};
 #high {misterny obosieczny topor} {<118><caf>};
 #high {polyskliwy smukly espadon} {<118><caf>};
+#high {adamantytowa szpiczasta partyzana} {<118><caf>};
+#high {adamantytowa szpiczasta partyzane} {<118><caf>};
+#high {azurowy koscistobialy amulet} {<118><caf>};
+
 
 #nop sub {srebrzysta kose bojowa} {<faf>sr<ebf>eb<dcf>rz<cdf>ys<aef>ta <aff>ko<bef>se <cdf>bo<dcf>jo<ebf>wa<088>}
 #nop sub {srebrzysta kosa bojowa} {<faf>sr<ebf>eb<dcf>rz<cdf>ys<aef>ta <aff>ko<bef>sa <cdf>bo<dcf>jo<ebf>wa<088>}
 #nop sub {srebrzystej kosy bojowej} {<faf>sr<ebf>eb<dcf>rz<cdf>ys<aef>tej <aff>ko<bef>sy <cdf>bo<dcf>jo<ebf>wej<088>}
 
-#sub {adamantytowa szpiczasta partyzana}
 
 #nop sub {adamantytowa szpiczasta partyzana} {<bda>ada<bea>man<aea>tyt<cea>owa <bea>szp<ada>icz<aea>asta <dfa>part<cfa>rtyz<bfa>ana<088>}
 #nop sub {adamantytowa szpiczasta partyzane} {<bda>ada<bea>man<aea>tyt<cea>owa <bea>szp<ada>icz<aea>asta <dfa>part<cfa>rtyz<bfa>ane<088>}
 #nop sub {adamantytowa szpiczasta partyzana} {<bda>ada<bea>man<aea>tyt<cea>owa <bea>szp<ada>icz<aea>asta <dfa>part<cfa>rtyz<bfa>ana<088>}
-
-#sub {azurowy koscistobialy amulet} {<ddf>az<dff>uro<fdf>wy <ffd>kosc<eed>isto<fdf>bialy <ddf>amu<dff>let<088>};
