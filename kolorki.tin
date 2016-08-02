@@ -412,6 +412,8 @@
 #nop sub {srebrzysta kosa bojowa} {<faf>sr<ebf>eb<dcf>rz<cdf>ys<aef>ta <aff>ko<bef>sa <cdf>bo<dcf>jo<ebf>wa<088>}
 #nop sub {srebrzystej kosy bojowej} {<faf>sr<ebf>eb<dcf>rz<cdf>ys<aef>tej <aff>ko<bef>sy <cdf>bo<dcf>jo<ebf>wej<088>}
 
+#sub {adamantytowa szpiczasta partyzana}
+
 #nop sub {adamantytowa szpiczasta partyzana} {<bda>ada<bea>man<aea>tyt<cea>owa <bea>szp<ada>icz<aea>asta <dfa>part<cfa>rtyz<bfa>ana<088>}
 #nop sub {adamantytowa szpiczasta partyzane} {<bda>ada<bea>man<aea>tyt<cea>owa <bea>szp<ada>icz<aea>asta <dfa>part<cfa>rtyz<bfa>ane<088>}
 #nop sub {adamantytowa szpiczasta partyzana} {<bda>ada<bea>man<aea>tyt<cea>owa <bea>szp<ada>icz<aea>asta <dfa>part<cfa>rtyz<bfa>ana<088>}

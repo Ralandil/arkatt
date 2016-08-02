@@ -1,3 +1,4 @@
+#alias {szczerba1} {skocz do stawu;przejdz za wodospad;n;pchnij sciane};
 #alias {_zabij_}
 {
     #nop var display_function_2 {<faa>zabij cel ataku                    <088>};

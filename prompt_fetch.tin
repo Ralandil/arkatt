@@ -3,6 +3,21 @@
 
 #EVENT {IAC SB GMCP char.state IAC SE} {
 	#var CHAR_STATE {%0};
+    #if {"$CHAR_STATE[intox]" == "0"} {#var pr_upicie {<118><aca> 0/ 9<088>};};
+    #if {"$CHAR_STATE[intox]" == "1"} {#var pr_upicie {<118><aca> 1/ 9<088>};};
+    #if {"$CHAR_STATE[intox]" == "2"} {#var pr_upicie {<118><aca> 2/ 9<088>};};
+    #if {"$CHAR_STATE[intox]" == "3"} {#var pr_upicie {<118><aca> 3/ 9<088>};};
+    #if {"$CHAR_STATE[intox]" == "4"} {#var pr_upicie {<118><aca> 4/ 9<088>};};
+    #if {"$CHAR_STATE[intox]" == "5"} {#var pr_upicie {<118><aca> 5/ 9<088>};};
+    #if {"$CHAR_STATE[intox]" == "6"} {#var pr_upicie {<118><aca> 6/ 9<088>};};
+    #if {"$CHAR_STATE[intox]" == "7"} {#var pr_upicie {<118><aca> 7/ 9<088>};};
+    #if {"$CHAR_STATE[intox]" == "8"} {#var pr_upicie {<118><aca> 8/ 9<088>};};
+    #if {"$CHAR_STATE[intox]" == "9"} {#var pr_upicie {<118><aca> 9/ 9<088>};};
+    #if {"$CHAR_STATE[headache]" == "1"} {#var pr_upicie {<118><caa>-1/ 9<088>};};
+    #if {"$CHAR_STATE[headache]" == "2"} {#var pr_upicie {<118><caa>-2/ 9<088>};};
+    #if {"$CHAR_STATE[headache]" == "3"} {#var pr_upicie {<118><caa>-3/ 9<088>};};
+    #if {"$CHAR_STATE[headache]" == "4"} {#var pr_upicie {<118><caa>-4/ 9<088>};};
+    #if {"$CHAR_STATE[headache]" == "5"} {#var pr_upicie {<118><caa>-5/ 9<088>};};
 
 	#if {"$CHAR_STATE[fatigue]" == "0"} {#var pr_zmeczenie {<118><aca> 0/ 9<088>};};
 	#if {"$CHAR_STATE[fatigue]" == "1"} {#var pr_zmeczenie {<118><aca> 1/ 9<088>};};
@@ -15,13 +30,13 @@
 	#if {"$CHAR_STATE[fatigue]" == "8"} {#var pr_zmeczenie {<118><caa> 8/ 9<088>};};
 	#if {"$CHAR_STATE[fatigue]" == "9"} {#var pr_zmeczenie {<118><caa> 9/ 9<088>};};
 
-	#if {"$CHAR_STATE[hp]" == "6"} {#var pr_zycie <088><aca>[#######]<088>;#var hp_bar {<118><aca> 7/ 7<088>};#var rpp @refreshprompt{};};
-	#if {"$CHAR_STATE[hp]" == "5"} {#var pr_zycie <088><aca>[ ######]<088>;#var hp_bar {<118><aca> 6/ 7<088>};#var rpp @refreshprompt{};};
-	#if {"$CHAR_STATE[hp]" == "4"} {#var pr_zycie <088><cca>[  #####]<088>;#var hp_bar {<118><cca> 5/ 7<088>};#var rpp @refreshprompt{};};
-	#if {"$CHAR_STATE[hp]" == "3"} {#var pr_zycie <088><cca>[   ####]<088>;#var hp_bar {<118><cca> 4/ 7<088>};#var rpp @refreshprompt{};};
-	#if {"$CHAR_STATE[hp]" == "2"} {#var pr_zycie <088><caa>[    ###]<088>;#var hp_bar {<118><caa> 3/ 7<088>};#var rpp @refreshprompt{};};
-	#if {"$CHAR_STATE[hp]" == "1"} {#var pr_zycie <088><caa>[     ##]<088>;#var hp_bar {<118><caa> 2/ 7<088>};#var rpp @refreshprompt{};};
-	#if {"$CHAR_STATE[hp]" == "0"} {#var pr_zycie <088><caa>[      #]<088>;#var hp_bar {<118><caa> 1/ 7<088>};#var rpp @refreshprompt{};};
+	#if {"$CHAR_STATE[hp]" == "6"} {#var pr_zycie <088><aca>[#######]<088>;#var hp_bar {<118><aca> 7/ 7<088>};testpromopt};
+	#if {"$CHAR_STATE[hp]" == "5"} {#var pr_zycie <088><aca>[ ######]<088>;#var hp_bar {<118><aca> 6/ 7<088>};testprompt;};
+	#if {"$CHAR_STATE[hp]" == "4"} {#var pr_zycie <088><cca>[  #####]<088>;#var hp_bar {<118><cca> 5/ 7<088>};testprompt;};
+	#if {"$CHAR_STATE[hp]" == "3"} {#var pr_zycie <088><cca>[   ####]<088>;#var hp_bar {<118><cca> 4/ 7<088>};testprompt;};
+	#if {"$CHAR_STATE[hp]" == "2"} {#var pr_zycie <088><caa>[    ###]<088>;#var hp_bar {<118><caa> 3/ 7<088>};testprompt;};
+	#if {"$CHAR_STATE[hp]" == "1"} {#var pr_zycie <088><caa>[     ##]<088>;#var hp_bar {<118><caa> 2/ 7<088>};testprompt;};
+	#if {"$CHAR_STATE[hp]" == "0"} {#var pr_zycie <088><caa>[      #]<088>;#var hp_bar {<118><caa> 1/ 7<088>};testprompt;};
 
 	#if {"$CHAR_STATE[encumberance]" == "6"} {#var pr_obci {<118><caa> 6/ 6<088>};};
 	#if {"$CHAR_STATE[encumberance]" == "5"} {#var pr_obci {<118><caa> 5/ 6<088>};};
@@ -91,27 +106,6 @@
 {
 	#var pr_poczta <afa>--<088>;
 }
-
-
-#nop CHLANIE;
-#action {Masz potwornego kaca.} {#var pr_upicie <118><faa>-6/10<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Masz straszliwego kaca.} {#var pr_upicie <118><faa>-5/10<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Masz niezlego kaca.} {#var pr_upicie <118><faa>-4/10<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Masz drazniacego kaca.} {#var pr_upicie <118><faa>-3/10<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Masz niemilego kaca.} {#var pr_upicie <118><faa>-2/10<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Masz lekkiego kaca.} {#var pr_upicie <118><faa>-1/10<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes trzezwy.} {#var pr_upicie <118><afa> 0/10<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Bol glowy przechodzi.} {#var pr_upicie <118><afa> 0/10<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes podchmielony.} {#var pr_upicie <118><afa> 1/10<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes lekko podpity.} {#var pr_upicie <118><afa> 2/10<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes podpity.} {#var pr_upicie <118><afa> 3/10<088>;#var rpp @refreshprompt{};;#line gag};  
-#action {Jestes wstawiony.} {#var pr_upicie <118><ffa> 4/10<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes mocno wstawiony.} {#var pr_upicie <118><ffa> 5/10<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes pijany.} {#var pr_upicie <118><ffa> 6/10<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes schlany.} {#var pr_upicie <118><faa> 7/10<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes napruty.} {#var pr_upicie <118><faa> 8/10<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes nawalony.} {#var pr_upicie <118><faa> 9/10<088>;#var rpp @refreshprompt{};;#line gag};
-#action {Jestes pijany jak bela.} {#var pr_upicie <118><faa>10/10<088>;#var rpp @refreshprompt{};;#line gag};
 
 
 
