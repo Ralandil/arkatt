@@ -131,15 +131,15 @@
 
 #alias {asciimap}
 {
-	#var asciimap_h 11;
-	#var asciimap_w 40;
+	#var asciimap_h 6;
+	#var asciimap_w 50;
 	#unvar asciimapv;
 	#format wpadder {%+${asciimap_w}s} {};
 	#loop 1 $asciimap_h loopcnt {
 		#var asciimapv[$loopcnt] {$wpadder};
 	};
 	#nop system {/Users/eldakar/arkatt/maps/showmap /Users/eldakar/arkatt/maps/$ROOM_INFO[map][name].map $ROOM_INFO[map][x] $ROOM_INFO[map][y] $asciimap_w 12};	
-	#script {asciimapv} {/Users/eldakar/arkatt/maps/showmap /Users/eldakar/arkatt/maps/$ROOM_INFO[map][name].map $ROOM_INFO[map][x] $ROOM_INFO[map][y] $asciimap_w 12};
+	#script {asciimapv} {$path/maps/showmap $path/maps/$ROOM_INFO[map][name].map $ROOM_INFO[map][x] $ROOM_INFO[map][y] $asciimap_w 6};
 	#loop 1 $asciimap_h loopcnt {
 		#var tmpline {$asciimapv[$loopcnt]};
 		#format {tmpline} {%-${asciimap_w}s} {$tmpline};
@@ -155,7 +155,7 @@
 		#replace {tmpline} {F} {<acf>F<088>};
 		#replace {tmpline} {B} {<ffa>B<088>};
 		#var asciimapv[$loopcnt] {$tmpline};
-		#nop sh $asciimapv[$loopcnt];
+		#sh $asciimapv[$loopcnt];
 	}
 }
 
@@ -163,6 +163,10 @@
 
 #EVENT {IAC SB GMCP room.info IAC SE}{
 	#var ROOM_INFO {%0};
+
+	#if {$gmcp_saving < 1} {
+		#nop cg;
+	};
 
 	#var pr_n { };
 	#var pr_s { };
@@ -203,17 +207,14 @@
 		#if {$mnamelen > 0} {
 			#replace {ROOM_INFO[map][name]} { } {};
 			#replace {ROOM_INFO[map][name]} {'} {};
-			asciimap;
+			#nop asciimap;
 		};
-			asciicompas;
-		
-
-
+			#nop asciicompas;
 	};
-			team_clean_compare;
+	team_clean_compare;
 	#var ruch_kompasu {none};
 	#var kompas_dziala {0};
-	testprompt;
+    testprompt;
 }
 
 #var isNstandard 1
@@ -227,14 +228,20 @@
 #var isUPstandard 1
 #var isDNstandard 1
 
-#action {<CHAT> mapper chats to everyone, 'room:id:%1'} {#var current_room_id %1;#line gag;}
-#action {<CHAT> mapper chats to everyone, 'exit:end'} {testprompt;#line gag;}
+#action {<CHAT> mapper chats to everyone, 'room:id:%1'} {
+	#var current_room_id %1;
+	#if {$gmcp_saving > 0} {sg;};
+	#line gag;
+}
+#action {<CHAT> mapper chats to everyone, 'exit:end'} {
+    testprompt;
+	#line gag;
+}
 #action {<CHAT> mapper chats to everyone, 'exit:start'} {#line gag;}
-#action {<CHAT> You chat to %1, %2} {#line gag}
+#action {<CHAT> You chat to %1, %2} {#line gag};
 
 
 #action {^<CHAT> mapper chats to everyone, 'room:enter'} {
-	#line gag;
 	  #var isSstandard 1;
 	  #line substitute {variables} {#macro {$KEY_PAD_S} {move_s}};
 	  #alias s {move_s};
@@ -265,6 +272,7 @@
 	  #var isDNstandard 1;
 	  #line substitute {variables} {#macro {$KEY_PAD_D} {move_d}};
 	  #alias d {move_d};
+	#line gag;
 }
 
 #nop catch empty exits
@@ -319,7 +327,9 @@
     #line substitute {variables} {#macro {${KEY_PAD_${upper_dir}}} {custom_${lower_dir}}};
     #line substitute {variables} {#alias {${lower_dir}} {custom_${lower_dir}}};
     #line substitute {variables} {#var {is${upper_dir}standard} 0;};
-    #sh <118><fff> $upper_dir: <088><acf>%2<088>;
+
+    #format {displaydir} {%-2s} {$lower_dir};
+    #sh <acf>[exit <ffa>$displaydir<acf>] <088><acf>%2<088>;
     
     #line substitute {variables} {#var pr_${lower_dir} $klocekr[$upper_dir];};
     #if {"$upper_dir" == "U"} {
@@ -331,7 +341,6 @@
     #format lower_dir {%l} {%2}
     #line substitute {variables} {#alias {$lower_dir} {#send %2;#chat message mapper navigate:exit:$lower_dir}};
 
-	asciicompas;
     #line gag;
 } {5}
 
@@ -339,36 +348,47 @@
 #action {Ruszasz razno na %1, schodzac z wytyczonego traktu, jednak okazuje sie} {#chat message mapper map:undo};
 #action {Nie widzisz zadnego wyjscia %0} {#chat message mapper map:undo};
 
-#action {Odpadasz od sciany i lecisz w dol, jednak dzieki niewielkiej wysokosci udaje ci sie zgrabnie wyladowac na ziemi.} {#chat message mapper revert};
-#action {Nie masz na to sily.} {#chat message mapper revert};
-#action {Probujesz otworzyc %0, ale nie udaje ci sie to.} {#chat message mapper revert;#var ret @set_quickbind_green{uderz w brame}};
-#action {Jestes tak zmeczony, ze nie mozesz dalej podazac w tym kierunku.} {#chat message mapper revert};
-
-
-#action {Nie mozesz tego zrobic, gdyz wiaze} {#sh <fff>ASUR<088>;#line gag;} {1};
+#action {Odpadasz od sciany i lecisz w dol, jednak dzieki niewielkiej wysokosci udaje ci sie zgrabnie wyladowac na ziemi.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+#action {Nie masz na to sily.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+#action {Probujesz otworzyc %1, ale nie udaje ci sie to.} {#var ret @set_quickbind_green{uderz w brame};#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+#action {Jestes tak zmeczony, ze nie mozesz dalej podazac w tym kierunku.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
 #action {Nie mozesz tego zrobic, gdyz} {#chat message mapper revert} {7};
 
-#action {Nie mozesz sie tam udac, gdyz siedzisz.} {#chat message mapper revert};
-#action {Najpierw wejdz do kabiny i sie rozbierz!} {#chat message mapper revert};
-#action {Nie masz %0 wstepu.} {#chat message mapper revert};
-#action {Nie mozesz sie tam udac, gdyz %1 blokuj%+ ci droge na %3.} {#chat message mapper revert};
-#action {Jestes teraz zajety czyms innym.} {#chat message mapper revert};
-#action {Niestety, brama jest zamknieta.} {#chat message mapper revert};
-#action {%3 mowi do ciebie: Nikt z bronia nie wejdzie na teren gornej twierdzy. Prosze zostawic ja na stojaku.} {#chat message mapper revert};
-#action {Przeciez nic nie widzisz.} {#chat message mapper revert};
+#action {Gorliwy ciemnowlosy mezczyzna stoi ci na drodze.} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+
+#action {Nie jestes upowazniony do wejscia do magazynu.} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+#action {Podchodzisz pod drzwi na polnocy, ktore otwiera wielki mezczyzna i oceniajaco taksuje cie wzrokiem. Prycha pod nosem i bez} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+#action {Podchodzisz pod drzwi na polnocy, zza ktorych rozlega sie czyjs ponury glos: 'Zmiataj stad, nim ktos ci %1} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag} {2};
+#action {Podchodzisz pod drzwi na polnocy, ktore otwiera wielki mezczyzna i przyglada ci sie badawczo, %1} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag} {2};
+#action {Podchodzisz pod drzwi na polnocy, %1} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag} {1};
+#action {Droge zastepuje ci barczysty straznik mowiac: Prosze okazac kwit magazynowy lub wskazac towar do przechowania.} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag} {1};
+#action {Ogolony kompetentny straznik mowi do ciebie: Nikt z zakryta twarza nie wejdzie na teren zamku.} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag} {1};
+#action {Wysoki zezowaty sierzant mowi do ciebie: Nikt z zakryta twarza nie wejdzie na teren Uniwersytetu.} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag} {1};
+#action {Wysoki wasaty sierzant mowi do ciebie: Nikt z zakryta twarza nie wejdzie na teren Uniwersytetu.} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag} {1};
+#action {Nie zmiescisz sie w budzie!} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag} {1};
+#action {Nie mozesz sie tam udac, gdyz siedzisz.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+#action {Najpierw wejdz do kabiny i sie rozbierz!} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+#action {Nie masz %0 wstepu.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+#action {Musisz najpierw oplacic wejscie na widownie.} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+#action {Nie mozesz sie tam udac, gdyz %1 blokuj%+ ci droge na %3.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+#action {Jestes teraz zajety czyms innym.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+#action {Niestety, brama jest zamknieta.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+#action {%3 mowi do ciebie: Nikt z bronia nie wejdzie na teren gornej twierdzy. Prosze zostawic ja na stojaku.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+#action {Przeciez nic nie widzisz.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
 #action {Probujesz sie ruszyc na %1, jednak pajecze sieci, w ktore sie w miedzy czasie zaplatales, uniemozliwiaja ci to.} {#chat message mapper revert;#showme <faa>PROBUJ NA %1<088>};
-#action {Niestety drzwi sa zamkniete, ale zauwazasz na nich tabliczke:} {#chat message mapper revert};
-#action {Niestety jestes zbyt duzy, aby przecisnac sie przez dziure.} {#chat message mapper revert};
-#action {Probujesz wejsc w uliczke, ale cos z cichym plasnieciem rozmazuje ci sie pod noga. Zdegustowany zawracasz i decydujesz sie ominac ten zaulek.} {#chat message mapper revert};
-#action {Nie mozesz sie udac na zaplecze.} {#chat message mapper revert};
-#action {Juz probujesz wejsc, gdy nagle drzwi okazuja sie byc dokladnie zamkniete. Na drzwiach zauwazasz tylko tabliczke:} {#chat message mapper revert};
-#action {Drzwi sa zamkniete i nie daja sie otworzyc bez odpowiedniego klucza.} {#chat message mapper revert};
-#action {Pociagasz za klamke, ale drzwi sa zamkniete.} {#chat message mapper revert};
-#action {Kierujesz sie w strone krzakow} {#chat message mapper revert};
+#action {Niestety drzwi sa zamkniete, ale zauwazasz na nich tabliczke:} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+#action {Niestety jestes zbyt duzy, aby przecisnac sie przez dziure.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+#action {Probujesz wejsc w uliczke, ale cos z cichym plasnieciem rozmazuje ci sie pod noga. Zdegustowany zawracasz i decydujesz sie ominac ten zaulek.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+#action {Nie mozesz sie udac na zaplecze.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+#action {Juz probujesz wejsc, gdy nagle drzwi okazuja sie byc dokladnie zamkniete. Na drzwiach zauwazasz tylko tabliczke:} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+#action {Drzwi sa zamkniete i nie daja sie otworzyc bez odpowiedniego klucza.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+#action {Pociagasz za klamke, ale drzwi sa zamkniete.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+#action {Probujesz rozpaczliwie wspiac sie na gore, ale zeslizgujesz sie po mokrych kamieniach.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+#action {Kierujesz sie w strone krzakow} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
 #action {Probujesz dostac sie do srodka willi, lecz po chwili zjawia sie lokaj, powiadamiajac cie uprzejmym, acz stanowczym glosem,} {#chat message mapper revert}
 #action {Kierujesz sie w strone krzakow porastajacych polnocno-wchodnia czesc kotliny, lecz bezradnie zatrzymujesz sie przed zwarta sciana kolcow i galezi. Nie znajdujesz sposobu, jak wejsc w chaszcze.} {#chat message mapper revert} {1};
-#action {Jestes ogluszony i nie mozesz nic zrobic.} {#chat message mapper revert};
-#action {Nie jestes w stanie wymknac sie stad niezauwazenie.} {#chat message mapper revert};
+#action {Jestes ogluszony i nie mozesz nic zrobic.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+#action {Nie jestes w stanie wymknac sie stad niezauwazenie.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
 
 #nop IN A CASE GMCP DO NOT RETURN ANY VALUES
 #nop action {Jest zbyt ciemno by cokolwiek zauwazyc. Instynktownie jednak odgadujesz, ze znajdujesz sie gleboko pod ziemia. Bardzo gleboko...} {#var lastmove none}
@@ -382,15 +402,37 @@
   #chat message mapper navigate:custom:wskocz do studni;
 }
 
+#action {<CHAT> mapper chats to everyone, 'info:%1'}
+{
+    #echo {<088><ffa>[lokacja] <ffa>%1<088>};
+    #line gag;
+}
+#action {<CHAT> mapper chats to everyone, 'bind:{F|f}{1|2|3|4|5|6|7|8}:%3'}
+{
+#echo {<088><aca>[bind <ffa>%1%2<aca>] <afa>%3<088>};
+#if {%2 == 1} {#line substitute {variables} {#macro {$KEY_F1} {%3}}};
+#if {%2 == 2} {#line substitute {variables} {#macro {$KEY_F2} {%3;#line substitute {variables} {#format display_function_2 {%-34s %.34s} {<ada>  <088>}};testprompt;}}};
+#if {%2 == 3} {#line substitute {variables} {#macro {$KEY_F3} {%3;#line substitute {variables} {#format display_function_3 {%-34s %.34s} {<ada>  <088>}};#sh prompt7;#sh prompt6;#sh prompt5;}}};
+#if {%2 == 4} {#line substitute {variables} {#macro {$KEY_F4} {%3;#line substitute {variables} {#format display_function_4 {%-34s %.34s} {<ada>  <088>}};#sh prompt7;#sh prompt6;#sh prompt5;}}};
+#if {%2 == 5} {#line substitute {variables} {#macro {$KEY_F5} {%3;#line substitute {variables} {#format display_function_5 {%-34s %.34s} {<ada>  <088>}};#sh prompt7;#sh prompt6;#sh prompt5;}}};
+#if {%2 == 6} {#line substitute {variables} {#macro {$KEY_F6} {%3;#line substitute {variables} {#format display_function_6 {%-34s %.34s} {<ada>  <088>}};#sh prompt7;#sh prompt6;#sh prompt5;}}};
+#if {%2 == 7} {#line substitute {variables} {#macro {$KEY_F7} {%3;#line substitute {variables} {#format display_function_7 {%-34s %.34s} {<ada>  <088>}};#sh prompt7;#sh prompt6;#sh prompt5;}}};
+#if {%2 == 8} {#line substitute {variables} {#macro {$KEY_F8} {%3;#line substitute {variables} {#format display_function_8 {%-34s %.34s} {<ada>  <088>}};#sh prompt7;#sh prompt6;#sh prompt5;}}};
+#if {%2 == 9} {#line substitute {variables} {#macro {$KEY_F9} {%3;#line substitute {variables} {#format display_function_9 {%-34s %.34s} {<ada>  <088>}};#sh prompt7;#sh prompt6;#sh prompt5;}}};
+
+#line substitute {variables} {#format display_function_%2 {%-34s %.34s} {<ada>%3<088>}};
+testprompt;
+#line gag;
+}
 
 
 #nop chat options
-#action {^<CHAT> %* chats to everyone, 'MESSAGE %1: %2'}
+#action {^<CHAT> ircbot chats to everyone, 'MESSAGE %1: %2'}
 {
-  #sh {<118><faf>[zaslona]#PRIV [%1] <aff>%2<088>};
+  #sh {<118><afa>#PRIV [%1] <aff>%2<088>};
   #line gag;
 }
-#action {^<CHAT> %* chats to everyone, 'CHANNEL %1: %2'}
+#action {^<CHAT> ircbot chats to everyone, 'CHANNEL %1: %2'}
 {
   #sh {<118><afa>#KOMPANIA [%1]: <aff>%2<088>};
   #line gag;
@@ -399,5 +441,3 @@
 {
   #chat message ircbot kompania %0;
 }
-
-

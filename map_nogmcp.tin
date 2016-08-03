@@ -155,7 +155,7 @@
 		#replace {tmpline} {F} {<acf>F<088>};
 		#replace {tmpline} {B} {<ffa>B<088>};
 		#var asciimapv[$loopcnt] {$tmpline};
-		#sh $asciimapv[$loopcnt];
+		#nop sh $asciimapv[$loopcnt];
 	}
 }
 
@@ -207,7 +207,7 @@
 		#if {$mnamelen > 0} {
 			#replace {ROOM_INFO[map][name]} { } {};
 			#replace {ROOM_INFO[map][name]} {'} {};
-			#nop asciimap;
+			asciimap;
 		};
 			#nop asciicompas;
 	};

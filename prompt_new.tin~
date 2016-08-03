@@ -110,11 +110,11 @@
 }
 
 #alias {PROMPT_SET_MAP} {
-	#prompt {prompt5} { <088><aff>f1: $display_function_1 <088>           <aff>Kon:<088> $hp_bar  <aff>Pra: <088>$pr_smad   $asciimapv[2]} {6};
-	#prompt {prompt4} { <088><aff>f2: $display_function_2 <088> $pr_nw  $pr_n  $pr_ne   <aff>Man:<088> $pr_mana  <aff>Glo: <088>$pr_glod   $asciimapv[3]} {5};
-	#prompt {prompt3} { <088><aff>f3: $display_function_3 <088> $pr_w  o  $pr_e   <aff>Zme:<088> $pr_zmeczenie  <aff>Upi: <088>$pr_upicie   $asciimapv[4]} {4};
-	#prompt {prompt2} { <088><aff>f4: $display_function_4 <088> $pr_sw  $pr_s  $pr_se   <aff>For:<088> $pr_form  <aff>Exp: <088>$pr_exp   $asciimapv[5]} {3};
-	#prompt {prompt1} { <088><aff>f5: $display_function_5 <088>           <aff>Cie: <088>$pr_obci  <faf>Cho: <088>   $walkmodep   $asciimapv[6]} {2};
+	#prompt {prompt5} { <088><aff>f1: $display_function_1 <088>           <aff>Kon:<088> $hp_bar  <aff>Pra: <088>$pr_smad   $asciimapv[1]} {6};
+	#prompt {prompt4} { <088><aff>f2: $display_function_2 <088> $pr_nw  $pr_n  $pr_ne   <aff>Man:<088> $pr_mana  <aff>Glo: <088>$pr_glod   $asciimapv[2]} {5};
+	#prompt {prompt3} { <088><aff>f3: $display_function_3 <088> $pr_w  o  $pr_e   <aff>Zme:<088> $pr_zmeczenie  <aff>Upi: <088>$pr_upicie   $asciimapv[3]} {4};
+	#prompt {prompt2} { <088><aff>f4: $display_function_4 <088> $pr_sw  $pr_s  $pr_se   <aff>For:<088> $pr_form  <aff>Exp: <088>$pr_exp   $asciimapv[4]} {3};
+	#prompt {prompt1} { <088><aff>f5: $display_function_5 <088>           <aff>Cie: <088>$pr_obci  <faf>Cho: <088>   $walkmodep   $asciimapv[5]} {2};
 	testprompt;
 }
 
