@@ -2484,8 +2484,8 @@
 #var postacin[niebieskooki czujny mutant][NPC] {Uriel};
 #var postacin[niebieskooki smukly mezczyzna][GP] {Urisiel};
 #var postacis[smukly mlody mezczyzna][KS] {Urisiel};
-#var postacib[brudny garbaty ogr][GP] {Urs};
-#var postacik[kudlata krzywonosa krasnoludka][KM] {Ursa};
+#var postacib[brudny garbaty ogr][NA] {Urs};
+#var postacik[kudlata krzywonosa krasnoludka][KM] {Ursaa};
 #var postaciw[wlochaty smierdzacy ogr][NPC] {Usghar};
 #var postacip[przygarbiony siwy mezczyzna][NPC] {Uve};
 #var postacic[ciemnowlosy szczuply mezczyzna][NPC] {Vaclav};
@@ -2795,7 +2795,8 @@
 #var postacid[jakistam wyglad][GP] {Sulruth};
 #var postacid[jakistam wyglad][MC] {Vesper};
 #var postacid[jakistam wyglad][GP] {Sulruth};
-#var postacid[jakistam wyglad][GP] {Gilmore};
+#var postacid[jakistam wyglad][NA] {Gilmore};
+#var postacid[jakistam wyglad88][NA] {Gotfried};
 #var postacis[jakistam wyglad22][LE] {Solenay};
 #var postacic[jakistam wyglad33][GP] {Tarran};
 #var postacic[jakistam wyglad44][GP] {Sarven};
