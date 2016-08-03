@@ -131,15 +131,15 @@
 
 #alias {asciimap}
 {
-	#var asciimap_h 11;
-	#var asciimap_w 40;
+	#var asciimap_h 6;
+	#var asciimap_w 50;
 	#unvar asciimapv;
 	#format wpadder {%+${asciimap_w}s} {};
 	#loop 1 $asciimap_h loopcnt {
 		#var asciimapv[$loopcnt] {$wpadder};
 	};
 	#nop system {/Users/eldakar/arkatt/maps/showmap /Users/eldakar/arkatt/maps/$ROOM_INFO[map][name].map $ROOM_INFO[map][x] $ROOM_INFO[map][y] $asciimap_w 12};	
-	#script {asciimapv} {$path/maps/showmap $path/maps/$ROOM_INFO[map][name].map $ROOM_INFO[map][x] $ROOM_INFO[map][y] $asciimap_w 12};
+	#script {asciimapv} {$path/maps/showmap $path/maps/$ROOM_INFO[map][name].map $ROOM_INFO[map][x] $ROOM_INFO[map][y] $asciimap_w 6};
 	#loop 1 $asciimap_h loopcnt {
 		#var tmpline {$asciimapv[$loopcnt]};
 		#format {tmpline} {%-${asciimap_w}s} {$tmpline};
@@ -155,7 +155,7 @@
 		#replace {tmpline} {F} {<acf>F<088>};
 		#replace {tmpline} {B} {<ffa>B<088>};
 		#var asciimapv[$loopcnt] {$tmpline};
-		#nop sh $asciimapv[$loopcnt];
+		#sh $asciimapv[$loopcnt];
 	}
 }
 
