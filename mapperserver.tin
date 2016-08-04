@@ -18,6 +18,15 @@
 	#line gag;
 }
 
+#action {^<CHAT> %1 chats to you, 'path:highlight:%2'}
+{
+    #mapper #send path:highlight:%2;
+}
+#action {^<CHAT> %1 chats to you, 'path:clear'}
+{
+    #mapper #send path:clear;
+}
+
 #action {^<CHAT> %1 chats to you, 'navigate:exit:{nw|ne|sw|se|n|w|s|e|u|d}'}
 {
 	#mapper #send navigate:exit:%2;
@@ -79,27 +88,11 @@
 	#line gag;
 }
 
-#split 0 22;
-
-#loop {2} {21} {lc} {#line substitute {variables} {#prompt {line${lc}} {$line$lc} {$lc}};};
-
-#loop {2} {21} {lc} {
-	#line substitute {variables} {
-		#action {~<CHAT> %* chats to you, 'line$lc-%*'} {
-			#var line${lc} {%2};
-			#sh {line${lc}};
-			#line gag;
-		};
-	};
-};
-
 #action {~<CHAT> %* chats to you, 'chat%*'} {
 	#sh {%2};
 	#line gag;
 };
 
-
-#action {<CHAT>} {#line gag;} {7};
 
 #action {^bind:%1} {#chat message all %0};
 #action {^info:%1} {#chat message all %0};
