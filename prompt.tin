@@ -1,15 +1,5 @@
+#loop 1 40 {d} {#var prompt_objects[$d] {}};
 #var prompt_type {1}
-#var pane_distance10 {          }
-#var pane_distance9 {         }
-#var pane_distance8 {        }
-
-#var pane_distance7 {       }
-#var pane_distance6 {      }
-#var pane_distance5 {     }
-#var pane_distance4 {    }
-#var pane_distance3 {   }
-#var pane_distance2 {  }
-#var pane_distance1 { }
 
 #var pane_progress_none { 0/ 0};
 
@@ -22,10 +12,6 @@
 #var RBLOCKD {<FAA><118><aaa>\\/<088>};
 #var YBLOCKU {<FFA><118><aaa>/\\<088>};
 #var YBLOCKD {<FFA><118><aaa>\\/<088>};
-
-#var zmebar {<118><afa>----------------------------------------------------------------------<088>};
-#var hpbar {<118><afa>----------------------------------------------------------------------<088>};
-
 
 #var compass_sw_t { /}
 #var compass_sw_b {/ }
@@ -105,7 +91,7 @@
 	#prompt {prompt4} { <088><aff>f2: $display_function_2 <088> $pr_nw  $pr_n  $pr_ne   <aff>Man:<088> $pr_mana  <aff>Glo: <088>$pr_glod   $prompt_objects[1]$prompt_objects[6]$prompt_objects[11]$prompt_objects[16]$prompt_objects[21]} {5};
 	#prompt {prompt3} { <088><aff>f3: $display_function_3 <088> $pr_w  o  $pr_e   <aff>Zme:<088> $pr_zmeczenie  <aff>Upi: <088>$pr_upicie   $prompt_objects[2]$prompt_objects[7]$prompt_objects[12]$prompt_objects[17]$prompt_objects[22]} {4};
 	#prompt {prompt2} { <088><aff>f4: $display_function_4 <088> $pr_sw  $pr_s  $pr_se   <aff>For:<088> $pr_form  <aff>Exp: <088>$pr_exp   $prompt_objects[3]$prompt_objects[8]$prompt_objects[13]$prompt_objects[18]$prompt_objects[23]} {3};
-	#prompt {prompt1} { <088><aff>f5: $display_function_5 <088>           <aff>Cie: <088>$pr_obci  <faf>Cho: <088>   $walkmodep   $prompt_objects[4]$prompt_objects[9]$prompt_objects[14]$prompt_objects[19]$prompt_objects[24l]} {2};
+	#prompt {prompt1} { <088><aff>f5: $display_function_5 <088>           <aff>Cie: <088>$pr_obci  <faf>Cho: <088>   $walkmodep   $prompt_objects[4]$prompt_objects[9]$prompt_objects[14]$prompt_objects[19]$prompt_objects[24]} {2};
 	testprompt;
 }
 

@@ -75,22 +75,22 @@
 {
   #var wpn_typ {%2};
   #var wpn_hnd {%4};
-  #replace {wpn_hnd} {oburacz} {2h};
-  #replace {wpn_hnd} {w dowolnej rece} {1h};
-  #replace {wpn_hnd} {w lewej rece} {Lh};
-  #replace {wpn_hnd} {w prawej rece} {Ph};
-  #line gag;
+  #nop replace {wpn_hnd} {oburacz} {2h};
+  #nop replace {wpn_hnd} {w dowolnej rece} {1h};
+  #nop replace {wpn_hnd} {w lewej rece} {Lh};
+  #nop replace {wpn_hnd} {w prawej rece} {Ph};
 }
 #action {Do wykonania tej broni uzyto srebra, bedzie wiec ona skuteczna przeciw wrogom odpornym na zwykle obrazenia.}
 {
-  #sh {<fff>SPEC : <ffa>srebro<088>};
-  #line gag;
+  #var objectviewv[1] {<aff>bron        : <afa>$wpn_nam<088> <aff>(<fff>srebro<aff>)<088>};
+PROMPT_SET_OBJ;
 }
 
 #action {Sadzac po delikatnym drzeniu w broni tej zostala zakleta jakas magia, bedzie wiec ona skuteczna przeciw wrogom odpornym na zwykle
 obrazenia.}
 {
-    #var wpn_mag {magik};
+  #var objectviewv[1] {<aff>bron        : <afa>$wpn_nam<088> <aff>(<caf>magik<aff>)<088>};
+PROMPT_SET_OBJ;
 }
 
 #action {Twoje doswiadczenie i umiejetnosci podpowiadaja ci, ze jak na %1 jest {ona|ono|on} %3 wywazon%w i %4.}
@@ -149,7 +149,7 @@ obrazenia.}
 #var objectviewv[1] {<aff>bron        : <afa>$wpn_nam<088>};
 #var objectviewv[2] {<aff>wywazenie   : $wpn_dex<afa>/14 <aff>: <088>$wpn_dextext};
 #var objectviewv[3] {<aff>skutecznosc : $wpn_dmg<afa>/14 <aff>: <088>$wpn_dmgtext};
-#var objectviewv[4] {<aff>typ obrazen : <afa>$wpn_typ, obrazenia $wpn_dmt};
+#var objectviewv[4] {<aff>typ         : <afa>$wpn_typ, obrazenia $wpn_dmt, $wpn_hnd};
 #var objectviewv[5] {<aff>detal       : <ffa>$wpn_wei <afa>gramow <ffa>$wpn_vol <afa>mililitrow<088>};
 PROMPT_SET_OBJ;
 }

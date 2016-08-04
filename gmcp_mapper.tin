@@ -1,6 +1,6 @@
 #var gmcp_rooms_db[test][0][0] {0};
 
-#read $path/gmcpdb.tin
+#read $path/gmcp_map_db.tin
 
 #alias {check_gmcp_room} {
 	#var roominfo_x $ROOM_INFO[map][x];
@@ -53,7 +53,7 @@
 		#if {$srl < 1} {
 			#sh {<afa>MAPPER: Zapisuje <acc>$savedroom<088>};
 			#var gmcp_rooms_db[$roominfo_n][$roominfo_x][$roominfo_y] {$roominfo_r};
-    		#system {echo "#var gmcp_rooms_db[$roominfo_n][$roominfo_x][$roominfo_y] {$roominfo_r};" >> $path/gmcpdb.tin};
+    		#system {echo "#var gmcp_rooms_db[$roominfo_n][$roominfo_x][$roominfo_y] {$roominfo_r};" >> $path/gmcp_map_db.tin};
 		} {
 			#sh {<cca>MAPPER: Lokacja <cca>$roominfo_r <cca> juz zapisana!};
 		}
@@ -81,13 +81,13 @@
 		#if {$srl < 1} {
 			#sh {<afa>MAPPER: Zapisuje <acc>$savedroom<088>};
 			#var gmcp_rooms_db[$roominfo_n][$roominfo_x][$roominfo_y] {$roominfo_r};
-    		#system {echo "#var gmcp_rooms_db[$roominfo_n][$roominfo_x][$roominfo_y] {$roominfo_r};" >> $path/gmcpdb.tin};
+    		#system {echo "#var gmcp_rooms_db[$roominfo_n][$roominfo_x][$roominfo_y] {$roominfo_r};" >> $path/gmcp_map_db.tin};
 		} {
 			#sh {<cca>MAPPER: Lokacja <cca>$roominfo_r <cca> juz zapisana, nadpisuje!};
 			#unvar gmcp_rooms_db[$roominfo_n][$roominfo_x][$roominfo_y];
-    		#system {echo "#unvar gmcp_rooms_db[$roominfo_n][$roominfo_x][$roominfo_y];" >> $path/gmcpdb.tin};		
+    		#system {echo "#unvar gmcp_rooms_db[$roominfo_n][$roominfo_x][$roominfo_y];" >> $path/gmcp_map_db.tin};		
 			#var gmcp_rooms_db[$roominfo_n][$roominfo_x][$roominfo_y] {$roominfo_r};
-    		#system {echo "#var gmcp_rooms_db[$roominfo_n][$roominfo_x][$roominfo_y] {$roominfo_r};" >> $path/gmcpdb.tin};			
+    		#system {echo "#var gmcp_rooms_db[$roominfo_n][$roominfo_x][$roominfo_y] {$roominfo_r};" >> $path/gmcp_map_db.tin};			
 		}
 	}
 }

@@ -8,10 +8,6 @@
 #config {debug telnet} {off};
 #var path /Users/eldakar/arkatt;
 #var logpath ${path}logs;
-#var cl_frame {<bbb>};
-#var cl_compf {<faf>};
-#var cl_compc {<faa>};
-#var cl_updownc {<FAA><aaa>};
 #nop ### wartosc dla wiele/ przy peliczaniu
 #var wiele {44};
 #chat init 5555;
@@ -42,9 +38,6 @@
 #var KEY_PAD_WALK {\e0};
 #var KEY_PAD_WALK_M {\e/};
 #var KEY_PAD_KOND {\e5};
-#var safe_walk 1;
-#nop @@@ bez gagowania @@@
-#var no_gag 1;
 
-#read $path/init_nogmcp.tin;
+#read $path/init.tin;
 

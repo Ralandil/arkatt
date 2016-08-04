@@ -32,19 +32,3 @@
 	
 }
 
-#nop regex {$MESSAGE_INFO[text]} {%*:%*} {#var rr @add_chat_lines{<bbb>$stamp <fff>&1<bbb>:<ccc>&2};};
-
-#action {~%1 {mruczy|mowi|burczy|dudni|krzyczy|nuci}%* do ciebie: %4} 
-{
-  #chat message mapper {chat %0};
-}
-
-#action {~%1 {mruczy|mowi|burczy|dudni|krzyczy|nuci}%*: %4}
-{
-  #chat message mapper {chat %0};
-}
-
-#action {~Mowisz%*: %2}
-{
-  #chat message mapper {chat %0};
-}
