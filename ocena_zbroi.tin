@@ -39,13 +39,24 @@
 #return $obr
 }
 
-#nop Zauwazasz, iz ta bron drzewcowa jest przystosowana do chwytania oburacz.
-#nop Za jej pomoca mozna zadawac rany klute i ciete.
-#nop Twoje doswiadczenie i umiejetnosci podpowiadaja ci, ze jak na bron drzewcowa jest ona dosc dobrze wywazon%w i bardzo skuteczn%w.
-#nop Do wykonania tej broni uzyto srebra, bedzie wiec ona skuteczna przeciw wrogom odpornym na zwykle obrazenia.
+
+
+
+#var objectviewv[1] {};
+#var objectviewv[2] {};
+#var objectviewv[3] {};
+#var objectviewv[4] {};
+#var objectviewv[5] {};
 
 #action {Oceniasz, ze %1 wazy %2 gramow, zas {jej|jego} objetosc wynosi %4 mililitrow.}
 {
+
+#var objectviewv[1] {};
+#var objectviewv[2] {};
+#var objectviewv[3] {};
+#var objectviewv[4] {};
+#var objectviewv[5] {};
+
   #var wpn_nam {%1};
   #var wpn_wei {%2};
   #var wpn_vol {%4};
@@ -76,57 +87,69 @@
   #line gag;
 }
 
+#action {Sadzac po delikatnym drzeniu w broni tej zostala zakleta jakas magia, bedzie wiec ona skuteczna przeciw wrogom odpornym na zwykle
+obrazenia.}
+{
+    #var wpn_mag {magik};
+}
+
 #action {Twoje doswiadczenie i umiejetnosci podpowiadaja ci, ze jak na %1 jest {ona|ono|on} %3 wywazon%w i %4.}
 {
   #var wpn_dmg {%4};
   #var wpn_dex {%3};
-  
-  #replace {wpn_dmg} {kompletnie nieskuteczny} {1};
-  #replace {wpn_dmg} {strasznie nieskuteczny} {2};
-  #replace {wpn_dmg} {bardzo nieskuteczny} {3};
-  #replace {wpn_dmg} {raczej nieskuteczny} {4};
-  #replace {wpn_dmg} {malo skuteczny} {5};
-  #replace {wpn_dmg} {niezbyt skuteczny} {6};
-  #replace {wpn_dmg} {raczej skuteczny} {7};
-  #replace {wpn_dmg} {dosyc skuteczny} {8};
-  #replace {wpn_dmg} {calkiem skuteczny} {9};
+
+#var wpn_dmgtext $wpn_dmg;
+#var wpn_dextext $wpn_dex;
+
+  #replace {wpn_dmg} {kompletnie nieskuteczny} { 1};
+  #replace {wpn_dmg} {strasznie nieskuteczny} { 2};
+  #replace {wpn_dmg} {bardzo nieskuteczny} { 3};
+  #replace {wpn_dmg} {raczej nieskuteczny} { 4};
+  #replace {wpn_dmg} {malo skuteczny} { 5};
+  #replace {wpn_dmg} {niezbyt skuteczny} { 6};
+  #replace {wpn_dmg} {raczej skuteczny} { 7};
+  #replace {wpn_dmg} {dosyc skuteczny} { 8};
+  #replace {wpn_dmg} {calkiem skuteczny} { 9};
   #replace {wpn_dmg} {bardzo skuteczny} {10};
   #replace {wpn_dmg} {niezwykle skuteczny} {11};
   #replace {wpn_dmg} {wyjatkowo skuteczny} {12};
   #replace {wpn_dmg} {zabojczo skuteczny} {13};
-  #replace {wpn_dmg} {fantastycznie skuteczny} {14};
+  #replace {wpn_dmg} {fantastycznie skuteczny} {<118><caf>14<088>};
 
-  #replace {wpn_dmg} {kompletnie nieskuteczna} {1};
-  #replace {wpn_dmg} {strasznie nieskuteczna} {2};
-  #replace {wpn_dmg} {bardzo nieskuteczna} {3};
-  #replace {wpn_dmg} {raczej nieskuteczna} {4};
-  #replace {wpn_dmg} {malo skuteczna} {5};
-  #replace {wpn_dmg} {niezbyt skuteczna} {6};
-  #replace {wpn_dmg} {raczej skuteczna} {7};
-  #replace {wpn_dmg} {dosyc skuteczna} {8};
-  #replace {wpn_dmg} {calkiem skuteczna} {9};
+  #replace {wpn_dmg} {kompletnie nieskuteczna} { 1};
+  #replace {wpn_dmg} {strasznie nieskuteczna} { 2};
+  #replace {wpn_dmg} {bardzo nieskuteczna} { 3};
+  #replace {wpn_dmg} {raczej nieskuteczna} { 4};
+  #replace {wpn_dmg} {malo skuteczna} { 5};
+  #replace {wpn_dmg} {niezbyt skuteczna} { 6};
+  #replace {wpn_dmg} {raczej skuteczna} { 7};
+  #replace {wpn_dmg} {dosyc skuteczna} { 8};
+  #replace {wpn_dmg} {calkiem skuteczna} { 9};
   #replace {wpn_dmg} {bardzo skuteczna} {10};
   #replace {wpn_dmg} {niezwykle skuteczna} {11};
   #replace {wpn_dmg} {wyjatkowo skuteczna} {12};
   #replace {wpn_dmg} {zabojczo skuteczna} {13};
-  #replace {wpn_dmg} {fantastycznie skuteczna} {14};
+  #replace {wpn_dmg} {fantastycznie skuteczna} {<118><caf>14<088>};
 
-  #replace {wpn_dex} {wyjatkowo zle} {1};
-  #replace {wpn_dex} {bardzo zle} {2};
-  #replace {wpn_dex} {kiepsko} {5};
-  #replace {wpn_dex} {bardzo kiepsko} {4};
-  #replace {wpn_dex} {przyzwoicie} {6};
-  #replace {wpn_dex} {srednio} {7};
-  #replace {wpn_dex} {niezle} {8};
+  #replace {wpn_dex} {wyjatkowo zle} { 1};
+  #replace {wpn_dex} {bardzo zle} { 2};
+  #replace {wpn_dex} {kiepsko} { 5};
+  #replace {wpn_dex} {bardzo kiepsko} { 4};
+  #replace {wpn_dex} {przyzwoicie} { 6};
+  #replace {wpn_dex} {srednio} { 7};
+  #replace {wpn_dex} {niezle} { 8};
   #replace {wpn_dex} {bardzo dobrze} {11};
-  #replace {wpn_dex} {dosc dobrze} {9};
+  #replace {wpn_dex} {dosc dobrze} { 9};
   #replace {wpn_dex} {dobrze} {10};
   #replace {wpn_dex} {doskonale} {12};
-  #replace {wpn_dex} {perfekcyjnie} {13};
+  #replace {wpn_dex} {perfekcyjnie} {<118><afa>13<088>};
   #replace {wpn_dex} {genialnie} {14};
-  #replace {wpn_dex} {zle} {3};
+  #replace {wpn_dex} {zle} { 3};
 
-  #math wpn_rat { ($wpn_dmg + $wpn_dex) * 100 / 28};
-  #sh <fff>NAZWA: <ffd>$wpn_nam <fff>TYP: <ffd>$wpn_typ <fff>REKA: <ffd>$wpn_hnd <fff>WYW: <ffd>$wpn_dex/14 <fff>CEL: <ffd>$wpn_dmg/14 <fff>SUM: <ffd>$wpn_rat% <fff>OBR: <ffd>$wpn_dmt<088>;
-  #line gag;
+#var objectviewv[1] {<aff>bron        : <afa>$wpn_nam<088>};
+#var objectviewv[2] {<aff>wywazenie   : $wpn_dex<afa>/14 <aff>: <088>$wpn_dextext};
+#var objectviewv[3] {<aff>skutecznosc : $wpn_dmg<afa>/14 <aff>: <088>$wpn_dmgtext};
+#var objectviewv[4] {<aff>typ obrazen : <afa>$wpn_typ, obrazenia $wpn_dmt};
+#var objectviewv[5] {<aff>detal       : <ffa>$wpn_wei <afa>gramow <ffa>$wpn_vol <afa>mililitrow<088>};
+PROMPT_SET_OBJ;
 }

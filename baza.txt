@@ -2803,6 +2803,8 @@
 #var postacic[jakistam wyglad55][GP] {Balkrag};
 #var postacic[jakistam wyglad66][GP] {Huggo};
 #var postacib[jakistam wyglad67][CN] {Bolryg};
+#var postacib[przygarbiony dumny ogr][MC] {KtosMC};
+#var postacib[bladoskora skosnooka kobieta][MC] {KtosMC};
 
 #list lista_wrogow {clear};
 #list lista_przyjaciol {clear};
