@@ -1,0 +1,5 @@
+#alias {lokacja} {
+#chat message mapper path:highlight:$przedmiotdb[%0][lokacja];
+}
+
+#var przedmiotdb[srebrzysta kosa bojowa][lokacja] {e1782ec2-a4b6-11e4-bfb0-2cf0ee2cbf2a};

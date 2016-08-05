@@ -1,0 +1,269 @@
+#action {~\e[22;38;5;059m%0} {
+	#echo <088>%0<088>
+}
+#action {~\e[22;38;5;188m%0} {
+	#echo <088>%0<088>
+}
+
+#action {~\e[22;38;5;23m%0} {
+#chat message promptwindow {p1   };
+  #loop 12 19 {zakaka} {#line substitute variables {#chat message promptwindow {p$zakaka   }};};
+  #chat message promptwindow {p1 <129>F5 - zapisz lokacje  <139>F6 - reset mapy<088>  <149>F7 - odblokuj pokoj<088>  <119>F8 - pokaz opis<088>};
+  #unvar mapline;
+  #var kkk @map_draw{1};
+  #var string_stamp {%0};
+  #var mapdescline 1;
+  #var mapdescwidth 82;
+  #var outputline {$mapline[1] <149>};
+  #parse {%0} {cr} {
+    #format linelen {%L} {$outputline};
+    #if {$linelen > $mapdescwidth} {
+      #math promptout {$mapdescline + 1};
+      #line substitute variables {#chat message promptwindow {p$promptout $outputline}};
+      #math mapdescline {$mapdescline + 1};
+      #var outputline {$mapline[$mapdescline] <149>$cr};
+    } {
+      #var outputline {$outputline$cr};
+    }
+  };
+  #format linelen {%L} {$outputline};
+  #if {$linelen > 0} {
+       #math promptout {$mapdescline + 1};
+      #line substitute variables {#chat message promptwindow {p$promptout $outputline}};
+  };
+  #if {$mapdescline < 11} {
+    #math mapdescline {$mapdescline + 1};
+    #math promptout {$mapdescline + 1};
+    #loop $mapdescline 11 {szszsz} {
+	#line substitute variables {#chat message promptwindow {p$promptout $mapline[$szszsz]}};
+	#math promptout {$promptout + 1};
+    };
+  };
+  #line gag;
+  
+  #alias {kuku} {
+    #system {echo "#action (^$string_stamp$)" >> $path/maps/automap.tin};
+    #system {echo "(" >> $path/maps/automap.tin};
+#system {echo "#chat message promptwindow {p1 <139>zapisane<088>}" >> $path/maps/automap.tin};
+    #system {echo "#loop 12 19 {zakaka} {#line substitute variables {#chat message promptwindow {p$zakaka   }};};" >> $path/maps/automap.tin};
+    #nop system {echo "#sh ( );" >> $path/maps/automap.tin};
+    #var mapdescline 1;
+    #var mapdescwidth 82;
+    #var outputline {$mapline[1] <149>};
+    #parse {%0} {cr} {
+      #format linelen {%L} {$outputline};
+      #if {$linelen > $mapdescwidth} {
+	#math promptout {$mapdescline + 1};
+	#system {echo "#line substitute variables {#chat message promptwindow {p$promptout $outputline}};" >> $path/maps/automap.tin};
+	#math mapdescline {$mapdescline + 1};
+	#var outputline {$mapline[$mapdescline] <149>$cr};
+      } {
+	#var outputline {$outputline$cr};
+      }
+    };
+    #format linelen {%L} {$outputline};
+    #if {$linelen > 0} {
+        #math promptout {$mapdescline + 1};
+        #system {echo "#line substitute variables {#chat message promptwindow {p$promptout $outputline}};" >> $path/maps/automap.tin};
+    };
+    #if {$mapdescline < 11} {
+      #math mapdescline {$mapdescline + 1};
+      #math promptout {$mapdescline + 1};
+      #loop $mapdescline 11 {szszsz} {
+	#system {echo "#line substitute variables {#chat message promptwindow {p$promptout $mapline[$szszsz]}};" >> $path/maps/automap.tin};
+	#math promptout {$promptout + 1};
+      };
+    };
+    #system {echo "#line gag;" >> $path/maps/automap.tin};
+    #system {echo ")" >> $path/maps/automap.tin};
+    #system {sh $path/maps/fixmap.sh};
+    #read $path/maps/automap.tin;
+  };
+  #line substitute {variables} {#macro {$KEY_F5} {kuku}};
+  #line substitute {variables} {#alias {5} {kuku}};
+  #line substitute {variables} {#macro {$KEY_F6} {#unvar maptest;#var maptest{ };#var lastmove a;sp}};
+  #line substitute {variables} {#alias {6} {#unvar maptest;#var maptest{ };#var lastmove a;sp}};
+  #line substitute {variables} {#macro {$KEY_F8} {#sh <faa>%0<088>}};
+  #line substitute {variables} {#alias {8} {#sh <faa>%0<088>}};
+} {6}
+
+#var map_room_x {1006};
+#var map_room_y {1006};
+
+#function {locationmap_reset}
+{
+  #unvar maptest;
+  #var maptest[$map_room_y,$map_room_x] {<119>@<088>};
+}
+
+#function {map_move_n}
+{
+	#var maptest[$map_room_y,$map_room_x] {o};
+	#math map_room_y {$map_room_y - 2};
+}
+#function {map_move_s}
+{
+	#var maptest[$map_room_y,$map_room_x] {o};
+	#math map_room_y {$map_room_y + 2};
+}
+#function {map_move_w}
+{
+	#var maptest[$map_room_y,$map_room_x] {o};
+	#math map_room_x {$map_room_x - 2};
+}
+#function {map_move_e}
+{
+	#var maptest[$map_room_y,$map_room_x] {o};
+	#math map_room_x {$map_room_x + 2};
+}
+
+#function {map_move_ne}
+{
+	#var maptest[$map_room_y,$map_room_x] {o};
+	#math map_room_x {$map_room_x + 2};
+	#math map_room_y {$map_room_y - 2};
+}
+#function {map_move_nw}
+{
+	#var maptest[$map_room_y,$map_room_x] {o};
+	#math map_room_x {$map_room_x - 2};
+	#math map_room_y {$map_room_y - 2};
+}
+#function {map_move_se}
+{
+	#var maptest[$map_room_y,$map_room_x] {o};
+	#math map_room_x {$map_room_x + 2};
+	#math map_room_y {$map_room_y + 2};
+}
+#function {map_move_sw}
+{
+	#var maptest[$map_room_y,$map_room_x] {o};
+	#math map_room_x {$map_room_x - 2};
+	#math map_room_y {$map_room_y + 2};
+}
+#functio {map_move_u}
+{
+#unvar maptest;#var maptest{ };
+}
+#functio {map_move_d}
+{
+#unvar maptest;#var maptest{ };
+}
+
+
+#function {map_updateexits}
+{
+
+  #math map_room_x_up1 {$map_room_x + 1};
+  #math map_room_x_up2 {$map_room_x + 2};
+  #math map_room_y_up1 {$map_room_y + 1};
+  #math map_room_y_up2 {$map_room_y + 2};
+  #math map_room_x_dn1 {$map_room_x - 1};
+  #math map_room_x_dn2 {$map_room_x - 2};
+  #math map_room_y_dn1 {$map_room_y - 1};
+  #math map_room_y_dn2 {$map_room_y - 2};
+
+  
+  #if {"$pr_e" == "${cl_compf}-<088>"} {
+    #var maptest[$map_room_y,$map_room_x_up1] {-};
+    #var maptest[$map_room_y,$map_room_x_up2] {O};
+  };
+  #if {"$pr_w" == "${cl_compf}-<088>"} {
+    #var maptest[$map_room_y,$map_room_x_dn1] {-};
+    #var maptest[$map_room_y,$map_room_x_dn2] {O};
+  };
+  #if {"$pr_n" == "${cl_compf}|<088>"} {
+    #var maptest[$map_room_y_dn1,$map_room_x] {|};
+    #var maptest[$map_room_y_dn2,$map_room_x] {O};
+  };
+  #if {"$pr_s" == "${cl_compf}|<088>"} {
+    #var maptest[$map_room_y_up1,$map_room_x] {|};
+    #var maptest[$map_room_y_up2,$map_room_x] {O};
+  };
+  
+  #if {"$pr_nee" == "T"} {
+    #if {"$maptest[$map_room_y_dn1,$map_room_x_up1]" == "L"} {
+      #var maptest[$map_room_y_dn1,$map_room_x_up1] {X};
+    }; #if {"$maptest[$map_room_y_dn1,$map_room_x_up1]" == "X"} {#var abcde { }; 
+    } {
+      #var maptest[$map_room_y_dn1,$map_room_x_up1] {T};
+    };
+    #var maptest[$map_room_y_dn2,$map_room_x_up2] {O};
+  };
+  
+  #if {"$pr_nww" == "L"} {
+    #if {"$maptest[$map_room_y_dn1,$map_room_x_dn1]" == "T"} {
+      #var maptest[$map_room_y_dn1,$map_room_x_dn1] {X};
+    }; #if {"$maptest[$map_room_y_dn1,$map_room_x_dn1]" == "X"} {#var abcde { };
+    } {
+      #var maptest[$map_room_y_dn1,$map_room_x_dn1] {L};
+    };
+    #var maptest[$map_room_y_dn2,$map_room_x_dn2] {O};    
+  };
+  
+  #if {"$pr_see" == "L"} {
+    #if {"$maptest[$map_room_y_up1,$map_room_x_up1]" == "T"} {
+      #var maptest[$map_room_y_up1,$map_room_x_up1] {X};
+    }; #if {"$maptest[$map_room_y_up1,$map_room_x_up1]" == "X"} {#var abcde { };
+    } {
+      #var maptest[$map_room_y_up1,$map_room_x_up1] {L};
+    };
+    #var maptest[$map_room_y_up2,$map_room_x_up2] {O};    
+  };
+  
+  #if {"$pr_sww" == "T"} {
+    #if {"$maptest[$map_room_y_up1,$map_room_x_dn1]" == "L"} {
+      #var maptest[$map_room_y_up1,$map_room_x_dn1] {X};
+    }; #if {"$maptest[$map_room_y_up1,$map_room_x_dn1]" == "X"} {#var abcde { };
+    } {
+      #var maptest[$map_room_y_up1,$map_room_x_dn1] {T};
+    };
+    #var maptest[$map_room_y_up2,$map_room_x_dn2] {O};
+  };
+
+  #var maptest[$map_room_y,$map_room_x] {<119>@<088>};
+}
+#function {map_draw}
+{
+  #var line {};
+  
+  #math loopxstart {$map_room_x - 5};
+  #math loopxend {$map_room_x + 5};
+ 
+  #math loopystart {$map_room_y - 5};
+  #math loopyend {$map_room_y + 5};
+  
+  #var mapdraw_current_line 1;
+  
+  #loop $loopystart $loopyend loopy {
+    #loop $loopxstart $loopxend loopx {
+      #var loopxy {$loopy,$loopx};
+      #format kxczasd {%L} $maptest[$loopxy];
+      #if {$kxczasd < 1} {
+	#var line {$line<829>.<088>};
+      } {
+	#if {"$maptest[$loopxy]" == "L"} {
+	  #var line {$line\\};
+	};
+	#elseif {"$maptest[$loopxy]" == "T"} {
+	  #var line {$line/};
+	};
+	#else {
+	    #var line {$line$maptest[$loopxy]};
+	}
+      };
+      #math {tratata} {$loopxend - $loopx};
+      #if {$tratata < 1} {
+	#nop sh $line;
+	#var mapline[$mapdraw_current_line] {$line};
+	#math {mapdraw_current_line} {$mapdraw_current_line + 1};
+	#var line {};
+      }
+    }
+  };
+}
+
+#nop var kkk @locationmap_reset{1};
+#nop var kkk @map_updateexits{};
+#nop var kkk @map_draw{1};
+

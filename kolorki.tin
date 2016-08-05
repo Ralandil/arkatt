@@ -14,10 +14,18 @@
 #var linergb {$linergb <$charR$charG$charB>$charR$charG$charB};
                 #nop sh {<$charR$charG$charB>$charR$charG$charB};
             }
-#sh $linergb;
-#var linergb {};
+            #sh $linergb;
+            #var linergb {};
         }
     }
+}
+
+#action {Na {prawym ramieniu|lewym ramieniu|plecach} {nosisz|dzwigasz|targasz} {otwarty|zamkniety|otwarta|zamknieta} %*.$} {
+    #var torba_ramie %1;
+    #var torba_waga %2;
+    #var torba_stan %3;
+    #ec {Na <eee>$torba_ramie <088> <118><G00><faa>$torba_waga <088> $torba_stan <088>%4};
+    #line gag;
 }
 
 #action {^Jest %1 w stanie wyroznic kilka sladow na ziemi. Najswiezsze prowadza na wschod.$}

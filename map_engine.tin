@@ -131,7 +131,40 @@
 
 #alias {asciimap}
 {
-	#var asciimap_h 6;
+#sh {-};
+    #var asciimap_h 6;
+    #var asciimap_w 15;
+    #unvar asciimapv;
+    #format wpadder {%+${asciimap_w}s} {};
+    #loop 1 $asciimap_h loopcnt {
+        #var asciimapv[$loopcnt] {$wpadder};
+    };
+    #nop system {/Users/eldakar/arkatt/maps/showmap /Users/eldakar/arkatt/maps/Scorcio.map 20 16 10 6};
+    #script {asciimapv} {$path/maps/showmap $path/maps/Scorcio.map 21 16 $asciimap_w 6};
+    #loop 2 $asciimap_h loopcnt {
+        #var tmpline {$asciimapv[$loopcnt]};
+        #format {tmpline} {%-${asciimap_w}s} {$tmpline};
+        #replace {tmpline} {\\} {\\\};
+        #replace {tmpline} {G} {<faf>G<088>};
+        #replace {tmpline} {#} {<faa>#<088>};
+        #replace {tmpline} {P} {<afa>P<088>};
+        #replace {tmpline} {S} {<ffa>S<088>};
+        #replace {tmpline} {K} {<afa>K<088>};
+        #replace {tmpline} {L} {<acf>L<088>};
+        #replace {tmpline} {T} {<fff>T<088>};
+        #replace {tmpline} {N} {<aaf>N<088>};
+        #replace {tmpline} {F} {<acf>F<088>};
+        #replace {tmpline} {B} {<ffa>B<088>};
+        #var asciimapv[$loopcnt] {$tmpline};
+        #format {asciimapv[$loopcnt]} {%.13s} {$tmpline};
+#sh {                                        $asciimapv[$loopcnt]};
+    }
+#sh {-};
+}
+
+#nop alias {asciimap}
+{
+#var asciimap_h 6;
 	#var asciimap_w 50;
 	#unvar asciimapv;
 	#format wpadder {%+${asciimap_w}s} {};
@@ -158,6 +191,9 @@
 		#nop sh $asciimapv[$loopcnt];
 	}
 }
+
+
+
 
 #nop ###############  GMCP  MAP INTEGRATION #####################
 
