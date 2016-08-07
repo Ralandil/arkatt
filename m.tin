@@ -39,5 +39,8 @@
 #var KEY_PAD_WALK_M {\e/};
 #var KEY_PAD_KOND {\e5};
 
+#var KEY_CELATAKU {$KEY_F2};
+#var KEY_PRZELAM {\eOj};
+
 #read $path/init.tin;
 

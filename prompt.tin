@@ -55,9 +55,9 @@
 #var pr_wy {w};
 #var pr_ctr {<ffa>+<088>};
 
-#split 0 7
+#split 0 12
 
-#var display_function_1 {                                   };
+#var display_function_1 {                              };
 #var display_function_2 {                                   };
 #var display_function_3 {                                   };
 #var display_function_4 {                                   };
@@ -69,6 +69,11 @@
 
 #alias {testprompt}
 {
+#sh prompt10;
+#sh prompt9;
+#sh prompt8;
+#sh prompt7;
+#sh prompt6;
 	#sh prompt5;
 	#sh prompt4;
 	#sh prompt3;
@@ -76,23 +81,24 @@
 	#sh prompt1;
 }
 
-#var hp_bar { 0/ 0};
-#var pr_smad $hp_bar;
-#var pr_mana $hp_bar;
-#var pr_glod $hp_bar;
-#var pr_zmeczenie $hp_bar;
-#var pr_upicie $hp_bar;
-#var pr_form $hp_bar;
-#var pr_exp $hp_bar;
-#var pr_obci $hp_bar;
+#sh { $prompt_button_target   $prompt_button_przelam};
+#sh {};
+#sh { };
+#sh { Kon: 6/ 7  Kon: 6/ 7  Kon: 6/ 7 };
 
 #alias {PROMPT_SET_HP} {
-	#prompt {prompt5} { <088><aff>f1: $display_function_1 <088>           <aff>Kon:<088> $hp_bar  <aff>Pra: <088>$pr_smad   ${prompt_avatar}$prompt_objects[5]$prompt_objects[10]$prompt_objects[15]$prompt_objects[20]} {6};
-	#prompt {prompt4} { <088><aff>f2: $display_function_2 <088> $pr_nw  $pr_n  $pr_ne   <aff>Man:<088> $pr_mana  <aff>Glo: <088>$pr_glod   $prompt_objects[1]$prompt_objects[6]$prompt_objects[11]$prompt_objects[16]$prompt_objects[21]} {5};
-	#prompt {prompt3} { <088><aff>f3: $display_function_3 <088> $pr_w  o  $pr_e   <aff>Zme:<088> $pr_zmeczenie  <aff>Upi: <088>$pr_upicie   $prompt_objects[2]$prompt_objects[7]$prompt_objects[12]$prompt_objects[17]$prompt_objects[22]} {4};
-	#prompt {prompt2} { <088><aff>f4: $display_function_4 <088> $pr_sw  $pr_s  $pr_se   <aff>For:<088> $pr_form  <aff>Exp: <088>$pr_exp   $prompt_objects[3]$prompt_objects[8]$prompt_objects[13]$prompt_objects[18]$prompt_objects[23]} {3};
-	#prompt {prompt1} { <088><aff>f5: $display_function_5 <088>           <aff>Cie: <088>$pr_obci  <faf>Cho: <088>   $walkmodep   $prompt_objects[4]$prompt_objects[9]$prompt_objects[14]$prompt_objects[19]$prompt_objects[24]} {2};
-	testprompt;
+    #prompt {prompt10} {<088>                                 |                 | <088> ${prompt_avatar[1]}$prompt_objects[9]$prompt_objects[19]$prompt_objects[29]$prompt_objects[39]} {11};
+    #prompt {prompt9} { <088>                                <088>|$asciimapv[2]<088>|  ${prompt_avatar[2]}$prompt_objects[10]$prompt_objects[20]$prompt_objects[30]$prompt_objects[40]} {10};
+    #prompt {prompt8} { <088> $display_function_1 <088>|$asciimapv[3]<088>|  ${prompt_objects[1]}$prompt_objects[11]$prompt_objects[21]$prompt_objects[31]$prompt_objects[41]} {9};
+    #prompt {prompt7} { <088>                                <088>|$asciimapv[4]<088>|  $prompt_objects[2]$prompt_objects[12]$prompt_objects[22]$prompt_objects[32]$prompt_objects[42]} {8};
+    #prompt {prompt6} { <088> $prompt_button_target $prompt_button_przelam  <088>|$asciimapv[5]<088>|  $prompt_objects[3]$prompt_objects[13]$prompt_objects[23]$prompt_objects[33]$prompt_objects[43]} {7};
+	#prompt {prompt5} { <088> $prompt_button_zaslonacel $prompt_button_zaslonaty $prompt_button_swiatlo  <088>|$asciimapv[6]<088>|  $prompt_objects[4]$prompt_objects[14]$prompt_objects[24]$prompt_objects[34]$prompt_objects[44]} {6};
+	#prompt {prompt4} { <088>                                <088>|$asciimapv[7]<088>|  $prompt_objects[5]$prompt_objects[15]$prompt_objects[25]$prompt_objects[35]$prompt_objects[45]} {5};
+
+    #prompt {prompt3} { <088> <aff>Kon:<088>$hp_bar <aff>Zme:<088>$pr_zmeczenie <aff>Glo:<088>$pr_glod<088>  |$asciimapv[8]<088>|  $prompt_objects[6]$prompt_objects[16]$prompt_objects[26]$prompt_objects[36]$prompt_objects[46]} {4};
+	#prompt {prompt2} { <088> <aff>Man:<088>$pr_mana <aff>Cie:<088>$pr_obci <aff>Pra:<088>$pr_smad<088>  |$asciimapv[9]<088>|  $prompt_objects[7]$prompt_objects[17]$prompt_objects[27]$prompt_objects[37]$prompt_objects[47]} {3};
+	#prompt {prompt1} { <088> <aff>Exp:<088>$pr_exp <aff>For:<088>$pr_form <aff>Upi:<088>$pr_upicie<088>  |$asciimapv[10]<088>|  $prompt_objects[8]$prompt_objects[18]$prompt_objects[28]$prompt_objects[38]$prompt_objects[48]} {2};
+    testprompt;
 }
 
 #alias {PROMPT_SET_MAP} {
@@ -120,4 +126,3 @@ testprompt;
 
 
 PROMPT_SET_HP;
-

@@ -1,7 +1,6 @@
 #alias {szczerba1} {skocz do stawu;przejdz za wodospad;n;pchnij sciane};
 #alias {_zabij_}
 {
-    #nop var display_function_2 {<faa>zabij cel ataku                    <088>};
     wskaz %0 jako cel ataku;
     rozkaz druzynie zabic cel ataku;
     drwskaz %0;
@@ -11,40 +10,47 @@
 
 
 #alias {zaznaczcel} {
-    #var display_function_2 {<faa>zabij cel ataku                    <088>};
-    #macro {$KEY_F2} {_zaznaczcel_};
+    #var prompt_button_target $prompt_button_target_active;
+    #var prompt_button_przelam $prompt_button_przelam_active;
+
+    #macro {$KEY_CELATAKU} {_zaznaczcel_};
     #macro {[} {_zaznaczcel_};
 testprompt;
     #bell;
 }
 
 #alias {_zaznaczcel_} {
+    przelam obrone celu ataku;
     nazabij cel ataku;
     wskaz cel ataku jako cel ataku;
-    #var display_function_2 {<faa>                                   <088>};
-testprompt;
+    #var prompt_button_target $prompt_button_target_inactive;
+    #var prompt_button_przelam $prompt_button_przelam_inactive;
+    testprompt;
 }
 
+#var prompt_button_zaslonacel_active {<118><AAF><fff> ZASLONA <088>};
+
+
 #alias {przelamcel} {
-    #var display_function_3 {<faa>przelam cel ataku                  <088>};
+    #var prompt_button_przelam $prompt_button_przelam_active;
     #macro {$KEY_F3} {_przelamcel_};
     testprompt;
 }
 #alias {_przelamcel_} {
     przelam obrone celu ataku;
-    #var display_function_3 {<faa>                                   <088>};
+    #var prompt_button_przelam $prompt_button_przelam_inactive;
     testprompt;
 }
 
 #alias {niezaslaniaj} {
-    #var display_function_3 {<ffa>przestan zaslaniac                 <088>};
+    #var prompt_button_zaslonacel $prompt_button_zaslonacel_active;
     #macro {$KEY_F3} {_niezaslaniaj_};
     testprompt;
 }
 
 #alias {_niezaslaniaj_} {
     przestan zaslaniac;
-    #var display_function_3 {<faa>                                   <088>};
+    #var prompt_button_zaslonacel $prompt_button_zaslonacel_inactive;
     testprompt;
 }
 

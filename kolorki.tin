@@ -1,6 +1,3 @@
-#unhigh {%1 %2 line};
-#high {%w %w line} {<ffa>};
-#high {%w %w chuste} {<faf>};
 #high {lekko podniszczony} {<ffa>};
 
 #alias {color_defs} {
@@ -20,11 +17,11 @@
     }
 }
 
-#action {Na {prawym ramieniu|lewym ramieniu|plecach} {nosisz|dzwigasz|targasz} {otwarty|zamkniety|otwarta|zamknieta} %*.$} {
+#action {Na {prawym ramieniu|lewym ramieniu|plecach} {nosisz prawie pusta|nosisz|dzwigasz|targasz} {otwarty|zamkniety|otwarta|zamknieta} %*.$} {
     #var torba_ramie %1;
     #var torba_waga %2;
     #var torba_stan %3;
-    #ec {Na <eee>$torba_ramie <088> <118><G00><faa>$torba_waga <088> $torba_stan <088>%4};
+    #sh {Na $torba_ramie <088><118><G00><faa>$torba_waga <088>$torba_stan <088>%4};
     #line gag;
 }
 
@@ -209,7 +206,7 @@
 
 #NOP CZERWONE
 
-#VAR {wazneNPC} {<faa>};
+#VAR {wazneNPC} {<118><faa>};
 #HIGH {{rogaty smok chaosu|arlekin|kolorowowlosa rozesmiana elfka|zakapturzony zgarbiony mezczyzna}%w} {${wazneNPC}};
 
 
@@ -340,7 +337,7 @@
   #line gag;
 }
 
-#action {^Masz na sobie %1.$} {
+#unaction {^Masz na sobie %1.$} {
   #sh {<119><afa>Masz na sobie %1.<088><aaa>0};
   #nop sh {<119><AFA><aaa>Masz na sobie %1.<088><aaa>0};
   #line gag;
@@ -411,31 +408,76 @@
 #nop poziomy magicznego zuzycia
 #high {(posluzy bardzo dlugo, w znakomitym stanie)} {<118><caf>};
 
+#high {%w %w line} {<ffa>};
+#unhigh {%w %w chuste} {<faf>};
+
+
+
+#nop KOLORY PRZEDMIOTOW;
+#var kolor_pojemnik {<fff>};
+#var kolor_skarbow {<118><ffa>};
+#var kolor_kamieni {<118><faf>};
+#var kolor_gooditems {<118><afa>};
+#var kolor_rareitems {<118><aaf>};
+
+#nop kolory pojemnikow;
+#high {%w %w worecz%.%.} {$kolor_pojemnik};
+#high {%w %w torb%.} {$kolor_pojemnik};
+#high {%w %w plecak} {$kolor_pojemnik};
+
+#nop skarby;
+#high {%w %w skrzyni%w} {$kolor_skarbow};
+#high {%w %w monet%.} {$kolor_skarbow};
+
+#nop kamienie
+#high {%w monacyt%w} {$kolor_kamieni};
+#high {%w malachit%w} {$kolor_kamieni};
+#high {%w awenturyn%w} {$kolor_kamieni};
+#high {%w piryt%w} {$kolor_kamieni};
+#high {%w obsydian%w} {$kolor_kamieni};
+
 #nop wysokiej jakosci;
-#high {krysztalowa olejna lampa} {<118><aaf>};
-#high {krysztalowa olejna lampe} {<118><aaf>};
-#high {wysoki mlecznobialy helm} {<118><aaf>};
-#high {ciezkie mlecznobiale nareczaki} {<118><aaf>};
-#high {dluga dwustronna naginata} {<118><aaf>};
+#high {wysoki mlecznobialy helm} {$kolor_rareitems};
+#high {ciezkie mlecznobiale nareczaki} {$kolor_rareitems};
+#high {stalowe szmelcowane nabiodrki} {$kolor_rareitems};
+#high {czarny polerowany kirys} {$kolor_gooditems};
+#high {zbrojnikowe srebrzyste nalokietniki} {$kolor_gooditems};
+#high {stalowa mocna przylbic%.} {$kolor_gooditems};
+
+#nop ciezkie do zdobycia, niemagiczne;
+#high {krysztalowa olejna lamp%.} {$kolor_rareitems};
+#high {dluga dwustronna naginat%.} {$kolor_rareitems};
+#high {smolistoczarny upiorny pancerz plytowy} {$kolor_rareitems};
+#high {smolistoczarny, smukly pancerz} {$kolor_rareitems};
+
 #nop magicznej jakosci;
 #high {stary matowy pancerz} {<118><caf>};
 #high {strzelisty zasniedzialy helm} {<118><caf>};
 #high {snieznobialy lsniacy pancerz} {<118><caf>};
 #high {strzelisty zlocisty helm} {<118><caf>};
-#high {srebrzysta kose bojowa} {<118><caf>};
-#high {srebrzysta kosa bojowa} {<118><caf>};
+#high {srebrzysta kos%. bojowa} {<118><caf>};
 #high {misterny obosieczny topor} {<118><caf>};
 #high {polyskliwy smukly espadon} {<118><caf>};
-#high {adamantytowa szpiczasta partyzana} {<118><caf>};
-#high {adamantytowa szpiczasta partyzane} {<118><caf>};
+#high {adamantytowa szpiczasta partyzan%.} {<118><caf>};
 #high {azurowy koscistobialy amulet} {<118><caf>};
 
 
-#nop sub {srebrzysta kose bojowa} {<faf>sr<ebf>eb<dcf>rz<cdf>ys<aef>ta <aff>ko<bef>se <cdf>bo<dcf>jo<ebf>wa<088>}
-#nop sub {srebrzysta kosa bojowa} {<faf>sr<ebf>eb<dcf>rz<cdf>ys<aef>ta <aff>ko<bef>sa <cdf>bo<dcf>jo<ebf>wa<088>}
-#nop sub {srebrzystej kosy bojowej} {<faf>sr<ebf>eb<dcf>rz<cdf>ys<aef>tej <aff>ko<bef>sy <cdf>bo<dcf>jo<ebf>wej<088>}
+#no gildie;
+#action {%*Noszony%*pierscien%*Kupcow%*.$} {#sh %0 (<118><fff> CN <088>);#line gag};
+#action {{Jego|Jej} nieustepliwe niczym skelliganskie sztormy spojrzenie i twarz wysmagana lodowatymi wichrami swiadcza o tym, ze masz %*.$} {#sh %0 (<118><faa> KS <088>);#line gag};
+#action {%*Klamre %* pasa zdobi %*.$} { };
+#action {%*noszony przez zaciezna piechote z Ochotniczego Hufca Mahakamu%*.$} {#sh %0 (<118><fff> OHM <088>);#line gag};
+#action {%*na ktorym wyryto otoczony czerwonymi rautami emblemat%*.$} { };
+#action {%* herb%* Rodziny Alderazzi%*.$} {#sh %0 (<118><fff> RA <088>);#line gag};
+#action {%*ze znakiem czarnego gryfa%*.$} {#sh %0 (<118><afa> KG <088>);#line gag};
+#action {Nosi wiewiorczy ogon%*.$} {#sh %0 (<118><ffa> SC <088>);#line gag};
+#action {%*biala tunika zakonna symbolizuje%*.$} {#sh %0 (<118><afa> ZS <088>);#line gag};
+#action {%*nosi piekna {zlota|srebrna|miedziana} obrecz {|wysadzana krwawymi rubinami|wysadzana kosztownymi kamieniami}.$} {#sh %0 (<118><faa> OK <088>);#line gag};
+#action {Nosi %* kubraczek, tradycyjny stroj Elfow z Gor Sinych.$} {#sh %0 (<118><fff> ES <088>);#line gag};
+#action {%*zamek ze znakiem Stowarzyszenia Gnomich Wynalazcow%*.$} {#sh %0 (<118><afa> SGW <088>);#line gag};
+#action {%*szyi, na skorzanym rzemieniu wisi%*.$} { };
+#action {%*Wzor i kolor kiltu swiadcza o przynaleznosci do Krasnoludow z Gor Kranca Swiata%*.$} {#sh %0 (<118><afa> KGKS <088>);#line gag};
+#action {%* pocieta jest %* wojownik.$} {#sh %0 (<118><afa> VR <088>);#line gag};
+#action {%* charakterystyczna dla mieszkancow Zajazdu %*.$} {#sh %0 (<118><fff> PE <088>);#line gag};
+#action {Od stop do glow zakut%* jest w stalowe plyty %* wygrawerowano symbole %*.$} {#sh %0 (<118><faa> MC <088>);#line gag};
 
-
-#nop sub {adamantytowa szpiczasta partyzana} {<bda>ada<bea>man<aea>tyt<cea>owa <bea>szp<ada>icz<aea>asta <dfa>part<cfa>rtyz<bfa>ana<088>}
-#nop sub {adamantytowa szpiczasta partyzane} {<bda>ada<bea>man<aea>tyt<cea>owa <bea>szp<ada>icz<aea>asta <dfa>part<cfa>rtyz<bfa>ane<088>}
-#nop sub {adamantytowa szpiczasta partyzana} {<bda>ada<bea>man<aea>tyt<cea>owa <bea>szp<ada>icz<aea>asta <dfa>part<cfa>rtyz<bfa>ana<088>}

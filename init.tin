@@ -1,4 +1,15 @@
 #config {command echo} {off};
+
+#var hp_bar { 0/ 0};
+#var pr_smad $hp_bar;
+#var pr_mana $hp_bar;
+#var pr_glod $hp_bar;
+#var pr_zmeczenie $hp_bar;
+#var pr_upicie $hp_bar;
+#var pr_form $hp_bar;
+#var pr_exp $hp_bar;
+#var pr_obci $hp_bar;
+
 #read $path/gmcp_char.tin;
 #read $path/gmcp_message.tin;
 #read $path/gmcp_object.tin;
@@ -26,6 +37,7 @@
 #read $path/baza.txt;
 #read $path/compare.tin;
 #read $path/gmcp_mapper.tin;
+#read $path/automap/mapdrawer.tin;
 #CONFIG LOG PLAIN
 #format {logfile} {${logpath}/%t.html} {%Y-%m-%d};
 #log append $logfile;

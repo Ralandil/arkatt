@@ -41,14 +41,16 @@
 #action {%*{Podazasz|podazasz} za %1 do szczeliny.} {#chat message mapper navigate:custom:szczelina};
 #action {%*{Podazasz|podazasz} za %1 na dol.} {#chat message mapper navigate:exit:d};
 #action {%*{Podazasz|podazasz} za %1 na gore.} {#chat message mapper navigate:exit:u};
-#action {%*{Podazasz|podazasz} za %1 na polnoc.} {#chat message mapper navigate:exit:n};
-#action {%*{Podazasz|podazasz} za %1 na poludnie.} {#chat message mapper navigate:exit:s};
-#action {%*{Podazasz|podazasz} za %1 na wschod.} {#chat message mapper navigate:exit:e};
-#action {%*{Podazasz|podazasz} za %1 na zachod.} {#chat message mapper navigate:exit:w};
-#action {%*{Podazasz|podazasz} za %1 na polnocny-zachod.} {#chat message mapper navigate:exit:nw};
-#action {%*{Podazasz|podazasz} za %1 na poludniowy-zachod.} {#chat message mapper navigate:exit:sw};
-#action {%*{Podazasz|podazasz} za %1 na polnocny-wschod.} {#chat message mapper navigate:exit:ne};
-#action {%*{Podazasz|podazasz} za %1 na poludniowy-wschod.} {#chat message mapper navigate:exit:se};
+
+#action {%*{Podazasz|podazasz} za %1 na polnoc.} {#chat message mapper navigate:exit:n;map_move_n;map_updateexits;#if {$mnamelen < 1} {map_draw;#var map_movecursor 0}};
+#action {%*{Podazasz|podazasz} za %1 na poludnie.} {#chat message mapper navigate:exit:s;map_move_s;map_updateexits;#if {$mnamelen < 1} {map_draw;#var map_movecursor 0}};
+#action {%*{Podazasz|podazasz} za %1 na wschod.} {#chat message mapper navigate:exit:e;map_move_e;map_updateexits;#if {$mnamelen < 1} {map_draw;#var map_movecursor 0}};
+#action {%*{Podazasz|podazasz} za %1 na zachod.} {#chat message mapper navigate:exit:w;map_move_w;map_updateexits;#if {$mnamelen < 1} {map_draw;#var map_movecursor 0}};
+#action {%*{Podazasz|podazasz} za %1 na polnocny-zachod.} {#chat message mapper navigate:exit:nw;map_move_nw;map_updateexits;#if {$mnamelen < 1} {map_draw;#var map_movecursor 0}};
+#action {%*{Podazasz|podazasz} za %1 na poludniowy-zachod.} {#chat message mapper navigate:exit:sw;map_move_sw;map_updateexits;#if {$mnamelen < 1} {map_draw;#var map_movecursor 0}};
+#action {%*{Podazasz|podazasz} za %1 na polnocny-wschod.} {#chat message mapper navigate:exit:ne;map_move_ne;map_updateexits;#if {$mnamelen < 1} {map_draw;#var map_movecursor 0}};
+#action {%*{Podazasz|podazasz} za %1 na poludniowy-wschod.} {#chat message mapper navigate:exit:se;map_move_se;map_updateexits;#if {$mnamelen < 1} {map_draw;#var map_movecursor 0}};
+
 #action {%*{Podazasz|podazasz} za %1 na trakt.} {#chat message mapper navigate:custom:trakt};
 #action {%*{Podazasz|podazasz} za %1 do chatki.} {#chat message mapper navigate:custom:chatka};	
 #action {%*{Podazasz|podazasz} za %1 do wyjscia.} {#chat message mapper navigate:custom:wyjscie};
@@ -131,16 +133,15 @@
 
 #alias {asciimap}
 {
-#sh {-};
-    #var asciimap_h 6;
-    #var asciimap_w 15;
+    #var asciimap_h 10;
+    #var asciimap_w 17;
     #unvar asciimapv;
     #format wpadder {%+${asciimap_w}s} {};
     #loop 1 $asciimap_h loopcnt {
         #var asciimapv[$loopcnt] {$wpadder};
     };
     #nop system {/Users/eldakar/arkatt/maps/showmap /Users/eldakar/arkatt/maps/Scorcio.map 20 16 10 6};
-    #script {asciimapv} {$path/maps/showmap $path/maps/Scorcio.map 21 16 $asciimap_w 6};
+    #script {asciimapv} {$path/maps/showmap $path/maps/$ROOM_INFO[map][name].map $ROOM_INFO[map][x] $ROOM_INFO[map][y] $asciimap_w $asciimap_h};
     #loop 2 $asciimap_h loopcnt {
         #var tmpline {$asciimapv[$loopcnt]};
         #format {tmpline} {%-${asciimap_w}s} {$tmpline};
@@ -156,16 +157,18 @@
         #replace {tmpline} {F} {<acf>F<088>};
         #replace {tmpline} {B} {<ffa>B<088>};
         #var asciimapv[$loopcnt] {$tmpline};
-        #format {asciimapv[$loopcnt]} {%.13s} {$tmpline};
-#sh {                                        $asciimapv[$loopcnt]};
-    }
-#sh {-};
+        #nop format {asciimapv[$loopcnt]} {%.13s} {$tmpline};
+        #nop format {tmpline} {%.13s} {$tmpline};
+        #nop replace {tmpline} { } {<aba>.<088>};
+        #var asciimapv[$loopcnt] {$tmpline};
+        #nop sh {$asciimapv[$loopcnt]};
+    };
 }
 
 #nop alias {asciimap}
 {
 #var asciimap_h 6;
-	#var asciimap_w 50;
+	#var asciimap_w 51;
 	#unvar asciimapv;
 	#format wpadder {%+${asciimap_w}s} {};
 	#loop 1 $asciimap_h loopcnt {
@@ -212,7 +215,11 @@
 	#var pr_se { };
 	#var pr_sw { };
 	#var pr_nw { };
-	#var pr_d { };
+    #var pr_nee { };
+    #var pr_see { };
+    #var pr_sww { };
+    #var pr_nww { };
+    #var pr_d { };
 	#var pr_u { };
 	
 	#list ROOM_INFO[exits] size rinfosize;
@@ -227,27 +234,33 @@
 		#elseif {"$nxtexit" == "poludnie"} {#var pr_s {|}};
 		#elseif {"$nxtexit" == "dol"} {#var pr_d {D}};
 		#elseif {"$nxtexit" == "gora"} {#var pr_u {U}};
-		#elseif {"$nxtexit" == "polnocny-zachod"} {#var pr_nw {\\}};
-		#elseif {"$nxtexit" == "polnocny-wschod"} {#var pr_ne {/}};
-		#elseif {"$nxtexit" == "poludniowy-zachod"} {#var pr_sw {/}};
-		#elseif {"$nxtexit" == "poludniowy-wschod"} {#var pr_se {\\}};
-		#else {
+#elseif {"$nxtexit" == "polnocny-zachod"} {#var {pr_nww} {L};#var pr_nw {\\}};
+        #elseif {"$nxtexit" == "polnocny-wschod"} {#var pr_ne {/};#var pr_nee {T}};
+        #elseif {"$nxtexit" == "poludniowy-zachod"} {#var pr_sw {/};#var pr_sww {T}};
+#elseif {"$nxtexit" == "poludniowy-wschod"} {#var pr_see {L};#var pr_se {\\}};
+#else {
 		   #format {nxtexitlen} {%L} {$nxtexit};
 		   #if {$nxtexitlen > 0} {
-		   #line substitute {variables} {#alias {$nxtexit} {#send $nxtexit;#chat message mapper navigate:exit:$nxtexit}};
-		   #nop sh $nxtexit;
+#line substitute {variables} {#alias {$nxtexit} {#send $nxtexit;#chat message mapper navigate:exit:$nxtexit;locationmap_reset;#var map_movecursor 1}};
 		   };
 		};
-	};
+    };
 
-		#if {$mnamelen > 0} {
-			#replace {ROOM_INFO[map][name]} { } {};
-			#replace {ROOM_INFO[map][name]} {'} {};
-			asciimap;
-		};
-			#nop asciicompas;
-	};
-	team_clean_compare;
+    #if {$mnamelen > 0} {
+        #replace {ROOM_INFO[map][name]} { } {};
+        #replace {ROOM_INFO[map][name]} {'} {};
+        asciimap;
+        locationmap_reset;
+    } {
+        #if {$map_movecursor == 1} {
+            map_updateexits;map_draw;
+        };
+    };
+        #nop asciicompas;
+    };
+    #var map_movecursor 0;
+
+    team_clean_compare;
 	#var ruch_kompasu {none};
 	#var kompas_dziala {0};
     testprompt;
@@ -342,16 +355,16 @@
 
 #nop all other custom exits - core function
 
-#var klocekr[NW] {<faa>\\<088>};
-#var klocekr[SE] {<faa>\\<088>};
-#var klocekr[NE] {<faa>/<088>};
-#var klocekr[SW] {<faa>/<088>};
-#var klocekr[E] {<faa>-<088>};
-#var klocekr[W] {<faa>-<088>};
-#var klocekr[N] {<faa>|<088>};
-#var klocekr[S] {<faa>|<088>};
-#var klocekr[U] {<faa>+<088>};
-#var klocekr[D] {<faa>-<088>};
+#var klocekr[NW] {L};
+#var klocekr[SE] {L};
+#var klocekr[NE] {T};
+#var klocekr[SW] {T};
+#var klocekr[E] {-};
+#var klocekr[W] {-};
+#var klocekr[N] {|};
+#var klocekr[S] {|};
+#var klocekr[U] {+};
+#var klocekr[D] {-};
 
 #action {^<CHAT> mapper chats to everyone, '{NE|NW|SW|SE|DN|UP|N|S|E|W}:%2'} 
 {
@@ -359,7 +372,7 @@
     #if {"$upper_dir" == "UP"} {#var upper_dir {U};};
     #if {"$upper_dir" == "DN"} {#var upper_dir {D};};
     #format lower_dir {%l} {$upper_dir};
-    #line substitute {variables} {#alias {custom_${lower_dir}} {#send %2;#chat message mapper navigate:exit:%2}};
+#line substitute {variables} {#alias {custom_${lower_dir}} {#send %2;#chat message mapper navigate:exit:%2;locationmap_reset;#var map_movecursor 1}};
     #line substitute {variables} {#macro {${KEY_PAD_${upper_dir}}} {custom_${lower_dir}}};
     #line substitute {variables} {#alias {${lower_dir}} {custom_${lower_dir}}};
     #line substitute {variables} {#var {is${upper_dir}standard} 0;};
@@ -377,54 +390,56 @@
     #format lower_dir {%l} {%2}
     #line substitute {variables} {#alias {$lower_dir} {#send %2;#chat message mapper navigate:exit:$lower_dir}};
 
+    map_updateexits;
+    map_draw;
     #line gag;
 } {5}
 
 #nop create mode;
-#action {Ruszasz razno na %1, schodzac z wytyczonego traktu, jednak okazuje sie} {#chat message mapper map:undo};
-#action {Nie widzisz zadnego wyjscia %0} {#chat message mapper map:undo};
+#action {Ruszasz razno na %1, schodzac z wytyczonego traktu, jednak okazuje sie %*.$} {#chat message mapper map:undo;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
+#action {Nie widzisz zadnego wyjscia %*.$} {#chat message mapper map:undo;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
 
-#action {Odpadasz od sciany i lecisz w dol, jednak dzieki niewielkiej wysokosci udaje ci sie zgrabnie wyladowac na ziemi.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
-#action {Nie masz na to sily.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+#action {Odpadasz od sciany i lecisz w dol, jednak dzieki niewielkiej wysokosci udaje ci sie zgrabnie wyladowac na ziemi.$} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
+#action {Nie masz na to sily.$} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
 #action {Probujesz otworzyc %1, ale nie udaje ci sie to.} {#var ret @set_quickbind_green{uderz w brame};#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
-#action {Jestes tak zmeczony, ze nie mozesz dalej podazac w tym kierunku.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+#action {Jestes tak zmeczony, ze nie mozesz dalej podazac w tym kierunku.$} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
 #action {Nie mozesz tego zrobic, gdyz} {#chat message mapper revert} {7};
 
-#action {Gorliwy ciemnowlosy mezczyzna stoi ci na drodze.} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+#action {Gorliwy ciemnowlosy mezczyzna stoi ci na drodze.} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
 
-#action {Nie jestes upowazniony do wejscia do magazynu.} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
-#action {Podchodzisz pod drzwi na polnocy, ktore otwiera wielki mezczyzna i oceniajaco taksuje cie wzrokiem. Prycha pod nosem i bez} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
-#action {Podchodzisz pod drzwi na polnocy, zza ktorych rozlega sie czyjs ponury glos: 'Zmiataj stad, nim ktos ci %1} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag} {2};
-#action {Podchodzisz pod drzwi na polnocy, ktore otwiera wielki mezczyzna i przyglada ci sie badawczo, %1} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag} {2};
-#action {Podchodzisz pod drzwi na polnocy, %1} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag} {1};
-#action {Droge zastepuje ci barczysty straznik mowiac: Prosze okazac kwit magazynowy lub wskazac towar do przechowania.} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag} {1};
-#action {Ogolony kompetentny straznik mowi do ciebie: Nikt z zakryta twarza nie wejdzie na teren zamku.} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag} {1};
-#action {Wysoki zezowaty sierzant mowi do ciebie: Nikt z zakryta twarza nie wejdzie na teren Uniwersytetu.} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag} {1};
-#action {Wysoki wasaty sierzant mowi do ciebie: Nikt z zakryta twarza nie wejdzie na teren Uniwersytetu.} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag} {1};
-#action {Nie zmiescisz sie w budzie!} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag} {1};
-#action {Nie mozesz sie tam udac, gdyz siedzisz.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
-#action {Najpierw wejdz do kabiny i sie rozbierz!} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
-#action {Nie masz %0 wstepu.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
-#action {Musisz najpierw oplacic wejscie na widownie.} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
-#action {Nie mozesz sie tam udac, gdyz %1 blokuj%+ ci droge na %3.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
-#action {Jestes teraz zajety czyms innym.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
-#action {Niestety, brama jest zamknieta.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
-#action {%3 mowi do ciebie: Nikt z bronia nie wejdzie na teren gornej twierdzy. Prosze zostawic ja na stojaku.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
-#action {Przeciez nic nie widzisz.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+#action {Nie jestes upowazniony do wejscia do magazynu.} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
+#action {Podchodzisz pod drzwi na polnocy, ktore otwiera wielki mezczyzna i oceniajaco taksuje cie wzrokiem. Prycha pod nosem i bez} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
+#action {Podchodzisz pod drzwi na polnocy, zza ktorych rozlega sie czyjs ponury glos: 'Zmiataj stad, nim ktos ci %1} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag} {2};
+#action {Podchodzisz pod drzwi na polnocy, ktore otwiera wielki mezczyzna i przyglada ci sie badawczo, %1} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag} {2};
+#action {Podchodzisz pod drzwi na polnocy, %1} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag} {1};
+#action {Droge zastepuje ci barczysty straznik mowiac: Prosze okazac kwit magazynowy lub wskazac towar do przechowania.} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag} {1};
+#action {Ogolony kompetentny straznik mowi do ciebie: Nikt z zakryta twarza nie wejdzie na teren zamku.} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag} {1};
+#action {Wysoki zezowaty sierzant mowi do ciebie: Nikt z zakryta twarza nie wejdzie na teren Uniwersytetu.} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag} {1};
+#action {Wysoki wasaty sierzant mowi do ciebie: Nikt z zakryta twarza nie wejdzie na teren Uniwersytetu.} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag} {1};
+#action {Nie zmiescisz sie w budzie!} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag} {1};
+#action {Nie mozesz sie tam udac, gdyz siedzisz.$} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
+#action {Najpierw wejdz do kabiny i sie rozbierz!} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
+#action {Nie masz %0 wstepu.$} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
+#action {Musisz najpierw oplacic wejscie na widownie.} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
+#action {Nie mozesz sie tam udac, gdyz %1 blokuj%+ ci droge na %3.$} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
+#action {Jestes teraz zajety czyms innym.$} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
+#action {Niestety, brama jest zamknieta.$} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
+#action {%3 mowi do ciebie: Nikt z bronia nie wejdzie na teren gornej twierdzy. Prosze zostawic ja na stojaku.$} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
+#action {Przeciez nic nie widzisz.$} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
 #action {Probujesz sie ruszyc na %1, jednak pajecze sieci, w ktore sie w miedzy czasie zaplatales, uniemozliwiaja ci to.} {#chat message mapper revert;#showme <faa>PROBUJ NA %1<088>};
-#action {Niestety drzwi sa zamkniete, ale zauwazasz na nich tabliczke:} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
-#action {Niestety jestes zbyt duzy, aby przecisnac sie przez dziure.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
-#action {Probujesz wejsc w uliczke, ale cos z cichym plasnieciem rozmazuje ci sie pod noga. Zdegustowany zawracasz i decydujesz sie ominac ten zaulek.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
-#action {Nie mozesz sie udac na zaplecze.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
-#action {Juz probujesz wejsc, gdy nagle drzwi okazuja sie byc dokladnie zamkniete. Na drzwiach zauwazasz tylko tabliczke:} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
-#action {Drzwi sa zamkniete i nie daja sie otworzyc bez odpowiedniego klucza.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
-#action {Pociagasz za klamke, ale drzwi sa zamkniete.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
-#action {Probujesz rozpaczliwie wspiac sie na gore, ale zeslizgujesz sie po mokrych kamieniach.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
-#action {Kierujesz sie w strone krzakow} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+#action {Niestety drzwi sa zamkniete, ale zauwazasz na nich tabliczke:} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
+#action {Niestety jestes zbyt duzy, aby przecisnac sie przez dziure.$} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
+#action {Probujesz wejsc w uliczke, ale cos z cichym plasnieciem rozmazuje ci sie pod noga. Zdegustowany zawracasz i decydujesz sie ominac ten zaulek.$} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
+#action {Nie mozesz sie udac na zaplecze.$} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
+#action {Juz probujesz wejsc, gdy nagle drzwi okazuja sie byc dokladnie zamkniete. Na drzwiach zauwazasz tylko tabliczke:} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
+#action {Drzwi sa zamkniete i nie daja sie otworzyc bez odpowiedniego klucza.$} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
+#action {Pociagasz za klamke, ale drzwi sa zamkniete.$} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
+#action {Probujesz rozpaczliwie wspiac sie na gore, ale zeslizgujesz sie po mokrych kamieniach.$} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
+#action {Kierujesz sie w strone krzakow} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
 #action {Probujesz dostac sie do srodka willi, lecz po chwili zjawia sie lokaj, powiadamiajac cie uprzejmym, acz stanowczym glosem,} {#chat message mapper revert}
 #action {Kierujesz sie w strone krzakow porastajacych polnocno-wchodnia czesc kotliny, lecz bezradnie zatrzymujesz sie przed zwarta sciana kolcow i galezi. Nie znajdujesz sposobu, jak wejsc w chaszcze.} {#chat message mapper revert} {1};
-#action {Jestes ogluszony i nie mozesz nic zrobic.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
-#action {Nie jestes w stanie wymknac sie stad niezauwazenie.$} {#chat message mapper revert;#echo {<faa>%0<088>};#line gag};
+#action {Jestes ogluszony i nie mozesz nic zrobic.$} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
+#action {Nie jestes w stanie wymknac sie stad niezauwazenie.$} {#chat message mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
 
 #nop IN A CASE GMCP DO NOT RETURN ANY VALUES
 #nop action {Jest zbyt ciemno by cokolwiek zauwazyc. Instynktownie jednak odgadujesz, ze znajdujesz sie gleboko pod ziemia. Bardzo gleboko...} {#var lastmove none}
@@ -448,15 +463,15 @@
 #echo {<088><aca>[bind <ffa>%1%2<aca>] <afa>%3<088>};
 #if {%2 == 1} {#line substitute {variables} {#macro {$KEY_F1} {%3}}};
 #if {%2 == 2} {#line substitute {variables} {#macro {$KEY_F2} {%3;#line substitute {variables} {#format display_function_2 {%-34s %.34s} {<ada>  <088>}};testprompt;}}};
-#if {%2 == 3} {#line substitute {variables} {#macro {$KEY_F3} {%3;#line substitute {variables} {#format display_function_3 {%-34s %.34s} {<ada>  <088>}};#sh prompt7;#sh prompt6;#sh prompt5;}}};
-#if {%2 == 4} {#line substitute {variables} {#macro {$KEY_F4} {%3;#line substitute {variables} {#format display_function_4 {%-34s %.34s} {<ada>  <088>}};#sh prompt7;#sh prompt6;#sh prompt5;}}};
-#if {%2 == 5} {#line substitute {variables} {#macro {$KEY_F5} {%3;#line substitute {variables} {#format display_function_5 {%-34s %.34s} {<ada>  <088>}};#sh prompt7;#sh prompt6;#sh prompt5;}}};
-#if {%2 == 6} {#line substitute {variables} {#macro {$KEY_F6} {%3;#line substitute {variables} {#format display_function_6 {%-34s %.34s} {<ada>  <088>}};#sh prompt7;#sh prompt6;#sh prompt5;}}};
-#if {%2 == 7} {#line substitute {variables} {#macro {$KEY_F7} {%3;#line substitute {variables} {#format display_function_7 {%-34s %.34s} {<ada>  <088>}};#sh prompt7;#sh prompt6;#sh prompt5;}}};
-#if {%2 == 8} {#line substitute {variables} {#macro {$KEY_F8} {%3;#line substitute {variables} {#format display_function_8 {%-34s %.34s} {<ada>  <088>}};#sh prompt7;#sh prompt6;#sh prompt5;}}};
-#if {%2 == 9} {#line substitute {variables} {#macro {$KEY_F9} {%3;#line substitute {variables} {#format display_function_9 {%-34s %.34s} {<ada>  <088>}};#sh prompt7;#sh prompt6;#sh prompt5;}}};
+#if {%2 == 3} {#line substitute {variables} {#macro {$KEY_F3} {%3;#line substitute {variables} {#format display_function_3 {%-34s %.34s} {<ada>  <088>}};testprompt;}}};
+#if {%2 == 4} {#line substitute {variables} {#macro {$KEY_F4} {%3;#line substitute {variables} {#format display_function_4 {%-34s %.34s} {<ada>  <088>}};testprompt;}}};
+#if {%2 == 5} {#line substitute {variables} {#macro {$KEY_F5} {%3;#line substitute {variables} {#format display_function_5 {%-34s %.34s} {<ada>  <088>}};testprompt;}}};
+#if {%2 == 6} {#line substitute {variables} {#macro {$KEY_F6} {%3;#line substitute {variables} {#format display_function_6 {%-34s %.34s} {<ada>  <088>}};testprompt;}}};
+#if {%2 == 7} {#line substitute {variables} {#macro {$KEY_F7} {%3;#line substitute {variables} {#format display_function_7 {%-34s %.34s} {<ada>  <088>}};testprompt;}}};
+#if {%2 == 8} {#line substitute {variables} {#macro {$KEY_F8} {%3;#line substitute {variables} {#format display_function_8 {%-34s %.34s} {<ada>  <088>}};testprompt;}}};
+#if {%2 == 9} {#line substitute {variables} {#macro {$KEY_F9} {%3;#line substitute {variables} {#format display_function_9 {%-34s %.34s} {<ada>  <088>}};testprompt;}}};
 
-#line substitute {variables} {#format display_function_%2 {%-34s %.34s} {<ada>%3<088>}};
+#line substitute {variables} {#format display_function_%2 {%-29s %.29s} {<ada>%3<088>}};
 testprompt;
 #line gag;
 }

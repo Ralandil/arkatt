@@ -1,5 +1,23 @@
-#nop location quickbinds,  aliases
-#nop update added prompt quickbind rotation
+#var prompt_button_target_active {<118><FAA><fff>  CEL  ATAKU  <088>};
+#var prompt_button_target_inactive {<118><G02><caa>  CEL  ATAKU  <088>};
+#var prompt_button_target $prompt_button_target_inactive;
+
+#var prompt_button_przelam_active {<118><FAA><fff> PRZELAM  CEL <088>};
+#var prompt_button_przelam_inactive {<118><G02><caa> PRZELAM  CEL <088>};
+#var prompt_button_przelam $prompt_button_przelam_inactive;
+
+#var prompt_button_zaslonacel_active {<118><AAF><fff> ZASLONA <088>};
+#var prompt_button_zaslonacel_inactive {<118><G02><aac> ZASLONA <088>};
+#var prompt_button_zaslonacel $prompt_button_zaslonacel_inactive;
+
+#var prompt_button_zaslonaty_active {<118><AFA><aaa> ZASLONA <088>};
+#var prompt_button_zaslonaty_inactive {<118><G02><aca> ZASLONA <088>};
+#var prompt_button_zaslonaty $prompt_button_zaslonaty_inactive;
+
+#var prompt_button_swiatlo_active {<118><FFA><aaa> SWIATLO <088>};
+#var prompt_button_swiatlo_inactive {<118><G02><cca> SWIATLO <088>};
+#var prompt_button_swiatlo $prompt_button_swiatlo_inactive;
+
 
 #var current_fkey 1;
 

@@ -94,10 +94,12 @@
 #sub {~^Przestajesz zaslaniac %*.$} {<118><afa>  [  ZASLONA  ]  <088>%0<aaa>,} {1}
 #action {~^%* przestaje cie zaslaniac przed ciosami wrogow.$}
 {
+    #var prompt_button_zaslonaty $prompt_button_zaslonaty_inactive;testprompt;
 	#sh {<118><afa>  [  ZASLONA  ]  <088>%0<aaa>,};#line gag;
 }
 #action {~^Wychodzisz zza zaslony %*.$}
 {
+    #var prompt_button_zaslonaty $prompt_button_zaslonaty_inactive;testprompt;
 	#sh {<118><afa>  [  ZASLONA  ]  <088>%0<aaa>,};#line gag;
 }
 
@@ -153,38 +155,40 @@
 
 #action {~^Na twoj rozkaz %* zaslania cie przed ciosami %*.$}
 {
+    #var prompt_button_zaslonaty $prompt_button_zaslonaty_active;testprompt;
 	#sh {<118><afa>  [  ZASLONA  ]  <088>%0<aaa>,};
     #line gag;
 }
 #action {~^%* zaslania cie przed ciosami %*.$}
 {
+    #var prompt_button_zaslonaty $prompt_button_zaslonaty_active;testprompt;
 	#sh {<118><afa>  [  ZASLONA  ]  <088>%0<aaa>,};
     #line gag;
 } {2}
 
 #unaction {~^Zrecznie zaslaniasz %* przed ciosami %*.$};
 
-#sub {~^Zrecznie zaslaniasz %* przed ciosami %*.$} {<118><afa>  [  ZASLONA  ]  <088>%0<aaa>,} {2};
-
-#action {zaslaniasz}
+#action {~^Zrecznie zaslaniasz %* przed ciosami %*.$}
 {
-	 niezaslaniaj;
-    #var koko @start_ZASLONA_ticker{};
-}{2};
+    #sh {<118><afa>  [  ZASLONA  ]  <088>%0<aaa>,};
+    niezaslaniaj;
+    #var koko @start_zaslona_ticker{};
+    #line gag;
+}
 
 #action {~^Stajesz u boku %1, gotow w kazdej chwili %*}
 {
 	#sh {<118><afa>  [  ZASLONA  ]  <088>%0<aaa>,};
-niezaslaniaj;
-    #var koko @start_ZASLONA_ticker{};
+    niezaslaniaj;
+    #var koko @start_zaslona_ticker{};
     #line gag;
 }
 
 #action {~^Z wprawa stajesz pomiedzy %* a %*, przyjmujac na siebie nadchodzace ciosy.$}
 {
 	#sh {<118><afa>  [  ZASLONA  ]  <088>%0<aaa>,};
-niezaslaniaj;
-    #var koko @start_ZASLONA_ticker{};
+    niezaslaniaj;
+    #var koko @start_zaslona_ticker{};
     #line gag;
 } {2}
  
