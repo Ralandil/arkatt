@@ -1,4 +1,5 @@
-#ses arka arkadia.rpg.pl 23;
+#read /Users/eldakar/arkatt/mapperserver.tin;
+#ses rpg arkadia.rpg.pl 23;
 #event {IAC WILL GMCP}
 {       
 	#send {\xFF\xFD\xC9\};

@@ -42,6 +42,6 @@
 #format {logfile} {${logpath}/%t.html} {%Y-%m-%d};
 #log append $logfile;
 #var lastmove none;
-sleep 1 {#chat call 127.0.0.1 6666};
+#nop sleep 1 {#chat call 127.0.0.1 6666};
 
 #var gmcp_saving 0;

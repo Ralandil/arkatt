@@ -25,8 +25,8 @@
 			#sh {<aca>MAPPER: Znalazlem <acc>$savedroom<088>};
 			#if {"$current_room_id" == "$savedroom"} { 
 			} {
-				#chat message mapper map:undo;
-				#chat message mapper lookup:$savedroom;
+				#mapper map:undo;
+				#mapper lookup:$savedroom;
 			}
 		}
 	}

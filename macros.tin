@@ -1,13 +1,13 @@
-#alias move_s {#send s;#chat message mapper navigate:exit:s;map_move_s;#var map_movecursor 1};
-#alias move_n {#send n;#chat message mapper navigate:exit:n;map_move_n;#var map_movecursor 1};
-#alias move_e {#send e;#chat message mapper navigate:exit:e;map_move_e;#var map_movecursor 1};
-#alias move_w {#send w;#chat message mapper navigate:exit:w;map_move_w;#var map_movecursor 1};
-#alias move_u {#send u;#chat message mapper navigate:exit:u;map_move_u;#var map_movecursor 1};
-#alias move_d {#send d;#chat message mapper navigate:exit:d;map_move_d;#var map_movecursor 1};
-#alias move_ne {#send ne;#chat message mapper navigate:exit:ne;map_move_ne;#var map_movecursor 1};
-#alias move_nw {#send nw;#chat message mapper navigate:exit:nw;map_move_nw;#var map_movecursor 1};
-#alias move_se {#send se;#chat message mapper navigate:exit:se;map_move_se;#var map_movecursor 1};
-#alias move_sw {#send sw;#chat message mapper navigate:exit:sw;map_move_sw;#var map_movecursor 1};
+#alias move_s {#send s;#mapper navigate:exit:s;map_move_s;#var map_movecursor 1};
+#alias move_n {#send n;#mapper navigate:exit:n;map_move_n;#var map_movecursor 1};
+#alias move_e {#send e;#mapper navigate:exit:e;map_move_e;#var map_movecursor 1};
+#alias move_w {#send w;#mapper navigate:exit:w;map_move_w;#var map_movecursor 1};
+#alias move_u {#send u;#mapper navigate:exit:u;map_move_u;#var map_movecursor 1};
+#alias move_d {#send d;#mapper navigate:exit:d;map_move_d;#var map_movecursor 1};
+#alias move_ne {#send ne;#mapper navigate:exit:ne;map_move_ne;#var map_movecursor 1};
+#alias move_nw {#send nw;#mapper navigate:exit:nw;map_move_nw;#var map_movecursor 1};
+#alias move_se {#send se;#mapper navigate:exit:se;map_move_se;#var map_movecursor 1};
+#alias move_sw {#send sw;#mapper navigate:exit:sw;map_move_sw;#var map_movecursor 1};
 
 #alias s {move_s};
 #alias n {move_n};

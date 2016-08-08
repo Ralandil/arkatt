@@ -345,7 +345,7 @@ testprompt;
 {
   #var lastmove none;
   #send sp;
-  #chat message mapper lookup:$current_room_id;
+  #mapper lookup:$current_room_id;
 }
 
 #alias {baza}

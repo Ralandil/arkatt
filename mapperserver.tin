@@ -1,22 +1,22 @@
 #session mapper 127.0.0.1 23923
-#chat init 6666
-#chat name mapper
+#nop chat init 6666
+#nop chat name mapper
 
 
-#action {^room:enter} {
-	#chat message all room:enter;
-	#line gag;
+
+#action {^exit:rebind:%1}
+{
+    #rpg #sh map:exit:rebind:%1;
+}
+#action {^exit:custom:%2} {
+    #rpg {
+        #var zas @set_quickbind_move{%2};
+        #line substitute {variables} {#alias {%2} {#send %2;#chat message mapper navigate:exit:%2}};
+    };
 }
 
-#action {exit:rebind:%1} {
-	#chat message all %1;
-	#line gag;
-}
 
-#action {exit:custom:%1} {
-	#chat message all custom:%1;
-	#line gag;
-}
+
 
 #action {^<CHAT> %1 chats to you, 'path:highlight:%2'}
 {
@@ -26,13 +26,11 @@
 {
     #mapper #send path:clear;
 }
-
 #action {^<CHAT> %1 chats to you, 'navigate:exit:{nw|ne|sw|se|n|w|s|e|u|d}'}
 {
 	#mapper #send navigate:exit:%2;
 	#line gag;
 } {5}
-
 #action {^<CHAT> %1 chats to you, 'map:undo'}
 {
 	#mapper #send map:undo;
@@ -48,14 +46,11 @@
 	#mapper #send undo;
 	#line gag;
 }
-
-
 #action {^<CHAT> %1 chats to you, 'lookup:%2'}
 {
 	#mapper #send lookup:%2;
 	#line gag;
 } {1}
-
 #action {^<CHAT> %1 chats to you, 'navigate:follow:%2'}
 {
 	#mapper #send navigate:follow:%2;
@@ -73,30 +68,77 @@
 	#line gag;
 } {6}
 
-#action {^exit:start} {
-	#chat message all exit:start;
-	#line gag;
-}
-
-#action {^exit:end} {
-	#chat message all exit:end;
-	#line gag;
-}
 
 #action {^room:id:%1} {
-	#chat message all room:id:%1;
-	#line gag;
+    #rpg {
+        #var current_room_id %1;
+        #if {$gmcp_saving > 0} {sg;};
+        #line gag;
+    };
+}
+#action {^exit:end} {
+    #rpg {
+        testprompt;
+        #line gag;
+    };
 }
 
-#action {~<CHAT> %* chats to you, 'chat%*'} {
-	#sh {%2};
-	#line gag;
+
+#action {^room:enter} {
+#rpg {
+#var isSstandard 1;
+#line substitute {variables} {#macro {$KEY_PAD_S} {move_s}};
+#alias s {move_s};
+#var isNstandard 1;
+#line substitute {variables} {#macro {$KEY_PAD_N} {move_n}};
+#alias n {move_n};
+#var isWstandard 1;
+#line substitute {variables} {#macro {$KEY_PAD_W} {move_w}};
+#alias w {move_w};
+#var isEstandard 1;
+#line substitute {variables} {#macro {$KEY_PAD_E} {move_e}};
+#alias e {move_e};
+#var isNWstandard 1;
+#line substitute {variables} {#macro {$KEY_PAD_NW} {move_nw}};
+#alias nw {move_nw};
+#var isNEstandard 1;
+#line substitute {variables} {#macro {$KEY_PAD_NE} {move_ne}};
+#alias ne {move_ne};
+#var isSWstandard 1;
+#line substitute {variables} {#macro {$KEY_PAD_SW} {move_sw}};
+#alias sw {move_sw};
+#var isSEstandard 1;
+#line substitute {variables} {#macro {$KEY_PAD_SE} {move_se}};
+#alias se {move_se};
+#var isUPstandard 1;
+#line substitute {variables} {#macro {$KEY_PAD_U} {move_u}};
+#alias u {move_u};
+#var isDNstandard 1;
+#line substitute {variables} {#macro {$KEY_PAD_D} {move_d}};
+#alias d {move_d};
+}
+}
+
+#action {^bind:{F|f}{1|2|3|4|5|6|7|8}:%3}
+{
+#rpg {
+#echo {<088><aca>[bind <ffa>%1%2<aca>] <afa>%3<088>};
+#if {%2 == 1} {#line substitute {variables} {#macro {$KEY_F1} {%3}}};
+#if {%2 == 2} {#line substitute {variables} {#macro {$KEY_F2} {%3;#line substitute {variables} {#format display_function_2 {%-34s %.34s} {<ada>  <088>}};testprompt;}}};
+#if {%2 == 3} {#line substitute {variables} {#macro {$KEY_F3} {%3;#line substitute {variables} {#format display_function_3 {%-34s %.34s} {<ada>  <088>}};testprompt;}}};
+#if {%2 == 4} {#line substitute {variables} {#macro {$KEY_F4} {%3;#line substitute {variables} {#format display_function_4 {%-34s %.34s} {<ada>  <088>}};testprompt;}}};
+#if {%2 == 5} {#line substitute {variables} {#macro {$KEY_F5} {%3;#line substitute {variables} {#format display_function_5 {%-34s %.34s} {<ada>  <088>}};testprompt;}}};
+#if {%2 == 6} {#line substitute {variables} {#macro {$KEY_F6} {%3;#line substitute {variables} {#format display_function_6 {%-34s %.34s} {<ada>  <088>}};testprompt;}}};
+#if {%2 == 7} {#line substitute {variables} {#macro {$KEY_F7} {%3;#line substitute {variables} {#format display_function_7 {%-34s %.34s} {<ada>  <088>}};testprompt;}}};
+#if {%2 == 8} {#line substitute {variables} {#macro {$KEY_F8} {%3;#line substitute {variables} {#format display_function_8 {%-34s %.34s} {<ada>  <088>}};testprompt;}}};
+#if {%2 == 9} {#line substitute {variables} {#macro {$KEY_F9} {%3;#line substitute {variables} {#format display_function_9 {%-34s %.34s} {<ada>  <088>}};testprompt;}}};
+#line substitute {variables} {#format display_function_%2 {%-29s %.29s} {<ada>%3<088>}};
+testprompt;
 };
-
-
-#action {^bind:%1} {#chat message all %0};
-#action {^info:%1} {#chat message all %0};
-#action {^trigger:%1} {#chat message all %0};
-
-
-
+}
+#action {^info:%1}
+{
+#rpg {
+    #echo {<088><ffa>[lokacja] <ffa>%1<088>};
+};
+}

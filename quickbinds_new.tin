@@ -230,7 +230,7 @@
   #line substitute {variables} {
     #macro {`} {
       %1;
-      #chat message mapper navigate:exit:%1;
+      #mapper navigate:custom:%1;
     }
   };
   #sh {<118><aac>> <088><118><AAC><fff>  MOVE ` <088>  <118><AAC><fff> %1 <088> };
@@ -313,7 +313,7 @@ testprompt;
 }
 
 #function {set_quickbind_move} {
-	#line substitute {variables} {#alias {p$current_fkey} {%1;#chat message mapper navigate:exit:%1}};
+	#line substitute {variables} {#alias {p$current_fkey} {%1;#mapper navigate:custom:%1}};
 	#sh {### <fff>p$current_fkey<088> ### <G02><118><fff>%1<088>};
 	#if {$current_fkey == 4} {
 		#var current_fkey 1;
