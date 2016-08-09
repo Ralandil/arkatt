@@ -4,9 +4,16 @@
 
 
 
-#action {^exit:rebind:%1}
+#action {exit:rebind:%1}
 {
-    #rpg #sh map:exit:rebind:%1;
+#rpg #sh {map:exit:rebind:%1};
+}
+
+#action {^exit:custom:%2} {
+    #rpg {
+        #var zas @set_quickbind_move{%2};
+        #line substitute {variables} {#alias {%2} {#send %2;#chat message mapper navigate:exit:%2}};
+    };
 }
 #action {^exit:custom:%2} {
     #rpg {
@@ -14,8 +21,6 @@
         #line substitute {variables} {#alias {%2} {#send %2;#chat message mapper navigate:exit:%2}};
     };
 }
-
-
 
 
 #action {^<CHAT> %1 chats to you, 'path:highlight:%2'}
@@ -29,43 +34,43 @@
 #action {^<CHAT> %1 chats to you, 'navigate:exit:{nw|ne|sw|se|n|w|s|e|u|d}'}
 {
 	#mapper #send navigate:exit:%2;
-	#line gag;
+	
 } {5}
 #action {^<CHAT> %1 chats to you, 'map:undo'}
 {
 	#mapper #send map:undo;
-	#line gag;
+	
 }
 #action {^<CHAT> %1 chats to you, 'revert'}
 {
 	#mapper #send revert;
-	#line gag;
+	
 }
 #action {^<CHAT> %1 chats to you, 'undo'}
 {
 	#mapper #send undo;
-	#line gag;
+	
 }
 #action {^<CHAT> %1 chats to you, 'lookup:%2'}
 {
 	#mapper #send lookup:%2;
-	#line gag;
+	
 } {1}
 #action {^<CHAT> %1 chats to you, 'navigate:follow:%2'}
 {
 	#mapper #send navigate:follow:%2;
-	#line gag;
+	
 } {1}
 
 #action {^<CHAT> %1 chats to you, 'navigate:exit:%2'}
 {
 	#mapper #send navigate:custom:%2;
-	#line gag;
+	
 } {6}
 #action {^<CHAT> %1 chats to you, 'navigate:custom:%2'}
 {
 	#mapper #send navigate:custom:%2;
-	#line gag;
+	
 } {6}
 
 
@@ -73,16 +78,19 @@
     #rpg {
         #var current_room_id %1;
         #if {$gmcp_saving > 0} {sg;};
-        #line gag;
+        
     };
 }
 #action {^exit:end} {
     #rpg {
         testprompt;
-        #line gag;
+        
     };
 }
 
+#action {^exit:start} {
+
+}
 
 #action {^room:enter} {
 #rpg {
