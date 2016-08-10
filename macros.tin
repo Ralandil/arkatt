@@ -1,3 +1,21 @@
+#alias {flush_exits}
+{
+#var pr_n { };
+#var pr_s { };
+#var pr_e { };
+#var pr_w { };
+#var pr_ne { };
+#var pr_se { };
+#var pr_sw { };
+#var pr_nw { };
+#var pr_nee { };
+#var pr_see { };
+#var pr_sww { };
+#var pr_nww { };
+#var pr_d { };
+#var pr_u { };
+}
+
 #alias move_s {#send s;#mapper navigate:exit:s;map_move_s;#var map_movecursor 1};
 #alias move_n {#send n;#mapper navigate:exit:n;map_move_n;#var map_movecursor 1};
 #alias move_e {#send e;#mapper navigate:exit:e;map_move_e;#var map_movecursor 1};

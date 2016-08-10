@@ -165,6 +165,10 @@
 	#sh {<118><afa>  [  ZASLONA  ]  <088>%0<aaa>,};
     #line gag;
 } {2}
+#action {Przeciez nikt cie nie zaslania.}
+{
+#var prompt_button_zaslonaty $prompt_button_zaslonaty_inactive;testprompt;
+}
 
 #unaction {~^Zrecznie zaslaniasz %* przed ciosami %*.$};
 

@@ -123,7 +123,7 @@
         #var tmpline {$asciimapv[$loopcnt]};
         #format {tmpline} {%-${asciimap_w}s} {$tmpline};
         #replace {tmpline} {\\} {\\\};
-        #replace {tmpline} {G} {<faf>G<088>};
+        #replace {tmpline} {G} {<faf>G};
         #replace {tmpline} {#} {<faa>#<088>};
         #replace {tmpline} {P} {<afa>P<088>};
         #replace {tmpline} {S} {<ffa>S<088>};
@@ -143,6 +143,10 @@
 }
 
 
+#alias {room_add_exits}
+{
+
+}
 
 
 #nop ###############  GMCP  MAP INTEGRATION #####################
@@ -163,67 +167,39 @@
     #var pr_nww { };
     #var pr_d { };
     #var pr_u { };
-	
-	#list ROOM_INFO[exits] size rinfosize;
-	#format mnamelen {%L} {$ROOM_INFO[map][name]};
+
+    #list ROOM_INFO[exits] size rinfosize;
 	#if {$rinfosize > 0} {
 	
-	#foreach {$ROOM_INFO[exits][]} {rinfo} {
-		#var nxtexit $ROOM_INFO[exits][$rinfo];
-		#if {"$nxtexit" == "polnoc"} {#var pr_n {|}};
-		#elseif {"$nxtexit" == "zachod"} {#var pr_w {-}};
-		#elseif {"$nxtexit" == "wschod"} {#var pr_e {-}};
-		#elseif {"$nxtexit" == "poludnie"} {#var pr_s {|}};
-		#elseif {"$nxtexit" == "dol"} {#var pr_d {D}};
-		#elseif {"$nxtexit" == "gora"} {#var pr_u {U}};
-        #elseif {"$nxtexit" == "polnocny-zachod"} {#var {pr_nww} {L};#var pr_nw {\\}};
-        #elseif {"$nxtexit" == "polnocny-wschod"} {#var pr_ne {/};#var pr_nee {T}};
-        #elseif {"$nxtexit" == "poludniowy-zachod"} {#var pr_sw {/};#var pr_sww {T}};
-        #elseif {"$nxtexit" == "poludniowy-wschod"} {#var pr_see {L};#var pr_se {\\}};
-        #else {
-		   #format {nxtexitlen} {%L} {$nxtexit};
-		   #if {$nxtexitlen > 0} {
-#line substitute {variables} {#alias {$nxtexit} {#send $nxtexit;#mapper navigate:custom:$nxtexit;locationmap_reset;#var map_movecursor 1}};
-		   };
-		};
-    };
-
-    #if {$rebinded_keys == 2} {
-        #var rebinded_keys {0};
-        #if {"$prm_n" == "|"} {#var pr_n {|}};
-        #if {"$prm_e" == "-"} {#var pr_e {-}};
-        #if {"$prm_w" == "-"} {#var pr_w {-}};
-        #if {"$prm_s" == "|"} {#var pr_s {|}};
-        #if {"$prm_ne" == "T"} {#var pr_nee {T}};
-        #if {"$prm_sw" == "T"} {#var pr_sww {T}};
-        #if {"$prm_nw" == "L"} {#var pr_nww {L}};
-        #if {"$prm_se" == "L"} {#var pr_see {L}};
-        #if {"$prm_u" == "U"} {#var pr_u {U}};
-        #if {"$prm_d" == "D"} {#var pr_d {D}};
-        #var prm_n { };
-        #var prm_s { };
-        #var prm_e { };
-        #var prm_w { };
-        #var prm_ne { };
-        #var prm_se { };
-        #var prm_sw { };
-        #var prm_nw { };
-        #var prm_d { };
-        #var prm_u { };
-        #nop map_updateexits;map_draw;
-    };
-
-    #if {$mnamelen > 0} {
-        #replace {ROOM_INFO[map][name]} { } {};
-        #replace {ROOM_INFO[map][name]} {'} {};
-        asciimap;
-        locationmap_reset;
-    } {
-        #if {$map_movecursor == 1} {
-            map_updateexits;map_draw;
+        #foreach {$ROOM_INFO[exits][]} {rinfo} {
+            #var nxtexit $ROOM_INFO[exits][$rinfo];
+            #if {"$nxtexit" == "polnoc"} {#var pr_n {|}};
+            #elseif {"$nxtexit" == "zachod"} {#var pr_w {-}};
+            #elseif {"$nxtexit" == "wschod"} {#var pr_e {-}};
+            #elseif {"$nxtexit" == "poludnie"} {#var pr_s {|}};
+            #elseif {"$nxtexit" == "dol"} {#var pr_d {D}};
+            #elseif {"$nxtexit" == "gora"} {#var pr_u {U}};
+            #elseif {"$nxtexit" == "polnocny-zachod"} {#var {pr_nww} {L};#var pr_nw {\\}};
+            #elseif {"$nxtexit" == "polnocny-wschod"} {#var pr_ne {/};#var pr_nee {T}};
+            #elseif {"$nxtexit" == "poludniowy-zachod"} {#var pr_sw {/};#var pr_sww {T}};
+            #elseif {"$nxtexit" == "poludniowy-wschod"} {#var pr_see {L};#var pr_se {\\}};
+            #else {
+                #format {nxtexitlen} {%L} {$nxtexit};
+                #if {$nxtexitlen > 0} {
+                    #line substitute {variables} {#alias {$nxtexit} {#send $nxtexit;#mapper navigate:custom:$nxtexit;locationmap_reset;#var map_movecursor 1}};
+                };
+            };
         };
-    };
-        #nop asciicompas;
+
+        #format mnamelen {%L} {$ROOM_INFO[map][name]};
+        #if {$mnamelen > 0} {
+            #replace {ROOM_INFO[map][name]} { } {};
+            #replace {ROOM_INFO[map][name]} {'} {};
+            asciimap;
+            locationmap_reset;
+        } {
+            #if {$map_movecursor == 1} {map_updateexits;map_draw;};
+        };
     };
     #var map_movecursor 0;
 
@@ -232,6 +208,7 @@
 	#var kompas_dziala {0};
     testprompt;
 }
+
 
 #var isNstandard 1
 #var isEstandard 1
@@ -322,12 +299,11 @@
 #action {Drzwi sa zamkniete i nie daja sie otworzyc bez odpowiedniego klucza.$} {#mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
 #action {Pociagasz za klamke, ale drzwi sa zamkniete.$} {#mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
 #action {Probujesz rozpaczliwie wspiac sie na gore, ale zeslizgujesz sie po mokrych kamieniach.$} {#mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
-#action {Kierujesz sie w strone krzakow} {#mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
+
 #action {Probujesz dostac sie do srodka willi, lecz po chwili zjawia sie lokaj, powiadamiajac cie uprzejmym, acz stanowczym glosem,} {#mapper revert}
 #action {Kierujesz sie w strone krzakow porastajacych polnocno-wchodnia czesc kotliny, lecz bezradnie zatrzymujesz sie przed zwarta sciana kolcow i galezi. Nie znajdujesz sposobu, jak wejsc w chaszcze.} {#mapper revert} {1};
 #action {Jestes ogluszony i nie mozesz nic zrobic.$} {#mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
 #action {Nie jestes w stanie wymknac sie stad niezauwazenie.$} {#mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
-
 
 #action {%* stoi ci na drodze.} {#mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
 
@@ -336,9 +312,13 @@
 #nop action {Ciemne miejsce.} {#var lastmove none}
 #nop action {Nic nie widzisz, jednak po potwornym smrodzie czujesz, ze znajdujesz sie w kanalach.} {#var lastmove none}
 
-#action {Ruszasz razno na %1, lecz po kilku krokach grzezniesz w krzakach.} {
+#action {Kierujesz sie w strone krzakow %*.} {
+    #echo {<faa>%0<088><aaa>,<088>};
+    #unvar maptest;
+    #line gag;
     #if {$przewodzisz_druzynie == 1} {
         #mapper revert;
+        map_updateexits;map_draw;testprompt;
     }
 }
 
@@ -354,26 +334,13 @@
     #if {"$upper_dir" == "UP"} {#var upper_dir {U};};
     #if {"$upper_dir" == "DN"} {#var upper_dir {D};};
     #format lower_dir {%l} {$upper_dir};
-
-    #line substitute {variables} {#alias {custom_${lower_dir}} {#send %2;#mapper navigate:custom:%2;locationmap_reset;#var map_movecursor 1}};
+#line substitute {variables} {#alias {custom_${lower_dir}} {#send %2;#mapper navigate:custom:%2;map_move_${lower_dir};#var map_movecursor 1}};
     #line substitute {variables} {#macro {${KEY_PAD_${upper_dir}}} {custom_${lower_dir}}};
     #line substitute {variables} {#alias {${lower_dir}} {custom_${lower_dir}}};
     #line substitute {variables} {#var {is${upper_dir}standard} 0;};
 
-#if {"%1" == "N"} {#var prm_n {|}};
-#if {"$1" == "W"} {#var prm_w {-}};
-#if {"$1" == "E"} {#var prm_e {-}};
-#if {"$1" == "S"} {#var prm_s {|}};
-#if {"$1" == "DN"} {#var prm_d {D}};
-#if {"$1" == "UP"} {#var prm_u {U}};
-#if {"$1" == "NW"} {#var prm_nw {L}};
-#if {"$1" == "NE"} {#var prm_ne {T}};
-#if {"$1" == "SW"} {#var prm_sw {T}};
-#if {"$1" == "SE"} {#var prm_se {L}};
-
     #format {displaydir} {%-2s} {$lower_dir};
     #sh <acf>[exit <ffa>$displaydir<acf>] <088><acf>%2<088>;
-
     #line substitute {variables} {#var pr_${lower_dir} $klocekr[$upper_dir];};
     #if {"$upper_dir" == "U"} {
         #line substitute {variables} {#var pr_${lower_dir} $RBLOCKU;};
@@ -383,9 +350,7 @@
     };
     #format lower_dir {%l} {%2}
     #line substitute {variables} {#alias {$lower_dir} {#send %2;#mapper navigate:exit:$lower_dir}};
-
-    #var rebinded_keys {1};
-
+    #var rebinded_keys 1;
     #line gag;
 } {2};
 

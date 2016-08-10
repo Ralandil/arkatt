@@ -9,17 +9,23 @@
 
 #alias {map_move_n}
 {
+    #math {tmpv} {$map_room_y - 1};
 	#var maptest[$map_room_y,$map_room_x] {O};
-	#math map_room_y {$map_room_y - 2};
+    #var maptest[$tmpv,$map_room_x] {|};
+    #math map_room_y {$map_room_y - 2};
 }
 #alias {map_move_s}
 {
+    #math {tmpv} {$map_room_y + 1};
 	#var maptest[$map_room_y,$map_room_x] {O};
-	#math map_room_y {$map_room_y + 2};
+    #var maptest[$tmpv,$map_room_x] {|};
+    #math map_room_y {$map_room_y + 2};
 }
 #alias {map_move_w}
 {
+    #math {tmpv} {$map_room_x - 1};
 	#var maptest[$map_room_y,$map_room_x] {O};
+    #var maptest[$map_room_y,$tmpv] {-};
     #math map_room_x {$map_room_x - 2};
 }
 #alias {map_move_e}
@@ -32,24 +38,36 @@
 
 #alias {map_move_ne}
 {
+    #math {tmpy} {$map_room_y - 1};
+    #math {tmpx} {$map_room_x + 1};
 	#var maptest[$map_room_y,$map_room_x] {O};
+    #var maptest[$tmpy,$tmpx] {/};
 	#math map_room_x {$map_room_x + 2};
 	#math map_room_y {$map_room_y - 2};
 }
 #alias {map_move_nw}
 {
+    #math {tmpx} {$map_room_x - 1};
+    #math {tmpy} {$map_room_y - 1};
+    #var maptest[$tmpy,$tmpx] {\\};
 	#var maptest[$map_room_y,$map_room_x] {O};
 	#math map_room_x {$map_room_x - 2};
 	#math map_room_y {$map_room_y - 2};
 }
 #alias {map_move_se}
 {
+    #math {tmpx} {$map_room_x + 1};
+    #math {tmpy} {$map_room_y + 1};
+    #var maptest[$tmpy,$tmpx] {\\};
 	#var maptest[$map_room_y,$map_room_x] {O};
 	#math map_room_x {$map_room_x + 2};
 	#math map_room_y {$map_room_y + 2};
 }
 #alias {map_move_sw}
 {
+    #math {tmpx} {$map_room_x - 1};
+    #math {tmpy} {$map_room_y + 1};
+    #var maptest[$tmpy,$tmpx] {/};
 	#var maptest[$map_room_y,$map_room_x] {O};
 	#math map_room_x {$map_room_x - 2};
 	#math map_room_y {$map_room_y + 2};
@@ -132,41 +150,6 @@
     };
     #var maptest[$map_room_y_up2,$map_room_x_dn2] {O};
   };
-
-
-#if {"$pr_s" == "<faa>|<088>"} {
-#var maptest[$map_room_y_up1,$map_room_x] {$pr_s};
-#var maptest[$map_room_y_up2,$map_room_x] {O};
-};
-#if {"$pr_n" == "<faa>|<088>"} {
-#var maptest[$map_room_y_dn1,$map_room_x] {$pr_n};
-#var maptest[$map_room_y_dn2,$map_room_x] {O};
-};
-#if {"$pr_w" == "<faa>-<088>"} {
-#var maptest[$map_room_y,$map_room_x_dn1] {$pr_w};
-#var maptest[$map_room_y,$map_room_x_dn2] {O};
-};
-#if {"$pr_e" == "<faa>-<088>"} {
-#var maptest[$map_room_y,$map_room_x_up1] {$pr_e};
-#var maptest[$map_room_y,$map_room_x_up2] {O};
-};
-#if {"$pr_nw" == "L"} {
-#var maptest[$map_room_y_dn1,$map_room_x_dn1] {\\};
-#var maptest[$map_room_y_dn2,$map_room_x_dn2] {O};
-};
-#if {"$pr_se" == "L"} {
-#var maptest[$map_room_y_up1,$map_room_x_up1] {\\};
-#var maptest[$map_room_y_up2,$map_room_x_up2] {O};
-};
-#if {"$pr_ne" == "T"} {
-#var maptest[$map_room_y_dn1,$map_room_x_up1] {/};
-#var maptest[$map_room_y_dn2,$map_room_x_up2] {O};
-};
-#if {"$pr_sw" == "T"} {
-#var maptest[$map_room_y_up1,$map_room_x_dn1] {/};
-#var maptest[$map_room_y_up2,$map_room_x_dn2] {O};
-};
-
 
   #var maptest[$map_room_y,$map_room_x] {@};
 }
