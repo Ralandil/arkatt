@@ -334,7 +334,7 @@
     #if {"$upper_dir" == "UP"} {#var upper_dir {U};};
     #if {"$upper_dir" == "DN"} {#var upper_dir {D};};
     #format lower_dir {%l} {$upper_dir};
-#line substitute {variables} {#alias {custom_${lower_dir}} {#send %2;#mapper navigate:custom:%2;map_move_${lower_dir};#var map_movecursor 1}};
+#line substitute {variables} {#alias {custom_${lower_dir}} {#send %2;#mapper navigate:custom:%2;map_move_${lower_dir};#var map_movecursor 1;flush_exits}};
     #line substitute {variables} {#macro {${KEY_PAD_${upper_dir}}} {custom_${lower_dir}}};
     #line substitute {variables} {#alias {${lower_dir}} {custom_${lower_dir}}};
     #line substitute {variables} {#var {is${upper_dir}standard} 0;};

@@ -19,6 +19,7 @@
 #read $path/tickers.tin;
 #read $path/map_engine.tin;
 #read $path/ocena_zbroi.tin;
+#read $path/env.tin;
 #read $path/prompt.tin;
 #read $path/macros.tin;
 #read $path/walka_ogolna.tin;
@@ -34,7 +35,7 @@
 #read $path/zgony.tin;
 #read $path/items.tin;
 #read $path/ziola.tin;
-#read $path/baza.txt;
+#nop read $path/baza.txt;
 #read $path/compare.tin;
 #read $path/gmcp_mapper.tin;
 #read $path/automap/mapdrawer.tin;

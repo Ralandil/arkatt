@@ -14,18 +14,19 @@
 #var pr_nww { };
 #var pr_d { };
 #var pr_u { };
+#var environment_label {<118><G01><g08>           <088>};
 }
 
-#alias move_s {#send s;#mapper navigate:exit:s;map_move_s;#var map_movecursor 1};
-#alias move_n {#send n;#mapper navigate:exit:n;map_move_n;#var map_movecursor 1};
-#alias move_e {#send e;#mapper navigate:exit:e;map_move_e;#var map_movecursor 1};
-#alias move_w {#send w;#mapper navigate:exit:w;map_move_w;#var map_movecursor 1};
-#alias move_u {#send u;#mapper navigate:exit:u;map_move_u;#var map_movecursor 1};
-#alias move_d {#send d;#mapper navigate:exit:d;map_move_d;#var map_movecursor 1};
-#alias move_ne {#send ne;#mapper navigate:exit:ne;map_move_ne;#var map_movecursor 1};
-#alias move_nw {#send nw;#mapper navigate:exit:nw;map_move_nw;#var map_movecursor 1};
-#alias move_se {#send se;#mapper navigate:exit:se;map_move_se;#var map_movecursor 1};
-#alias move_sw {#send sw;#mapper navigate:exit:sw;map_move_sw;#var map_movecursor 1};
+#alias move_s {#send s;#mapper navigate:exit:s;map_move_s;#var map_movecursor 1;flush_exits};
+#alias move_n {#send n;#mapper navigate:exit:n;map_move_n;#var map_movecursor 1;flush_exits};
+#alias move_e {#send e;#mapper navigate:exit:e;map_move_e;#var map_movecursor 1;flush_exits};
+#alias move_w {#send w;#mapper navigate:exit:w;map_move_w;#var map_movecursor 1;flush_exits};
+#alias move_u {#send u;#mapper navigate:exit:u;map_move_u;#var map_movecursor 1;flush_exits};
+#alias move_d {#send d;#mapper navigate:exit:d;map_move_d;#var map_movecursor 1;flush_exits};
+#alias move_ne {#send ne;#mapper navigate:exit:ne;map_move_ne;#var map_movecursor 1;flush_exits};
+#alias move_nw {#send nw;#mapper navigate:exit:nw;map_move_nw;#var map_movecursor 1;flush_exits};
+#alias move_se {#send se;#mapper navigate:exit:se;map_move_se;#var map_movecursor 1;flush_exits};
+#alias move_sw {#send sw;#mapper navigate:exit:sw;map_move_sw;#var map_movecursor 1;flush_exits};
 
 #alias s {move_s};
 #alias n {move_n};
@@ -80,5 +81,6 @@
 #unline substitute {variables} {#macro {$KEY_F11} {tryb_chodzenia}};
 
 #line substitute {variables} {#macro {$KEY_F5} {ocen_wrogow}};
-
+#line substitute {variables} {#macro {§} {function_mode_switch}};
+#line substitute {variables} {#macro {$KEY_PAD_MIDDLE} {_zbierz_}};
 

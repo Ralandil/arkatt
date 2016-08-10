@@ -7,13 +7,53 @@
     nazabij %0;
 }
 
-
+#macro {$KEY_F1} {bind_E_F1};
+#macro {$KEY_F2} {bind_E_F2};
+#macro {$KEY_F3} {bind_E_F3};
+#macro {$KEY_F4} {bind_E_F4};
+#macro {$KEY_F5} {bind_E_F5};
+#macro {$KEY_F6} {bind_E_F6};
+#macro {$KEY_F7} {bind_E_F7};
+#macro {$KEY_F8} {bind_E_F8};
+#macro {$KEY_F9} {bind_E_F9};
+#var function_mode_switch_value {offense};
+#var fmsvc {<BAA> <088>};
+#alias {function_mode_switch}
+{
+    #if {"$function_mode_switch_value" == "offense"} {
+        #var fmsvc {<AAB> <088>};
+        #var function_mode_switch_value {defense};
+        #macro {$KEY_F1} {bind_T_F1};
+        #macro {$KEY_F2} {bind_T_F2};
+        #macro {$KEY_F3} {bind_T_F3};
+        #macro {$KEY_F4} {bind_T_F4};
+        #macro {$KEY_F5} {bind_T_F5};
+        #macro {$KEY_F6} {bind_T_F6};
+        #macro {$KEY_F7} {bind_T_F7};
+        #macro {$KEY_F8} {bind_T_F8};
+        #macro {$KEY_F9} {bind_T_F9};
+    } {
+        #var fmsvc {<BAA> <088>};
+        #var function_mode_switch_value {offense};
+        #macro {$KEY_F1} {bind_E_F1};
+        #macro {$KEY_F2} {bind_E_F2};
+        #macro {$KEY_F3} {bind_E_F3};
+        #macro {$KEY_F4} {bind_E_F4};
+        #macro {$KEY_F5} {bind_E_F5};
+        #macro {$KEY_F6} {bind_E_F6};
+        #macro {$KEY_F7} {bind_E_F7};
+        #macro {$KEY_F8} {bind_E_F8};
+        #macro {$KEY_F9} {bind_E_F9};
+    };
+    testprompt;
+}
 
 #alias {zaznaczcel} {
     #var prompt_button_target $prompt_button_target_active;
     #var prompt_button_przelam $prompt_button_przelam_active;
 
     #macro {$KEY_CELATAKU} {_zaznaczcel_};
+    #macro {$KEY_CELATAKU2} {_zaznaczcel_};
     #macro {[} {_zaznaczcel_};
 testprompt;
     #bell;
@@ -33,7 +73,8 @@ testprompt;
 
 #alias {przelamcel} {
     #var prompt_button_przelam $prompt_button_przelam_active;
-    #macro {$KEY_F3} {_przelamcel_};
+    #macro {$KEY_PRZELAM} {_przelamcel_};
+    #macro {$KEY_PRZELAM2} {_przelamcel_};
     testprompt;
 }
 #alias {_przelamcel_} {
@@ -44,12 +85,14 @@ testprompt;
 
 #alias {niezaslaniaj} {
     #var prompt_button_zaslonacel $prompt_button_zaslonacel_active;
-    #macro {$KEY_F3} {_niezaslaniaj_};
+    #macro {$KEY_PRZESTAN} {_niezaslaniaj_};
+    #macro {$KEY_PRZESTAN2} {_niezaslaniaj_};
     testprompt;
 }
 
 #alias {_niezaslaniaj_} {
     przestan zaslaniac;
+    przestan kryc sie za zaslona;
     #var prompt_button_zaslonacel $prompt_button_zaslonacel_inactive;
     testprompt;
 }
@@ -74,7 +117,6 @@ testprompt;
     nawytnij trofeum z piatego ciala;
 }
 
-#macro {§} {_zbierz_};
 
 #var ocen_wrogow_rec {0};
 #alias {ocen_wrogow}

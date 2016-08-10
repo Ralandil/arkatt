@@ -167,7 +167,7 @@
 } {2}
 #action {Przeciez nikt cie nie zaslania.}
 {
-#var prompt_button_zaslonaty $prompt_button_zaslonaty_inactive;testprompt;
+    #var prompt_button_zaslonaty $prompt_button_zaslonaty_inactive;testprompt;
 }
 
 #unaction {~^Zrecznie zaslaniasz %* przed ciosami %*.$};
@@ -229,19 +229,19 @@
 #action {~^%* probuje cie zaatakowac, lecz %* zagradza %* droge.<088>%0.$}
 {#var ret @parselen{<088>%0<aaa>,};#sh <afa><- NIE LAMIE CIE <-<088> $ret<088><aaa>0<088>;#line gag;}{1}
 
-#action {~^Slamazarnym wymachem %* probujesz wytracic %*. Przeciwnik nie daje sie jednak zaskoczyc, {|cofajac sie w pore|zbijajac w pore twoje uderzenie na bok}.$}
+#action {^Slamazarnym wymachem %* probujesz wytracic %*. Przeciwnik nie daje sie jednak zaskoczyc, {|cofajac sie w pore|zbijajac w pore twoje uderzenie na bok}.$}
 {
-	#sh {<118><faa>[str] <088>%0<aaa>,};
+	#sh {<118><faa>[str] %0<aaa>,};
     #line gag;
 }
 
-#action {~^Szybkim niczym mysl %* wytracasz %* z rak %*.$} {
-	#sh {<118><afa>[str] <088>%0<aaa>,};
+#action {^Szybkim niczym mysl %* wytracasz %* z rak %*.$} {
+	#sh {<118><afa>[str] %0<aaa>,};
     #line gag;
 } {1}
 
-#action {~^Szybkim niczym mysl %* wytracasz %* z reki %*.$} {
-	#sh {<118><afa>[str] <088>%0<aaa>,};
+#action {^Szybkim niczym mysl %* wytracasz %* z reki %*.$} {
+	#sh {<118><afa>[str] %0<aaa>,};
     #line gag;
 } {1}
 

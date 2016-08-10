@@ -38,10 +38,19 @@
 #var KEY_PAD_D {\eOk};
 #var KEY_PAD_WALK {\e0};
 #var KEY_PAD_WALK_M {\e/};
-#var KEY_PAD_KOND {\e5};
 
-#var KEY_CELATAKU {$KEY_F2};
-#var KEY_PRZELAM {\eOj};
+#var KEY_PAD_MIDDLE {\eOu};
+
+#var KEY_CELATAKU {[};
+#var KEY_PRZELAM {[};
+#var KEY_WYJDZ {]};
+#var KEY_PRZESTAN {]};
+
+#var KEY_CELATAKU2 {\eOo};
+#var KEY_PRZELAM2 {\eOo};
+#var KEY_WYJDZ2 {\eOj};
+#var KEY_PRZESTAN2 {\eOj};
+
 
 #read $path/init.tin;
 

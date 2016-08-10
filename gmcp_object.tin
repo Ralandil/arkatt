@@ -141,6 +141,17 @@
                 #math indexvalue {96 + $team_bind_index};
                 #format indexchar {%a} {$indexvalue};
 
+
+#line substitute {variables} {#alias bind_T_F$team_bind_index {zaslon ob_$team[$team_index][tag]}};
+
+                #if {$team_bind_index < 10} {
+                    #math {functionbindvalue} {$team_bind_index};
+                    #line substitute {variables} {#var kill_functionkey {F$functionbindvalue}};
+                } {
+                    #var kill_functionkey {- };
+                };
+
+
                 #foreach {$obda2[]} {vos} {
                     #if {"$obda2[$vos][attack_num]" == "$vob"} {
 
@@ -164,63 +175,62 @@
 #format {esl} {%L} {$enemy_shortcut};
 
 #if {$esl > 1} {
-
                 #if {$obda2[$vob][hp] == 6} {
-                    #var druzyna_prompt[$team_index] {@pbuild_team_id_37{$indexchar   $team_enemies}@pbuild_team_hp_77{$obda2[$vob][desc]}};
-                    #var druzyna_prompt[$tmp] {@pbuild_team_id_37{-     }$enemy_shortcut};
+                    #var druzyna_prompt[$team_index] {@pbuild_team_id_37{$kill_functionkey  $team_enemies}@pbuild_team_hp_77{$obda2[$vob][desc]}};
+                    #var druzyna_prompt[$tmp] {@pbuild_team_id_37{$indexchar     }$enemy_shortcut};
                 };
                 #if {$obda2[$vob][hp] == 5} {
-                    #var druzyna_prompt[$team_index] {@pbuild_team_id_37{$indexchar   $team_enemies}@pbuild_team_hp_67{$obda2[$vob][desc]}};
-#var druzyna_prompt[$tmp] {@pbuild_team_id_37{-     }$enemy_shortcut};
+                    #var druzyna_prompt[$team_index] {@pbuild_team_id_37{$kill_functionkey  $team_enemies}@pbuild_team_hp_67{$obda2[$vob][desc]}};
+#var druzyna_prompt[$tmp] {@pbuild_team_id_37{$indexchar     }$enemy_shortcut};
                 };
                 #if {$obda2[$vob][hp] == 4} {
-                    #var druzyna_prompt[$team_index] {@pbuild_team_id_37{$indexchar   $team_enemies}@pbuild_team_hp_57{$obda2[$vob][desc]}};
-                    #var druzyna_prompt[$tmp] {@pbuild_team_id_37{-     }$enemy_shortcut};
+                    #var druzyna_prompt[$team_index] {@pbuild_team_id_37{$kill_functionkey  $team_enemies}@pbuild_team_hp_57{$obda2[$vob][desc]}};
+                    #var druzyna_prompt[$tmp] {@pbuild_team_id_37{$indexchar     }$enemy_shortcut};
                 };
                 #if {$obda2[$vob][hp] == 3} {
-                    #var druzyna_prompt[$team_index] {@pbuild_team_id_37{$indexchar   $team_enemies}@pbuild_team_hp_47{$obda2[$vob][desc]}};
-                    #var druzyna_prompt[$tmp] {@pbuild_team_id_37{-     }$enemy_shortcut};
+                    #var druzyna_prompt[$team_index] {@pbuild_team_id_37{$kill_functionkey  $team_enemies}@pbuild_team_hp_47{$obda2[$vob][desc]}};
+                    #var druzyna_prompt[$tmp] {@pbuild_team_id_37{$indexchar     }$enemy_shortcut};
                 };
                 #if {$obda2[$vob][hp] == 2} {
-                    #var druzyna_prompt[$team_index] {@pbuild_team_id_37{$indexchar   $team_enemies}@pbuild_team_hp_37{$obda2[$vob][desc]}};
-                    #var druzyna_prompt[$tmp] {@pbuild_team_id_37{-     }$enemy_shortcut};
+                    #var druzyna_prompt[$team_index] {@pbuild_team_id_37{$kill_functionkey  $team_enemies}@pbuild_team_hp_37{$obda2[$vob][desc]}};
+                    #var druzyna_prompt[$tmp] {@pbuild_team_id_37{$indexchar     }$enemy_shortcut};
                 };
                 #if {$obda2[$vob][hp] == 1} {
-                    #var druzyna_prompt[$team_index] {@pbuild_team_id_27{$indexchar   $team_enemies}@pbuild_team_hp_37{$obda2[$vob][desc]}};
-                    #var druzyna_prompt[$tmp] {@pbuild_team_id_27{-     }$enemy_shortcut};
+                    #var druzyna_prompt[$team_index] {@pbuild_team_id_27{$kill_functionkey  $team_enemies}@pbuild_team_hp_37{$obda2[$vob][desc]}};
+                    #var druzyna_prompt[$tmp] {@pbuild_team_id_27{$indexchar     }$enemy_shortcut};
                 };
                 #if {$obda2[$vob][hp] == 0} {
-                    #var druzyna_prompt[$team_index] {@pbuild_team_id_17{$indexchar   $team_enemies}@pbuild_team_hp_37{$obda2[$vob][desc]}};
-                    #var druzyna_prompt[$tmp] {@pbuild_team_id_17{-     }$enemy_shortcut};
+                    #var druzyna_prompt[$team_index] {@pbuild_team_id_17{$kill_functionkey  $team_enemies}@pbuild_team_hp_37{$obda2[$vob][desc]}};
+                    #var druzyna_prompt[$tmp] {@pbuild_team_id_17{$indexchar     }$enemy_shortcut};
                 };
 } {
 #if {$obda2[$vob][hp] == 6} {
-#var druzyna_prompt[$team_index] {@pbuild_team_id_37{$indexchar   $team_enemies}@pbuild_team_hp_77{$obda2[$vob][desc]}};
-#var druzyna_prompt[$tmp] {@pbuild_team_id_37{-     }@pbuild_team_hp_77{-}};
+#var druzyna_prompt[$team_index] {@pbuild_team_id_37{$kill_functionkey  $team_enemies}@pbuild_team_hp_77{$obda2[$vob][desc]}};
+#var druzyna_prompt[$tmp] {@pbuild_team_id_37{$indexchar     }@pbuild_team_hp_77{-}};
 };
 #if {$obda2[$vob][hp] == 5} {
-#var druzyna_prompt[$team_index] {@pbuild_team_id_37{$indexchar   $team_enemies}@pbuild_team_hp_67{$obda2[$vob][desc]}};
-#var druzyna_prompt[$tmp] {@pbuild_team_id_37{-     }@pbuild_team_hp_67{-}};
+#var druzyna_prompt[$team_index] {@pbuild_team_id_37{$kill_functionkey  $team_enemies}@pbuild_team_hp_67{$obda2[$vob][desc]}};
+#var druzyna_prompt[$tmp] {@pbuild_team_id_37{$indexchar     }@pbuild_team_hp_67{-}};
 };
 #if {$obda2[$vob][hp] == 4} {
-#var druzyna_prompt[$team_index] {@pbuild_team_id_37{$indexchar   $team_enemies}@pbuild_team_hp_57{$obda2[$vob][desc]}};
-#var druzyna_prompt[$tmp] {@pbuild_team_id_37{-     }@pbuild_team_hp_57{-}};
+#var druzyna_prompt[$team_index] {@pbuild_team_id_37{$kill_functionkey  $team_enemies}@pbuild_team_hp_57{$obda2[$vob][desc]}};
+#var druzyna_prompt[$tmp] {@pbuild_team_id_37{$indexchar     }@pbuild_team_hp_57{-}};
 };
 #if {$obda2[$vob][hp] == 3} {
-#var druzyna_prompt[$team_index] {@pbuild_team_id_37{$indexchar   $team_enemies}@pbuild_team_hp_47{$obda2[$vob][desc]}};
-#var druzyna_prompt[$tmp] {@pbuild_team_id_37{-     }@pbuild_team_hp_47{-}};
+#var druzyna_prompt[$team_index] {@pbuild_team_id_37{$kill_functionkey  $team_enemies}@pbuild_team_hp_47{$obda2[$vob][desc]}};
+#var druzyna_prompt[$tmp] {@pbuild_team_id_37{$indexchar     }@pbuild_team_hp_47{-}};
 };
 #if {$obda2[$vob][hp] == 2} {
-#var druzyna_prompt[$team_index] {@pbuild_team_id_37{$indexchar   $team_enemies}@pbuild_team_hp_37{$obda2[$vob][desc]}};
-#var druzyna_prompt[$tmp] {@pbuild_team_id_37{-     }@pbuild_team_hp_37{-}};
+#var druzyna_prompt[$team_index] {@pbuild_team_id_37{$kill_functionkey  $team_enemies}@pbuild_team_hp_37{$obda2[$vob][desc]}};
+#var druzyna_prompt[$tmp] {@pbuild_team_id_37{$indexchar     }@pbuild_team_hp_37{-}};
 };
 #if {$obda2[$vob][hp] == 1} {
-#var druzyna_prompt[$team_index] {@pbuild_team_id_27{$indexchar   $team_enemies}@pbuild_team_hp_37{$obda2[$vob][desc]}};
-#var druzyna_prompt[$tmp] {@pbuild_team_id_27{-     }@pbuild_team_hp_37{-}};
+#var druzyna_prompt[$team_index] {@pbuild_team_id_27{$kill_functionkey  $team_enemies}@pbuild_team_hp_37{$obda2[$vob][desc]}};
+#var druzyna_prompt[$tmp] {@pbuild_team_id_27{$indexchar     }@pbuild_team_hp_37{-}};
 };
 #if {$obda2[$vob][hp] == 0} {
-#var druzyna_prompt[$team_index] {@pbuild_team_id_17{$indexchar   $team_enemies}@pbuild_team_hp_37{$obda2[$vob][desc]}};
-#var druzyna_prompt[$tmp] {@pbuild_team_id_17{-     }@pbuild_team_hp_37{-}};
+#var druzyna_prompt[$team_index] {@pbuild_team_id_17{$kill_functionkey  $team_enemies}@pbuild_team_hp_37{$obda2[$vob][desc]}};
+#var druzyna_prompt[$tmp] {@pbuild_team_id_17{$indexchar     }@pbuild_team_hp_37{-}};
 };
 
 };
@@ -249,10 +259,13 @@
             #math indexvalue { };
             #math indexvalue {96 + $othe_bind_index};
             #format indexchar {%a} {$indexvalue};
-            #if {$othe_bind_index < 7} {
-                #math {functionbindvalue} {$othe_bind_index + 3};
+
+#line substitute {variables} {#alias bind_E_F$othe_bind_index {_zabij_ ob_$othe[$othe_index][tag]}};
+
+            #if {$othe_bind_index < 10} {
+                #math {functionbindvalue} {$othe_bind_index};
                 #line substitute {variables} {#var kill_functionkey {F$functionbindvalue}};
-                #line substitute {variables} {#macro {$KEY_F$functionbindvalue} {_zabij_ ob_$othe[$othe_index][tag]}};
+                #nop line substitute {variables} {#macro {$KEY_F$functionbindvalue} {_zabij_ ob_$othe[$othe_index][tag]}};
             } {
                 #var kill_functionkey {- };
             };
