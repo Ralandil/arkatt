@@ -267,7 +267,7 @@
 #action {Nie masz na to sily.$} {#mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
 #action {Probujesz otworzyc %1, ale nie udaje ci sie to.} {#var ret @set_quickbind_green{uderz w brame};#mapper revert;#echo {<faa>%0<088>};#line gag};
 #action {Jestes tak zmeczony, ze nie mozesz dalej podazac w tym kierunku.$} {#mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
-#action {Nie mozesz tego zrobic, gdyz} {#mapper revert} {7};
+#action {Nie mozesz tego zrobic, gdyz %*} {#mapper revert} {7};
 
 #action {Gorliwy ciemnowlosy mezczyzna stoi ci na drodze.} {#mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
 
@@ -283,7 +283,7 @@
 #action {Nie zmiescisz sie w budzie!} {#mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag} {1};
 #action {Nie mozesz sie tam udac, gdyz siedzisz.$} {#mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
 #action {Najpierw wejdz do kabiny i sie rozbierz!} {#mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
-#action {Nie masz %0 wstepu.$} {#mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
+#action {Nie masz %1 wstepu.$} {#mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
 #action {Musisz najpierw oplacic wejscie na widownie.} {#mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
 #action {Nie mozesz sie tam udac, gdyz %1 blokuj%+ ci droge na %3.$} {#mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
 #action {Jestes teraz zajety czyms innym.$} {#mapper revert;#echo {<faa>%0<088>};#unvar maptest;map_updateexits;map_draw;testprompt;#line gag};
