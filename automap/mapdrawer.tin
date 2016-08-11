@@ -74,11 +74,11 @@
 }
 #alias {map_move_u}
 {
-#unvar maptest;#var maptest{ };
+#unvar maptest;map_updateexits;map_draw;
 }
 #alias {map_move_d}
 {
-#unvar maptest;#var maptest{ };
+#unvar maptest;map_updateexits;map_draw;
 }
 
 

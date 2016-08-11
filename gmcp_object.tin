@@ -630,6 +630,30 @@
         };
     };
 
+
+#if {"$function_mode_switch_value" == "offense"} {
+#macro {$KEY_F1} {bind_E_F1};
+#macro {$KEY_F2} {bind_E_F2};
+#macro {$KEY_F3} {bind_E_F3};
+#macro {$KEY_F4} {bind_E_F4};
+#macro {$KEY_F5} {bind_E_F5};
+#macro {$KEY_F6} {bind_E_F6};
+#macro {$KEY_F7} {bind_E_F7};
+#macro {$KEY_F8} {bind_E_F8};
+#macro {$KEY_F9} {bind_E_F9};
+} {
+#macro {$KEY_F1} {bind_T_F1};
+#macro {$KEY_F2} {bind_T_F2};
+#macro {$KEY_F3} {bind_T_F3};
+#macro {$KEY_F4} {bind_T_F4};
+#macro {$KEY_F5} {bind_T_F5};
+#macro {$KEY_F6} {bind_T_F6};
+#macro {$KEY_F7} {bind_T_F7};
+#macro {$KEY_F8} {bind_T_F8};
+#macro {$KEY_F9} {bind_T_F9};
+};
+
+
     testprompt;
 }
 
