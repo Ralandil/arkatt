@@ -1,6 +1,6 @@
 #var ziola[Deliona] {0};
-#var ziola[mieta] {0};
-#var ziola[babka] {0};
+#var ziola[Mieta] {0};
+#var ziola[Babka] {0};
 #var ziola[Mniszek] {0};
 #var ziola[Szafran] {0};
 #var ziola[BorowikSzatanski] {0};
@@ -256,11 +256,12 @@
 #alias {wb} {zajrzyj do drugiego przytroczonego woreczka;}
 #alias {wc} {zajrzyj do trzeciego przytroczonego woreczka;}
 #alias {wd} {zajrzyj do czwartego przytroczonego woreczka;}
+
 #alias {worki} {
   #var sortujemy {true};
   #var ziola[Deliona] {0};
-  #var ziola[mieta] {0};
-  #var ziola[babka] {0};
+  #var ziola[Mieta] {0};
+  #var ziola[Babka] {0};
   #var ziola[Mniszek] {0};
   #var ziola[Szafran] {0};
   #var ziola[BorowikSzatanski] {0};
@@ -376,27 +377,23 @@
 #action {Rozwiazujesz na chwile rzemyk, sprawdzajac zawartosc swojego %1. W srodku dostrzegasz %69.} {
   #if {"$sortujemy" == "true"} {
     #var ret @sortuj_worek{%69};
-   #line gag;
   };
 }
 #action {Rozwiazujesz na chwile rzemyk, sprawdzajac zawartosc swojego %1. W jego srodku nic jednak nie ma.} {
   #if {"$sortujemy" == "true"} {
     #var ret @sortuj_worek{zero niczego};
-    #line gag;
   };
 }
 #action {Uwaznie ogladasz zawartosc %1. W jego srodku nic jednak nie ma.} {
   #var ret @sortuj_worek{zero niczego};
-  #if {"$sortujemy" == "true"} {#line gag;};
+  #nop if {"$sortujemy" == "true"} {#line gag;};
 }
 #action {Uwaznie ogladasz zawartosc %1. W srodku dostrzegasz %69.} {
   #var ret @sortuj_worek{%69};
-  #if {"$sortujemy" == "true"} {#line gag;};
+  #nop if {"$sortujemy" == "true"} {#line gag;};
 }
 
-#action {Zajrzyj do czego?} {
-  #line gag;
-}
+#unaction {Zajrzyj do czego?} {}
 
 #function {cyfruj_ilosc} {
   #var ret %1;
@@ -489,7 +486,7 @@
   #replace szawartosc {czterokanciast%w rozgalezion%w lodyg%w} {Dziurawiec};
   #replace szawartosc {srebrzystoszar%w owlosion%w lisc%w} {Naparstnica};
   #replace szawartosc {smukl%w zielon%w lodyg%w} {Nostrzyk};
-  #replace szawartosc { kanciast%w rozgalezion%w lodyg%w} {Bylica};
+  #replace szawartosc {kanciast%w rozgalezion%w lodyg%w} {Bylica};
   #replace szawartosc {kosmatoowlosion%w kwiatostan%w} {Kasztanowiec};
   #replace szawartosc {kremow%w owlosion%w kwiat%w} {Przelot};
   #replace szawartosc {kremow%w owlosion%w ususzon%w kwiat%w} {Przelot_};
@@ -570,12 +567,16 @@
   };
   #elseif {"$currentworek" == "D"} {
       #sh {<118><fff>Zawartosc workow:<088>};
-    
+
+#unvar ziolka_prompt;
+#var ziolka_licznik {1};
       #foreach {$ziola[]} {ziolkonazwa} {
 	#if {$ziola[$ziolkonazwa] > 0} {
 	  #format {_ziolko_opis} {%+10s} {$ziolan[$ziolkonazwa]};
 	  #format {_ziolko_ilos} {%+3s} {$ziola[$ziolkonazwa]};
-	  #sh <118><afa>  $_ziolko_ilos<088> $_ziolko_opis;
+#sh <118><afa>  $_ziolko_ilos<088> $_ziolko_opis <faa>$ziolkonazwa<088>;
+#nop var ziolka_prompt[$ziolka_licznik][nazwa] $ziolkonazwa;
+#nop var ziolka_prompt[$ziolka_licznik][ilosc] $ziola;
 	};
       };
     
@@ -601,6 +602,30 @@
       #var sortujemy {false};
   };
 };
+}
+
+#alias {rysuj_wory}
+{
+    #unvar ziolka_prompt;
+    #var ziolka_licznik {1};
+    #nop foreach {$ziola[]} {ziolkonazwa} {
+        #if {$ziola[$ziolkonazwa] > 0} {
+            #format {_ziolko_opis} {%+10s} {$ziolan[$ziolkonazwa]};
+            #format {_ziolko_ilos} {%+3s} {$ziola[$ziolkonazwa]};
+        };
+    };
+
+    #if {$ziola[Deliona] < 1} {
+        #sh {<118><G02><118><ccc>   (<ccc> 0<ccc>) Deliona  (<faf>zm-<ccc>)<088>};
+    } {
+        #format {_ziolko_ilos} {%+2s} {$ziola[Deliona]};
+        #sh {<118><G02><118><ccc>F1 (<afa>$_ziolko_ilos<ccc>) Deliona  (<faf>zm-<ccc>)<088>};
+    };
+
+#sh {<118><G02><118><ccc>   (<ccc> 0<ccc>) Deliona  (<faf>zm-<ccc>)<088>};
+#sh {<118><G02><118><ccc>F1 (<afa>$_ziolko_ilos<ccc>) Deliona  (<faf>zm-<ccc>)<088>};
+
+
 }
 
 #alias {wezziola}
