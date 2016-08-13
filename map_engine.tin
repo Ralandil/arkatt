@@ -195,8 +195,7 @@
         #if {$mnamelen > 0} {
             #replace {ROOM_INFO[map][name]} { } {};
             #replace {ROOM_INFO[map][name]} {'} {};
-            asciimap;
-            locationmap_reset;
+            #if {"$linux" == "1"} {asciimap;locationmap_reset};
         } {
             #if {$map_movecursor == 1} {map_updateexits;map_draw;};
             #if {"$map_movecursor" == "n"} {map_move_n;map_updateexits;map_draw};

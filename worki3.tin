@@ -727,41 +727,60 @@
     #unvar ziolka_prompt;
     #var ziolka_licznik {1};
 
-
     #foreach {$zioladb[]} {ziolkonazwa} {
         #format {_ziolko_opis} {%+10s} {$ziolan[$ziolkonazwa]};
         #format {_ziolko_ilos} {%+2s} {$zioladb[$ziolkonazwa]};
 
         #if {$ziola[$ziolkonazwa] < 1} {
-            #sh {<118><G02><118><ccc>   (<ccc> 0<ccc>) $_ziolko_opis (<faf>zm-<ccc>)<088>};
+            #sh {<118><G00><118><ccc>   (<ccc> 0<ccc>) $_ziolko_opis (<faf>zm-<ccc>)<088>};
         } {
             #format {_ziolko_ilos} {%+2s} {$ziola[Deliona]};
-            #sh {<118><G02><118><afa>F1 <ccc>(<afa>$_ziolko_ilos<ccc>) $_ziolko_opis (<faf>zm-<ccc>)<088>};
+            #sh {<118><G00><118><afa>F1 <ccc>(<afa>$_ziolko_ilos<ccc>) $_ziolko_opis (<faf>zm-<ccc>)<088>};
         };
 
    };
 }
 #alias {lecznicze}
 {
+    #sh {<118><G00><afa>ziola lecznicze:                     <088>};
     #unvar ziolka_prompt;
     #var ziolka_licznik {1};
 
     #foreach {$zioladb[]} {ziolkonazwa} {
-        #format sposoblen {%L} {$ziolodb[$ziolkonazwa][sposob][kn]};
+        #format {_ziolko_opis} {%+20s %.20s} {$ziolan[$ziolkonazwa]};
+        #format {_ziolko_ilos} {%+2s} {$zioladb[$ziolkonazwa][ilosc]};
+
+        #format sposoblen {%L} {$zioladb[$ziolkonazwa][sposob][kn]};
         #if {$sposoblen > 1} {
-            #format sposoblen {%L} {$ziolodb[$ziolkonazwa][sposob][kn]};
-
-            #sh {$ziolodb[$ziolkonazwa][odmiana]};
-        };
-
-        #format {_ziolko_opis} {%+10s} {$ziolan[$ziolkonazwa]};
-        #format {_ziolko_ilos} {%+2s} {$zioladb[$ziolkonazwa]};
-
-        #nop if {$ziola[$ziolkonazwa] < 1} {
-            #sh {<118><G02><118><ccc>   (<ccc> 0<ccc>) $_ziolko_opis (<faf>zm-<ccc>)<088>};
-        } {
-            #format {_ziolko_ilos} {%+2s} {$ziola[Deliona]};
-            #sh {<118><G02><118><afa>F1 <ccc>(<afa>$_ziolko_ilos<ccc>) $_ziolko_opis (<faf>zm-<ccc>)<088>};
+            #format sposoblen {%L} {$zioladb[$ziolkonazwa][sposob][kn]};
+            #if {$zioladb[$ziolkonazwa][ilosc] > 0} {
+                #ec {<118><G00><118><afa>z$ziolka_licznik <ccc>(<afa>$_ziolko_ilos<ccc>) $_ziolko_opis<088>};
+                #line substitute {variables} {
+                    #alias z$ziolka_licznik {
+                        otworz pierwszy przytroczony woreczek;
+                        otworz drugi przytroczony woreczek;
+                        otworz trzeci przytroczony woreczek;
+                        otworz czwarty przytroczony woreczek;
+                        wez $zioladb[$ziolkonazwa][odmiana] z pierwszego przytroczonego woreczka;
+                        wez $zioladb[$ziolkonazwa][odmiana] z drugiego przytroczonego woreczka;
+                        wez $zioladb[$ziolkonazwa][odmiana] z trzeciego przytroczonego woreczka;
+                        wez $zioladb[$ziolkonazwa][odmiana] z czwartego przytroczonego woreczka;
+                        opusc bron;
+                        $zioladb[$ziolkonazwa][sposob][kn] $zioladb[$ziolkonazwa][odmiana];
+                        dobadz broni;
+                        zamknij pierwszy przytroczony woreczek;
+                        zamknij drugi przytroczony woreczek;
+                        zamknij trzeci przytroczony woreczek;
+                        zamknij czwarty przytroczony woreczek;
+                    };
+                };
+                #math {ziolka_licznik} {$ziolka_licznik + 1};
+            } {
+                #format {testlen} {%L} {$_ziolko_opis};
+                #if {$testlen > 5} {
+                    #ec {<118><G00><118><afa>   <ccc>(  ) $_ziolko_opis<088>};
+                }
+            };
         };
     };
 }
@@ -772,10 +791,10 @@
   otworz drugi przytroczony woreczek;
   otworz trzeci przytroczony woreczek;
   otworz czwarty przytroczony woreczek;
-  wez %1 z pierwszego przytroczonego woreczka;
-  wez %1 z drugiego przytroczonego woreczka;
-  wez %1 z trzeciego przytroczonego woreczka;
-  wez %1 z czwartego przytroczonego woreczka;
+  wez %0 z pierwszego przytroczonego woreczka;
+  wez %0 z drugiego przytroczonego woreczka;
+  wez %0 z trzeciego przytroczonego woreczka;
+  wez %0 z czwartego przytroczonego woreczka;
   zamknij pierwszy przytroczony woreczek;
   zamknij drugi przytroczony woreczek;
   zamknij trzeci przytroczony woreczek;
