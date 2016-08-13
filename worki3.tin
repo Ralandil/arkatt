@@ -110,6 +110,9 @@
 #var ziola[Janowiec] {0};
 #var ziola[Lubczyk] {0};
 
+
+
+
 #var ziolan[Deliona] {zolty jasny kwiat};
 #var ziolan[Mieta] {okraglawy aromatyczny lisc};
 #var ziolan[Babka] {rozetkowaty lancetowaty lisc};
@@ -370,6 +373,119 @@
   #var ziola[Pokrzywa] {0};
   #var ziola[Janowiec] {0};
   #var ziola[Lubczyk] {0};
+#var zioladb[Deliona][ilosc] {0};
+#var zioladb[Mieta][ilosc] {0};
+#var zioladb[Babka][ilosc] {0};
+#var zioladb[Barwinek][ilosc] {0};
+#var zioladb[Mniszek][ilosc] {0};
+#var zioladb[Szafran][ilosc] {0};
+#var zioladb[BorowikSzatanski][ilosc] {0};
+#var zioladb[Glog][ilosc] {0};
+#var zioladb[plucnica][ilosc] {0};
+#var zioladb[Muchomor_Czerwony][ilosc] {0};
+#var zioladb[Oset][ilosc] {0};
+#var zioladb[Bariwnek][ilosc] {0};
+#var zioladb[Nagietek][ilosc] {0};
+#var zioladb[Szczaw][ilosc] {0};
+#var zioladb[Lawenda][ilosc] {0};
+#var zioladb[SzalwiaLekarska][ilosc] {0};
+#var zioladb[SerceKapitana][ilosc] {0};
+#var zioladb[Melisa][ilosc] {0};
+#var zioladb[Arnika][ilosc] {0};
+#var zioladb[Ranog][ilosc] {0};
+#var zioladb[Siezygron][ilosc] {0};
+#var zioladb[Bagiennik][ilosc] {0};
+#var zioladb[Grabiorog][ilosc] {0};
+#var zioladb[Pierscieniak1][ilosc] {0};
+#var zioladb[Pierscieniak3][ilosc] {0};
+#var zioladb[Pierscieniak4][ilosc] {0};
+#var zioladb[Pierscieniak5][ilosc] {0};
+#var zioladb[Lulek_Czarny][ilosc] {0};
+#var zioladb[Muchomor_Sromotnikowy][ilosc] {0};
+#var zioladb[Stulicha][ilosc] {0};
+#var zioladb[Stroczek][ilosc] {0};
+#var zioladb[Szalej][ilosc] {0};
+#var zioladb[Casur][ilosc] {0};
+#var zioladb[Drath][ilosc] {0};
+#var zioladb[Konopie][ilosc] {0};
+#var zioladb[Ogorecznik][ilosc] {0};
+#var zioladb[Roza][ilosc] {0};
+#var zioladb[Borowka][ilosc] {0};
+#var zioladb[Jagoda][ilosc] {0};
+#var zioladb[Jerzyna][ilosc] {0};
+#var zioladb[Malina][ilosc] {0};
+#var zioladb[Poziomka][ilosc] {0};
+#var zioladb[Maslak][ilosc] {0};
+#var zioladb[Hubka][ilosc] {0};
+#var zioladb[Podgrzybek_Brunatny][ilosc] {0};
+#var zioladb[Muchomor_Cesarski][ilosc] {0};
+#var zioladb[Borowik_Krolewski][ilosc] {0};
+#var zioladb[Borowik_Szlachetny][ilosc] {0};
+#var zioladb[Drabik_Drzewikowaty][ilosc] {0};
+#var zioladb[Kozlarz_Czerwony][ilosc] {0};
+#var zioladb[Trawa][ilosc] {0};
+#var zioladb[Rabarbar][ilosc] {0};
+#var zioladb[Centuria][ilosc] {0};
+#var zioladb[Rdest][ilosc] {0};
+#var zioladb[Mak][ilosc] {0};
+#var zioladb[Macznica][ilosc] {0};
+#var zioladb[Pieciornik][ilosc] {0};
+#var zioladb[Dziurawiec][ilosc] {0};
+#var zioladb[Naparstnica][ilosc] {0};
+#var zioladb[Nostrzyk][ilosc] {0};
+#var zioladb[Bylica][ilosc] {0};
+#var zioladb[Kasztanowiec][ilosc] {0};
+#var zioladb[Przelot][ilosc] {0};
+#var zioladb[Bielun][ilosc] {0};
+#var zioladb[Deren][ilosc] {0};
+#var zioladb[Komosa][ilosc] {0};
+#var zioladb[Wrotycz][ilosc] {0};
+#var zioladb[Mandragora][ilosc] {0};
+#var zioladb[Aralia][ilosc] {0};
+#var zioladb[Kola][ilosc] {0};
+#var zioladb[Przesl][ilosc] {0};
+#var zioladb[Lulecznica][ilosc] {0};
+#var zioladb[Konwalia][ilosc] {0};
+#var zioladb[Lak][ilosc] {0};
+#var zioladb[Rumianek][ilosc] {0};
+#var zioladb[Chaber][ilosc] {0};
+#var zioladb[Bez][ilosc] {0};
+#var zioladb[Krzyzownica][ilosc] {0};
+#var zioladb[Nawloc][ilosc] {0};
+#var zioladb[Kulczyba][ilosc] {0};
+#var zioladb[Szczwol][ilosc] {0};
+#var zioladb[Jemiola][ilosc] {0};
+#var zioladb[Ciemiernik][ilosc] {0};
+#var zioladb[Bobotrutka][ilosc] {0};
+#var zioladb[Rojnik][ilosc] {0};
+#var zioladb[Potoslin][ilosc] {0};
+#var zioladb[Pokrzyk][ilosc] {0};
+#var zioladb[Rauwolfia][ilosc] {0};
+#var zioladb[Kurzyslad][ilosc] {0};
+#var zioladb[Tojad][ilosc] {0};
+#var zioladb[Ostrozeczka][ilosc] {0};
+#var zioladb[Stroiczka][ilosc] {0};
+#var zioladb[Ciemiezyca][ilosc] {0};
+#var zioladb[Starzec][ilosc] {0};
+#var zioladb[Jaskier][ilosc] {0};
+#var zioladb[Urzet][ilosc] {0};
+#var zioladb[Boldoa][ilosc] {0};
+#var zioladb[Marzanna][ilosc] {0};
+#var zioladb[Podbial][ilosc] {0};
+#var zioladb[Ostrozen][ilosc] {0};
+#var zioladb[Poziewnik][ilosc] {0};
+#var zioladb[Sliwa][ilosc] {0};
+#var zioladb[Bulawinka][ilosc] {0};
+#var zioladb[Kociomietka][ilosc] {0};
+#var zioladb[Skrzyp][ilosc] {0};
+#var zioladb[Cebula][ilosc] {0};
+#var zioladb[Kruszyna][ilosc] {0};
+#var zioladb[Hyzop][ilosc] {0};
+#var zioladb[Lukrecja][ilosc] {0};
+#var zioladb[Pokrzywa][ilosc] {0};
+#var zioladb[Janowiec][ilosc] {0};
+#var zioladb[Lubczyk][ilosc] {0};
+
   wa;wb;wc;wd;
 }
 
@@ -551,9 +667,11 @@
       {
 	#var ret @cyfruj_ilosc{&1};
 	#math ziola[&2] {$ziola[&2] + $ret};
+    #math zioladb[&2][ilosc] {$zioladb[&2][ilosc] + $ret};
       }
       {
 	#math ziola[$worekA_zawartosc[$i]] {$ziola[$worekA_zawartosc[$i]] + 1};
+    #math zioladb[$worekA_zawartosc[$i]][ilosc] {$zioladb[$worekA_zawartosc[$i]][ilosc] + 1};
       };
   };
   #if {"$currentworek" == "A"} {
@@ -608,24 +726,44 @@
 {
     #unvar ziolka_prompt;
     #var ziolka_licznik {1};
-    #nop foreach {$ziola[]} {ziolkonazwa} {
-        #if {$ziola[$ziolkonazwa] > 0} {
-            #format {_ziolko_opis} {%+10s} {$ziolan[$ziolkonazwa]};
-            #format {_ziolko_ilos} {%+3s} {$ziola[$ziolkonazwa]};
+
+
+    #foreach {$zioladb[]} {ziolkonazwa} {
+        #format {_ziolko_opis} {%+10s} {$ziolan[$ziolkonazwa]};
+        #format {_ziolko_ilos} {%+2s} {$zioladb[$ziolkonazwa]};
+
+        #if {$ziola[$ziolkonazwa] < 1} {
+            #sh {<118><G02><118><ccc>   (<ccc> 0<ccc>) $_ziolko_opis (<faf>zm-<ccc>)<088>};
+        } {
+            #format {_ziolko_ilos} {%+2s} {$ziola[Deliona]};
+            #sh {<118><G02><118><afa>F1 <ccc>(<afa>$_ziolko_ilos<ccc>) $_ziolko_opis (<faf>zm-<ccc>)<088>};
+        };
+
+   };
+}
+#alias {lecznicze}
+{
+    #unvar ziolka_prompt;
+    #var ziolka_licznik {1};
+
+    #foreach {$zioladb[]} {ziolkonazwa} {
+        #format sposoblen {%L} {$ziolodb[$ziolkonazwa][sposob][kn]};
+        #if {$sposoblen > 1} {
+            #format sposoblen {%L} {$ziolodb[$ziolkonazwa][sposob][kn]};
+
+            #sh {$ziolodb[$ziolkonazwa][odmiana]};
+        };
+
+        #format {_ziolko_opis} {%+10s} {$ziolan[$ziolkonazwa]};
+        #format {_ziolko_ilos} {%+2s} {$zioladb[$ziolkonazwa]};
+
+        #nop if {$ziola[$ziolkonazwa] < 1} {
+            #sh {<118><G02><118><ccc>   (<ccc> 0<ccc>) $_ziolko_opis (<faf>zm-<ccc>)<088>};
+        } {
+            #format {_ziolko_ilos} {%+2s} {$ziola[Deliona]};
+            #sh {<118><G02><118><afa>F1 <ccc>(<afa>$_ziolko_ilos<ccc>) $_ziolko_opis (<faf>zm-<ccc>)<088>};
         };
     };
-
-    #if {$ziola[Deliona] < 1} {
-        #sh {<118><G02><118><ccc>   (<ccc> 0<ccc>) Deliona  (<faf>zm-<ccc>)<088>};
-    } {
-        #format {_ziolko_ilos} {%+2s} {$ziola[Deliona]};
-        #sh {<118><G02><118><ccc>F1 (<afa>$_ziolko_ilos<ccc>) Deliona  (<faf>zm-<ccc>)<088>};
-    };
-
-#sh {<118><G02><118><ccc>   (<ccc> 0<ccc>) Deliona  (<faf>zm-<ccc>)<088>};
-#sh {<118><G02><118><ccc>F1 (<afa>$_ziolko_ilos<ccc>) Deliona  (<faf>zm-<ccc>)<088>};
-
-
 }
 
 #alias {wezziola}

@@ -72,15 +72,16 @@ testprompt;
 
 
 #alias {przelamcel} {
-    #var prompt_button_przelam $prompt_button_przelam_active;
-    #macro {$KEY_PRZELAM} {_przelamcel_};
-    #macro {$KEY_PRZELAM2} {_przelamcel_};
-    testprompt;
+zaznaczcel;
+    #nop var prompt_button_przelam $prompt_button_przelam_active;
+    #nop macro {$KEY_PRZELAM} {_przelamcel_};
+    #nop macro {$KEY_PRZELAM2} {_przelamcel_};
+    #nop testprompt;
 }
 #alias {_przelamcel_} {
-    przelam obrone celu ataku;
-    #var prompt_button_przelam $prompt_button_przelam_inactive;
-    testprompt;
+#nop przelam obrone celu ataku;
+#nop #var prompt_button_przelam $prompt_button_przelam_inactive;
+#nop testprompt;
 }
 
 #alias {niezaslaniaj} {
