@@ -25,15 +25,6 @@
     #line gag;
 }
 
-#action {^Jest %1 w stanie wyroznic kilka sladow na ziemi. Najswiezsze prowadza na wschod.$}
-{
-    #sh { };
-    #sh {<118><fff>    \\   ----- };
-    #sh {<118><afa> ---O>  <ffa>SLADY };
-    #sh {<118><fff>    /   -----};
-    #sh { };    
-    #line gag;
-}
 
 #action {^Dowiadujesz sie czegos wiecej o %1.$}
 {

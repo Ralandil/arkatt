@@ -297,7 +297,8 @@
 #var zioladb[Przelot][sposob][zm] {sproszkuj};
 #var zioladb[Bielun][sposob] {};
 #var zioladb[Deren][sposob] {};
-#var zioladb[Komosa][srdesposob] {};
+#var zioladb[Komosa][sposob][s] {zjedz};
+#var zioladb[Komosa][sposob][zm] {przezuj};
 #var zioladb[Wrotycz][sposob] {};
 #var zioladb[Mandragora][sposob][mn] {przezuj};
 #var zioladb[Mandragora][sposob][o] {rozgryz};
