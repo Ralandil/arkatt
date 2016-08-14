@@ -294,6 +294,8 @@
 #action {Najpierw wejdz do kabiny i sie rozbierz!} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
 #action {Nie masz %1 wstepu.$} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
 #action {Musisz najpierw oplacic wejscie na widownie.} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+#action {%1 mowi do ciebie: Nikt z zakryta twarza nie wejdzie na teren koszar.} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+
 #action {Nie mozesz sie tam udac, gdyz %1 blokuj%+ ci droge na %3.$} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
 #action {Jestes teraz zajety czyms innym.$} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
 #action {Niestety, brama jest zamknieta.$} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
