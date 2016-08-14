@@ -35,6 +35,7 @@
 #read $path/zgony.tin;
 #read $path/items.tin;
 #read $path/ziola.tin;
+#read $path/tropienie.tin;
 #nop read $path/baza.txt;
 #read $path/compare.tin;
 #read $path/gmcp_mapper.tin;
