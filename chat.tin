@@ -1,0 +1,5 @@
+#var mode_chat {off};
+
+#alias {chatmode} {
+    #cursor {set} {ppowiedz };
+}

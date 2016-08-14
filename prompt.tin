@@ -86,6 +86,7 @@
 #sh { };
 #sh { Kon: 6/ 7  Kon: 6/ 7  Kon: 6/ 7 };
 
+
 #alias {PROMPT_SET_HP} {
     #format screen_w {%C};
     #math preline_w {$screen_w / 2};
@@ -108,6 +109,8 @@
 	#prompt {prompt1} {$preline<088> <aff>Exp:<088>$pr_exp <aff>For:<088>$pr_form <aff>Upi:<088>$pr_upicie<088>  $fmsvc$asciimapv[10]<088>$fmsvc  $prompt_objects[9]$prompt_objects[19]$prompt_objects[29]$prompt_objects[39]$prompt_objects[49]} {1};
     testprompt;
 }
+#event {SCREEN RESIZE} {PROMPT_SET_HP};
+
 
 #alias {PROMPT_SET_MAP} {
 	#prompt {prompt5} { <088><aff>f1: $display_function_1 <088>           <aff>Kon:<088> $hp_bar  <aff>Pra: <088>$pr_smad   $asciimapv[2]} {6};
