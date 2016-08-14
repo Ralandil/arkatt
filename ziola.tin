@@ -537,7 +537,7 @@
 #var zioladb[Lulecznica][odmiana] {jasnozielona nieowlosiona lodyge};
 #var zioladb[Konwalia][odmiana] {wonny dzwonkowaty kwiat};
 #var zioladb[Lak][odmiana] {sztywna smukla lodyge};
-#var zioladb[Rumianek][odmiana] {drobny bialy kwiat};
+#var zioladb[Rumianek][odmiana] {drobny bialy kwiatek};
 #var zioladb[Chaber][odmiana] {wysoki blekitny kwiat};
 #var zioladb[Bez][odmiana] {jasnobrunatna popekana galaz};
 #var zioladb[Krzyzownica][odmiana] {zoltawy powyginany korzen};

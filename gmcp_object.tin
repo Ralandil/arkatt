@@ -378,8 +378,10 @@
 #macro {$KEY_F9} {bind_T_F9};
 };
 
-
+#nop HACK;
+#nop    lecznicze;
     testprompt;
+#nop HACK;
 }
 
 #event {IAC SB GMCP objects.nums IAC SE}
