@@ -1,4 +1,4 @@
-#read /Users/eldakar/arkatt/mapperserver.tin;
+#read /cygdrive/c/arkatt-master/mapperserver.tin;
 #ses rpg arkadia.rpg.pl 23;
 #event {IAC WILL GMCP}
 {       
@@ -7,7 +7,7 @@
 	#send {\xFF\xFA\xC9core.supports.set [ "Core", "Objects", "Room", "Char"  ]\xFF\xF0\};
 }
 #config {debug telnet} {off};
-#var path /Users/eldakar/arkatt;
+#var path /cygdrive/c/arkatt/master;
 #var logpath ${path}logs;
 #nop ### wartosc dla wiele/ przy peliczaniu
 #var wiele {44};
