@@ -283,7 +283,7 @@
 #var zioladb[Kozlarz_Czerwony][sposob] {};
 #var zioladb[Trawa][sposob] {};
 #var zioladb[Rabarbar][sposob] {};
-#var zioladb[Centuria][sposob] {};
+#var zioladb[Centuria][sposob][o] {zjedz};
 #var zioladb[Rdest][sposob][kn] {przyloz};
 #var zioladb[Mak][sposob][kn] {zjedz};
 #var zioladb[Macznica][sposob][kn] {rozgryz};
