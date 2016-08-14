@@ -1,5 +1,48 @@
-#var mode_chat {off};
+#split 0 1;
 
-#alias {chatmode} {
-    #cursor {set} {ppowiedz };
+#var ppowiedzTable[1] {glosno};
+#var ppowiedzTable[2] {cicho};
+#var ppowiedzTable[3] {glupio};
+
+#var ppowiedzIndex 1;
+#var ppowiedzSize 4;
+#cursor {set} {ppowiedz $ppowiedzTable[$ppowiedzIndex] };
+
+#macro {\}
+{
+    #cursor {get} {buff};
+    #replace {buff} {ppowiedz $ppowiedzTable[$ppowiedzIndex]} {};
+    #replace {buff} {  } { };
+    #math ppowiedzIndex {$ppowiedzIndex + 1};
+    #if {$ppowiedzIndex == $ppowiedzSize} {#var ppowiedzIndex 1};
+    #cursor {clear line};
+    #cursor {set} {ppowiedz $ppowiedzTable[$ppowiedzIndex] $buff};
+}
+
+#nop macro {\}
+{
+    #if {$ppowiedzIndex == 1} {
+        #cursor {get} {buff};
+        #replace {buff} {ppowiedz $ppowiedzTable[$ppowiedzIndex]} {};
+        #replace {buff} {  } { };
+        #var ppowiedzIndex {2};
+        #cursor {clear line};
+        #cursor {set} {ppowiedz $ppowiedzTable[$ppowiedzIndex] $buff};
+    };
+    #elseif {$ppowiedzIndex == 2} {
+        #cursor {get} {buff};
+        #replace {buff} {ppowiedz $ppowiedzTable[$ppowiedzIndex]} {};
+        #replace {buff} {  } { };
+        #var ppowiedzIndex {3};
+        #cursor {clear line};
+        #cursor {set} {ppowiedz $ppowiedzTable[$ppowiedzIndex] $buff};
+    };
+    #elseif {$ppowiedzIndex == 3} {
+        #cursor {get} {buff};
+        #replace {buff} {ppowiedz $ppowiedzTable[$ppowiedzIndex]} {};
+        #replace {buff} {  } { };
+        #var ppowiedzIndex {1};
+        #cursor {clear line};
+        #cursor {set} {ppowiedz $ppowiedzTable[$ppowiedzIndex] $buff};
+    };
 }
