@@ -293,7 +293,7 @@
 #var zioladb[Nostrzyk][sposob] {};
 #var zioladb[Bylica][sposob][zm] {przyloz};
 #var zioladb[Bylica][sposob][gl] {zjedz};
-#var zioladb[Kasztanowiec][sposob] {};
+#var zioladb[Kasztanowiec][sposob][zm] {zjedz};
 #var zioladb[Przelot][sposob][zm] {sproszkuj};
 #var zioladb[Bielun][sposob] {};
 #var zioladb[Deren][sposob] {};
@@ -330,7 +330,7 @@
 #var zioladb[Starzec][sposob][kn] {sproszkuj};
 #var zioladb[Starzec][sposob][T] {zjedz};
 #var zioladb[Jaskier][sposob] {};
-#var zioladb[Urzet][sposob] {};
+#var zioladb[Urzet][sposob]Ka {zjedz};
 #var zioladb[Boldoa][sposob] {};
 #var zioladb[Marzanna][sposob] {};
 #var zioladb[Podbial][sposob] {};

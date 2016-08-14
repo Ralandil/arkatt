@@ -1060,4 +1060,19 @@ zamknij czwarty przytroczony woreczek;
   zamknij czwarty przytroczony woreczek;
 }
 
+#alias {wlziola}
+{
+otworz pierwszy przytroczony woreczek;
+otworz drugi przytroczony woreczek;
+otworz trzeci przytroczony woreczek;
+otworz czwarty przytroczony woreczek;
+wloz ziola do pierwszego przytroczonego woreczka;
+wloz ziola do drugiego przytroczonego woreczka;
+wloz ziola do trzeciego przytroczonego woreczka;
+wloz ziola do czwartego przytroczonego woreczka;
+zamknij pierwszy przytroczony woreczek;
+zamknij drugi przytroczony woreczek;
+zamknij trzeci przytroczony woreczek;
+zamknij czwarty przytroczony woreczek;
+}
 
