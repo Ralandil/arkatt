@@ -51,6 +51,6 @@
 #var KEY_WYJDZ2 {\eOj};
 #var KEY_PRZESTAN2 {\eOj};
 
-#var linux 1;
+#var linux 0;
 #read $path/init.tin;
 
