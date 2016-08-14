@@ -414,3 +414,24 @@ zaznaczcel;
 skocz do stawu,przejdz za wodospad,n,pchnij sciane
 }
 
+
+
+#var _prompt_tryb {hp};
+#alias {tryb_prompta}
+{
+    #if {"$_prompt_tryb" == "hp"} {
+        lecznicze;
+        #var pahc {1};
+        #var _prompt_tryb {herb};
+        #var prompt_avatar[1] $prompt_avatar_herbs[1];
+        #loop {1} {100} {paaah} {
+            #var prompt_objects[$pahc] $prompt_objects_herbs[$pahc];
+            #math {pahc} {$pahc + 1};
+        };
+        testprompt;
+    };
+    #elseif {"$_prompt_tryb" == "herb"} {
+        #var _prompt_tryb {hp};
+        update_teams;
+    };
+}

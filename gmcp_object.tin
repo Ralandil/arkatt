@@ -378,6 +378,8 @@
 #macro {$KEY_F9} {bind_T_F9};
 };
 
+#var _prompt_tryb {hp};
+
 #nop HACK;
 #nop    lecznicze;
     testprompt;

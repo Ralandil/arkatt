@@ -324,7 +324,7 @@
 #var zioladb[Pokrzyk][sposob] {};
 #var zioladb[Rauwolfia][sposob] {};
 #var zioladb[Kurzyslad][sposob] {};
-#var zioladb[Tojad][sposob] {};
+#var zioladb[Tojad][sposob][kn] {przezuj};
 #var zioladb[Ostrozeczka][sposob] {};
 #var zioladb[Stroiczka][sposob] {};
 #var zioladb[Ciemiezyca][sposob] {};

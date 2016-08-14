@@ -70,3 +70,5 @@
 #line substitute {variables} {#macro {§} {function_mode_switch}};
 #line substitute {variables} {#macro {$KEY_PAD_MIDDLE} {function_mode_switch}};
 
+#line substitute {variables} {#macro {$KEY_PROMPTMODE} {tryb_prompta}};
+
