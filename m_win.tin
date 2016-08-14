@@ -7,7 +7,7 @@
 	#send {\xFF\xFA\xC9core.supports.set [ "Core", "Objects", "Room", "Char"  ]\xFF\xF0\};
 }
 #config {debug telnet} {off};
-#var path /cygdrive/c/arkatt/master;
+#var path /cygdrive/c/arkatt-master/master;
 #var logpath ${path}logs;
 #nop ### wartosc dla wiele/ przy peliczaniu
 #var wiele {44};
