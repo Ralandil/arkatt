@@ -12,7 +12,7 @@
 #sub {%ijasnopomaranczow%w kwiat%w} {%0 (<118><fff>Nagietek <afa>kd+<fff><088>)};
 #sub {%istrzalkowat%w aromatyczn%w lisc%w} {%0 (<118><fff>Szczaw <afa>kd+<fff><088>)};
 #sub {%ifioletow%w zwart%w kwiatostan%w} {%0 (<118><fff>Lawenda <afa>kd+<fff> o<088>)};
-#sub {%izaostrzon%w podlozn%w lisc%w} {%0 (<118><fff>Szalwia <afa>kd+<fff><088>)};
+#sub {%izaostrzon%w podluzn%w lisc%w} {%0 (<118><fff>Szalwia <afa>kd+<fff><088>)};
 #sub {%imal%w czerwon%w kwiat%w} {%0 (<118><fff>Serce Kapitana <afa>kd+<fff> <faa>int-<088> wt-<088>)};
 #sub {%iowlosion%w aromatyczn%w lisc%w} {%0 (<118><fff>Melisa <afa>kd+<fff> o<088>)};
 #sub {%izlocistopomaranczow%w duz%w kwiat%w} {%0 (<118><fff>Arnika <afa>kd+<fff> <faf>zm-<fff><088>)};
@@ -476,7 +476,7 @@
 #var zioladb[Nagietek][odmiana] {jasnopomaranczowy kwiat};
 #var zioladb[Szczaw][odmiana] {strzalkowaty aromatyczny lisc};
 #var zioladb[Lawenda][odmiana] {fioletowy zwarty kwiatostan};
-#var zioladb[Szalwia][odmiana] {zaostrzony podlozny lisc};
+#var zioladb[SzalwiaLekarska][odmiana] {zaostrzony podluzny lisc};
 #var zioladb[Serce][odmiana] {maly czerwony kwiat};
 #var zioladb[Melisa][odmiana] {owlosiony aromatyczny lisc};
 #var zioladb[Arnika][odmiana] {zlocistopomaranczowy duzy kwiat};

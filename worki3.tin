@@ -127,7 +127,7 @@
 #var ziolan[Nagietek] {jasnopomaranczowy kwiat};
 #var ziolan[Szczaw] {strzalkowaty aromatyczny lisc};
 #var ziolan[Lawenda] {fioletowy zwarty kwiatostan};
-#var ziolan[Szalwia] {zaostrzony podlozny lisc};
+#var ziolan[SzalwiaLekarska] {zaostrzony podluzny lisc};
 #var ziolan[Serce] {maly czerwony kwiat};
 #var ziolan[Melisa] {owlosiony aromatyczny lisc};
 #var ziolan[Arnika] {zlocistopomaranczowy duzy kwiat};
@@ -557,7 +557,7 @@
   #replace szawartosc {jasnopomaranczow%w kwiat%w} {Nagietek};
   #replace szawartosc {strzalkowat%w aromatyczn%w lisc%w} {Szczaw};
   #replace szawartosc {fioletow%w zwart%w kwiatostan%w} {Lawenda};
-  #replace szawartosc {zaostrzon%w podlozn%w lisc%w} {SzalwiaLekarska};
+  #replace szawartosc {zaostrzon%w podluzn%w lisc%w} {SzalwiaLekarska};
   #replace szawartosc {mal%w czerwon%w kwiat%w} {SerceKapitana};
   #replace szawartosc {owlosion%w aromatyczn%w lisc%w} {Melisa};
   #replace szawartosc {zlocistopomaranczow%w duz%w kwiat%w} {Arnika};
