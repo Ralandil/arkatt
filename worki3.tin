@@ -684,77 +684,32 @@
     #var currentworek {D};
   };
   #elseif {"$currentworek" == "D"} {
-      #sh {<118><fff>Zawartosc workow:<088>};
-
-#unvar ziolka_prompt;
-#var ziolka_licznik {1};
-      #foreach {$ziola[]} {ziolkonazwa} {
-	#if {$ziola[$ziolkonazwa] > 0} {
-	  #format {_ziolko_opis} {%+10s} {$ziolan[$ziolkonazwa]};
-	  #format {_ziolko_ilos} {%+3s} {$ziola[$ziolkonazwa]};
-#sh <118><afa>  $_ziolko_ilos<088> $_ziolko_opis <faa>$ziolkonazwa<088>;
-#nop var ziolka_prompt[$ziolka_licznik][nazwa] $ziolkonazwa;
-#nop var ziolka_prompt[$ziolka_licznik][ilosc] $ziola;
-	};
-      };
-    
-      #foreach {$ziola[]} {ziolkonazwa} {
-	#var _ziolko_tmp {$ziola[$ziolkonazwa]};
-	#if {$_ziolko_tmp < 1} {
-	  #var _ziolko_tmp {<bbb>$_ziolko_tmp};
-	};
-	#elseif {$_ziolko_tmp < 6} {
-	  #var _ziolko_tmp {<faa>$_ziolko_tmp};
-	};	
-	#elseif {$_ziolko_tmp < 10} {
-	  #var _ziolko_tmp {<ffa>$_ziolko_tmp};
-	};
-	#else {
-	  #var _ziolko_tmp {<afa>$_ziolko_tmp};
-	};
-	
-	#format {_ziolko_tmp} {%+2s} {$_ziolko_tmp};
-	#var ziolkaprompt[$ziolkonazwa] {$_ziolko_tmp};
-      };
+lecznicze;
       testprompt;
+PROMPT_GO_BACK;
       #var sortujemy {false};
   };
 };
 }
 
-#alias {rysuj_wory}
-{
-    #unvar ziolka_prompt;
-    #var ziolka_licznik {1};
 
-    #foreach {$zioladb[]} {ziolkonazwa} {
-        #format {_ziolko_opis} {%+10s} {$ziolan[$ziolkonazwa]};
-        #format {_ziolko_ilos} {%+2s} {$zioladb[$ziolkonazwa]};
-
-        #if {$ziola[$ziolkonazwa] < 1} {
-            #sh {<118><G00><118><ccc>   (<ccc> 0<ccc>) $_ziolko_opis (<faf>zm-<ccc>)<088>};
-        } {
-            #format {_ziolko_ilos} {%+2s} {$ziola[Deliona]};
-            #sh {<118><G00><118><afa>F1 <ccc>(<afa>$_ziolko_ilos<ccc>) $_ziolko_opis (<faf>zm-<ccc>)<088>};
-        };
-
-   };
-}
 #alias {lecznicze}
 {
-    #sh {<118><G00><afa>ziola lecznicze:                     <088>};
     #unvar ziolka_prompt;
-    #var ziolka_licznik {1};
+    #unvar prompt_objects;
+    #var ziolka_licznik {10};
+    #var ziolka_prompt_index {1};
 
+    #var prompt_avatar[1] {<118><afa>kondycja                <088>};
     #foreach {$zioladb[]} {ziolkonazwa} {
-        #format {_ziolko_opis} {%+20s %.20s} {$ziolan[$ziolkonazwa]};
+        #format {_ziolko_opis} {%-15s} {$ziolkonazwa};#format {_ziolko_opis} {%.15s} {$_ziolko_opis};
         #format {_ziolko_ilos} {%+2s} {$zioladb[$ziolkonazwa][ilosc]};
 
         #format sposoblen {%L} {$zioladb[$ziolkonazwa][sposob][kn]};
         #if {$sposoblen > 1} {
             #format sposoblen {%L} {$zioladb[$ziolkonazwa][sposob][kn]};
             #if {$zioladb[$ziolkonazwa][ilosc] > 0} {
-                #ec {<118><G00><118><afa>z$ziolka_licznik <ccc>(<afa>$_ziolko_ilos<ccc>) $_ziolko_opis<088>};
+                #var prompt_objects[$ziolka_prompt_index] {<118><G00><118><afa>z$ziolka_licznik <ccc>(<afa>$_ziolko_ilos<ccc>) $_ziolko_opis<088>};
                 #line substitute {variables} {
                     #alias z$ziolka_licznik {
                         otworz pierwszy przytroczony woreczek;
@@ -768,6 +723,10 @@
                         opusc bron;
                         $zioladb[$ziolkonazwa][sposob][kn] $zioladb[$ziolkonazwa][odmiana];
                         dobadz broni;
+wloz $zioladb[$ziolkonazwa][odmiana] do pierwszego przytroczonego woreczka;
+wloz $zioladb[$ziolkonazwa][odmiana] do drugiego przytroczonego woreczka;
+wloz $zioladb[$ziolkonazwa][odmiana] do trzeciego przytroczonego woreczka;
+wloz $zioladb[$ziolkonazwa][odmiana] do czwartego przytroczonego woreczka;
                         zamknij pierwszy przytroczony woreczek;
                         zamknij drugi przytroczony woreczek;
                         zamknij trzeci przytroczony woreczek;
@@ -775,14 +734,261 @@
                     };
                 };
                 #math {ziolka_licznik} {$ziolka_licznik + 1};
-            } {
-                #format {testlen} {%L} {$_ziolko_opis};
-                #if {$testlen > 5} {
-                    #ec {<118><G00><118><afa>   <ccc>(  ) $_ziolko_opis<088>};
-                }
+                #math {ziolka_prompt_index} {$ziolka_prompt_index + 1};
             };
         };
     };
+#var prompt_objects[$ziolka_prompt_index] {<118><faf>zmeczenie               <088>};
+#math {ziolka_prompt_index} {$ziolka_prompt_index + 1};
+
+    #foreach {$zioladb[]} {ziolkonazwa} {
+        #format {_ziolko_opis} {%-15s} {$ziolkonazwa};#format {_ziolko_opis} {%.15s} {$_ziolko_opis};
+        #format {_ziolko_ilos} {%+2s} {$zioladb[$ziolkonazwa][ilosc]};
+
+        #format sposoblen {%L} {$zioladb[$ziolkonazwa][sposob][zm]};
+        #if {$sposoblen > 1} {
+            #format sposoblen {%L} {$zioladb[$ziolkonazwa][sposob][zm]};
+            #if {$zioladb[$ziolkonazwa][ilosc] > 0} {
+                #var prompt_objects[$ziolka_prompt_index] {<118><G00><118><faf>z$ziolka_licznik <ccc>(<afa>$_ziolko_ilos<ccc>) $_ziolko_opis<088>};
+                #line substitute {variables} {
+                    #alias z$ziolka_licznik {
+                        otworz pierwszy przytroczony woreczek;
+                        otworz drugi przytroczony woreczek;
+                        otworz trzeci przytroczony woreczek;
+                        otworz czwarty przytroczony woreczek;
+                        wez $zioladb[$ziolkonazwa][odmiana] z pierwszego przytroczonego woreczka;
+                        wez $zioladb[$ziolkonazwa][odmiana] z drugiego przytroczonego woreczka;
+                        wez $zioladb[$ziolkonazwa][odmiana] z trzeciego przytroczonego woreczka;
+                        wez $zioladb[$ziolkonazwa][odmiana] z czwartego przytroczonego woreczka;
+                        opusc bron;
+                        $zioladb[$ziolkonazwa][sposob][zm] $zioladb[$ziolkonazwa][odmiana];
+                        dobadz broni;
+                        zamknij pierwszy przytroczony woreczek;
+                        zamknij drugi przytroczony woreczek;
+                        zamknij trzeci przytroczony woreczek;
+                        zamknij czwarty przytroczony woreczek;
+                    };
+                };
+                #math {ziolka_licznik} {$ziolka_licznik + 1};
+                #math {ziolka_prompt_index} {$ziolka_prompt_index + 1};
+            };
+        };
+    };
+
+#var prompt_objects[$ziolka_prompt_index] {<118><aff>wzmacniacze             <088>};
+#math {ziolka_prompt_index} {$ziolka_prompt_index + 1};
+
+    #foreach {$zioladb[]} {ziolkonazwa} {
+        #format {_ziolko_opis} {%-15s} {$ziolkonazwa};#format {_ziolko_opis} {%.15s} {$_ziolko_opis};
+        #format {_ziolko_ilos} {%+2s} {$zioladb[$ziolkonazwa][ilosc]};
+
+        #format sposoblen {%L} {$zioladb[$ziolkonazwa][sposob][wt]};
+        #if {$sposoblen > 1} {
+            #format sposoblen {%L} {$zioladb[$ziolkonazwa][sposob][wt]};
+            #if {$zioladb[$ziolkonazwa][ilosc] > 0} {
+                #var prompt_objects[$ziolka_prompt_index] {<118><G00><118><aff>z$ziolka_licznik <ccc>(<afa>$_ziolko_ilos<ccc>) $_ziolko_opis<088>};
+                #line substitute {variables} {
+                    #alias z$ziolka_licznik {
+                        otworz pierwszy przytroczony woreczek;
+                        otworz drugi przytroczony woreczek;
+                        otworz trzeci przytroczony woreczek;
+                        otworz czwarty przytroczony woreczek;
+                        wez $zioladb[$ziolkonazwa][odmiana] z pierwszego przytroczonego woreczka;
+                        wez $zioladb[$ziolkonazwa][odmiana] z drugiego przytroczonego woreczka;
+                        wez $zioladb[$ziolkonazwa][odmiana] z trzeciego przytroczonego woreczka;
+                        wez $zioladb[$ziolkonazwa][odmiana] z czwartego przytroczonego woreczka;
+                        opusc bron;
+                        $zioladb[$ziolkonazwa][sposob][wt] $zioladb[$ziolkonazwa][odmiana];
+                        dobadz broni;
+                        zamknij pierwszy przytroczony woreczek;
+                        zamknij drugi przytroczony woreczek;
+                        zamknij trzeci przytroczony woreczek;
+                        zamknij czwarty przytroczony woreczek;
+                    };
+                };
+                #math {ziolka_licznik} {$ziolka_licznik + 1};
+                #math {ziolka_prompt_index} {$ziolka_prompt_index + 1};
+            };
+        };
+    };
+    #foreach {$zioladb[]} {ziolkonazwa} {
+        #format {_ziolko_opis} {%-15s} {$ziolkonazwa};#format {_ziolko_opis} {%.15s} {$_ziolko_opis};
+        #format {_ziolko_ilos} {%+2s} {$zioladb[$ziolkonazwa][ilosc]};
+
+        #format sposoblen {%L} {$zioladb[$ziolkonazwa][sposob][s]};
+        #if {$sposoblen > 1} {
+            #format sposoblen {%L} {$zioladb[$ziolkonazwa][sposob][s]};
+            #if {$zioladb[$ziolkonazwa][ilosc] > 0} {
+                #var prompt_objects[$ziolka_prompt_index] {<118><G00><118><aff>z$ziolka_licznik <ccc>(<afa>$_ziolko_ilos<ccc>) $_ziolko_opis<088>};
+                #line substitute {variables} {
+                    #alias z$ziolka_licznik {
+                        otworz pierwszy przytroczony woreczek;
+                        otworz drugi przytroczony woreczek;
+                        otworz trzeci przytroczony woreczek;
+                        otworz czwarty przytroczony woreczek;
+                        wez $zioladb[$ziolkonazwa][odmiana] z pierwszego przytroczonego woreczka;
+                        wez $zioladb[$ziolkonazwa][odmiana] z drugiego przytroczonego woreczka;
+                        wez $zioladb[$ziolkonazwa][odmiana] z trzeciego przytroczonego woreczka;
+                        wez $zioladb[$ziolkonazwa][odmiana] z czwartego przytroczonego woreczka;
+                        opusc bron;
+                        $zioladb[$ziolkonazwa][sposob][s] $zioladb[$ziolkonazwa][odmiana];
+                        dobadz broni;
+                        zamknij pierwszy przytroczony woreczek;
+                        zamknij drugi przytroczony woreczek;
+                        zamknij trzeci przytroczony woreczek;
+                        zamknij czwarty przytroczony woreczek;
+                    };
+                };
+                #math {ziolka_licznik} {$ziolka_licznik + 1};
+#math {ziolka_prompt_index} {$ziolka_prompt_index + 1};
+            };
+        };
+    };
+#foreach {$zioladb[]} {ziolkonazwa} {
+#format {_ziolko_opis} {%-15s} {$ziolkonazwa};#format {_ziolko_opis} {%.15s} {$_ziolko_opis};
+#format {_ziolko_ilos} {%+2s} {$zioladb[$ziolkonazwa][ilosc]};
+
+#format sposoblen {%L} {$zioladb[$ziolkonazwa][sposob][odw]};
+#if {$sposoblen > 1} {
+#format sposoblen {%L} {$zioladb[$ziolkonazwa][sposob][odw]};
+#if {$zioladb[$ziolkonazwa][ilosc] > 0} {
+#var prompt_objects[$ziolka_prompt_index] {<118><G00><118><aff>z$ziolka_licznik <ccc>(<afa>$_ziolko_ilos<ccc>) $_ziolko_opis<088>};
+#line substitute {variables} {
+#alias z$ziolka_licznik {
+otworz pierwszy przytroczony woreczek;
+otworz drugi przytroczony woreczek;
+otworz trzeci przytroczony woreczek;
+otworz czwarty przytroczony woreczek;
+wez $zioladb[$ziolkonazwa][odmiana] z pierwszego przytroczonego woreczka;
+wez $zioladb[$ziolkonazwa][odmiana] z drugiego przytroczonego woreczka;
+wez $zioladb[$ziolkonazwa][odmiana] z trzeciego przytroczonego woreczka;
+wez $zioladb[$ziolkonazwa][odmiana] z czwartego przytroczonego woreczka;
+opusc bron;
+$zioladb[$ziolkonazwa][sposob][odw] $zioladb[$ziolkonazwa][odmiana];
+dobadz broni;
+zamknij pierwszy przytroczony woreczek;
+zamknij drugi przytroczony woreczek;
+zamknij trzeci przytroczony woreczek;
+zamknij czwarty przytroczony woreczek;
+};
+};
+#math {ziolka_licznik} {$ziolka_licznik + 1};
+#math {ziolka_prompt_index} {$ziolka_prompt_index + 1};
+};
+};
+};
+
+#var prompt_objects[$ziolka_prompt_index] {<118><aaf>mana                    <088>};
+#math {ziolka_prompt_index} {$ziolka_prompt_index + 1};
+
+#foreach {$zioladb[]} {ziolkonazwa} {
+#format {_ziolko_opis} {%-15s} {$ziolkonazwa};#format {_ziolko_opis} {%.15s} {$_ziolko_opis};
+#format {_ziolko_ilos} {%+2s} {$zioladb[$ziolkonazwa][ilosc]};
+
+#format sposoblen {%L} {$zioladb[$ziolkonazwa][sposob][mn]};
+#if {$sposoblen > 1} {
+#format sposoblen {%L} {$zioladb[$ziolkonazwa][sposob][mn]};
+#if {$zioladb[$ziolkonazwa][ilosc] > 0} {
+#var prompt_objects[$ziolka_prompt_index] {<118><G00><118><aaf>z$ziolka_licznik <ccc>(<afa>$_ziolko_ilos<ccc>) $_ziolko_opis<088>};
+#line substitute {variables} {
+#alias z$ziolka_licznik {
+otworz pierwszy przytroczony woreczek;
+otworz drugi przytroczony woreczek;
+otworz trzeci przytroczony woreczek;
+otworz czwarty przytroczony woreczek;
+wez $zioladb[$ziolkonazwa][odmiana] z pierwszego przytroczonego woreczka;
+wez $zioladb[$ziolkonazwa][odmiana] z drugiego przytroczonego woreczka;
+wez $zioladb[$ziolkonazwa][odmiana] z trzeciego przytroczonego woreczka;
+wez $zioladb[$ziolkonazwa][odmiana] z czwartego przytroczonego woreczka;
+opusc bron;
+$zioladb[$ziolkonazwa][sposob][mn] $zioladb[$ziolkonazwa][odmiana];
+dobadz broni;
+zamknij pierwszy przytroczony woreczek;
+zamknij drugi przytroczony woreczek;
+zamknij trzeci przytroczony woreczek;
+zamknij czwarty przytroczony woreczek;
+};
+};
+#math {ziolka_licznik} {$ziolka_licznik + 1};
+#math {ziolka_prompt_index} {$ziolka_prompt_index + 1};
+};
+};
+};
+
+#var prompt_objects[$ziolka_prompt_index] {<118><ffa>glod                    <088>};
+#math {ziolka_prompt_index} {$ziolka_prompt_index + 1};
+
+#foreach {$zioladb[]} {ziolkonazwa} {
+#format {_ziolko_opis} {%-15s} {$ziolkonazwa};#format {_ziolko_opis} {%.15s} {$_ziolko_opis};
+#format {_ziolko_ilos} {%+2s} {$zioladb[$ziolkonazwa][ilosc]};
+
+#format sposoblen {%L} {$zioladb[$ziolkonazwa][sposob][gl]};
+#if {$sposoblen > 1} {
+#format sposoblen {%L} {$zioladb[$ziolkonazwa][sposob][gl]};
+#if {$zioladb[$ziolkonazwa][ilosc] > 0} {
+#var prompt_objects[$ziolka_prompt_index] {<118><G00><118><ffa>z$ziolka_licznik <ccc>(<afa>$_ziolko_ilos<ccc>) $_ziolko_opis<088>};
+#line substitute {variables} {
+#alias z$ziolka_licznik {
+otworz pierwszy przytroczony woreczek;
+otworz drugi przytroczony woreczek;
+otworz trzeci przytroczony woreczek;
+otworz czwarty przytroczony woreczek;
+wez $zioladb[$ziolkonazwa][odmiana] z pierwszego przytroczonego woreczka;
+wez $zioladb[$ziolkonazwa][odmiana] z drugiego przytroczonego woreczka;
+wez $zioladb[$ziolkonazwa][odmiana] z trzeciego przytroczonego woreczka;
+wez $zioladb[$ziolkonazwa][odmiana] z czwartego przytroczonego woreczka;
+opusc bron;
+$zioladb[$ziolkonazwa][sposob][gl] $zioladb[$ziolkonazwa][odmiana];
+dobadz broni;
+zamknij pierwszy przytroczony woreczek;
+zamknij drugi przytroczony woreczek;
+zamknij trzeci przytroczony woreczek;
+zamknij czwarty przytroczony woreczek;
+};
+};
+#math {ziolka_licznik} {$ziolka_licznik + 1};
+#math {ziolka_prompt_index} {$ziolka_prompt_index + 1};
+};
+};
+};
+
+
+#var prompt_objects[$ziolka_prompt_index] {<118><faa>odtrutki                <088>};
+#math {ziolka_prompt_index} {$ziolka_prompt_index + 1};
+#foreach {$zioladb[]} {ziolkonazwa} {
+#format {_ziolko_opis} {%-15s} {$ziolkonazwa};#format {_ziolko_opis} {%.15s} {$_ziolko_opis};
+#format {_ziolko_ilos} {%+2s} {$zioladb[$ziolkonazwa][ilosc]};
+
+#format sposoblen {%L} {$zioladb[$ziolkonazwa][sposob][o]};
+#if {$sposoblen > 1} {
+#format sposoblen {%L} {$zioladb[$ziolkonazwa][sposob][o]};
+#if {$zioladb[$ziolkonazwa][ilosc] > 0} {
+#var prompt_objects[$ziolka_prompt_index] {<118><G00><118><faa>z$ziolka_licznik <ccc>(<afa>$_ziolko_ilos<ccc>) $_ziolko_opis<088>};
+#line substitute {variables} {
+#alias z$ziolka_licznik {
+otworz pierwszy przytroczony woreczek;
+otworz drugi przytroczony woreczek;
+otworz trzeci przytroczony woreczek;
+otworz czwarty przytroczony woreczek;
+wez $zioladb[$ziolkonazwa][odmiana] z pierwszego przytroczonego woreczka;
+wez $zioladb[$ziolkonazwa][odmiana] z drugiego przytroczonego woreczka;
+wez $zioladb[$ziolkonazwa][odmiana] z trzeciego przytroczonego woreczka;
+wez $zioladb[$ziolkonazwa][odmiana] z czwartego przytroczonego woreczka;
+opusc bron;
+$zioladb[$ziolkonazwa][sposob][o] $zioladb[$ziolkonazwa][odmiana];
+dobadz broni;
+zamknij pierwszy przytroczony woreczek;
+zamknij drugi przytroczony woreczek;
+zamknij trzeci przytroczony woreczek;
+zamknij czwarty przytroczony woreczek;
+};
+};
+#math {ziolka_licznik} {$ziolka_licznik + 1};
+#math {ziolka_prompt_index} {$ziolka_prompt_index + 1};
+};
+};
+};
+
 }
 
 #alias {wezziola}
