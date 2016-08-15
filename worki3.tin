@@ -677,34 +677,22 @@
   #if {"$currentworek" == "A"} {
     #var currentworek {B};
     #if {$ilosc_workow == 1} {
-        lecznicze;
-        testprompt;
-        PROMPT_GO_BACK;
         #var sortujemy {false};
     };
   };
   #elseif {"$currentworek" == "B"} {
     #var currentworek {C};
     #if {$ilosc_workow == 2} {
-        lecznicze;
-        testprompt;
-        PROMPT_GO_BACK;
         #var sortujemy {false};
     };
   };
   #elseif {"$currentworek" == "C"} {
     #var currentworek {D};
     #if {$ilosc_workow == 3} {
-        lecznicze;
-        testprompt;
-        PROMPT_GO_BACK;
         #var sortujemy {false};
     };
   };
   #elseif {"$currentworek" == "D"} {
-      lecznicze;
-      testprompt;
-      PROMPT_GO_BACK;
       #var sortujemy {false};
   };
 };
