@@ -1,5 +1,3 @@
-#split 0 1;
-
 #var ppowiedzTable[1] {glosno};
 #var ppowiedzTable[2] {cicho};
 #var ppowiedzTable[3] {glupio};
