@@ -6,10 +6,10 @@
 #var ppowiedzSize 4;
 #cursor {set} {ppowiedz $ppowiedzTable[$ppowiedzIndex] };
 
-#macro {\}
+#unmacro {\}
 {
     #cursor {get} {buff};
-    #replace {buff} {ppowiedz $ppowiedzTable[$ppowiedzIndex]} {};
+    #replace {buff} {ppowiedz $ppowiedzTable[$ppowiedzIndex] } {};
     #replace {buff} {  } { };
     #math ppowiedzIndex {$ppowiedzIndex + 1};
     #if {$ppowiedzIndex == $ppowiedzSize} {#var ppowiedzIndex 1};
@@ -21,7 +21,7 @@
 {
     #if {$ppowiedzIndex == 1} {
         #cursor {get} {buff};
-        #replace {buff} {ppowiedz $ppowiedzTable[$ppowiedzIndex]} {};
+        #replace {buff} {ppowiedz $ppowiedzTable[$ppowiedzIndex] } {};
         #replace {buff} {  } { };
         #var ppowiedzIndex {2};
         #cursor {clear line};
@@ -29,7 +29,7 @@
     };
     #elseif {$ppowiedzIndex == 2} {
         #cursor {get} {buff};
-        #replace {buff} {ppowiedz $ppowiedzTable[$ppowiedzIndex]} {};
+        #replace {buff} {ppowiedz $ppowiedzTable[$ppowiedzIndex] } {};
         #replace {buff} {  } { };
         #var ppowiedzIndex {3};
         #cursor {clear line};
