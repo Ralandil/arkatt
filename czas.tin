@@ -1,18 +1,16 @@
-
-
-#var kolendarz_godziny[pierwsza] {1};
-#var kolendarz_godziny[druga] {2};
-#var kolendarz_godziny[trzecia] {3};
-#var kolendarz_godziny[czwarta] {4};
-#var kolendarz_godziny[piata] {5};
-#var kolendarz_godziny[szosta] {6};
-#var kolendarz_godziny[siodma] {7};
-#var kolendarz_godziny[osma] {8};
-#var kolendarz_godziny[dziewiata] {9};
-#var kolendarz_godziny[dziesiata] {10};
-#var kolendarz_godziny[jedenasta] {11};
-#var kolendarz_godziny[poludnie] {12};
-#var kolendarz_godziny[polnoc] {12};
+#var kalendarz_godziny[pierwsza] {1};
+#var kalendarz_godziny[druga] {2};
+#var kalendarz_godziny[trzecia] {3};
+#var kalendarz_godziny[czwarta] {4};
+#var kalendarz_godziny[piata] {5};
+#var kalendarz_godziny[szosta] {6};
+#var kalendarz_godziny[siodma] {7};
+#var kalendarz_godziny[osma] {8};
+#var kalendarz_godziny[dziewiata] {9};
+#var kalendarz_godziny[dziesiata] {10};
+#var kalendarz_godziny[jedenasta] {11};
+#var kalendarz_godziny[poludnie] {12};
+#var kalendarz_godziny[polnoc] {12};
 
 #var kalendarz_dni[pierwszy] {1};
 #var kalendarz_dni[drugi] {2};
@@ -62,7 +60,7 @@
 #var kalendarz_miesiace[12][nazwa] {Erntezeit}
 #var kalendarz_miesiace[13][nazwa] {Mittherbst}
 #var kalendarz_miesiace[14][nazwa] {Brauzeit}
-#var kalendarz_miesiace[15][nazwa] {Kaldezeit}
+#var kalendarz_miesiace[15][nazwa] {Kaltezeit}
 #var kalendarz_miesiace[16][nazwa] {Ulriczeit}
 #var kalendarz_miesiace[17][nazwa] {Monstille}
 #var kalendarz_miesiace[18][nazwa] {Vorhexen}
@@ -81,7 +79,7 @@
 #var kalendarz_miesiace[Erntezeit][index] {12}
 #var kalendarz_miesiace[Mittherbst][index] {13}
 #var kalendarz_miesiace[Brauzeit][index] {14}
-#var kalendarz_miesiace[Kaldezeit][index] {15}
+#var kalendarz_miesiace[Kaltezeit][index] {15}
 #var kalendarz_miesiace[Ulriczeit][index] {16}
 #var kalendarz_miesiace[Monstille][index] {17}
 #var kalendarz_miesiace[Vorhexen][index] {18}
@@ -100,7 +98,7 @@
 #var kalendarz_miesiace[Erntezeit][dni] {33}
 #var kalendarz_miesiace[Mittherbst][dni] {1}
 #var kalendarz_miesiace[Brauzeit][dni] {33}
-#var kalendarz_miesiace[Kaldezeit][dni] {33}
+#var kalendarz_miesiace[Kaltezeit][dni] {33}
 #var kalendarz_miesiace[Ulriczeit][dni] {33}
 #var kalendarz_miesiace[Monstille][dni] {1}
 #var kalendarz_miesiace[Vorhexen][dni] {33}
@@ -119,7 +117,7 @@
 #var kalendarz_miesiace[Erntezeit][wroku] {233}
 #var kalendarz_miesiace[Mittherbst][wroku] {266}
 #var kalendarz_miesiace[Brauzeit][wroku] {267}
-#var kalendarz_miesiace[Kaldezeit][wroku] {300}
+#var kalendarz_miesiace[Kaltezeit][wroku] {300}
 #var kalendarz_miesiace[Ulriczeit][wroku] {333}
 #var kalendarz_miesiace[Monstille][wroku] {366}
 #var kalendarz_miesiace[Vorhexen][wroku] {367}
@@ -131,18 +129,97 @@
 #var kalendarz_poradnia[w nocy] {0};
 #var kalendarz_poradnia[poznym wieczorem] {12};
 
+#var kalendarz_poraroku[Wiosna][wschod] {6};
+#var kalendarz_poraroku[Wiosna][zachod] {19};
+#var kalendarz_poraroku[Lato][wschod] {4};
+#var kalendarz_poraroku[Lato][zachod] {22};
+#var kalendarz_poraroku[Jesien][wschod] {6};
+#var kalendarz_poraroku[Jesien][zachod] {19};
+#var kalendarz_poraroku[Zima][wschod] {8};
+#var kalendarz_poraroku[Zima][zachod] {16};
+
+#var kalendarz_miesiace[Hexentag][pora] {Wiosna};
+#var kalendarz_miesiace[Nachexen][pora] {Wiosna};
+#var kalendarz_miesiace[Jahrdrung][pora] {Wiosna};
+#var kalendarz_miesiace[Mitterfruhl][pora] {Wiosna};
+#var kalendarz_miesiace[Pflugzeit][pora] {Wiosna};
+#var kalendarz_miesiace[Sigmarzeit][pora] {Lato};
+#var kalendarz_miesiace[Sommerzeit][pora] {Lato};
+#var kalendarz_miesiace[Sonnstill][pora] {Lato};
+#var kalendarz_miesiace[Vorgeheim][pora] {Lato};
+#var kalendarz_miesiace[Geheimnisnacht][pora] {Jesien};
+#var kalendarz_miesiace[Nachgeheim][pora] {Jesien};
+#var kalendarz_miesiace[Erntezeit][pora] {Jesien};
+#var kalendarz_miesiace[Mittherbst][pora] {Jesien};
+#var kalendarz_miesiace[Brauzeit][pora] {Jesien};
+#var kalendarz_miesiace[Kaltezeit][pora] {Zima};
+#var kalendarz_miesiace[Ulriczeit][pora] {Zima};
+#var kalendarz_miesiace[Monstille][pora] {Zima};
+#var kalendarz_miesiace[Vorhexen][pora] {Zima};
+
+
 
 #nop Jest w przyblizeniu (@godzina) (@pora_dnia), (@opcjonalnie) w (@dzien_nazwa), (@dzien_liczba) dzien miesiaca (@miesiac) wedlug Kalendarza Imperialnego.
 #nop Jest w przyblizeniu (@godzina) (@pora_dnia) w (@dzien_nazwa), (@dzien_liczba) dzien miesiaca (@miesiac) wedlug Kalendarza Imperialnego.
 
+#nop Jest w przyblizeniu szosta nad ranem, po wschodzie slonca w Baeckertag, dziesiaty dzien miesiaca Kaltezeit wedlug Kalendarza Imperialnego.
+
 #action {Jest w przyblizeniu %1 {rano|nad ranem|wieczorem|po poludniu|w nocy|poznym wieczorem} w %w, %4 dzien miesiaca %5 wedlug Kalendarza Imperialnego.}
 {
+    #math czas_godzina {$kalendarz_godziny[%1] + $kalendarz_poradnia[%2]};
+    #math dzien_miesiaca {$kalendarz_dni[%4]};
+    #math dzien_roku {$kalendarz_dni[%4] + $kalendarz_miesiace[%5][wroku]};
+    #var dniwmiesiacu {$kalendarz_miesiace[%5][dni]};
+    #var numermiesiaca {$kalendarz_miesiace[%5][index]};
 
+    #var wschod_slonca $kalendarz_poraroku[$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]][wschod];
+    #var zachod_slonca $kalendarz_poraroku[$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]][zachod];
+
+    #sh {w:$wschod_slonca c:$czas_godzina z:$zachod_slonca (dzien: $dzien_miesiaca month: $numermiesiaca / $dniwmiesiacu)};
+
+
+    #ticker {klepsydra} {
+        #math {czas_godzina} {$czas_godzina + 1};
+        #if {$czas_godzina > 24} {
+            #var czas_godzina 0;
+            #math {dzien_miesiaca} {$dzien_miesiaca + 1};
+            #if {$dzien_miesiaca > $dniwmiesiacu} {
+                #var dzien_miesiaca 1;
+                #if {$numermiesiaca < 18} {
+                    #math numermiesiaca {$numermiesiaca + 1};
+                    #var dniwmiesiacu $kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][dni];
+                } {
+                    #math numermiesiaca 1;
+                    #var dniwmiesiacu 1;
+                };
+             };
+        };
+
+        #var wschod_slonca $kalendarz_poraroku[$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]][wschod];
+        #var zachod_slonca $kalendarz_poraroku[$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]][zachod];
+
+#sh {w:$wschod_slonca c:$czas_godzina z:$zachod_slonca (dzien: $dzien_miesiaca month: $numermiesiaca / $dniwmiesiacu)};
+    } {120};
 }
 
+#alias {klepsydra_render}
+{
+    #if {"$kalendarz_poraroku[$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]]" == "Wiosna"} {
+        #var poraroku_kolor {<118><afa>};
+    };
+    #elseif {"$kalendarz_poraroku[$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]]" == "Lato"} {
+        #var poraroku_kolor {<118><faa>};
+    };
+    #elseif {"$kalendarz_poraroku[$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]]" == "Jesien"} {
+        #var poraroku_kolor {<118><ffa>};
+    };
+    #elseif {"$kalendarz_poraroku[$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]]" == "Zima"} {
+        #var poraroku_kolor {<118><fff>};
+    };
 
 
-
+    #sh {w:$wschod_slonca c:$czas_godzina z:$zachod_slonca (dzien: $dzien_miesiaca month: $numermiesiaca / $dniwmiesiacu)};
+}
 
 
 
