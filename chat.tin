@@ -59,7 +59,20 @@
     #format prompt_objects[7] {%.${max_chat_w}s} {$prompt_chat_table[8]};
     #format prompt_objects[8] {%.${max_chat_w}s} {$prompt_chat_table[9]};
     #format prompt_objects[9] {%.${max_chat_w}s} {$prompt_chat_table[10]};
+
     testprompt;
+#macro {/}
+{
+#cursor {get} {buff};
+#replace {buff} {ppowiedz $ppowiedzTable[$ppowiedzIndex] } {};
+#replace {buff} {  } { };
+#math ppowiedzIndex {$ppowiedzIndex + 1};
+#if {$ppowiedzIndex == $ppowiedzSize} {#var ppowiedzIndex 1};
+#cursor {clear line};
+#cursor {set} {ppowiedz $ppowiedzTable[$ppowiedzIndex] $buff};
+};
+#cursor {set} {ppowiedz $ppowiedzTable[$ppowiedzIndex] };
+
 }
 
 #action {^{> |}%2 {mowi|dudni|mruczy|nuci|piszczy}: %4$}

@@ -60,13 +60,13 @@
             #format {esl} {%L} {$enemy_shortcut};
             #if {$esl < 2} {#var enemy_shortcut {        }};
 
-            #if {$obda2[$self_id][hp] == 6} {#var prompt_avatar[1] {@pbuild_team_id_37{-   $pr_wrog}@pbuild_team_hp_77{ty}$enemy_shortcut};};
-            #if {$obda2[$self_id][hp] == 5} {#var prompt_avatar[1] {@pbuild_team_id_37{-   $pr_wrog}@pbuild_team_hp_67{ty}$enemy_shortcut};};
-            #if {$obda2[$self_id][hp] == 4} {#var prompt_avatar[1] {@pbuild_team_id_37{-   $pr_wrog}@pbuild_team_hp_57{ty}$enemy_shortcut};};
-            #if {$obda2[$self_id][hp] == 3} {#var prompt_avatar[1] {@pbuild_team_id_37{-   $pr_wrog}@pbuild_team_hp_47{ty}$enemy_shortcut};};
-            #if {$obda2[$self_id][hp] == 2} {#var prompt_avatar[1] {@pbuild_team_id_37{-   $pr_wrog}@pbuild_team_hp_37{ty}$enemy_shortcut};};
-            #if {$obda2[$self_id][hp] == 1} {#var prompt_avatar[1] {@pbuild_team_id_27{-   $pr_wrog}@pbuild_team_hp_37{ty}$enemy_shortcut};};
-            #if {$obda2[$self_id][hp] == 0} {#var prompt_avatar[1] {@pbuild_team_id_17{-   $pr_wrog}@pbuild_team_hp_37{ty}$enemy_shortcut};};
+            #if {$obda2[$self_id][hp] == 6} {#var prompt_avatar_kondycja[1] {@pbuild_team_id_37{-   $pr_wrog}@pbuild_team_hp_77{ty}$enemy_shortcut};};
+            #if {$obda2[$self_id][hp] == 5} {#var prompt_avatar_kondycja[1] {@pbuild_team_id_37{-   $pr_wrog}@pbuild_team_hp_67{ty}$enemy_shortcut};};
+            #if {$obda2[$self_id][hp] == 4} {#var prompt_avatar_kondycja[1] {@pbuild_team_id_37{-   $pr_wrog}@pbuild_team_hp_57{ty}$enemy_shortcut};};
+            #if {$obda2[$self_id][hp] == 3} {#var prompt_avatar_kondycja[1] {@pbuild_team_id_37{-   $pr_wrog}@pbuild_team_hp_47{ty}$enemy_shortcut};};
+            #if {$obda2[$self_id][hp] == 2} {#var prompt_avatar_kondycja[1] {@pbuild_team_id_37{-   $pr_wrog}@pbuild_team_hp_37{ty}$enemy_shortcut};};
+            #if {$obda2[$self_id][hp] == 1} {#var prompt_avatar_kondycja[1] {@pbuild_team_id_27{-   $pr_wrog}@pbuild_team_hp_37{ty}$enemy_shortcut};};
+            #if {$obda2[$self_id][hp] == 0} {#var prompt_avatar_kondycja[1] {@pbuild_team_id_17{-   $pr_wrog}@pbuild_team_hp_37{ty}$enemy_shortcut};};
         };
     };
 }
@@ -317,7 +317,7 @@
     #unvar druzyna_prompt;
     #unvar wrogowie_prompt;
     #unvar neutral_prompt;
-    #unvar prompt_objects;
+    #unvar prompt_objects_druzyna;
     #var prompt_index 1;
 
     update_avatar;
@@ -330,11 +330,11 @@
     update_enemies;
     update_neutral;
 
-    #loop {1} {60} {zz} {#var prompt_objects[$zz] {};};
+    #loop {1} {60} {zz} {#var prompt_objects_druzyna[$zz] {};};
 
     #if {$team_index > 1} {
         #loop {1} {$team_index} {z} {
-            #var prompt_objects[$prompt_index] {$druzyna_prompt[$z]};
+            #var prompt_objects_druzyna[$prompt_index] {$druzyna_prompt[$z]};
             #math {prompt_index} {$prompt_index + 1};
         };
     } {
@@ -343,14 +343,14 @@
     #math {prompt_index} {$prompt_index - 1};
     #if {$othe_index > 1} {
         #loop {1} {$othe_index} {z} {
-            #var prompt_objects[$prompt_index] {$wrogowie_prompt[$z]};
+            #var prompt_objects_druzyna[$prompt_index] {$wrogowie_prompt[$z]};
             #math {prompt_index} {$prompt_index + 1};
         };
         #math {prompt_index} {$prompt_index - 1};
     };
     #if {$neut_index > 1} {
         #loop {1} {$neut_index} {zz} {
-            #var prompt_objects[$prompt_index] {$neutral_prompt[$zz]};
+            #var prompt_objects_druzyna[$prompt_index] {$neutral_prompt[$zz]};
             #math prompt_index {$prompt_index + 1};
         };
     };
@@ -378,12 +378,16 @@
 #macro {$KEY_F9} {bind_T_F9};
 };
 
-#var _prompt_tryb {hp};
-
-#nop HACK;
-#nop    lecznicze;
-    testprompt;
-#nop HACK;
+    #var paaah 1;
+    #if {"$_prompt_tryb" == "hp"} {
+        #unvar prompt_objects;
+        #var prompt_avatar[1] $prompt_avatar_kondycja[1];
+        #loop {1} {$prompt_index} {pkdsadsa} {
+            #var prompt_objects[$paaah] $prompt_objects_druzyna[$paaah];
+            #math {paaah} {$paaah + 1};
+        };
+        testprompt;
+    };
 }
 
 #event {IAC SB GMCP objects.nums IAC SE}

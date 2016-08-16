@@ -418,7 +418,7 @@ skocz do stawu,przejdz za wodospad,n,pchnij sciane
 
 #var _prompt_tryb {hp};
 
-#alias {tryb_prompta}
+#alias {tryb_prompta_fw}
 {
     #if {"$_prompt_tryb" == "chat"} {
         #var prompt_tab_button_hp $prompt_tab_button_hp_i;
@@ -433,6 +433,8 @@ skocz do stawu,przejdz za wodospad,n,pchnij sciane
             #var prompt_objects[$pahc] $prompt_objects_herbs[$pahc];
             #math {pahc} {$pahc + 1};
         };
+        #cursor {clear line};
+        #unmacro {/};
         testprompt;
     };
     #elseif {"$_prompt_tryb" == "hp"} {
@@ -445,6 +447,27 @@ skocz do stawu,przejdz za wodospad,n,pchnij sciane
         #nop var prompt_tab_button_ch $prompt_tab_button_ch_i;
         #var prompt_tab_button_st $prompt_tab_button_st_i;
     	#var _prompt_tryb {hp};
+        #unvar prompt_objects;
     	update_teams;
+    };
+}
+
+
+#alias {tryb_prompta_bk}
+{
+    #if {"$_prompt_tryb" == "chat"} {
+        #var prompt_tab_button_hp $prompt_tab_button_hp_a;
+        #var prompt_tab_button_he $prompt_tab_button_he_i;
+        #var prompt_tab_button_ch $prompt_tab_button_ch_i;
+        #var prompt_tab_button_st $prompt_tab_button_st_i;
+        #var _prompt_tryb {hp};
+        #unvar prompt_objects;
+        #cursor {clear line};
+        #unmacro {/};
+        update_teams;
+    };
+    #elseif {"$_prompt_tryb" == "herb"} {
+        #var _prompt_tryb {chat};
+        prompt_chat_render;
     };
 }
