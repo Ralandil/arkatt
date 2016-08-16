@@ -166,7 +166,11 @@
 
 #action {Jest w przyblizeniu %1 {rano|nad ranem|wieczorem|po poludniu|w nocy|poznym wieczorem} w %w, %4 dzien miesiaca %5 wedlug Kalendarza Imperialnego.}
 {
-    #math czas_godzina {$kalendarz_godziny[%1] + $kalendarz_poradnia[%2]};
+    #if {"%2" == "w nocy"} {
+        
+    } {
+        #math czas_godzina {$kalendarz_godziny[%1] + $kalendarz_poradnia[%2]};
+    };
     #math dzien_miesiaca {$kalendarz_dni[%4]};
     #math dzien_roku {$kalendarz_dni[%4] + $kalendarz_miesiace[%5][wroku]};
     #var dniwmiesiacu {$kalendarz_miesiace[%5][dni]};
