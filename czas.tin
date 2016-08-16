@@ -162,12 +162,12 @@
 #nop Jest w przyblizeniu (@godzina) (@pora_dnia), (@opcjonalnie) w (@dzien_nazwa), (@dzien_liczba) dzien miesiaca (@miesiac) wedlug Kalendarza Imperialnego.
 #nop Jest w przyblizeniu (@godzina) (@pora_dnia) w (@dzien_nazwa), (@dzien_liczba) dzien miesiaca (@miesiac) wedlug Kalendarza Imperialnego.
 
-#nop Jest w przyblizeniu szosta nad ranem, po wschodzie slonca w Baeckertag, dziesiaty dzien miesiaca Kaltezeit wedlug Kalendarza Imperialnego.
+#nop Jest w przyblizeniu szosta nad ranem w Baeckertag, dziesiaty dzien miesiaca Kaltezeit wedlug Kalendarza Imperialnego.
 
 #action {Jest w przyblizeniu %1 {rano|nad ranem|wieczorem|po poludniu|w nocy|poznym wieczorem} w %w, %4 dzien miesiaca %5 wedlug Kalendarza Imperialnego.}
 {
     #if {"%2" == "w nocy"} {
-        
+        #if {$kalendarz_godziny[%1] > 6} {#math czas_godzina {$kalendarz_godziny[%1] + 12}};
     } {
         #math czas_godzina {$kalendarz_godziny[%1] + $kalendarz_poradnia[%2]};
     };
@@ -208,6 +208,10 @@
 
 #alias {klepsydra_render}
 {
+    #if {$wschod_slonca > $czas_godzina} {
+
+    }
+
     #if {"$kalendarz_poraroku[$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]]" == "Wiosna"} {
         #var poraroku_kolor {<118><afa>};
     };
