@@ -33,6 +33,7 @@
     #var prompt_chat_table[8] {$prompt_chat_table[9]};
     #var prompt_chat_table[9] {$prompt_chat_table[10]};
     #var prompt_chat_table[10] {$prompt_chat_currvalue};
+    testprompt;
 }
 #alias {prompt_chat_render}
 {
