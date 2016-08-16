@@ -1,0 +1,49 @@
+#config {command echo} {off};
+
+#var hp_bar { 0/ 0};
+#var pr_smad $hp_bar;
+#var pr_mana $hp_bar;
+#var pr_glod $hp_bar;
+#var pr_zmeczenie $hp_bar;
+#var pr_upicie $hp_bar;
+#var pr_form $hp_bar;
+#var pr_exp $hp_bar;
+#var pr_obci $hp_bar;
+
+#read $path/gmcp_char.tin;
+#read $path/gmcp_message.tin;
+#read $path/gmcp_object.tin;
+#read $path/quickbinds_new.tin;
+#read $path/kompas.tin;
+#read $path/functions.tin;
+#read $path/tickers.tin;
+#read $path/map_engine.tin;
+#read $path/ocena_zbroi.tin;
+#read $path/env.tin;
+#read $path/prompt.tin;
+#read $path/macros.tin;
+#read $path/walka_ogolna.tin;
+#read $path/walka_ciosy.tin;
+#read $path/alias.tin;
+#read $path/worki3.tin;
+#read $path/sleep.tin;
+#read $path/kolorki.tin;
+#read $path/exp.tin;
+#read $path/data/quickbinds_data.tin;
+#read $path/data/kasztel.tin;
+#read $path/data/burza.tin;
+#read $path/zgony.tin;
+#read $path/items.tin;
+#read $path/ziola.tin;
+#read $path/tropienie.tin;
+#nop read $path/baza.txt;
+#read $path/compare.tin;
+#read $path/gmcp_mapper.tin;
+#read $path/automap/mapdrawer.tin;
+#CONFIG LOG PLAIN
+#format {logfile} {${logpath}/%t.html} {%Y-%m-%d};
+#log append $logfile;
+#var lastmove none;
+#nop sleep 1 {#chat call 127.0.0.1 6666};
+
+#var gmcp_saving 0;

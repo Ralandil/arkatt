@@ -1,0 +1,88 @@
+#var ppowiedzTable[1] {glosno};
+#var ppowiedzTable[2] {cicho};
+#var ppowiedzTable[3] {glupio};
+
+#var ppowiedzIndex 1;
+#var ppowiedzSize 4;
+#nop cursor {set} {ppowiedz $ppowiedzTable[$ppowiedzIndex] };
+
+#unmacro {\}
+{
+    #cursor {get} {buff};
+    #replace {buff} {ppowiedz $ppowiedzTable[$ppowiedzIndex] } {};
+    #replace {buff} {  } { };
+    #math ppowiedzIndex {$ppowiedzIndex + 1};
+    #if {$ppowiedzIndex == $ppowiedzSize} {#var ppowiedzIndex 1};
+    #cursor {clear line};
+    #cursor {set} {ppowiedz $ppowiedzTable[$ppowiedzIndex] $buff};
+}
+
+#unvar prompt_chat_table;
+#loop {1} {10} {zdksoa} {#var prompt_chat_table[$zdksoa] {                    <118><ffa>| <088>}};
+
+#var prompt_chat_currvalue {};
+
+#alias {prompt_chat_insert_line} {
+    #var prompt_chat_table[1] {$prompt_chat_table[2]};
+    #var prompt_chat_table[2] {$prompt_chat_table[3]};
+    #var prompt_chat_table[3] {$prompt_chat_table[4]};
+    #var prompt_chat_table[4] {$prompt_chat_table[5]};
+    #var prompt_chat_table[5] {$prompt_chat_table[6]};
+    #var prompt_chat_table[6] {$prompt_chat_table[7]};
+    #var prompt_chat_table[7] {$prompt_chat_table[8]};
+    #var prompt_chat_table[8] {$prompt_chat_table[9]};
+    #var prompt_chat_table[9] {$prompt_chat_table[10]};
+    #var prompt_chat_table[10] {$prompt_chat_currvalue};
+    #if {"$_prompt_tryb" == "herb"} {
+	prompt_chat_render;
+    } {
+    	#var prompt_tab_button_ch $prompt_tab_button_ch_n;
+    	testprompt;
+    }
+}
+#alias {prompt_chat_render}
+{
+#unvar prompt_objects;
+#var prompt_tab_button_hp $prompt_tab_button_hp_i;
+#var prompt_tab_button_he $prompt_tab_button_he_i;
+#var prompt_tab_button_ch $prompt_tab_button_ch_a;
+#var prompt_tab_button_st $prompt_tab_button_st_i;
+    #format {screen_w} {%C};
+    #math {max_chat_w} {$screen_w - 60};
+    #format prompt_avatar[1] {%.${max_chat_w}s} {$prompt_chat_table[1]};
+    #format prompt_objects[1] {%.${max_chat_w}s} {$prompt_chat_table[2]};
+    #format prompt_objects[2] {%.${max_chat_w}s} {$prompt_chat_table[3]};
+    #format prompt_objects[3] {%.${max_chat_w}s} {$prompt_chat_table[4]};
+    #format prompt_objects[4] {%.${max_chat_w}s} {$prompt_chat_table[5]};
+    #format prompt_objects[5] {%.${max_chat_w}s} {$prompt_chat_table[6]};
+    #format prompt_objects[6] {%.${max_chat_w}s} {$prompt_chat_table[7]};
+    #format prompt_objects[7] {%.${max_chat_w}s} {$prompt_chat_table[8]};
+    #format prompt_objects[8] {%.${max_chat_w}s} {$prompt_chat_table[9]};
+    #format prompt_objects[9] {%.${max_chat_w}s} {$prompt_chat_table[10]};
+    testprompt;
+}
+
+#action {^{> |}%2 {mowi|dudni|mruczy|nuci|piszczy}: %4$}
+{
+    #format {prompt_chat_value_name} {%+20s%r} {%2};
+    #format {prompt_chat_value_name} {%.20s%r} {$prompt_chat_value_name};
+    #var {prompt_chat_value_text} {%4};
+    #var prompt_chat_currvalue {<118><088>$prompt_chat_value_name<ffa>|<088> $prompt_chat_value_text};
+    prompt_chat_insert_line;
+}
+#action {^{> |}%2 {mowi|dudni|mruczy|nuci|piszczy} do ciebie: %4$}
+{
+    #format {prompt_chat_value_name} {%+20s%r} {%2};
+    #format {prompt_chat_value_name} {%.20s%r} {$prompt_chat_value_name};
+    #var {prompt_chat_value_text} {%4};
+    #var prompt_chat_currvalue {<118><ffa>$prompt_chat_value_name<ffa>|<088> $prompt_chat_value_text};
+    prompt_chat_insert_line;
+}
+#action {^{> |}%2 szepcze do ciebie: %4$}
+{
+    #format {prompt_chat_value_name} {%+20s%r} {%2};
+    #format {prompt_chat_value_name} {%.20s%r} {$prompt_chat_value_name};
+    #var {prompt_chat_value_text} {%4};
+    #var prompt_chat_currvalue {<118><aff>$prompt_chat_value_name<ffa>|<aff> $prompt_chat_value_text};
+    prompt_chat_insert_line;
+}

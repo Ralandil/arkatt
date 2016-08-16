@@ -4,7 +4,7 @@
 
 #var ppowiedzIndex 1;
 #var ppowiedzSize 4;
-#cursor {set} {ppowiedz $ppowiedzTable[$ppowiedzIndex] };
+#nop cursor {set} {ppowiedz $ppowiedzTable[$ppowiedzIndex] };
 
 #unmacro {\}
 {
@@ -33,7 +33,12 @@
     #var prompt_chat_table[8] {$prompt_chat_table[9]};
     #var prompt_chat_table[9] {$prompt_chat_table[10]};
     #var prompt_chat_table[10] {$prompt_chat_currvalue};
-    testprompt;
+    #if {"$_prompt_tryb" == "chat"} {
+	prompt_chat_render;
+    } {
+    	#var prompt_tab_button_ch $prompt_tab_button_ch_n;
+    	testprompt;
+    }
 }
 #alias {prompt_chat_render}
 {
