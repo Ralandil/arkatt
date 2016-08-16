@@ -18,7 +18,7 @@
 {#var ret @parselen{<088>%0<aaa>,};#sh <faa><- BLOKUJE CIE <-<088> $ret<088><aaa>0<088>;#line gag;}{0}
 #action {~^%* blokuje ci droge ucieczki %*.<088>%0.$}
 {#var ret @parselen{<088>%0<aaa>,};#sh <faa><- BLOKUJE CIE <-<088> $ret<088><aaa>0<088>;#line gag;}{0}
-#action {~^%* zajmuje pozycje umozliwiajaca odciecie ci drogi ucieczki.<088>%0.$}
+#action {~^%* zajmuje pozycje umozliwiajaca odciecie ci drogi ucieczki.<088><aaa>0.$}
 {#var ret @parselen{<088>%0<aaa>,};#sh <faa><- BLOKUJE CIE <-<088> $ret<088><aaa>0<088>;#line gag;}{0}
 #action {~^%* przymierza sie do odciecia ci drogi ucieczki.<088>%0.$}
 {
