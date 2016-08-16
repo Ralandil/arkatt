@@ -52,7 +52,6 @@
 #var KEY_PRZESTAN2 {\eOj};
 
 #var KEY_PROMPTMODE {/};
-#var KEY_CHATMODE {\};
 
 #var linux 1;
 #read $path/init.tin;
