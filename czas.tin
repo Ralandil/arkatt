@@ -226,7 +226,7 @@
     };
 
 
-    #sh {w:$wschod_slonca c:$czas_godzina z:$zachod_slonca (dzien: $dzien_miesiaca month: $numermiesiaca / $dniwmiesiacu)};
+    #sh {w:$wschod_slonca c:$czas_godzina z:$zachod_slonca (dzien: $dzien_miesiaca / $dniwmiesiacu  month: $numermiesiaca)};
 }
 
 
