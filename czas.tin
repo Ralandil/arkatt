@@ -175,17 +175,13 @@
         }
     } {
         #math czas_godzina {$kalendarz_godziny[%1] + $kalendarz_poradnia[%2]};
-
     };
     #math dzien_miesiaca {$kalendarz_dni[%4]};
     #math dzien_roku {$kalendarz_dni[%4] + $kalendarz_miesiace[%5][wroku]};
     #var dniwmiesiacu {$kalendarz_miesiace[%5][dni]};
     #var numermiesiaca {$kalendarz_miesiace[%5][index]};
-
     #var wschod_slonca $kalendarz_poraroku[$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]][wschod];
     #var zachod_slonca $kalendarz_poraroku[$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]][zachod];
-
-
     #ticker {klepsydra} {
         #math {czas_godzina} {$czas_godzina + 1};
         #if {$czas_godzina > 24} {
@@ -202,10 +198,9 @@
                 };
              };
         };
-
         #var wschod_slonca $kalendarz_poraroku[$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]][wschod];
         #var zachod_slonca $kalendarz_poraroku[$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]][zachod];
-klepsydra_render;
+        klepsydra_render;
     } {120};
     klepsydra_render
 }

@@ -114,9 +114,8 @@
         #var preline {$preline };
     };
 
-#prompt {prompt11} {                                 $czas_prompt  $prompt_tab_button_hp$prompt_tab_button_ch$prompt_tab_button_he$prompt_tab_button_st } {11};
-
-   #prompt {prompt10} {$preline<088>                                $fmsvc   $environment_label   $fmsvc <088> ${prompt_avatar[1]}$prompt_objects[10]$prompt_objects[20]$prompt_objects[30]$prompt_objects[40]} {10};
+#prompt {prompt11} {                                                    $prompt_tab_button_hp$prompt_tab_button_ch$prompt_tab_button_he$prompt_tab_button_st } {11};
+   #prompt {prompt10} {$preline<088> $czas_prompt            $fmsvc   $environment_label   $fmsvc <088> ${prompt_avatar[1]}$prompt_objects[10]$prompt_objects[20]$prompt_objects[30]$prompt_objects[40]} {10};
     #prompt {prompt9} {$preline<088>                                <088>$fmsvc$asciimapv[2]<088>$fmsvc  ${prompt_objects[1]}$prompt_objects[11]$prompt_objects[21]$prompt_objects[31]$prompt_objects[41]} {9};
     #prompt {prompt8} {$preline<088> $display_function_1 <088>$fmsvc$asciimapv[3]<088>$fmsvc  ${prompt_objects[2]}$prompt_objects[12]$prompt_objects[22]$prompt_objects[32]$prompt_objects[42]} {8};
     #prompt {prompt7} {$preline<088>                                <088>$fmsvc$asciimapv[4]<088>$fmsvc  $prompt_objects[3]$prompt_objects[13]$prompt_objects[23]$prompt_objects[33]$prompt_objects[43]} {7};
