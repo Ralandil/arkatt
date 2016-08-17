@@ -95,7 +95,9 @@
                 };
 
 
-                #foreach {$obda2[]} {vos} {
+                #line substitute {variables} {#sub {$obda2[$vob][desc]} {<aaf>$obda2[$vob][desc] [$kill_functionkey]}};
+                
+		#foreach {$obda2[]} {vos} {
                     #if {"$obda2[$vos][attack_num]" == "$vob"} {
 
                         #if {$obda2[$vob][hp] == 6} {#var obda2[$vos][enemies] {<G02> @__alias_77{$obda2[$vob][desc]}}};
@@ -161,6 +163,8 @@
             } {
                 #var kill_functionkey {- };
             };
+
+            #line substitute {variables} {#sub {%i$obda2[$vob][desc]} {<faa>$obda2[$vob][desc] [$kill_functionkey]}};
             #foreach {$obda2[]} {vos} {
                 #if {"$obda2[$vos][attack_num]" == "$vob"} {
 
@@ -245,6 +249,7 @@
                     #math indexvalue { };
                     #math indexvalue {96 + $neut_bind_index};
                     #format indexchar {%a} {$indexvalue};
+                    #line substitute {variables} {#sub {$obda2[$vob][desc]} {<afa>$obda2[$vob][desc] [$indexchar]}};
                     #if {$neut_index < 5} {#math attack_bind {1 + $neut_index};};
                     #foreach {$obda2[]} {vos} {
                         #if {"$obda2[$vos][attack_num]" == "$vob"} {
@@ -394,6 +399,7 @@
 {
 	#var {obnu} {%0};
 	#forall {$obda2[]} {
+		#line substitute {variables} {#unsub {%i$obda2[&0][desc]}};
 		#list {obnu} find {&0} {vfob};
 		#if {"$vfob" == "0"} {
 			#unvar {obda2[&0]}
