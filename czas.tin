@@ -217,15 +217,13 @@
             #var jasnosc_kolor {<AAD><ffa>};
         };
     };
-    #if {"$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]" == "Wiosna"} {#var poraroku_kolor {<118><afa><ABA>};};
-    #elseif {"$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]" == "Lato"} {#var poraroku_kolor {<118><faa><BAA>};};
-    #elseif {"$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]" == "Jesien"} {#var poraroku_kolor {<118><ffa><BBA>};};
-    #elseif {"$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]" == "Zima"} {#var poraroku_kolor {<118><fff><BBB>};};
+    #if {"$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]" == "Wiosna"} {#var poraroku_kolor {<118><afa><ABA> WIOSNA <088>};};
+    #elseif {"$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]" == "Lato"} {#var poraroku_kolor {<118><faa><BAA>  LATO  <088>};};
+    #elseif {"$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]" == "Jesien"} {#var poraroku_kolor {<118><ffa><BBA> JESIEN <088>};};
+    #elseif {"$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]" == "Zima"} {#var poraroku_kolor {<118><fff><BBB>  ZIMA  <088>};};
+
     #format czas_godzina_prmp {%+2s} {$czas_godzina};
-    #format poraroku_prompt {%r} {$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]};
-    #format poraroku_prompt {%-8s} {$poraroku_prompt};
-    #format poraroku_prompt {%r%.8s} {$poraroku_prompt};
-    #var czas_prompt {<DDA><aaa> $wschod_slonca<088> $jasnosc_kolor $czas_godzina_prmp <088> <AAD><ffa>$zachod_slonca<088> $poraroku_kolor$poraroku_prompt<088>};
+    #var czas_prompt {<DDA><aaa> $wschod_slonca<088> $jasnosc_kolor $czas_godzina_prmp <088> <AAD><ffa>$zachod_slonca<088> $poraroku_kolor};
     #nop sh {w:$wschod_slonca c:$czas_godzina z:$zachod_slonca (dzien: $dzien_miesiaca / $dniwmiesiacu  month: $numermiesiaca)};
     testprompt;
 }
