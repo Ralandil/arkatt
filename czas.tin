@@ -206,6 +206,7 @@
 }
 
 #var czas_prompt {<G02>--<088> <G02>czas<088> <G02>--<088>};
+#var poraroku_kolor {        };
 #alias {klepsydra_render}
 {
     #if {$wschod_slonca > $czas_godzina} {

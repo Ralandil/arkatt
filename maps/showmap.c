@@ -55,7 +55,7 @@ int main(int argc, char **argv)
 	for (loopy = ystart;loopy < yend;loopy++) {
 		for (loopx=xstart;loopx<xend;loopx++) {
 			if (loopx == xgps && loopy == ygps) {
-				printf("#");
+				printf("@");
 			} else {
 				if (map[loopy][loopx] == '\n') {
 				} else {
