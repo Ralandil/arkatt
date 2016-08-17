@@ -54,5 +54,8 @@
 #var KEY_PROMPTMODE {/};
 
 #var linux 1;
+
+#var zabijcmd nazabij;
+
 #read $path/init.tin;
 

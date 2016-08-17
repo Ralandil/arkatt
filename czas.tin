@@ -167,9 +167,11 @@
 #action {Jest w przyblizeniu %1 {rano|nad ranem|wieczorem|po poludniu|w nocy|poznym wieczorem} w %w, %4 dzien miesiaca %5 wedlug Kalendarza Imperialnego.}
 {
     #if {"%2" == "w nocy"} {
-        #if {$kalendarz_godziny[%1] > 6} {#math czas_godzina {$kalendarz_godziny[%1] + 12}};
-    } {
-        #math czas_godzina {$kalendarz_godziny[%1] + $kalendarz_poradnia[%2]};
+        #if {$kalendarz_godziny[%1] > 6} {
+        	#math czas_godzina {$kalendarz_godziny[%1] + 12};
+        } {
+        	#math czas_godzina {$kalendarz_godziny[%1] + $kalendarz_poradnia[%2]};
+        }
     };
     #math dzien_miesiaca {$kalendarz_dni[%4]};
     #math dzien_roku {$kalendarz_dni[%4] + $kalendarz_miesiace[%5][wroku]};
@@ -185,7 +187,7 @@
     #ticker {klepsydra} {
         #math {czas_godzina} {$czas_godzina + 1};
         #if {$czas_godzina > 24} {
-            #var czas_godzina 0;
+            #var czas_godzina 1;
             #math {dzien_miesiaca} {$dzien_miesiaca + 1};
             #if {$dzien_miesiaca > $dniwmiesiacu} {
                 #var dzien_miesiaca 1;

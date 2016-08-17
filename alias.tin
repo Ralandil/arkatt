@@ -3,8 +3,7 @@
 {
     wskaz %0 jako cel ataku;
     rozkaz druzynie zabic cel ataku;
-    drwskaz %0;
-    nazabij %0;
+    zabijcmd %0;
 }
 
 #macro {$KEY_F1} {bind_E_F1};
@@ -61,7 +60,7 @@ testprompt;
 
 #alias {_zaznaczcel_} {
     przelam obrone celu ataku;
-    nazabij cel ataku;
+    zabijcmd cel ataku;
     wskaz cel ataku jako cel ataku;
     #var prompt_button_target $prompt_button_target_inactive;
     #var prompt_button_przelam $prompt_button_przelam_inactive;
@@ -136,20 +135,20 @@ zaznaczcel;
 #alias {f9} 
 {
   #if {$przewodzisz_druzynie == 1} {
-    #line substitute {variables} {#macro {$KEY_F9} {wskaz %0 jako cel ataku;nazabij %0;rozkaz druzynie zabic cel ataku}};
+    #line substitute {variables} {#macro {$KEY_F9} {wskaz %0 jako cel ataku;zabijcmd %0;rozkaz druzynie zabic cel ataku}};
   };
   #else {
-    #line substitute {variables} {#macro {$KEY_F9} {nazabij %0}};
+    #line substitute {variables} {#macro {$KEY_F9} {zabijcmd %0}};
   };
 }
 
 #alias {f10} 
 {
   #if {$przewodzisz_druzynie == 1} {
-    #line substitute {variables} {#macro {$KEY_F10} {wskaz %0 jako cel ataku;nazabij %0;rozkaz druzynie zabic cel ataku}};
+    #line substitute {variables} {#macro {$KEY_F10} {wskaz %0 jako cel ataku;zabijcmd %0;rozkaz druzynie zabic cel ataku}};
   };
   #else {
-    #line substitute {variables} {#macro {$KEY_F10} {nazabij %0}};
+    #line substitute {variables} {#macro {$KEY_F10} {zabijcmd %0}};
   };
 }
 

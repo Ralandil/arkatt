@@ -56,4 +56,4 @@
 #var linux 0;
 #read $path/init.tin;
 
-#alias nazabij zabij
+#alias zabijcmd zabij

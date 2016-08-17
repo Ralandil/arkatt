@@ -95,7 +95,7 @@
                 };
 
 
-                #line substitute {variables} {#sub {$obda2[$vob][desc]} {<aaf>$obda2[$vob][desc] [$kill_functionkey]}};
+                #line substitute {variables} {#sub {%i$obda2[$vob][desc]} {<118><aaf>[$kill_functionkey] <088><aaf>$obda2[$vob][desc]<088>}};
                 
 		#foreach {$obda2[]} {vos} {
                     #if {"$obda2[$vos][attack_num]" == "$vob"} {
@@ -164,7 +164,7 @@
                 #var kill_functionkey {- };
             };
 
-            #line substitute {variables} {#sub {%i$obda2[$vob][desc]} {<faa>$obda2[$vob][desc] [$kill_functionkey]}};
+            #line substitute {variables} {#sub {%i$obda2[$vob][desc]} {<118><faa>[$kill_functionkey] <088><faa>$obda2[$vob][desc]<088>}};
             #foreach {$obda2[]} {vos} {
                 #if {"$obda2[$vos][attack_num]" == "$vob"} {
 
@@ -218,10 +218,10 @@
             };
             #line substitute {variables} {#alias zp$indexchar {zaslon przed ob_$othe[$othe_index][tag]}};
             #if {"$przewodzisz_druzynie" == "1"} {
-                #line substitute {variables} {#alias k$indexchar {nazabij ob_$othe[$othe_index][tag];wskaz ob_$othe[$othe_index][tag] jako cel ataku}};
-                #line substitute {variables} {#alias r$indexchar {nazabij ob_$othe[$othe_index][tag];wskaz ob_$othe[$othe_index][tag] jako cel ataku;rozkaz druzynie zabic cel ataku}};
+                #line substitute {variables} {#alias k$indexchar {zabijcmd ob_$othe[$othe_index][tag];wskaz ob_$othe[$othe_index][tag] jako cel ataku}};
+                #line substitute {variables} {#alias r$indexchar {zabijcmd ob_$othe[$othe_index][tag];wskaz ob_$othe[$othe_index][tag] jako cel ataku;rozkaz druzynie zabic cel ataku}};
             } {
-                #line substitute {variables} {#alias k$indexchar {nazabij ob_$othe[$othe_index][tag]}};
+                #line substitute {variables} {#alias k$indexchar {zabijcmd ob_$othe[$othe_index][tag]}};
             };
             #line substitute {variables} {#alias b$indexchar {zablokuj ob_$othe[$othe_index][tag]}};
             #math {othe_index} {$othe_index + 1};
@@ -249,7 +249,7 @@
                     #math indexvalue { };
                     #math indexvalue {96 + $neut_bind_index};
                     #format indexchar {%a} {$indexvalue};
-                    #line substitute {variables} {#sub {$obda2[$vob][desc]} {<afa>$obda2[$vob][desc] [$indexchar]}};
+            	    #line substitute {variables} {#sub {%i$obda2[$vob][desc]} {<118><afa>[$indexchar] <088><afa>$obda2[$vob][desc]<088>}};
                     #if {$neut_index < 5} {#math attack_bind {1 + $neut_index};};
                     #foreach {$obda2[]} {vos} {
                         #if {"$obda2[$vos][attack_num]" == "$vob"} {
@@ -293,10 +293,10 @@
                     };
 #line substitute {variables} {#alias zp$indexchar {zaslon przed ob_$neut[$neut_index][tag]}};
 #if {"$przewodzisz_druzynie" == "1"} {
-#line substitute {variables} {#alias k$indexchar {nazabij ob_$neut[$neut_index][tag];wskaz ob_$neut[$neut_index][tag] jako cel ataku}};
-#line substitute {variables} {#alias r$indexchar {nazabij ob_$neut[$neut_index][tag];wskaz ob_$neut[$neut_index][tag] jako cel ataku;rozkaz druzynie zabic cel ataku}};
+#line substitute {variables} {#alias k$indexchar {zabijcmd ob_$neut[$neut_index][tag];wskaz ob_$neut[$neut_index][tag] jako cel ataku}};
+#line substitute {variables} {#alias r$indexchar {zabijcmd ob_$neut[$neut_index][tag];wskaz ob_$neut[$neut_index][tag] jako cel ataku;rozkaz druzynie zabic cel ataku}};
 } {
-#line substitute {variables} {#alias k$indexchar {nazabij ob_$neut[$neut_index][tag]}};
+#line substitute {variables} {#alias k$indexchar {zabijcmd ob_$neut[$neut_index][tag]}};
 };
 #line substitute {variables} {#alias b$indexchar {zablokuj ob_$neut[$neut_index][tag]}};
 #math {neut_index} {$neut_index + 1};
@@ -412,6 +412,7 @@
 {
   #var {obda} {%0};
   #foreach {$obda[]} {vob} {
+    #line substitute {variables} {#unsub {%i$obda2[&0][desc]}};
     #forall {$obda[$vob][]} {
       #var {obda2[$vob][&0]} {$obda[$vob][&0]};
       #var {obda2[$vob][enemies]} {};
