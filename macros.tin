@@ -40,7 +40,6 @@
 	testprompt
 }
 
-
 #line substitute {variables} {#macro {$KEY_PAD_S} {move_s}}
 #line substitute {variables} {#macro {$KEY_PAD_N} {move_n}}
 #line substitute {variables} {#macro {$KEY_PAD_W} {move_w}}
@@ -52,19 +51,11 @@
 #line substitute {variables} {#macro {$KEY_PAD_U} {move_u}}
 #line substitute {variables} {#macro {$KEY_PAD_D} {move_d}}
 
-#nop line substitute {variables} {#macro {$KEY_PAD_WALK} {#sh WALK}}
-
-#nop line substitute {variables} {#macro {$KEY_PAD_WALK_M} {#sh WALK_M}}
-
-#line substitute {variables} {#macro {$KEY_PAD_KOND} {zerknij}}
-
 #line substitute {variables} {#macro {$KEY_F5} {#echo {<FFA><aaa>not set<088>}}};
 #line substitute {variables} {#macro {$KEY_F7} {#echo {<FFA><aaa>not set<088>}}};
 #line substitute {variables} {#macro {$KEY_F8} {#echo {<FFA><aaa>not set<088>}}};
 
 #line substitute {variables} {#macro {$KEY_F12} {tryb_chodzenia}};
-
-#unline substitute {variables} {#macro {$KEY_F11} {tryb_chodzenia}};
 
 #line substitute {variables} {#macro {$KEY_F5} {ocen_wrogow}};
 #line substitute {variables} {#macro {§} {function_mode_switch}};

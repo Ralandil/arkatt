@@ -59,6 +59,8 @@
 #var pojemnik_co {torbe};
 
 #var linux 0;
+#var ilosc_workow 4;
+
 #read $path/init.tin;
 
 #alias zabijcmd zabij;
