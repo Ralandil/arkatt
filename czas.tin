@@ -179,7 +179,7 @@
     #var wschod_slonca $kalendarz_poraroku[$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]][wschod];
     #var zachod_slonca $kalendarz_poraroku[$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]][zachod];
 
-    #sh {w:$wschod_slonca c:$czas_godzina z:$zachod_slonca (dzien: $dzien_miesiaca month: $numermiesiaca / $dniwmiesiacu)};
+#sh {w:$wschod_slonca c:$czas_godzina z:$zachod_slonca (dzien: $dzien_miesiaca / $dniwmiesiacu  month: $numermiesiaca)};
 
 
     #ticker {klepsydra} {
@@ -202,7 +202,7 @@
         #var wschod_slonca $kalendarz_poraroku[$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]][wschod];
         #var zachod_slonca $kalendarz_poraroku[$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]][zachod];
 
-#sh {w:$wschod_slonca c:$czas_godzina z:$zachod_slonca (dzien: $dzien_miesiaca month: $numermiesiaca / $dniwmiesiacu)};
+#sh {w:$wschod_slonca c:$czas_godzina z:$zachod_slonca (dzien: $dzien_miesiaca / $dniwmiesiacu  month: $numermiesiaca)};
     } {120};
 }
 
