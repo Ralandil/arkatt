@@ -218,10 +218,10 @@
             };
             #line substitute {variables} {#alias zp$indexchar {zaslon przed ob_$othe[$othe_index][tag]}};
             #if {"$przewodzisz_druzynie" == "1"} {
-                #line substitute {variables} {#alias k$indexchar {zabijcmd ob_$othe[$othe_index][tag];wskaz ob_$othe[$othe_index][tag] jako cel ataku}};
-                #line substitute {variables} {#alias r$indexchar {zabijcmd ob_$othe[$othe_index][tag];wskaz ob_$othe[$othe_index][tag] jako cel ataku;rozkaz druzynie zabic cel ataku}};
+                #nop line substitute {variables} {#alias k$indexchar {zabijcmd ob_$othe[$othe_index][tag];wskaz ob_$othe[$othe_index][tag] jako cel ataku}};
+                #nop line substitute {variables} {#alias r$indexchar {zabijcmd ob_$othe[$othe_index][tag];wskaz ob_$othe[$othe_index][tag] jako cel ataku;rozkaz druzynie zabic cel ataku}};
             } {
-                #line substitute {variables} {#alias k$indexchar {zabijcmd ob_$othe[$othe_index][tag]}};
+                #nop line substitute {variables} {#alias k$indexchar {zabijcmd ob_$othe[$othe_index][tag]}};
             };
             #line substitute {variables} {#alias b$indexchar {zablokuj ob_$othe[$othe_index][tag]}};
             #math {othe_index} {$othe_index + 1};

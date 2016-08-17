@@ -9,6 +9,7 @@
 #var kalendarz_godziny[dziewiata] {9};
 #var kalendarz_godziny[dziesiata] {10};
 #var kalendarz_godziny[jedenasta] {11};
+#var kalendarz_godziny[dwunasta w poludnie] {12};
 #var kalendarz_godziny[poludnie] {12};
 #var kalendarz_godziny[polnoc] {12};
 
@@ -61,7 +62,7 @@
 #var kalendarz_miesiace[13][nazwa] {Mittherbst}
 #var kalendarz_miesiace[14][nazwa] {Brauzeit}
 #var kalendarz_miesiace[15][nazwa] {Kaltezeit}
-#var kalendarz_miesiace[16][nazwa] {Ulriczeit}
+#var kalendarz_miesiace[16][nazwa] {Ulrichszeit}
 #var kalendarz_miesiace[17][nazwa] {Monstille}
 #var kalendarz_miesiace[18][nazwa] {Vorhexen}
 
@@ -80,7 +81,7 @@
 #var kalendarz_miesiace[Mittherbst][index] {13}
 #var kalendarz_miesiace[Brauzeit][index] {14}
 #var kalendarz_miesiace[Kaltezeit][index] {15}
-#var kalendarz_miesiace[Ulriczeit][index] {16}
+#var kalendarz_miesiace[Ulrichszeit][index] {16}
 #var kalendarz_miesiace[Monstille][index] {17}
 #var kalendarz_miesiace[Vorhexen][index] {18}
 
@@ -99,7 +100,7 @@
 #var kalendarz_miesiace[Mittherbst][dni] {1}
 #var kalendarz_miesiace[Brauzeit][dni] {33}
 #var kalendarz_miesiace[Kaltezeit][dni] {33}
-#var kalendarz_miesiace[Ulriczeit][dni] {33}
+#var kalendarz_miesiace[Ulrichszeit][dni] {33}
 #var kalendarz_miesiace[Monstille][dni] {1}
 #var kalendarz_miesiace[Vorhexen][dni] {33}
 
@@ -118,7 +119,7 @@
 #var kalendarz_miesiace[Mittherbst][wroku] {266}
 #var kalendarz_miesiace[Brauzeit][wroku] {267}
 #var kalendarz_miesiace[Kaltezeit][wroku] {300}
-#var kalendarz_miesiace[Ulriczeit][wroku] {333}
+#var kalendarz_miesiace[Ulrichszeit][wroku] {333}
 #var kalendarz_miesiace[Monstille][wroku] {366}
 #var kalendarz_miesiace[Vorhexen][wroku] {367}
 
@@ -153,7 +154,7 @@
 #var kalendarz_miesiace[Mittherbst][pora] {Jesien};
 #var kalendarz_miesiace[Brauzeit][pora] {Jesien};
 #var kalendarz_miesiace[Kaltezeit][pora] {Zima};
-#var kalendarz_miesiace[Ulriczeit][pora] {Zima};
+#var kalendarz_miesiace[Ulrichszeit][pora] {Zima};
 #var kalendarz_miesiace[Monstille][pora] {Zima};
 #var kalendarz_miesiace[Vorhexen][pora] {Zima};
 
@@ -164,7 +165,7 @@
 
 #nop Jest w przyblizeniu szosta nad ranem w Baeckertag, dziesiaty dzien miesiaca Kaltezeit wedlug Kalendarza Imperialnego.
 
-#action {Jest w przyblizeniu %1 {rano|nad ranem|wieczorem|po poludniu|w nocy|poznym wieczorem} w %w, %4 dzien miesiaca %5 wedlug Kalendarza Imperialnego.}
+#action {Jest w przyblizeniu %1 {w poludnie|rano|nad ranem|wieczorem|po poludniu|w nocy|poznym wieczorem} w %w, %4 dzien miesiaca %5 wedlug Kalendarza Imperialnego.}
 {
     #if {"%2" == "w nocy"} {
         #if {$kalendarz_godziny[%1] > 6} {
@@ -172,6 +173,9 @@
         } {
         	#math czas_godzina {$kalendarz_godziny[%1] + $kalendarz_poradnia[%2]};
         }
+    } {
+        #math czas_godzina {$kalendarz_godziny[%1] + $kalendarz_poradnia[%2]};
+
     };
     #math dzien_miesiaca {$kalendarz_dni[%4]};
     #math dzien_roku {$kalendarz_dni[%4] + $kalendarz_miesiace[%5][wroku]};
@@ -180,8 +184,6 @@
 
     #var wschod_slonca $kalendarz_poraroku[$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]][wschod];
     #var zachod_slonca $kalendarz_poraroku[$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]][zachod];
-
-#sh {w:$wschod_slonca c:$czas_godzina z:$zachod_slonca (dzien: $dzien_miesiaca / $dniwmiesiacu  month: $numermiesiaca)};
 
 
     #ticker {klepsydra} {
@@ -203,32 +205,34 @@
 
         #var wschod_slonca $kalendarz_poraroku[$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]][wschod];
         #var zachod_slonca $kalendarz_poraroku[$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]][zachod];
-
-#sh {w:$wschod_slonca c:$czas_godzina z:$zachod_slonca (dzien: $dzien_miesiaca / $dniwmiesiacu  month: $numermiesiaca)};
+klepsydra_render;
     } {120};
+    klepsydra_render
 }
 
+#var czas_prompt {<G02>--<088> <G02>czas<088> <G02>--<088>};
 #alias {klepsydra_render}
 {
     #if {$wschod_slonca > $czas_godzina} {
-
-    }
-
-    #if {"$kalendarz_poraroku[$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]]" == "Wiosna"} {
-        #var poraroku_kolor {<118><afa>};
+        #var jasnosc_kolor {<AAD><ffa>};
+    } {
+        #if {$czas_godzina < $zachod_slonca} {
+            #var jasnosc_kolor {<DDA><aaa>};
+        } {
+            #var jasnosc_kolor {<AAD><ffa>};
+        };
     };
-    #elseif {"$kalendarz_poraroku[$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]]" == "Lato"} {
-        #var poraroku_kolor {<118><faa>};
-    };
-    #elseif {"$kalendarz_poraroku[$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]]" == "Jesien"} {
-        #var poraroku_kolor {<118><ffa>};
-    };
-    #elseif {"$kalendarz_poraroku[$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]]" == "Zima"} {
-        #var poraroku_kolor {<118><fff>};
-    };
-
-
-    #sh {w:$wschod_slonca c:$czas_godzina z:$zachod_slonca (dzien: $dzien_miesiaca / $dniwmiesiacu  month: $numermiesiaca)};
+    #if {"$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]" == "Wiosna"} {#var poraroku_kolor {<118><afa><ABA>};};
+    #elseif {"$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]" == "Lato"} {#var poraroku_kolor {<118><faa><BAA>};};
+    #elseif {"$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]" == "Jesien"} {#var poraroku_kolor {<118><ffa><BBA>};};
+    #elseif {"$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]" == "Zima"} {#var poraroku_kolor {<118><fff><BBB>};};
+    #format czas_godzina_prmp {%+2s} {$czas_godzina};
+    #format poraroku_prompt {%r} {$kalendarz_miesiace[$kalendarz_miesiace[$numermiesiaca][nazwa]][pora]};
+    #format poraroku_prompt {%-8s} {$poraroku_prompt};
+    #format poraroku_prompt {%r%.8s} {$poraroku_prompt};
+    #var czas_prompt {<DDA><aaa> $wschod_slonca<088> $jasnosc_kolor $czas_godzina_prmp <088> <AAD><ffa>$zachod_slonca<088> $poraroku_kolor$poraroku_prompt<088>};
+    #nop sh {w:$wschod_slonca c:$czas_godzina z:$zachod_slonca (dzien: $dzien_miesiaca / $dniwmiesiacu  month: $numermiesiaca)};
+    testprompt;
 }
 
 
