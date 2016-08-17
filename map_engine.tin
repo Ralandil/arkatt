@@ -124,7 +124,7 @@
         #format {tmpline} {%-${asciimap_w}s} {$tmpline};
         #replace {tmpline} {\\} {\\\};
         #replace {tmpline} {G} {<faf>G<088>};
-        #replace {tmpline} {#} {<faa>#<088>};
+        #replace {tmpline} {@} {<118><fbb>@<088>};
         #replace {tmpline} {P} {<afa>P<088>};
         #replace {tmpline} {S} {<ffa>S<088>};
         #replace {tmpline} {K} {<afa>K<088>};

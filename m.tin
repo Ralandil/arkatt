@@ -52,6 +52,10 @@
 #var KEY_PRZESTAN2 {\eOj};
 
 #var KEY_PROMPTMODE {/};
+#var KEY_QB {`};
+
+#var pojemnik_do {torby};
+#var pojemnik_co {torbe};
 
 #var linux 1;
 

@@ -396,8 +396,6 @@ zaznaczcel;
 }
 
 
-#var pojemnik_do {torby};
-#var pojemnik_co {torbe};
 #alias {wl}
 {
   #nop otworz $pojemnik_co;

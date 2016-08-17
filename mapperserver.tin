@@ -129,24 +129,16 @@
 
 #action {^bind:{F|f}{1|2|3|4|5|6|7|8}:%3}
 {
-#rpg {
-#echo {<088><aca>[bind <ffa>%1%2<aca>] <afa>%3<088>};
-#if {%2 == 1} {#line substitute {variables} {#macro {$KEY_F1} {%3}}};
-#if {%2 == 2} {#line substitute {variables} {#macro {$KEY_F2} {%3;#line substitute {variables} {#format display_function_2 {%-34s %.34s} {<ada>  <088>}};testprompt;}}};
-#if {%2 == 3} {#line substitute {variables} {#macro {$KEY_F3} {%3;#line substitute {variables} {#format display_function_3 {%-34s %.34s} {<ada>  <088>}};testprompt;}}};
-#if {%2 == 4} {#line substitute {variables} {#macro {$KEY_F4} {%3;#line substitute {variables} {#format display_function_4 {%-34s %.34s} {<ada>  <088>}};testprompt;}}};
-#if {%2 == 5} {#line substitute {variables} {#macro {$KEY_F5} {%3;#line substitute {variables} {#format display_function_5 {%-34s %.34s} {<ada>  <088>}};testprompt;}}};
-#if {%2 == 6} {#line substitute {variables} {#macro {$KEY_F6} {%3;#line substitute {variables} {#format display_function_6 {%-34s %.34s} {<ada>  <088>}};testprompt;}}};
-#if {%2 == 7} {#line substitute {variables} {#macro {$KEY_F7} {%3;#line substitute {variables} {#format display_function_7 {%-34s %.34s} {<ada>  <088>}};testprompt;}}};
-#if {%2 == 8} {#line substitute {variables} {#macro {$KEY_F8} {%3;#line substitute {variables} {#format display_function_8 {%-34s %.34s} {<ada>  <088>}};testprompt;}}};
-#if {%2 == 9} {#line substitute {variables} {#macro {$KEY_F9} {%3;#line substitute {variables} {#format display_function_9 {%-34s %.34s} {<ada>  <088>}};testprompt;}}};
-#line substitute {variables} {#format display_function_%2 {%-29s %.29s} {<ada>%3<088>}};
-testprompt;
-};
+    #rpg {
+        #line substitute {variables} {#macro {$KEY_QB} {%3}};
+        #line substitute {variables} {#format display_function_1 {%-29s %.29s} {<ada>%3<088>}};
+        testprompt;
+    };
 }
+
 #action {^info:%1}
 {
-#rpg {
-    #echo {<088><ffa>[lokacja] <ffa>%1<088>};
-};
+    #rpg {
+        #echo {<088><ffa>[lokacja] <ffa>%1<088>};
+    };
 }
