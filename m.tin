@@ -6,11 +6,11 @@
 #nop #####################################################
 
     #var path /Users/eldakar/arkatt;
-
+    #nop var path /cygdrive/c/arkatt-master;
 
 
 #nop #####################################################
-#nop  POLACZENIE DO MAPPERA
+#nop  POLACZENIE Z MAPEREM
 #nop
 #nop   nie zmieniaj, jesli nie musisz
 #nop #####################################################
@@ -29,25 +29,12 @@
 
 #nop #####################################################
 #nop   FLAGI GMCP
-#nop
+#nop #####################################################
 
     #event {IAC WILL GMCP} {
         #send {\xFF\xFD\xC9\};
-
-#nop #####################################################
-#nop    odkomentuj, jesli chcesz uzywac Messages
-#nop #####################################################
-
         #nop send {\xFF\xFA\xC9core.supports.set [ "Core", "Objects", "Room", "Char", "Messages"]\xFF\xF0\};
-
-#nop #####################################################
-#nop    skomentuj, jesli chcesz uzywac Messages
-#nop #####################################################
-
         #send {\xFF\xFA\xC9core.supports.set [ "Core", "Objects", "Room", "Char"  ]\xFF\xF0\};
-
-#nop #####################################################
-
     }
 
 
@@ -187,3 +174,9 @@
 #nop #####################################################
 
     #read $path/init.tin;
+
+
+
+#nop #####################################################
+#nop  TU DODAJ SWOJE SMIECI
+#nop #####################################################
