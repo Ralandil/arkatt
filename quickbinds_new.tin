@@ -19,6 +19,16 @@
 #var prompt_button_swiatlo $prompt_button_swiatlo_inactive;
 
 
+
+#alias {qb} {
+    #line substitute {variables} {#macro {$KEY_QB} {%0}};
+    #format display_function_1 {%-30s} {%0};
+    #format display_function_1 {%.30s} {$display_function_1};
+    #var display_function_1 {<ffa>$display_function_1<088>};
+    testprompt;
+}
+
+
 #var current_fkey 1;
 
 #function {set_quickbind_static} {
@@ -38,197 +48,7 @@
     #line gag;
 } {1};
 
-#function {set_quickbind_F1} {
-  #var quickbind_alias_F1 {};
-  #format {quickbind_alias_F1} {%-7s} {%1};
-  #format {quickbind_alias_F1} {%.7s} {$quickbind_alias_F1};
-  #var quickbind_alias_F1_dimmed {<G02><118><g10>$quickbind_alias_F1<088>};
-  #var quickbind_alias_F1 {<FAA><118><aaa>$quickbind_alias_F1<088>};
-  #alias qb_dim_F1 {#var quickbind_alias_F1 $quickbind_alias_F1_dimmed};
-  #line substitute {variables} {#macro {$KEY_F1} {%1;qb_dim_F1;testprompt}};
-  #sh {<118><caa>> <088><118><CAA><fff>  WROG  F1  <088>  <118><CAA><fff> %1 <088> };
-  #alias {1} {%1;qb_dim_F1;testprompt};
-}
 
-
-
-#function {set_quickbind_F2} {
-  #var quickbind_alias_F2 {};
-  #format {quickbind_alias_F2} {%-7s} {%1};
-  #format {quickbind_alias_F2} {%.7s} {$quickbind_alias_F2};
-  #var quickbind_alias_F2_dimmed {<G02><118><g10>$quickbind_alias_F2<088>};
-  #var quickbind_alias_F2 {<FAA><118><aaa>$quickbind_alias_F2<088>};
-  #alias qb_dim_F2 {#var quickbind_alias_F2 $quickbind_alias_F2_dimmed};
-  #line substitute {variables} {#macro {$KEY_F2} {%1;qb_dim_F2;testprompt}};
-  #sh {<118><caa>> <088><118><CAA><fff>  WROG  F2  <088>  <118><CAA><fff> %1 <088> };
-  #alias {2} {%1;qb_dim_F2;testprompt};
-}
-
-
-#function {set_quickbind_F3} {
-  #var quickbind_alias_F3 {};
-  #format {quickbind_alias_F3} {%-7s} {%1};
-  #format {quickbind_alias_F3} {%.7s} {$quickbind_alias_F3};
-  #var quickbind_alias_F3_dimmed {<G02><118><g10>$quickbind_alias_F3<088>};
-  #var quickbind_alias_F3 {<FAA><118><aaa>$quickbind_alias_F3<088>};
-  #alias qb_dim_F3 {#var quickbind_alias_F3 $quickbind_alias_F3_dimmed};
-  #line substitute {variables} {#macro {$KEY_F3} {%1;qb_dim_F3;testprompt}};
-  #sh {<118><caa>> <088><118><CAA><fff>  WROG  F3  <088>  <118><CAA><fff> %1 <088> };
-  #alias {3} {%1;qb_dim_F3;testprompt};
-}
-
-
-#function {set_quickbind_F4} {
-  #var quickbind_alias_F4 {};
-  #format {quickbind_alias_F4} {%-7s} {%1};
-  #format {quickbind_alias_F4} {%.7s} {$quickbind_alias_F4};
-  #var quickbind_alias_F4_dimmed {<G02><118><g10>$quickbind_alias_F4<088>};
-  #var quickbind_alias_F4 {<FAA><118><aaa>$quickbind_alias_F4<088>};
-  #alias qb_dim_F4 {#var quickbind_alias_F4 $quickbind_alias_F4_dimmed};
-  #line substitute {variables} {#macro {$KEY_F4} {%1;qb_dim_F4;testprompt}};
-  #sh {<118><caa>> <088><118><CAA><fff>  WROG  F4  <088>  <118><CAA><fff> %1 <088> };
-  #alias {4} {%1;qb_dim_F4;testprompt};
-}
-
-
-#function {set_quickbind_F5} {
-  #var quickbind_alias_F5 {};
-  #format {quickbind_alias_F5} {%-7s} {%1};
-  #format {quickbind_alias_F5} {%.7s} {$quickbind_alias_F5};
-  #var quickbind_alias_F5_dimmed {<G02><118><g10>$quickbind_alias_F5<088>};
-  #var quickbind_alias_F5 {<FAA><118><aaa>$quickbind_alias_F5<088>};
-  #alias qb_dim_F5 {#var quickbind_alias_F5 $quickbind_alias_F5_dimmed};
-  #line substitute {variables} {#macro {$KEY_F5} {%1;qb_dim_F5;testprompt}};
-  #sh {<118><caa>> <088><118><CAA><fff>  WROG  F5  <088>  <118><CAA><fff> %1 <088> };
-  #alias {5} {%1;qb_dim_F5;testprompt};
-}
-
-
-#function {set_quickbind_F6} {
-  #var quickbind_alias_F6 {};
-  #format {quickbind_alias_F6} {%-7s} {%1};
-  #format {quickbind_alias_F6} {%.7s} {$quickbind_alias_F6};
-  #var quickbind_alias_F6_dimmed {<G02><118><g10>$quickbind_alias_F6<088>};
-  #var quickbind_alias_F6 {<FAA><118><aaa>$quickbind_alias_F6<088>};
-  #alias qb_dim_F6 {#var quickbind_alias_F6 $quickbind_alias_F6_dimmed};
-  #line substitute {variables} {#macro {$KEY_F6} {%1;qb_dim_F6;testprompt}};
-  #sh {<118><caa>> <088><118><CAA><fff>  WROG  F6  <088>  <118><CAA><fff> %1 <088> };
-  #alias {6} {%1;qb_dim_F6;testprompt};
-}
-
-
-#function {set_quickbind_F7} {
-  #var quickbind_alias_F7 {};
-  #format {quickbind_alias_F7} {%-7s} {%1};
-  #format {quickbind_alias_F7} {%.7s} {$quickbind_alias_F7};
-  #var quickbind_alias_F7_dimmed {<G02><118><g10>$quickbind_alias_F7<088>};
-  #var quickbind_alias_F7 {<FAA><118><aaa>$quickbind_alias_F7<088>};
-  #alias qb_dim_F7 {#var quickbind_alias_F1 $quickbind_alias_F7_dimmed};
-  #line substitute {variables} {#macro {$KEY_F7} {%1;qb_dim_F7;testprompt}};
-  #sh {<118><caa>> <088><118><CAA><fff>  WROG  F7  <088>  <118><CAA><fff> %1 <088> };
-  #alias {7} {%1;qb_dim_F7;testprompt};
-}
-
-
-#function {set_quickbind_F8} {
-  #var quickbind_alias_F8 {};
-  #format {quickbind_alias_F8} {%-7s} {%1};
-  #format {quickbind_alias_F8} {%.7s} {$quickbind_alias_F8};
-  #var quickbind_alias_F8_dimmed {<G02><118><g10>$quickbind_alias_F8<088>};
-  #var quickbind_alias_F8 {<FAA><118><aaa>$quickbind_alias_F8<088>};
-  #alias qb_dim_F8 {#var quickbind_alias_F8 $quickbind_alias_F8_dimmed};
-  #line substitute {variables} {#macro {$KEY_F8} {%1;qb_dim_F8;testprompt}};
-  #sh {<118><caa>> <088><118><CAA><fff>  WROG  F8  <088>  <118><CAA><fff> %1 <088> };
-  #alias {8} {%1;qb_dim_F8;testprompt};
-}
-
-
-#function {set_quickbind_F9} {
-  #var quickbind_alias_F9 {};
-  #format {quickbind_alias_F9} {%-7s} {%1};
-  #format {quickbind_alias_F9} {%.7s} {$quickbind_alias_F9};
-  #var quickbind_alias_F9_dimmed {<G02><118><g10>$quickbind_alias_F9<088>};
-  #var quickbind_alias_F9 {<FAA><118><aaa>$quickbind_alias_F9<088>};
-  #alias qb_dim_F9 {#var quickbind_alias_F9 $quickbind_alias_F9_dimmed};
-  #line substitute {variables} {#macro {$KEY_F9} {%1;qb_dim_F9;testprompt}};
-  #sh {<118><caa>> <088><118><CAA><fff>  WROG  F9  <088>  <118><CAA><fff> %1 <088> };
-  #alias {9} {%1;qb_dim_F9;testprompt};
-}
-
-
-
-#function {set_quickbind_F10} {
-  #var quickbind_alias_F10 {};
-  #format {quickbind_alias_F10} {%-7s} {%1};
-  #format {quickbind_alias_F10} {%.7s} {$quickbind_alias_F10};
-  #var quickbind_alias_F10_dimmed {<G02><118><g10>$quickbind_alias_F10<088>};
-  #var quickbind_alias_F10 {<FAA><118><aaa>$quickbind_alias_F10<088>};
-  #alias qb_dim_F10 {#var quickbind_alias_F10 $quickbind_alias_F10_dimmed};
-  #line substitute {variables} {#macro {$KEY_F10} {%1;qb_dim_F10;testprompt}};
-  #sh {<118><caa>> <088><118><CAA><fff>  WROG  F10 <088>  <118><CAA><fff> %1 <088> };
-  #alias {10} {%1;qb_dim_F1;testprompt};
-}
-
-
-#function {set_quickbind_F11} {
-  #var quickbind_alias_F11 {};
-  #format {quickbind_alias_F11} {%-7s} {%1};
-  #format {quickbind_alias_F11} {%.7s} {$quickbind_alias_F11};
-  #var quickbind_alias_F11_dimmed {<G02><118><g10>$quickbind_alias_F11<088>};
-  #var quickbind_alias_F11 {<FAA><118><aaa>$quickbind_alias_F11<088>};
-  #alias qb_dim_F11 {#var quickbind_alias_F11 $quickbind_alias_F11_dimmed};
-  #line substitute {variables} {#macro {$KEY_F11} {%1;qb_dim_F11;testprompt}};
-  #sh {<118><caa>> <088><118><CAA><fff>  WROG  F11 <088>  <118><CAA><fff> %1 <088> };
-  #alias {11} {%1;qb_dim_F11;testprompt};
-}
-
-
-#function {set_quickbind_F12} {
-  #var quickbind_alias_F12 {};
-  #format {quickbind_alias_F12} {%-7s} {%1};
-  #format {quickbind_alias_F12} {%.7s} {$quickbind_alias_F12};
-  #var quickbind_alias_F12_dimmed {<G02><118><g10>$quickbind_alias_F12<088>};
-  #var quickbind_alias_F12 {<FAA><118><aaa>$quickbind_alias_F12<088>};
-  #alias qb_dim_F12 {#var quickbind_alias_F12 $quickbind_alias_F12_dimmed};
-  #line substitute {variables} {#macro {$KEY_F12} {%1;qb_dim_F12;testprompt}};
-  #sh {<118><caa>> <088><118><CAA><fff>  WROG  F12 <088>  <118><CAA><fff> %1 <088> };
-  #alias {12} {%1;qb_dim_F12;testprompt};
-}
-
-#function {set_quickbind_red} {
-  #format display_function_1 {%-35s} {<daa>zabij %2<088>};
-  #format display_function_1 {%.35s} {$display_function_1};
-  #format display_function_1_d {%-35s} {<daa>           <088>};
-  #format display_function_1 {%.35s} {$display_function_1_d};
-  #sh prompt7;
-#alias abcdefg {zabij cel ataku;#var display_function_1 $display_function_1_d;#sh prompt7};
-#line substitute {variables} {#macro {$KEY_F1} {abcdefg}};
-
-  #var quickbind_cel_dimmed {<g02>CEL<088>};
-  #alias qb_dim_cel {#var quickbind_cel $quickbind_cel_dimmed};
-  #line substitute {variables} {#macro {[} {%1;qb_dim_cel;testprompt}};  
-  #var quickbind_cel {<118><FAA><fff>CEL<088>};
-  #alias {1} {%1;qb_dim_cel;testprompt};
-}
-
-#function {set_quickbind_blue} {
-  #var quickbind_alias_blue {};
-  #format {quickbind_alias_blue} {%-7s} {%1};
-  #format {quickbind_alias_blue} {%.7s} {$quickbind_alias_blue};
-  #var quickbind_alias_blue_dimmed {<G02><118><g10>$quickbind_alias_blue<088>};
-  #var quickbind_alias_blue {<AAC><118><fff>$quickbind_alias_blue<088>};
-  #alias qb_dim_blue {#var quickbind_alias_blue $quickbind_alias_blue_dimmed};
-  #line substitute {variables} {#macro {$KEY_F2} {%1;qb_dim_blue;testprompt}};
-  #sh {<118><aac>> };
-  #sh {<118><aac>> <088><118><AAC><fff>  F2  <088>  <118><AAC><fff> %1 <088> };
-  #sh {<118><aac>> };
-  testprompt;
-#alias {2} {%1;qb_dim_blue;testprompt};
-}
-
-#alias {quickbind_move} {
-    #sh {<AAB><eee> %0 <088> %0};
-}
 
 #function {set_quickbind_blue_move} {
   #line substitute {variables} {
@@ -240,35 +60,6 @@
   #sh {<118><aac>> <088><118><AAC><fff>  MOVE ` <088>  <118><AAC><fff> %1 <088> };
 }
 
-
-#function {set_quickbind_green} {
-  #var quickbind_alias_green {};
-  #format {quickbind_alias_green} {%-7s} {%1};
-  #format {quickbind_alias_green} {%.7s} {$quickbind_alias_green};
-  #var quickbind_alias_green_dimmed {<G02><118><g10>$quickbind_alias_green<088>};
-  #var quickbind_alias_green {<AFA><118><aaa>$quickbind_alias_green<088>};
-  #alias qb_dim_green {#var quickbind_alias_green $quickbind_alias_green_dimmed};
-  #line substitute {variables} {#macro {$KEY_F3} {%1;qb_dim_green;testprompt}};
-testprompt;
-#alias {3} {%1;qb_dim_green;testprompt};
-}
-
-
-#function {set_quickbind_yellow} {
-  #var quickbind_alias_yellow {};
-  #format {quickbind_alias_yellow} {%-7s} {%1};
-  #format {quickbind_alias_yellow} {%.7s} {$quickbind_alias_yellow};
-  #var quickbind_alias_yellow_dimmed {<G02><118><g10>$quickbind_alias_yellow<088>};
-  #var quickbind_alias_yellow {<FFA><118><aaa>$quickbind_alias_yellow<088>};
-  #alias qb_dim_yellow {#var quickbind_alias_yellow $quickbind_alias_yellow_dimmed};
-  #line substitute {variables} {#macro {$KEY_F4} {%1;qb_dim_yellow;testprompt}};
-  #nop sh {<118><dda>> };
-  #nop sh {<118><dda>> <088><118><DDA><aaa>  F4  <088>  <118><DDA><aaa> %1 <088> };
-  #nop sh {<118><dda>> };
-
-  testprompt;
-#alias {4} {%1;qb_dim_yellow;testprompt};
-}
 
 
 #function {set_quickbind} {  
