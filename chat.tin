@@ -99,3 +99,11 @@
     #var prompt_chat_currvalue {<118><aff>$prompt_chat_value_name<ffa>|<aff> $prompt_chat_value_text};
     prompt_chat_insert_line;
 }
+#action {^{> |}Mowisz: %2$}
+{
+#format {prompt_chat_value_name} {%+20s%r} {Mowisz};
+#format {prompt_chat_value_name} {%.20s%r} {$prompt_chat_value_name};
+#var {prompt_chat_value_text} {%2};
+#var prompt_chat_currvalue {<118><aff>$prompt_chat_value_name<ffa>|<aff> $prompt_chat_value_text};
+prompt_chat_insert_line;
+}
