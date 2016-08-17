@@ -1,65 +1,189 @@
-#read /Users/eldakar/arkatt/mapperserver.tin;
-#ses rpg arkadia.rpg.pl 23;
-#event {IAC WILL GMCP}
-{       
-	#send {\xFF\xFD\xC9\};
-	#nop send {\xFF\xFA\xC9core.supports.set [ "Core", "Objects", "Room", "Char", "Messages"]\xFF\xF0\};
-	#send {\xFF\xFA\xC9core.supports.set [ "Core", "Objects", "Room", "Char"  ]\xFF\xF0\};
-}
-#config {debug telnet} {off};
-#var path /Users/eldakar/arkatt;
-#var logpath ${path}logs;
-#nop ### wartosc dla wiele/ przy peliczaniu
-#var wiele {44};
-#chat init 5555;
-#chat name eldakar;
-#var KEY_F1 {\eOP};
-#var KEY_F2 {\eOQ};
-#var KEY_F3 {\eOR};
-#var KEY_F4 {\eOS};
-#var KEY_F5 {\e[15~};
-#var KEY_F6 {\e[17~};
-#var KEY_F7 {\e[18~};
-#var KEY_F8 {\e[19~};
-#var KEY_F9 {\e[20~};
-#var KEY_F10 {\e[21~};
-#var KEY_BIND {`};
-#var KEY_F11 {\e[23~};
-#var KEY_F12 {\e[24~};
-#var KEY_PAD_N {\eOx};
-#var KEY_PAD_S {\eOr};
-#var KEY_PAD_E {\eOv};
-#var KEY_PAD_W {\eOt};
-#var KEY_PAD_NW {\eOw};
-#var KEY_PAD_NE {\eOy};
-#var KEY_PAD_SW {\eOq};
-#var KEY_PAD_SE {\eOs};
-#var KEY_PAD_U {\eOm};
-#var KEY_PAD_D {\eOk};
-#var KEY_PAD_WALK {\e0};
-#var KEY_PAD_WALK_M {\e/};
+#nop #####################################################
+#nop  SCIEZKA DO KATALOGU ZE SKRYPTAMI
+#nop
+#nop  na Windows dostep do dysku zaczyna sie z /cygdrive/
+#nop np:  /cygdrive/c/arkatt-master
+#nop #####################################################
 
-#var KEY_PAD_MIDDLE {\eOu};
+    #var path /Users/eldakar/arkatt;
 
-#var KEY_CELATAKU {[};
-#var KEY_PRZELAM {[};
-#var KEY_WYJDZ {]};
-#var KEY_PRZESTAN {]};
 
-#var KEY_CELATAKU2 {\eOo};
-#var KEY_PRZELAM2 {\eOo};
-#var KEY_WYJDZ2 {\eOj};
-#var KEY_PRZESTAN2 {\eOj};
 
-#var KEY_PROMPTMODE {/};
-#var KEY_QB {`};
+#nop #####################################################
+#nop  POLACZENIE DO MAPPERA
+#nop
+#nop   nie zmieniaj, jesli nie musisz
+#nop #####################################################
 
-#var pojemnik_do {torby};
-#var pojemnik_co {torbe};
+    #read $path/mapperserver.tin;
 
-#var linux 1;
-#var ilosc_workow 4;
-#alias zabijcmd nazabij;
 
-#read $path/init.tin;
 
+#nop #####################################################
+#nop  POLACZENIE Z ARKA
+#nop #####################################################
+
+    #ses rpg arkadia.rpg.pl 23;
+
+
+
+#nop #####################################################
+#nop   FLAGI GMCP
+#nop
+
+    #event {IAC WILL GMCP} {
+        #send {\xFF\xFD\xC9\};
+
+#nop #####################################################
+#nop    odkomentuj, jesli chcesz uzywac Messages
+#nop #####################################################
+
+        #nop send {\xFF\xFA\xC9core.supports.set [ "Core", "Objects", "Room", "Char", "Messages"]\xFF\xF0\};
+
+#nop #####################################################
+#nop    skomentuj, jesli chcesz uzywac Messages
+#nop #####################################################
+
+        #send {\xFF\xFA\xC9core.supports.set [ "Core", "Objects", "Room", "Char"  ]\xFF\xF0\};
+
+#nop #####################################################
+
+    }
+
+
+
+#nop #####################################################
+#nop  TRYB DEBUG (przydatny przy konfiguracji GMCP)
+#nop #####################################################
+
+    #config {debug telnet} {off};
+
+
+
+#nop #####################################################
+#nop  KATALOG DO LOGOW
+#nop #####################################################
+
+    #var logpath ${path}logs;
+
+
+
+#nop #####################################################
+#nop  WORKI
+#nop   ilosc ziol dla 'wiele' - wg inteligencji
+#nop   ilosc przytroczonych workow
+#nop #####################################################
+
+    #var wiele {44};
+    #var ilosc_workow 4;
+
+
+
+#nop #####################################################
+#nop  MAPKA ASCII z Web-Clienta
+#nop
+#nop   dziala tylko na Linux, ustaw na 0 zeby wylaczyc
+#nop #####################################################
+
+    #var linux 1;
+
+
+
+#nop #####################################################
+#nop  POJEMNIK
+#nop
+#nop   alias wy-ciagnij i wl-oz do pojemnika
+#nop #####################################################
+
+    #var pojemnik_do {torby};
+    #var pojemnik_co {torbe};
+
+
+
+#nop #####################################################
+#nop  KOMENDA ZABIJ
+#nop #####################################################
+
+    #alias zabijcmd nazabij;
+
+
+
+#nop #####################################################
+#nop  BIND: KLAWISZE FUNKCYJNE
+#nop #####################################################
+
+    #var KEY_F1 {\eOP};
+    #var KEY_F2 {\eOQ};
+    #var KEY_F3 {\eOR};
+    #var KEY_F4 {\eOS};
+    #var KEY_F5 {\e[15~};
+    #var KEY_F6 {\e[17~};
+    #var KEY_F7 {\e[18~};
+    #var KEY_F8 {\e[19~};
+    #var KEY_F9 {\e[20~};
+    #var KEY_F10 {\e[21~};
+    #var KEY_F11 {\e[23~};
+    #var KEY_F12 {\e[24~};
+
+
+
+#nop #####################################################
+#nop  BIND: NUMPAD KIERUNKI
+#nop #####################################################
+
+    #var KEY_PAD_N {\eOx};
+    #var KEY_PAD_S {\eOr};
+    #var KEY_PAD_E {\eOv};
+    #var KEY_PAD_W {\eOt};
+    #var KEY_PAD_NW {\eOw};
+    #var KEY_PAD_NE {\eOy};
+    #var KEY_PAD_SW {\eOq};
+    #var KEY_PAD_SE {\eOs};
+    #var KEY_PAD_U {\eOm};
+    #var KEY_PAD_D {\eOk};
+
+
+
+#nop #####################################################
+#nop  BIND: TRYB WALKI - dwa klawisze, jeden w NUMPADZIE
+#nop #####################################################
+
+    #var KEY_PAD_MIDDLE {\eOu};
+    #var KEY_WARMODE_1 {§};
+
+
+
+#nop #####################################################
+#nop  BIND: CELOWANIE I ZASLANIANIE
+#nop #####################################################
+
+    #var KEY_CELATAKU {[};
+    #var KEY_PRZELAM {[};
+    #var KEY_WYJDZ {]};
+    #var KEY_PRZESTAN {]};
+
+    #var KEY_CELATAKU2 {\eOo};
+    #var KEY_PRZELAM2 {\eOo};
+    #var KEY_WYJDZ2 {\eOj};
+    #var KEY_PRZESTAN2 {\eOj};
+
+
+
+#nop #####################################################
+#nop  BIND: DYNAMICZNY KLAWISZ
+#nop
+#nop   statki/dylizanse/lampa/monety
+#nop   bindy z mappera
+#nop   wyjscia specjalnie
+#nop   pogon (ta legalna)
+#nop #####################################################
+
+    #var KEY_QB {`};
+
+
+
+#nop #####################################################
+#nop  INICJACJA SKRYPTOW
+#nop #####################################################
+
+    #read $path/init.tin;
