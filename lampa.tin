@@ -65,8 +65,14 @@
     #untick {la};
     lampa_update;
 }
+#alias {l1} {
+    odloz pusty olej;napelnij lampe olejem;
+}
+#alias {l2} {
+    napelnij lampe olejem;
+}
 #action {oprozniajac zupelnie %1 oleju} {
-    qb odloz pusty olej;napelnij lampe olejem;
+    qb l1;
 }
 #action {Zapalasz lampe.} {
     napelnij lampe olejem;
@@ -78,7 +84,7 @@
         #math {lampa_count} {$lampa_count - 1};
         lampa_update;
         #if {$lampa_count == 2} {
-            qb {napelnij lampe olejem};
+            qb l2;
             #nop line substitute {variables} {#macro {KEY_QB} {napelnij lampe olejem}};
         };
         #if {$lampa_count == 0} {#untick {la}};
