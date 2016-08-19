@@ -1,0 +1,324 @@
+#nop ###################################################################
+#nop 
+#nop plugin: mappers/hybrid/hybrid.tin
+#nop owner: eld
+#nop
+#nop Mapka hybrydowa (tintin + web-client)
+#nop 
+#nop * na traktach uzywane sa mapy web-clienta z nawigacja gmcp
+#nop * zejscia z traktow przypozadkowane sa do map tintina
+#nop * kazdej zejscie z traktu jest przekierowane na konkretna lokacje mapy
+#nop   zaleznie od kierunku
+#nop * zejscia z traktow nalezy uzupelniac w pliku maptable.tin
+#nop
+#nop v 1.0
+#nop - ogolna mechanika
+#nop - dodano mape gor i obozu kg 
+#nop 
+#nop ###################################################################
+
+
+#read $path/mappers/hybrid/maptable.tin
+
+#action {Wraz z %1 jedziesz %2 na %3.} {#sh Wraz z %1 podazasz za %2 na %3.}
+
+#nop ######### FOLLOWS ########
+
+#action {%*{Podazasz|podazasz} za %1} {#sh <faa>CATCH %1 [$ROOM_INFO] $current_room_id} {8};
+
+#action {%*{Podazasz|podazasz} za %1 na polnocny-zachod wdrapujac sie na zwalony pien i zeskakujac na druga strone.} {#map move nw} {4};
+#action {%*{Podazasz|podazasz} za %1 po drabinie na dol.} {#map move drabina} {4}
+#action {%*{Podazasz|podazasz} za %1 po drabinie na gore.} {#map move drabina} {4}
+#action {%*{Podazasz|podazasz} za %1 w ciemnosci skalnej jamy.} {#map move jama}
+#action {%*{Podazasz|podazasz} za %1 ku gorze.} {#map move u}
+#action {%*{Podazasz|podazasz} za %1 do skladu zbroi.} {#map move e}
+#action {%*{Podazasz|podazasz} za %1 do kantoru.} {#map move e}
+#action {%*{Podazasz|podazasz} za %1 na rynek.} {#map move w}
+#action {%*{Podazasz|podazasz} za %1 miedzy krzaki.} {#mapper navigate:follow:miedzy krzaki}
+#action {%*{Podazasz|podazasz} za %1 na poludnie odgarniajac pajeczyny zaslaniajace przejscie.} {#map move s};
+#action {%*{Podazasz|podazasz} za %1 na polnoc odgarniajac pajeczyny zaslaniajace przejscie.} {#map move n};
+#action {%*{Podazasz|podazasz} za %1 do tunelu.} {#map move tunel}
+#action {%*{Podazasz|podazasz} za %1 do biblioteki.} {#map move biblioteka}
+#action {%*{Podazasz|podazasz} za %1 do latryny.} {#map move latryna}
+#action {%*{Podazasz|podazasz} za %1 na gore po schodach.} {#map move u}
+#action {%*{Podazasz|podazasz} za %1 na dol po schodach.} {#map move d}
+#action {%*{Podazasz|podazasz} za %1 na gore po schodkach.} {#map move u}
+#action {%*{Podazasz|podazasz} za %1 na dol po schodkach.} {#map move d}
+#action {%*{Podazasz|podazasz} za %1 na gore unoszac ciezka klape.} {#map move u}
+#action {%*{Podazasz|podazasz} za %1 na dol unoszac ciezka klape.} {#map move d}
+#action {%*{Podazasz|podazasz} za %1 na zewnatrz dziupli.} {#map move wyjscie}
+#action {%*{Podazasz|podazasz} za %1 do jaskini.} {#map move jaskinia}
+#action {%*{Podazasz|podazasz} za %1 do skladu broni.} {#map move w}
+#action {%*{Podazasz|podazasz} za %1 na schody.} {#map move schody};
+#action {%*{Podazasz|podazasz} za %1 na kladke.} {#map move kladka};
+#action {%*{Podazasz|podazasz} za %1 na kladka.} {#map move kladka};
+#action {%*{Podazasz|podazasz} za %1 do kuzni.} {#map move kuznia};
+#action {%*{Podazasz|podazasz} za %1 do kancelarii.} {#map move kancelaria};
+#action {%*{Podazasz|podazasz} za %1 do magazynu.} {#map move magazyn};
+#action {%*{Podazasz|podazasz} za %1 do jadlodajni.} {#map move jadlodajnia};
+#action {%*{Podazasz|podazasz} za %1 do namiotu.} {#map move namiot};
+#action {%*{Podazasz|podazasz} za %1 w strone obozu.} {#map move oboz};
+#action {%*{Podazasz|podazasz} za %1 do szczeliny.} {#map move szczelina};
+#action {%*{Podazasz|podazasz} za %1 na dol.} {#map move d;#unvar maptest;map_updateexits;map_draw};
+#action {%*{Podazasz|podazasz} za %1 na gore.} {#map move u;#unvar maptest;map_updateexits;map_draw};
+
+#action {%*{Podazasz|podazasz} za %1 na polnoc.} {#map move n;map_move_n;map_updateexits;#if {$mnamelen < 1} {map_draw;#var map_movecursor 0}};
+#action {%*{Podazasz|podazasz} za %1 na poludnie.} {#map move s;map_move_s;map_updateexits;#if {$mnamelen < 1} {map_draw;#var map_movecursor 0}};
+#action {%*{Podazasz|podazasz} za %1 na wschod.} {#map move e;map_move_e;map_updateexits;#if {$mnamelen < 1} {map_draw;#var map_movecursor 0}};
+#action {%*{Podazasz|podazasz} za %1 na zachod.} {#map move w;map_move_w;map_updateexits;#if {$mnamelen < 1} {map_draw;#var map_movecursor 0}};
+#action {%*{Podazasz|podazasz} za %1 na polnocny-zachod.} {#map move nw;map_move_nw;map_updateexits;#if {$mnamelen < 1} {map_draw;#var map_movecursor 0}};
+#action {%*{Podazasz|podazasz} za %1 na poludniowy-zachod.} {#map move sw;map_move_sw;map_updateexits;#if {$mnamelen < 1} {map_draw;#var map_movecursor 0}};
+#action {%*{Podazasz|podazasz} za %1 na polnocny-wschod.} {#map move ne;map_move_ne;map_updateexits;#if {$mnamelen < 1} {map_draw;#var map_movecursor 0}};
+#action {%*{Podazasz|podazasz} za %1 na poludniowy-wschod.} {#map move se;map_move_se;map_updateexits;#if {$mnamelen < 1} {map_draw;#var map_movecursor 0}};
+
+#action {%*{Podazasz|podazasz} za %1 na trakt.} {#map move trakt};
+#action {%*{Podazasz|podazasz} za %1 do chatki.} {#map move chatka};	
+#action {%*{Podazasz|podazasz} za %1 do wyjscia.} {#map move wyjscie};
+#action {%*{Podazasz|podazasz} za %1 przez wode na polnoc.} {#map move n};
+#action {%*{Podazasz|podazasz} za %1 przez wode na poludnie.} {#map move s};
+#action {%*{Podazasz|podazasz} za %1 przez wode na wschod.} {#map move e};
+#action {%*{Podazasz|podazasz} za %1 przez wode na zachod.} {#map move w};
+#action {%*{Podazasz|podazasz} za %1 przez wode na polnocny-zachod.} {#map move nw};
+#action {%*{Podazasz|podazasz} za %1 przez wode na poludniowy-zachod.} {#map move sw};
+#action {%*{Podazasz|podazasz} za %1 przez wode na polnocny-wschod.} {#map move ne};	
+#action {%*{Podazasz|podazasz} za %1 przez wode na poludniowy-wschod.} {#map move se};
+#action {%*{Podazasz|podazasz} za %1 na ulice.} {#map move wyjscie};
+#action {%*{Podazasz|podazasz} za %1 brama zamku na zachod.} {#map move brama};
+#action {%*{Podazasz|podazasz} za %1 brodem przez strumien.} {#map move brod};
+#action {%*{Podazasz|podazasz} za %1 brodzac w wodzie na druga strone rzeki.} {#map move woda};
+#action {%*{Podazasz|podazasz} za %1 do alkierza.} {#map move alkierz};
+#action {%*{Podazasz|podazasz} za %1 do budynku.} {#map move budynek};
+#action {%*{Podazasz|podazasz} za %1 do wnetrza chatki.} {#map move chatka};
+#action {%*{Podazasz|podazasz} za %1 do chaty.} {#map move chata};
+#action {%*{Podazasz|podazasz} za %1 do czwartej kajuty.} {#map move czwarta kajuta};
+#action {%*{Podazasz|podazasz} za %1 do drugiej kajuty.} {#map move druga kajuta};
+#action {%*{Podazasz|podazasz} za %1 do drzwi.} {#map move drzwi};
+#action {%*{Podazasz|podazasz} za %1 do gory na most.} {#map move most};
+#action {%*{Podazasz|podazasz} za %1 na most.} {#mapper navigate:follow:most};
+#action {%*{Podazasz|podazasz} za %1 w strone wyjscia.} {#map move wyjscie};
+#action {%*{Podazasz|podazasz} za %1 w kierunku traktu.} {#map move trakt};
+#action {%*{Podazasz|podazasz} za %1 przez dziure w murze} {#chat messsage mapper navigate:exit:sw} {2};
+#action {%*{Podazasz|podazasz} za %1 gdzies w las, szybko znikajac miedzy drzewami} {#map move n};
+#action {%*{Podazasz|podazasz} za %1 znikajac w podwojach warowni.} {#map move w};
+#action {%*{Podazasz|podazasz} za %1 opuszczajac podwoje warowni.} {#map move e};
+#action {%*{Podazasz|podazasz} za %1 na poczte.} {#map move e};
+#action {%*{Podazasz|podazasz} za %1 na polnoc odgarniajac pajeczny zaslaniajace przejscie.} {#map move n};
+#action {%*{Podazasz|podazasz} za %1 na poludnie odgarniajac pajeczny zaslaniajace przejscie.} {#map move s};
+#action {%*{Podazasz|podazasz} za %1 na wschod odgarniajac pajeczny zaslaniajace przejscie.} {#map move e};
+#action {%*{Podazasz|podazasz} za %1 na zachod odgarniajac pajeczny zaslaniajace przejscie.} {#map move w};
+#action {%*{Podazasz|podazasz} za %1 przez drzwi na poludnie.} {#map move s};
+#action {%*{Podazasz|podazasz} za %1 przez drzwi na polnoc.} {#map move n};
+#action {%*{Podazasz|podazasz} za %1 przez drzwi na zachod.} {#map move w};
+#action {%*{Podazasz|podazasz} za %1 przez drzwi na wschod.} {#map move e};
+#action {%*{Podazasz|podazasz} za %1 przez kladke.} {#map move kladka;};
+#action {%*{Podazasz|podazasz} za %1 do karczmy.} {#map move n};
+#action {%*{Podazasz|podazasz} za %1 na zewnatrz karczmy.} {#map move s};
+#action {%*{Podazasz|podazasz} za %1 traktem w gore.} {#map move u};
+#action {%*{Podazasz|podazasz} za %1 traktem w dol.} {#map move d};
+#action {%*{Podazasz|podazasz} za %1 w gore traktem.} {#map move u};
+#action {%*{Podazasz|podazasz} za %1 w dol traktem.} {#map move d};
+#action {%*{Podazasz|podazasz} za %1 droga w dol.} {#map move d};
+#action {%*{Podazasz|podazasz} za %1 droga w gore.} {#map move u};
+#action {%*{Podazasz|podazasz} za %1 do otworu.} {#map move otwor};
+#action {%*{Podazasz|podazasz} za %1 w kierunku otworu.} {#map move otwor};
+#action {%*{Podazasz|podazasz} za %1 na zewnatrz.} {#map move wyjscie};
+#action {%*{Podazasz|podazasz} za %1 do srodka otworu.} {#map move otwor};
+#action {%*{Podazasz|podazasz} za %1 za brame.} {#map move brama};
+#action {%*{Podazasz|podazasz} za %1 na zewnatrz baszty.} {#map move wyjscie};
+#action {%*{Podazasz|podazasz} za %1 wznoszacym sie korytarzem ku powierzchni.} {#map move u};
+
+
+#alias {asciimap}
+{
+    #var asciimap_h 10;
+    #var asciimap_w 17;
+    #unvar asciimapv;
+    #format wpadder {%+${asciimap_w}s} {};
+    #loop 1 $asciimap_h loopcnt {
+        #var asciimapv[$loopcnt] {$wpadder};
+    };
+    #nop system {/Users/eldakar/arkatt/maps/showmap /Users/eldakar/arkatt/maps/Scorcio.map 20 16 10 6};
+    #script {asciimapv} {$path/maps/showmap $path/maps/$ROOM_INFO[map][name].map $ROOM_INFO[map][x] $ROOM_INFO[map][y] $asciimap_w $asciimap_h};
+    #loop 2 $asciimap_h loopcnt {
+        #var tmpline {$asciimapv[$loopcnt]};
+        #format {tmpline} {%-${asciimap_w}s} {$tmpline};
+        #replace {tmpline} {\\} {\\\};
+        #replace {tmpline} {G} {<faf>G<088>};
+        #replace {tmpline} {@} {<118><fbb>@<088>};
+        #replace {tmpline} {P} {<afa>P<088>};
+        #replace {tmpline} {S} {<ffa>S<088>};
+        #replace {tmpline} {K} {<afa>K<088>};
+        #replace {tmpline} {L} {<acf>L<088>};
+        #replace {tmpline} {T} {<fff>T<088>};
+        #replace {tmpline} {N} {<aaf>N<088>};
+        #replace {tmpline} {F} {<acf>F<088>};
+        #replace {tmpline} {B} {<ffa>B<088>};
+        #var asciimapv[$loopcnt] {$tmpline};
+        #nop format {asciimapv[$loopcnt]} {%.13s} {$tmpline};
+        #nop format {tmpline} {%.13s} {$tmpline};
+        #nop replace {tmpline} { } {<aba>.<088>};
+        #var asciimapv[$loopcnt] {$tmpline};
+        #nop sh {$asciimapv[$loopcnt]};
+    };
+}
+
+
+#var ttmap_loaded 0;
+#var ttmap_name {};
+#var ttmap_pos {};
+
+#EVENT {MAP ENTER MAP} {#var ttmap_loaded 1;}
+#EVENT {MAP EXIT MAP} {#var ttmap_loaded 0;}
+
+#var arkadirections[polnocny-wschod] {ne};
+#var arkadirections[poludniowy-wschod] {se};
+#var arkadirections[wschod] {e};
+#var arkadirections[zachod] {w};
+#var arkadirections[polnocny-zachod] {nw};
+#var arkadirections[poludniowy-zachod] {sw};
+#var arkadirections[polnoc] {n};
+#var arkadirections[poludnie] {s};
+#var arkadirections[gora] {u};
+#var arkadirections[dol] {d};
+
+#alias {move_n} {n};
+#alias {move_s} {s};
+#alias {move_e} {e};
+#alias {move_w} {w};
+
+#alias {move_d} {d};
+#alias {move_u} {u};
+
+#alias {move_ne} {ne};
+#alias {move_se} {se};
+#alias {move_sw} {sw};
+#alias {move_se} {se};
+
+
+#EVENT {MAP ENTER ROOM}
+{
+	#map map {43x12} {tmpmap.ascii};
+	#script {asciimapv} {cat tmpmap.ascii};
+	#loop {1} {12} {asciicnt} {
+		#line {strip} {#var asciimapline {$asciimapv[$asciicnt]}};
+		#replace asciimapline { \\} { \\\};
+		#replace asciimapline {m\\} {m\\\};
+		#var asciimapv[$asciicnt] {$asciimapline};
+	};
+	#unalias {w};
+	#unalias {e};
+	#unalias {n};
+	#unalias {s};
+	#unalias {ne};
+	#unalias {nw};
+	#unalias {sw};
+	#unalias {se};
+	#unalias {d};
+	#unalias {u};
+};
+
+
+#nop ###############  GMCP  MAP INTEGRATION #####################
+
+#EVENT {IAC SB GMCP room.info IAC SE} {
+	#var ROOM_INFO {%0};
+	#unalias {w};
+	#unalias {e};
+	#unalias {n};
+	#unalias {s};
+	#unalias {ne};
+	#unalias {nw};
+	#unalias {sw};
+	#unalias {se};
+	#unalias {d};
+	#unalias {u};
+	
+    #format mnamelen {%L} {$ROOM_INFO[map][name]};
+    #if {$mnamelen > 0} {
+
+	#if {$ttmap_loaded == 1} {
+    		#map destroy;
+    		#var ttmap_loaded 0;
+    	};
+        #replace {ROOM_INFO[map][name]} { } {};
+    	#replace {ROOM_INFO[map][name]} {'} {};
+        #if {"$linux" == "1"} {asciimap;locationmap_reset};
+
+		#foreach {$maplookup[$ROOM_INFO[map][name]][$ROOM_INFO[map][x]][$ROOM_INFO[map][y]][]} {tmpexit} {
+				#alias {$arkadirections[$tmpexit]} {
+					#map read $maplookup[$ROOM_INFO[map][name]][$ROOM_INFO[map][x]][$ROOM_INFO[map][y]][$tmpexit][mapnam];
+					#map goto $maplookup[$ROOM_INFO[map][name]][$ROOM_INFO[map][x]][$ROOM_INFO[map][y]][$tmpexit][mappos];
+					#var ttmap_loaded 1;
+					#send $tmpexit;
+				};
+		};
+	};
+    team_clean_compare;
+	#var ruch_kompasu {none};
+	#var kompas_dziala {0};
+    testprompt;
+}
+
+
+
+
+
+
+
+
+#nop create mode;
+#action {Ruszasz razno na %1, schodzac z wytyczonego traktu, jednak okazuje sie %*.$} {#mapper map:undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+#action {Nie widzisz zadnego wyjscia %*.$} {#mapper map:undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+
+#action {Odpadasz od sciany i lecisz w dol, jednak dzieki niewielkiej wysokosci udaje ci sie zgrabnie wyladowac na ziemi.$} {#mapper revert;#var map_movecursor 0;map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+#action {Nie masz na to sily.$} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+#action {Probujesz otworzyc %1, ale nie udaje ci sie to.} {#var ret @set_quickbind_green{uderz w brame};#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};#line gag};
+#action {Jestes tak zmeczony, ze nie mozesz dalej podazac w tym kierunku.$} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+#action {Nie mozesz tego zrobic, gdyz %*} {#mapper revert} {7};
+
+#action {Gorliwy ciemnowlosy mezczyzna stoi ci na drodze.} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+
+#action {Nie jestes upowazniony do wejscia do magazynu.} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+#action {Podchodzisz pod drzwi na polnocy, ktore otwiera wielki mezczyzna i oceniajaco taksuje cie wzrokiem. Prycha pod nosem i bez} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+#action {Podchodzisz pod drzwi na polnocy, zza ktorych rozlega sie czyjs ponury glos: 'Zmiataj stad, nim ktos ci %1} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag} {2};
+#action {Podchodzisz pod drzwi na polnocy, ktore otwiera wielki mezczyzna i przyglada ci sie badawczo, %1} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag} {2};
+#action {Podchodzisz pod drzwi na polnocy, %1} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag} {1};
+#action {Droge zastepuje ci barczysty straznik mowiac: Prosze okazac kwit magazynowy lub wskazac towar do przechowania.} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag} {1};
+#action {Ogolony kompetentny straznik mowi do ciebie: Nikt z zakryta twarza nie wejdzie na teren zamku.} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag} {1};
+#action {Wysoki zezowaty sierzant mowi do ciebie: Nikt z zakryta twarza nie wejdzie na teren Uniwersytetu.} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag} {1};
+#action {Wysoki wasaty sierzant mowi do ciebie: Nikt z zakryta twarza nie wejdzie na teren Uniwersytetu.} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag} {1};
+#action {Nie zmiescisz sie w budzie!} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag} {1};
+#action {Nie mozesz sie tam udac, gdyz siedzisz.$} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+#action {Najpierw wejdz do kabiny i sie rozbierz!} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+#action {Nie masz %1 wstepu.$} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+#action {Musisz najpierw oplacic wejscie na widownie.} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+#action {%1 mowi do ciebie: Nikt z zakryta twarza nie wejdzie na teren koszar.} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+
+#action {Nie mozesz sie tam udac, gdyz %1 blokuj%+ ci droge na %3.$} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+#action {Jestes teraz zajety czyms innym.$} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+#action {Niestety, brama jest zamknieta.$} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+#action {%3 mowi do ciebie: Nikt z bronia nie wejdzie na teren gornej twierdzy. Prosze zostawic ja na stojaku.$} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+#action {Przeciez nic nie widzisz.$} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+#action {Probujesz sie ruszyc na %1, jednak pajecze sieci, w ktore sie w miedzy czasie zaplatales, uniemozliwiaja ci to.} {#mapper revert;#var map_movecursor 0;#showme <faa>PROBUJ NA %1<088>};
+#action {Niestety drzwi sa zamkniete, ale zauwazasz na nich tabliczke:} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+#action {Niestety jestes zbyt duzy, aby przecisnac sie przez dziure.$} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+#action {Probujesz wejsc w uliczke, ale cos z cichym plasnieciem rozmazuje ci sie pod noga. Zdegustowany zawracasz i decydujesz sie ominac ten zaulek.$} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+#action {Nie mozesz sie udac na zaplecze.$} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+#action {Juz probujesz wejsc, gdy nagle drzwi okazuja sie byc dokladnie zamkniete. Na drzwiach zauwazasz tylko tabliczke:} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+#action {Drzwi sa zamkniete i nie daja sie otworzyc bez odpowiedniego klucza.$} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+#action {Pociagasz za klamke, ale drzwi sa zamkniete.$} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+#action {Probujesz rozpaczliwie wspiac sie na gore, ale zeslizgujesz sie po mokrych kamieniach.$} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+
+#action {Probujesz dostac sie do srodka willi, lecz po chwili zjawia sie lokaj, powiadamiajac cie uprzejmym, acz stanowczym glosem,} {#mapper revert}
+#action {Kierujesz sie w strone krzakow porastajacych polnocno-wchodnia czesc kotliny, lecz bezradnie zatrzymujesz sie przed zwarta sciana kolcow i galezi. Nie znajdujesz sposobu, jak wejsc w chaszcze.} {#mapper revert} {1};
+#action {Jestes ogluszony i nie mozesz nic zrobic.$} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+#action {Nie jestes w stanie wymknac sie stad niezauwazenie.$} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+
+#action {%* stoi ci na drodze.} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+
+#nop IN A CASE GMCP DO NOT RETURN ANY VALUES
+#nop action {Jest zbyt ciemno by cokolwiek zauwazyc. Instynktownie jednak odgadujesz, ze znajdujesz sie gleboko pod ziemia. Bardzo gleboko...} {#var lastmove none}
+#nop action {Ciemne miejsce.} {#var lastmove none}
+#nop action {Nic nie widzisz, jednak po potwornym smrodzie czujesz, ze znajdujesz sie w kanalach.} {#var lastmove none}
+
+

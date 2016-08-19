@@ -1,0 +1,6 @@
+#var maplookup[Averland][112][90][zachod][mapnam] {obozkg.map};
+#var maplookup[Averland][112][90][zachod][mappos] {34};
+
+#var maplookup[Averland][112][90][wschod][mapnam] {costam.map};
+#var maplookup[Averland][112][90][wschod][mappos] {999};
+
