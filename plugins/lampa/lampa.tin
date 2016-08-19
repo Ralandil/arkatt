@@ -1,0 +1,102 @@
+#class {lampa} {open};
+
+#alias lampa_toggle {
+    #if {$swiatlo_state == 1} {
+        #var {swiatlo_state} {0};
+        #var prompt_button_swiatlo {$prompt_button_swiatlo_inactive};
+        zgas lampe;
+        #var {lampa_count} {0};
+
+    };
+    #elseif {$swiatlo_state == 0} {
+        #var {swiatlo_state} {1};
+        #var prompt_button_swiatlo {$prompt_button_swiatlo_active};
+        napelnij lampe olejem;
+        zapal lampe;
+        lampa_countdown;
+    };
+
+    testprompt;
+}
+#alias lampa_update {
+    #switch {$lampa_count} {
+        #case {10} {#var {prompt_button_swiatlo} {<118><FFA><aaa> SWIATLO <088>}};
+        #case {9} {#var {prompt_button_swiatlo} {<118><FFA><aaa> SWIATLO<G02><cca> <088>}};
+        #case {8} {#var {prompt_button_swiatlo} {<118><FFA><aaa> SWIATL<G02><cca>O <088>}};
+        #case {7} {#var {prompt_button_swiatlo} {<118><FFA><aaa> SWIAT<G02><cca>LO <088>}};
+        #case {6} {#var {prompt_button_swiatlo} {<118><FFA><aaa> SWIA<G02><cca>TLO <088>}};
+        #case {5} {#var {prompt_button_swiatlo} {<118><FFA><aaa> SWI<G02><cca>ATLO <088>}};
+        #case {4} {#var {prompt_button_swiatlo} {<118><FFA><aaa> SW<G02><cca>IATLO <088>}};
+        #case {3} {#var {prompt_button_swiatlo} {<118><FFA><aaa> S<G02><cca>WIATLO <088>}};
+        #case {2} {#var {prompt_button_swiatlo} {<118><FFA><aaa> <G02><cca>SWIATLO <088>}};
+        #case {1} {#var {prompt_button_swiatlo} {<118><G02><cca> SWIATLO <088>}};
+        #default {#var {prompt_button_swiatlo} {<118><G02><cca> SWIATLO <088>}};
+    }
+    testprompt;
+
+}
+#alias lampa_countdown {
+    #if {$lampa_count} {#nop;} {#var lampa_count {10}};
+    #var lampa_count_old $lampa_count;
+    lampa_update;
+    #delay {26} {
+        #math {lampa_count} {$lampa_count_old - 1};
+        #if {$lampa_count < 3} {
+            #line substitute {variables} {#macro {KEY_QB} {napelnij lampe olejem}};
+        };
+        #if {$lampa_count > 0} {
+            lampa_countdown;
+        }
+    }
+}
+
+#action {Dopelniasz %1 z butelki oleju} {
+    #var lampa_count 10;
+    lampa_update;
+}
+
+#action {Napelniasz lampe z %1 oleju.} {
+    #var lampa_count 10;
+    lampa_update;
+}
+
+#action {Gasisz %1lampe} {
+    #var {swiatlo_state} {0};
+    #var prompt_button_swiatlo {$prompt_button_swiatlo_inactive};
+    #var {lampa_count} {0};
+    #untick {la};
+    lampa_update;
+}
+#alias {l1} {
+    odloz pusty olej;napelnij lampe olejem;
+}
+#alias {l2} {
+    napelnij lampe olejem;
+}
+#action {oprozniajac zupelnie %1 oleju} {
+    qb l1;
+}
+#action {Zapalasz lampe.} {
+    napelnij lampe olejem;
+    #var {swiatlo_state} {1};
+    #var prompt_button_swiatlo {$prompt_button_swiatlo_active};
+
+    #var {lampa_count} {10};
+    #tick {la} {
+        #math {lampa_count} {$lampa_count - 1};
+        lampa_update;
+        #if {$lampa_count == 2} {
+            qb l2;
+            #nop line substitute {variables} {#macro {KEY_QB} {napelnij lampe olejem}};
+        };
+        #if {$lampa_count == 0} {#untick {la}};
+    } {30}
+} {2}
+
+#action {Lampa wypala sie i gasnie} {
+    #var {swiatlo_state} {0};
+    #var prompt_button_swiatlo {$prompt_button_swiatlo_inactive};
+}
+
+
+#class {lampa} {close};

@@ -3,6 +3,9 @@
 #var plugin[mappers][path] {$path/plugins/mappers/mudmapper/mudmapper.tin};
 #var plugin[mappers][state] {0};
 
+#var plugin[lampa][path] {$path/plugins/lampa/lampa.tin};
+#var plugin[lampa][state] {1};
+
 #alias plugins {
 	#list {plugin} {size} {plugin_size};
 	#if {$plugin_size > 0} {
@@ -30,6 +33,15 @@
 #var pr_form $hp_bar;
 #var pr_exp $hp_bar;
 #var pr_obci $hp_bar;
+
+#foreach {$plugin[]} {n} {
+	#if {$plugin[$n][state] == 1} {
+		#class {$n} {read} {$plugin[$n][path]};
+	};
+	#else {
+		#class {$n} {kill};
+	}
+}
 
 #read $path/gmcp_char.tin;
 #read $path/gmcp_message.tin;
@@ -62,7 +74,6 @@
 #read $path/tropienie.tin;
 #read $path/chat.tin;
 #read $path/czas.tin;
-#read $path/lampa.tin;
 #nop read $path/baza.txt;
 #read $path/compare.tin;
 #read $path/gmcp_mapper.tin;
