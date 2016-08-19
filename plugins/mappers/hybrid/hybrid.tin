@@ -245,7 +245,7 @@
 
 		#foreach {$maplookup[$ROOM_INFO[map][name]][$ROOM_INFO[map][x]][$ROOM_INFO[map][y]][]} {tmpexit} {
 				#alias {$arkadirections[$tmpexit]} {
-					#map read $maplookup[$ROOM_INFO[map][name]][$ROOM_INFO[map][x]][$ROOM_INFO[map][y]][$tmpexit][mapnam];
+					#map read $path/plugins/mappers/hybrid/maps/$maplookup[$ROOM_INFO[map][name]][$ROOM_INFO[map][x]][$ROOM_INFO[map][y]][$tmpexit][mapnam];
 					#map goto $maplookup[$ROOM_INFO[map][name]][$ROOM_INFO[map][x]][$ROOM_INFO[map][y]][$tmpexit][mappos];
 					#var ttmap_loaded 1;
 					#send $tmpexit;
