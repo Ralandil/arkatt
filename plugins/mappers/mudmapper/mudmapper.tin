@@ -1,4 +1,14 @@
 #nop ########### WOZ ##########
+#alias move_s {#send s;#mapper navigate:exit:s;#var map_movecursor s;flush_exits};
+#alias move_n {#send n;#mapper navigate:exit:n;#var map_movecursor n;flush_exits};
+#alias move_e {#send e;#mapper navigate:exit:e;#var map_movecursor e;flush_exits};
+#alias move_w {#send w;#mapper navigate:exit:w;#var map_movecursor w;flush_exits};
+#alias move_u {#send u;#mapper navigate:exit:u;flush_exits};
+#alias move_d {#send d;#mapper navigate:exit:d;flush_exits};
+#alias move_ne {#send ne;#mapper navigate:exit:ne;#var map_movecursor ne;flush_exits};
+#alias move_nw {#send nw;#mapper navigate:exit:nw;#var map_movecursor nw;flush_exits};
+#alias move_se {#send se;#mapper navigate:exit:se;#var map_movecursor se;flush_exits};
+#alias move_sw {#send sw;#mapper navigate:exit:sw;#var map_movecursor sw;flush_exits};
 
 #read $path/plugins/mappers/mudmapper/mapdrawer.tin
 #action {Wraz z %1 jedziesz %2 na %3.} {#sh Wraz z %1 podazasz za %2 na %3.}
