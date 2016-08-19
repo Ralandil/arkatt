@@ -17,7 +17,10 @@
 #read $path/kompas.tin;
 #read $path/functions.tin;
 #read $path/tickers.tin;
-#read $path/map_engine.tin;
+
+#read $path/plugins/mappers/mudmapper/mudmapper.tin;
+#nop read $path/plugins/mappers/hybrid/hybrid.tin;
+
 #read $path/ocena_zbroi.tin;
 #read $path/env.tin;
 #read $path/prompt.tin;

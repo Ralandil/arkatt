@@ -16,7 +16,6 @@
 #macro {$KEY_F8} {bind_E_F8};
 #macro {$KEY_F9} {bind_E_F9};
 #var function_mode_switch_value {offense};
-#var fmsvc {<BAA> <088>};
 #alias {function_mode_switch}
 {
     #if {"$function_mode_switch_value" == "offense"} {

@@ -18,7 +18,7 @@
 #nop ###################################################################
 
 
-#read $path/mappers/hybrid/maptable.tin
+#read $path/plugins/mappers/hybrid/maptable.tin
 
 #action {Wraz z %1 jedziesz %2 na %3.} {#sh Wraz z %1 podazasz za %2 na %3.}
 
@@ -127,11 +127,11 @@
 #action {%*{Podazasz|podazasz} za %1 na zewnatrz baszty.} {#map move wyjscie};
 #action {%*{Podazasz|podazasz} za %1 wznoszacym sie korytarzem ku powierzchni.} {#map move u};
 
-
+#loop {1} {11} {flushmapc} {#var asciimapv[$flushmapc] {                                          }};
 #alias {asciimap}
 {
-    #var asciimap_h 10;
-    #var asciimap_w 17;
+    #var asciimap_h 11;
+    #var asciimap_w 42;
     #unvar asciimapv;
     #format wpadder {%+${asciimap_w}s} {};
     #loop 1 $asciimap_h loopcnt {
@@ -139,7 +139,7 @@
     };
     #nop system {/Users/eldakar/arkatt/maps/showmap /Users/eldakar/arkatt/maps/Scorcio.map 20 16 10 6};
     #script {asciimapv} {$path/maps/showmap $path/maps/$ROOM_INFO[map][name].map $ROOM_INFO[map][x] $ROOM_INFO[map][y] $asciimap_w $asciimap_h};
-    #loop 2 $asciimap_h loopcnt {
+    #loop 1 $asciimap_h loopcnt {
         #var tmpline {$asciimapv[$loopcnt]};
         #format {tmpline} {%-${asciimap_w}s} {$tmpline};
         #replace {tmpline} {\\} {\\\};
@@ -190,7 +190,7 @@
 #alias {move_u} {u};
 
 #alias {move_ne} {ne};
-#alias {move_se} {se};
+#alias {move_nw} {nw};
 #alias {move_sw} {sw};
 #alias {move_se} {se};
 
@@ -235,14 +235,13 @@
 	
     #format mnamelen {%L} {$ROOM_INFO[map][name]};
     #if {$mnamelen > 0} {
-
 	#if {$ttmap_loaded == 1} {
     		#map destroy;
     		#var ttmap_loaded 0;
     	};
         #replace {ROOM_INFO[map][name]} { } {};
     	#replace {ROOM_INFO[map][name]} {'} {};
-        #if {"$linux" == "1"} {asciimap;locationmap_reset};
+        #if {"$linux" == "1"} {asciimap};
 
 		#foreach {$maplookup[$ROOM_INFO[map][name]][$ROOM_INFO[map][x]][$ROOM_INFO[map][y]][]} {tmpexit} {
 				#alias {$arkadirections[$tmpexit]} {
@@ -253,7 +252,6 @@
 				};
 		};
 	};
-    team_clean_compare;
 	#var ruch_kompasu {none};
 	#var kompas_dziala {0};
     testprompt;

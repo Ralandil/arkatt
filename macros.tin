@@ -3,42 +3,6 @@
 #var environment_label {<118><G01><g08>           <088>};
 }
 
-#alias move_s {#send s;#mapper navigate:exit:s;#var map_movecursor s;flush_exits};
-#alias move_n {#send n;#mapper navigate:exit:n;#var map_movecursor n;flush_exits};
-#alias move_e {#send e;#mapper navigate:exit:e;#var map_movecursor e;flush_exits};
-#alias move_w {#send w;#mapper navigate:exit:w;#var map_movecursor w;flush_exits};
-#alias move_u {#send u;#mapper navigate:exit:u;flush_exits};
-#alias move_d {#send d;#mapper navigate:exit:d;flush_exits};
-#alias move_ne {#send ne;#mapper navigate:exit:ne;#var map_movecursor ne;flush_exits};
-#alias move_nw {#send nw;#mapper navigate:exit:nw;#var map_movecursor nw;flush_exits};
-#alias move_se {#send se;#mapper navigate:exit:se;#var map_movecursor se;flush_exits};
-#alias move_sw {#send sw;#mapper navigate:exit:sw;#var map_movecursor sw;flush_exits};
-
-#alias s {move_s};
-#alias n {move_n};
-#alias w {move_w};
-#alias e {move_e};
-#alias nw {move_nw};
-#alias ne {move_ne};
-#alias sw {move_sw};
-#alias se {move_se};
-#alias u {move_u};
-#alias d {move_d};
-
-
-#alias {kondycjak} {
-	#var pr_wrog <088> -<088>;
-	kondycja wszystkich;
-	#foreach {$druzyna_lista[]} {ix} {
-		#list {druzyna_alias} {set} {$ix} @__alias_dimmed{$druzyna_lista[$ix]};
-		#list {druzyna_atakujacy} {set} {$ix} {${cl_frame}-<088>};
-	};
-	#var global_wrog_index 0;
-	#var r @wrogowie_clear{};
-	#var r @druzyna_refresh{};
-	#var r @wrogowie_refresh{};	
-	testprompt
-}
 
 #line substitute {variables} {#macro {$KEY_PAD_S} {move_s}}
 #line substitute {variables} {#macro {$KEY_PAD_N} {move_n}}
