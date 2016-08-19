@@ -185,9 +185,13 @@
 #sh  {<aff>     #                  <088>ARKADIA T I N T I N + + 2.01.1                  <aff>#<880>};
 #sh  {<aff>     #                                                                  #<880>};
 #sh  {<aff>     ####################################################################<880>};
-#sh 
-#sh       'start' by rozpoczac przygode
+#sh  
+#sh  {               'start' by rozpoczac przygode};
+#sh  {               'plugins' by wyswietlic liste plugingow};
 #sh
+#sh  {<aff>     ####################################################################<880>};
+#sh
+
 
 
 #nop #####################################################
