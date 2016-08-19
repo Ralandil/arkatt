@@ -1,5 +1,6 @@
 #nop ########### WOZ ##########
 
+#read $path/plugins/mappers/mudmapper/mapdrawer.tin
 #action {Wraz z %1 jedziesz %2 na %3.} {#sh Wraz z %1 podazasz za %2 na %3.}
 
 #nop ######### FOLLOWS ########
