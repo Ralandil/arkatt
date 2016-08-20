@@ -48,7 +48,7 @@
 #var kalendarz_dni[trzydziesty trzeci] {33};
 
 #var kalendarz_miesiace[1][nazwa] {Hexentag};
-#var kalendarz_miesiace[2][nazwa] {Nachexen}
+#var kalendarz_miesiace[2][nazwa] {Nachhexen}
 #var kalendarz_miesiace[3][nazwa] {Jahrdrung}
 #var kalendarz_miesiace[4][nazwa] {Mitterfruhl}
 #var kalendarz_miesiace[5][nazwa] {Pflugzeit}
@@ -67,7 +67,7 @@
 #var kalendarz_miesiace[18][nazwa] {Vorhexen}
 
 #var kalendarz_miesiace[Hexentag][index] {1}
-#var kalendarz_miesiace[Nachexen][index] {2}
+#var kalendarz_miesiace[Nachhexen][index] {2}
 #var kalendarz_miesiace[Jahrdrung][index] {3}
 #var kalendarz_miesiace[Mitterfruhl][index] {4}
 #var kalendarz_miesiace[Pflugzeit][index] {5}
@@ -86,7 +86,7 @@
 #var kalendarz_miesiace[Vorhexen][index] {18}
 
 #var kalendarz_miesiace[Hexentag][dni] {1};
-#var kalendarz_miesiace[Nachexen][dni] {33}
+#var kalendarz_miesiace[Nachhexen][dni] {33}
 #var kalendarz_miesiace[Jahrdrung][dni] {32}
 #var kalendarz_miesiace[Mitterfruhl][dni] {1}
 #var kalendarz_miesiace[Pflugzeit][dni] {33}
@@ -105,7 +105,7 @@
 #var kalendarz_miesiace[Vorhexen][dni] {33}
 
 #var kalendarz_miesiace[Hexentag][wroku] {0};
-#var kalendarz_miesiace[Nachexen][wroku] {1}
+#var kalendarz_miesiace[Nachhexen][wroku] {1}
 #var kalendarz_miesiace[Jahrdrung][wroku] {34}
 #var kalendarz_miesiace[Mitterfruhl][wroku] {66}
 #var kalendarz_miesiace[Pflugzeit][wroku] {67}
@@ -140,7 +140,7 @@
 #var kalendarz_poraroku[Zima][zachod] {16};
 
 #var kalendarz_miesiace[Hexentag][pora] {Wiosna};
-#var kalendarz_miesiace[Nachexen][pora] {Wiosna};
+#var kalendarz_miesiace[Nachhexen][pora] {Wiosna};
 #var kalendarz_miesiace[Jahrdrung][pora] {Wiosna};
 #var kalendarz_miesiace[Mitterfruhl][pora] {Wiosna};
 #var kalendarz_miesiace[Pflugzeit][pora] {Wiosna};

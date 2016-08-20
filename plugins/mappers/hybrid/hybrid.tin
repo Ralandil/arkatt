@@ -201,8 +201,12 @@
 	#script {asciimapv} {cat tmpmap.ascii};
 	#loop {1} {12} {asciicnt} {
 		#line {strip} {#var asciimapline {$asciimapv[$asciicnt]}};
-		#replace asciimapline { \\} { \\\};
-		#replace asciimapline {m\\} {m\\\};
+		#replace asciimapline { \\} { <bbb>\\\};
+		#replace asciimapline {m\\} {m<bbb>\\\};
+        #replace asciimapline { /} { <bbb>/};
+        #replace asciimapline {m/} {m<bbb>/};
+        #replace asciimapline {-} {<bbb>-};
+        #replace asciimapline {|} {<bbb>|};
 		#var asciimapv[$asciicnt] {$asciimapline};
 	};
 	#unalias {w};
@@ -235,8 +239,8 @@
 	
     #format mnamelen {%L} {$ROOM_INFO[map][name]};
     #if {$mnamelen > 0} {
-	#if {$ttmap_loaded == 1} {
-    		#map destroy;
+        #if {$ttmap_loaded == 1} {
+    		#nop map destroy;
     		#var ttmap_loaded 0;
     	};
         #replace {ROOM_INFO[map][name]} { } {};
@@ -244,12 +248,16 @@
         #if {"$linux" == "1"} {asciimap};
 
 		#foreach {$maplookup[$ROOM_INFO[map][name]][$ROOM_INFO[map][x]][$ROOM_INFO[map][y]][]} {tmpexit} {
-				#alias {$arkadirections[$tmpexit]} {
+
+#line substitute {variables} {
+                #alias {$arkadirections[$tmpexit]} {
+                    #send $maplookup[$ROOM_INFO[map][name]][$ROOM_INFO[map][x]][$ROOM_INFO[map][y]][$tmpexit][mapdir];
 					#map read $path/plugins/mappers/hybrid/maps/$maplookup[$ROOM_INFO[map][name]][$ROOM_INFO[map][x]][$ROOM_INFO[map][y]][$tmpexit][mapnam];
 					#map goto $maplookup[$ROOM_INFO[map][name]][$ROOM_INFO[map][x]][$ROOM_INFO[map][y]][$tmpexit][mappos];
 					#var ttmap_loaded 1;
-					#send $tmpexit;
 				};
+};
+
 		};
 	};
 	#var ruch_kompasu {none};
@@ -266,7 +274,7 @@
 
 #nop create mode;
 #action {Ruszasz razno na %1, schodzac z wytyczonego traktu, jednak okazuje sie %*.$} {#mapper map:undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
-#action {Nie widzisz zadnego wyjscia %*.$} {#mapper map:undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
+#action {Nie widzisz zadnego wyjscia %*.$} {#map undo;#echo {<faa>%0<088>};testprompt};
 
 #action {Odpadasz od sciany i lecisz w dol, jednak dzieki niewielkiej wysokosci udaje ci sie zgrabnie wyladowac na ziemi.$} {#mapper revert;#var map_movecursor 0;map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};
 #action {Nie masz na to sily.$} {#mapper revert;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;#line gag};

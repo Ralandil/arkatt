@@ -15,7 +15,7 @@
 #nop   nie zmieniaj, jesli nie musisz
 #nop #####################################################;
 
-    #read $path/mapperserver.tin;
+    #nop read $path/mapperserver.tin;
 
 #nop #####################################################
 #nop  POLACZENIE Z ARKA
