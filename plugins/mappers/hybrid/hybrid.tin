@@ -131,7 +131,7 @@
 #alias {asciimap}
 {
     #var asciimap_h 11;
-    #var asciimap_w 42;
+    #var asciimap_w 66;
     #unvar asciimapv;
     #format wpadder {%+${asciimap_w}s} {};
     #loop 1 $asciimap_h loopcnt {
@@ -196,7 +196,7 @@
 
 
 #alias {mapdraw} {
-    #map map {43x12} {tmpmap.ascii};
+    #map map {69x12} {tmpmap.ascii};
     #script {asciimapv} {cat tmpmap.ascii};
     #loop {1} {12} {asciicnt} {
         #line {strip} {#var asciimapline {$asciimapv[$asciicnt]}};
@@ -214,7 +214,7 @@
 
 #EVENT {MAP ENTER ROOM}
 {
-	#map map {43x12} {tmpmap.ascii};
+	#map map {69x12} {tmpmap.ascii};
 	#script {asciimapv} {cat tmpmap.ascii};
 	#loop {1} {12} {asciicnt} {
 		#line {strip} {#var asciimapline {$asciimapv[$asciicnt]}};
@@ -272,6 +272,7 @@
 					#map read $path/plugins/mappers/hybrid/maps/$maplookup[$ROOM_INFO[map][name]][$ROOM_INFO[map][x]][$ROOM_INFO[map][y]][$tmpexit][mapnam];
 					#map goto $maplookup[$ROOM_INFO[map][name]][$ROOM_INFO[map][x]][$ROOM_INFO[map][y]][$tmpexit][mappos];
 					#var ttmap_loaded 1;
+                    #var ttmap_newtmp 0;
 				};
 };
 
@@ -281,23 +282,27 @@
             #map create;
             #map goto 1;
             #var ttmap_loaded 1;
+            #var ttmap_newtmp 1;
         };
         #if {$ttmap_loaded == 1} {
-            #foreach {$ROOM_INFO[exits][]} {rum} {
-                #switch {"$ROOM_INFO[exits][$rum]"} {
-                    #case {"zachod"} {#map dig w};
-                    #case {"wschod"} {#map dig e};
-                    #case {"polnoc"} {#map dig n};
-                    #case {"poludnie"} {#map dig s};
-                    #case {"polnocny-wschod"} {#map dig ne};
-                    #case {"poludniowy-wschod"} {#map dig se};
-                    #case {"poludniowy-zachod"} {#map dig sw};
-                    #case {"polnocny-zachod"} {#map dig nw};
-                    #case {"dol"} {#map dig d};
-                    #case {"gora"} {#map dig u};
+
+            #if {$ttmap_newtmp == 1} {
+                #foreach {$ROOM_INFO[exits][]} {rum} {
+                    #switch {"$ROOM_INFO[exits][$rum]"} {
+                        #case {"zachod"} {#map dig w};
+                        #case {"wschod"} {#map dig e};
+                        #case {"polnoc"} {#map dig n};
+                        #case {"poludnie"} {#map dig s};
+                        #case {"polnocny-wschod"} {#map dig ne};
+                        #case {"poludniowy-wschod"} {#map dig se};
+                        #case {"poludniowy-zachod"} {#map dig sw};
+                        #case {"polnocny-zachod"} {#map dig nw};
+                        #case {"dol"} {#map dig d};
+                        #case {"gora"} {#map dig u};
+                    };
                 };
+                mapdraw;
             };
-            mapdraw;
         };
     };
 

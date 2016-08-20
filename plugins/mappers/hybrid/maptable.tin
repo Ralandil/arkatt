@@ -1,3 +1,11 @@
+#var maplookup[Averland][110][88][poludniowy-zachod][mapnam] {obozkg.map};
+#var maplookup[Averland][110][88][poludniowy-zachod][mappos] {30};
+#var maplookup[Averland][110][88][poludniowy-zachod][mapdir] {poludniowy-zachod};
+
+#var maplookup[Averland][110][88][poludnie][mapnam] {obozkg.map};
+#var maplookup[Averland][110][88][poludnie][mappos] {34};
+#var maplookup[Averland][110][88][poludnie][mapdir] {poludnie};
+
 #var maplookup[Averland][112][90][zachod][mapnam] {obozkg.map};
 #var maplookup[Averland][112][90][zachod][mappos] {34};
 #var maplookup[Averland][112][90][zachod][mapdir] {zachod};
@@ -109,6 +117,11 @@
 #var maplookup[Averland][96][68][zachod][mapnam] {bagna.map};
 #var maplookup[Averland][96][68][zachod][mappos] {1};
 #var maplookup[Averland][96][68][zachod][mapdir] {zachod};
+
+#var maplookup[Averland][148][102][poludniowy-wschod][mapnam] {puszki.map};
+#var maplookup[Averland][148][102][poludniowy-wschod][mappos] {1};
+#var maplookup[Averland][148][102][poludniowy-wschod][mapdir] {poludniowy-wschod};
+
 
 #unmacro {<};
 #unmacro {>};
