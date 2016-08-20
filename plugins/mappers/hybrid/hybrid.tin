@@ -59,17 +59,17 @@
 #action {%*{Podazasz|podazasz} za %1 do namiotu.} {#map move namiot};
 #action {%*{Podazasz|podazasz} za %1 w strone obozu.} {#map move oboz};
 #action {%*{Podazasz|podazasz} za %1 do szczeliny.} {#map move szczelina};
-#action {%*{Podazasz|podazasz} za %1 na dol.} {#map move d;#unvar maptest;map_updateexits;map_draw};
-#action {%*{Podazasz|podazasz} za %1 na gore.} {#map move u;#unvar maptest;map_updateexits;map_draw};
+#action {%*{Podazasz|podazasz} za %1 na dol.} {#map move d;#unvar maptest;map_updateexits;};
+#action {%*{Podazasz|podazasz} za %1 na gore.} {#map move u;#unvar maptest;map_updateexits;};
 
-#action {%*{Podazasz|podazasz} za %1 na polnoc.} {#map move n;map_move_n;map_updateexits;#if {$mnamelen < 1} {map_draw;#var map_movecursor 0}};
-#action {%*{Podazasz|podazasz} za %1 na poludnie.} {#map move s;map_move_s;map_updateexits;#if {$mnamelen < 1} {map_draw;#var map_movecursor 0}};
-#action {%*{Podazasz|podazasz} za %1 na wschod.} {#map move e;map_move_e;map_updateexits;#if {$mnamelen < 1} {map_draw;#var map_movecursor 0}};
-#action {%*{Podazasz|podazasz} za %1 na zachod.} {#map move w;map_move_w;map_updateexits;#if {$mnamelen < 1} {map_draw;#var map_movecursor 0}};
-#action {%*{Podazasz|podazasz} za %1 na polnocny-zachod.} {#map move nw;map_move_nw;map_updateexits;#if {$mnamelen < 1} {map_draw;#var map_movecursor 0}};
-#action {%*{Podazasz|podazasz} za %1 na poludniowy-zachod.} {#map move sw;map_move_sw;map_updateexits;#if {$mnamelen < 1} {map_draw;#var map_movecursor 0}};
-#action {%*{Podazasz|podazasz} za %1 na polnocny-wschod.} {#map move ne;map_move_ne;map_updateexits;#if {$mnamelen < 1} {map_draw;#var map_movecursor 0}};
-#action {%*{Podazasz|podazasz} za %1 na poludniowy-wschod.} {#map move se;map_move_se;map_updateexits;#if {$mnamelen < 1} {map_draw;#var map_movecursor 0}};
+#action {%*{Podazasz|podazasz} za %1 na polnoc.} {#map move n};
+#action {%*{Podazasz|podazasz} za %1 na poludnie.} {#map move s};
+#action {%*{Podazasz|podazasz} za %1 na wschod.} {#map move e};
+#action {%*{Podazasz|podazasz} za %1 na zachod.} {#map move w};
+#action {%*{Podazasz|podazasz} za %1 na polnocny-zachod.} {#map move nw};
+#action {%*{Podazasz|podazasz} za %1 na poludniowy-zachod.} {#map move sw};
+#action {%*{Podazasz|podazasz} za %1 na polnocny-wschod.} {#map move ne};
+#action {%*{Podazasz|podazasz} za %1 na poludniowy-wschod.} {#map move se};
 
 #action {%*{Podazasz|podazasz} za %1 na trakt.} {#map move trakt};
 #action {%*{Podazasz|podazasz} za %1 do chatki.} {#map move chatka};	
