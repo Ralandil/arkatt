@@ -304,7 +304,7 @@
 #var zioladb[Mandragora][sposob][o] {rozgryz};
 #var zioladb[Aralia][sposob] {};
 #var zioladb[Kola][sposob] {};
-#var zioladb[Przesl][sposob][hp] {przezuj};
+#var zioladb[Przesl][sposob][wt] {przezuj};
 #var zioladb[Lulecznica][sposob] {};
 #var zioladb[Konwalia][sposob] {};
 #var zioladb[Lak][sposob] {};
@@ -533,7 +533,7 @@
 #var zioladb[Mandragora][odmiana] {bialy rozgaleziony korzen};
 #var zioladb[Aralia][odmiana] {szary kolczasty korzen};
 #var zioladb[Kola][odmiana] {brazowe okragle nasionko};
-#var zioladb[Przesl][odmiana] {rozgowata zoltozielona galaz};
+#var zioladb[Przesl][odmiana] {rozgowata zoltozielona galazke};
 #var zioladb[Lulecznica][odmiana] {jasnozielona nieowlosiona lodyge};
 #var zioladb[Konwalia][odmiana] {wonny dzwonkowaty kwiat};
 #var zioladb[Lak][odmiana] {sztywna smukla lodyge};
