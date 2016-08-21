@@ -123,5 +123,16 @@
 #var maplookup[Averland][148][102][poludniowy-wschod][mapdir] {poludniowy-wschod};
 
 
+#var maplookup[Reikland][81][68][poludniowy-zachod][mapnam] {wiezagolemow.map};
+#var maplookup[Reikland][81][68][poludniowy-zachod][mappos] {1};
+#var maplookup[Reikland][81][68][poludniowy-zachod][mapdir] {poludniowy-zachod};
+
+
+#var maplookup[Reikland][75][60][zachod][mapnam] {kopalnia.map};
+#var maplookup[Reikland][75][60][zachod][mappos] {1};
+#var maplookup[Reikland][75][60][zachod][mapdir] {zachod};
+
+
+
 #unmacro {<};
 #unmacro {>};

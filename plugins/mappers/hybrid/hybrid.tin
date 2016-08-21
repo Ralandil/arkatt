@@ -26,104 +26,105 @@
 
 #action {%*{Podazasz|podazasz} za %1} {#sh <faa>CATCH %1 [$ROOM_INFO] $current_room_id} {8};
 
-#action {%*{Podazasz|podazasz} za %1 na polnocny-zachod wdrapujac sie na zwalony pien i zeskakujac na druga strone.} {follow_move_nw} {4};
-#action {%*{Podazasz|podazasz} za %1 po drabinie na dol.} {#map move drabina} {4}
-#action {%*{Podazasz|podazasz} za %1 po drabinie na gore.} {#map move drabina} {4}
-#action {%*{Podazasz|podazasz} za %1 w ciemnosci skalnej jamy.} {#map move jama}
-#action {%*{Podazasz|podazasz} za %1 ku gorze.} {follow_move_u}
-#action {%*{Podazasz|podazasz} za %1 do skladu zbroi.} {follow_move_e}
-#action {%*{Podazasz|podazasz} za %1 do kantoru.} {follow_move_e}
-#action {%*{Podazasz|podazasz} za %1 na rynek.} {follow_move_w}
-#action {%*{Podazasz|podazasz} za %1 miedzy krzaki.} {#map move {miedzy krzaki}}
-#action {%*{Podazasz|podazasz} za %1 na poludnie odgarniajac pajeczyny zaslaniajace przejscie.} {follow_move_s};
-#action {%*{Podazasz|podazasz} za %1 na polnoc odgarniajac pajeczyny zaslaniajace przejscie.} {follow_move_n};
-#action {%*{Podazasz|podazasz} za %1 do tunelu.} {#map move tunel}
-#action {%*{Podazasz|podazasz} za %1 do biblioteki.} {#map move biblioteka}
-#action {%*{Podazasz|podazasz} za %1 do latryny.} {#map move latryna}
-#action {%*{Podazasz|podazasz} za %1 na gore po schodach.} {follow_move_u}
-#action {%*{Podazasz|podazasz} za %1 na dol po schodach.} {follow_move_d}
-#action {%*{Podazasz|podazasz} za %1 na gore po schodkach.} {follow_move_u}
-#action {%*{Podazasz|podazasz} za %1 na dol po schodkach.} {follow_move_d}
-#action {%*{Podazasz|podazasz} za %1 na gore unoszac ciezka klape.} {follow_move_u}
-#action {%*{Podazasz|podazasz} za %1 na dol unoszac ciezka klape.} {follow_move_d}
-#action {%*{Podazasz|podazasz} za %1 na zewnatrz dziupli.} {#map move wyjscie}
-#action {%*{Podazasz|podazasz} za %1 do jaskini.} {#map move jaskinia}
-#action {%*{Podazasz|podazasz} za %1 do skladu broni.} {follow_move_w}
-#action {%*{Podazasz|podazasz} za %1 na schody.} {#map move schody};
-#action {%*{Podazasz|podazasz} za %1 na kladke.} {#map move kladka};
-#action {%*{Podazasz|podazasz} za %1 na kladka.} {#map move kladka};
-#action {%*{Podazasz|podazasz} za %1 do kuzni.} {#map move kuznia};
-#action {%*{Podazasz|podazasz} za %1 do kancelarii.} {#map move kancelaria};
-#action {%*{Podazasz|podazasz} za %1 do magazynu.} {#map move magazyn};
-#action {%*{Podazasz|podazasz} za %1 do jadlodajni.} {#map move jadlodajnia};
-#action {%*{Podazasz|podazasz} za %1 do namiotu.} {#map move namiot};
-#action {%*{Podazasz|podazasz} za %1 w strone obozu.} {#map move oboz};
-#action {%*{Podazasz|podazasz} za %1 do szczeliny.} {#map move szczelina};
-#action {%*{Podazasz|podazasz} za %1 na dol.} {follow_move_d};
-#action {%*{Podazasz|podazasz} za %1 na gore.} {follow_move_u};
+#action {%*{Podazasz|podazasz} za %1 na polnocny-zachod wdrapujac sie na zwalony pien i zeskakujac na druga strone.} {#map move nw;mapdraw} {4};
+#action {%*{Podazasz|podazasz} za %1 po drabinie na dol.} {#map move drabina;mapdraw} {4}
+#action {%*{Podazasz|podazasz} za %1 po drabinie na gore.} {#map move drabina;mapdraw} {4}
+#action {%*{Podazasz|podazasz} za %1 w ciemnosci skalnej jamy.} {#map move jama;mapdraw}
+#action {%*{Podazasz|podazasz} za %1 ku gorze.} {#map move u;mapdraw}
+#action {%*{Podazasz|podazasz} za %1 do skladu zbroi.} {#map move e;mapdraw}
+#action {%*{Podazasz|podazasz} za %1 do kantoru.} {#map move e;mapdraw}
+#action {%*{Podazasz|podazasz} za %1 na rynek.} {#map move w;mapdraw}
+#action {%*{Podazasz|podazasz} za %1 miedzy krzaki.} {#map move miedzy krzaki;mapdraw}
+#action {%*{Podazasz|podazasz} za %1 na poludnie odgarniajac pajeczyny zaslaniajace przejscie.} {#map move s;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 na polnoc odgarniajac pajeczyny zaslaniajace przejscie.} {#map move n;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 do tunelu.} {#map move tunel;mapdraw}
+#action {%*{Podazasz|podazasz} za %1 do biblioteki.} {#map move biblioteka;mapdraw}
+#action {%*{Podazasz|podazasz} za %1 do latryny.} {#map move latryna;mapdraw}
+#action {%*{Podazasz|podazasz} za %1 na gore po schodach.} {#map move u;mapdraw}
+#action {%*{Podazasz|podazasz} za %1 na dol po schodach.} {#map move d;mapdraw}
+#action {%*{Podazasz|podazasz} za %1 na gore po schodkach.} {#map move u;mapdraw}
+#action {%*{Podazasz|podazasz} za %1 na dol po schodkach.} {#map move d;mapdraw}
+#action {%*{Podazasz|podazasz} za %1 na gore unoszac ciezka klape.} {#map move u;mapdraw}
+#action {%*{Podazasz|podazasz} za %1 na dol unoszac ciezka klape.} {#map move d;mapdraw}
+#action {%*{Podazasz|podazasz} za %1 na zewnatrz dziupli.} {#map move wyjscie;mapdraw}
+#action {%*{Podazasz|podazasz} za %1 do jaskini.} {#map move jaskinia;mapdraw}
+#action {%*{Podazasz|podazasz} za %1 do skladu broni.} {#map move w;mapdraw}
+#action {%*{Podazasz|podazasz} za %1 na schody.} {#map move schody;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 na kladke.} {#map move kladka;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 na kladka.} {#map move kladka;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 do kuzni.} {#map move kuznia;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 do kancelarii.} {#map move kancelaria;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 do magazynu.} {#map move magazyn;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 do jadlodajni.} {#map move jadlodajnia;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 do namiotu.} {#map move namiot;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 do szczeliny.} {#map move szczelina;mapdraw};
 
-#action {%*{Podazasz|podazasz} za %1 na polnoc.} {follow_move_n};
-#action {%*{Podazasz|podazasz} za %1 na poludnie.} {follow_move_s};
-#action {%*{Podazasz|podazasz} za %1 na wschod.} {follow_move_e};
-#action {%*{Podazasz|podazasz} za %1 na zachod.} {follow_move_w};
-#action {%*{Podazasz|podazasz} za %1 na polnocny-zachod.} {follow_move_nw};
-#action {%*{Podazasz|podazasz} za %1 na poludniowy-zachod.} {follow_move_sw};
-#action {%*{Podazasz|podazasz} za %1 na polnocny-wschod.} {follow_move_ne};
-#action {%*{Podazasz|podazasz} za %1 na poludniowy-wschod.} {follow_move_se};
+#unaction {%*{Podazasz|podazasz} za %1 na dol.} {#map move d};
+#unaction {%*{Podazasz|podazasz} za %1 na gore.} {#map move u};
+#unaction {%*{Podazasz|podazasz} za %1 na polnoc.} {#map move n};
+#unaction {%*{Podazasz|podazasz} za %1 na poludnie.} {#map move s};
+#unaction {%*{Podazasz|podazasz} za %1 na wschod.} {#map move e};
+#unaction {%*{Podazasz|podazasz} za %1 na zachod.} {#map move w};
+#unaction {%*{Podazasz|podazasz} za %1 na polnocny-zachod.} {#map move nw};
+#unaction {%*{Podazasz|podazasz} za %1 na poludniowy-zachod.} {#map move sw};
+#unaction {%*{Podazasz|podazasz} za %1 na polnocny-wschod.} {#map move ne};
+#unaction {%*{Podazasz|podazasz} za %1 na poludniowy-wschod.} {#map move se};
 
-#action {%*{Podazasz|podazasz} za %1 na trakt.} {#map move trakt};
-#action {%*{Podazasz|podazasz} za %1 do chatki.} {#map move chatka};	
-#action {%*{Podazasz|podazasz} za %1 do wyjscia.} {#map move wyjscie};
-#action {%*{Podazasz|podazasz} za %1 przez wode na polnoc.} {follow_move_n};
-#action {%*{Podazasz|podazasz} za %1 przez wode na poludnie.} {follow_move_s};
-#action {%*{Podazasz|podazasz} za %1 przez wode na wschod.} {follow_move_e};
-#action {%*{Podazasz|podazasz} za %1 przez wode na zachod.} {follow_move_w};
-#action {%*{Podazasz|podazasz} za %1 przez wode na polnocny-zachod.} {follow_move_nw};
-#action {%*{Podazasz|podazasz} za %1 przez wode na poludniowy-zachod.} {follow_move_sw};
-#action {%*{Podazasz|podazasz} za %1 przez wode na polnocny-wschod.} {follow_move_ne};
-#action {%*{Podazasz|podazasz} za %1 przez wode na poludniowy-wschod.} {follow_move_se};
-#action {%*{Podazasz|podazasz} za %1 na ulice.} {#map move wyjscie};
-#action {%*{Podazasz|podazasz} za %1 brama zamku na zachod.} {#map move brama};
-#action {%*{Podazasz|podazasz} za %1 brodem przez strumien.} {#map move brod};
-#action {%*{Podazasz|podazasz} za %1 brodzac w wodzie na druga strone rzeki.} {#map move woda};
-#action {%*{Podazasz|podazasz} za %1 do alkierza.} {#map move alkierz};
-#action {%*{Podazasz|podazasz} za %1 do budynku.} {#map move budynek};
-#action {%*{Podazasz|podazasz} za %1 do wnetrza chatki.} {#map move chatka};
-#action {%*{Podazasz|podazasz} za %1 do chaty.} {#map move chata};
-#action {%*{Podazasz|podazasz} za %1 do czwartej kajuty.} {#map move czwarta kajuta};
-#action {%*{Podazasz|podazasz} za %1 do drugiej kajuty.} {#map move druga kajuta};
-#action {%*{Podazasz|podazasz} za %1 do drzwi.} {#map move drzwi};
-#action {%*{Podazasz|podazasz} za %1 do gory na most.} {#map move most};
-#action {%*{Podazasz|podazasz} za %1 na most.} {#map move most};
-#action {%*{Podazasz|podazasz} za %1 w strone wyjscia.} {#map move wyjscie};
-#action {%*{Podazasz|podazasz} za %1 w kierunku traktu.} {#map move trakt};
-#action {%*{Podazasz|podazasz} za %1 przez dziure w murze} {follow_move_sw} {2};
-#action {%*{Podazasz|podazasz} za %1 gdzies w las, szybko znikajac miedzy drzewami} {follow_move_n};
-#action {%*{Podazasz|podazasz} za %1 znikajac w podwojach warowni.} {follow_move_w};
-#action {%*{Podazasz|podazasz} za %1 opuszczajac podwoje warowni.} {follow_move_e};
-#action {%*{Podazasz|podazasz} za %1 na poczte.} {follow_move_e};
-#action {%*{Podazasz|podazasz} za %1 na polnoc odgarniajac pajeczny zaslaniajace przejscie.} {follow_move_n};
-#action {%*{Podazasz|podazasz} za %1 na poludnie odgarniajac pajeczny zaslaniajace przejscie.} {follow_move_s};
-#action {%*{Podazasz|podazasz} za %1 na wschod odgarniajac pajeczny zaslaniajace przejscie.} {follow_move_e};
-#action {%*{Podazasz|podazasz} za %1 na zachod odgarniajac pajeczny zaslaniajace przejscie.} {follow_move_w};
-#action {%*{Podazasz|podazasz} za %1 przez drzwi na poludnie.} {follow_move_s};
-#action {%*{Podazasz|podazasz} za %1 przez drzwi na polnoc.} {follow_move_n};
-#action {%*{Podazasz|podazasz} za %1 przez drzwi na zachod.} {follow_move_w};
-#action {%*{Podazasz|podazasz} za %1 przez drzwi na wschod.} {follow_move_e};
-#action {%*{Podazasz|podazasz} za %1 przez kladke.} {#map move kladka};
-#action {%*{Podazasz|podazasz} za %1 traktem w gore.} {follow_move_u};
-#action {%*{Podazasz|podazasz} za %1 traktem w dol.} {follow_move_d};
-#action {%*{Podazasz|podazasz} za %1 w gore traktem.} {follow_move_u};
-#action {%*{Podazasz|podazasz} za %1 w dol traktem.} {follow_move_d};
-#action {%*{Podazasz|podazasz} za %1 droga w dol.} {follow_move_d};
-#action {%*{Podazasz|podazasz} za %1 droga w gore.} {follow_move_u};
-#action {%*{Podazasz|podazasz} za %1 do otworu.} {#map move otwor};
-#action {%*{Podazasz|podazasz} za %1 w kierunku otworu.} {#map move otwor};
-#action {%*{Podazasz|podazasz} za %1 na zewnatrz.} {#map move wyjscie};
-#action {%*{Podazasz|podazasz} za %1 do srodka otworu.} {#map move otwor};
-#action {%*{Podazasz|podazasz} za %1 za brame.} {#map move brama};
-#action {%*{Podazasz|podazasz} za %1 na zewnatrz baszty.} {#map move wyjscie};
-#action {%*{Podazasz|podazasz} za %1 wznoszacym sie korytarzem ku powierzchni.} {follow_move_u};
+#action {%*{Podazasz|podazasz} za %1 w strone obozu.} {#map move oboz;mapdraw};
+
+#action {%*{Podazasz|podazasz} za %1 na trakt.} {#map move trakt;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 do chatki.} {#map move chatka;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 do wyjscia.} {#map move wyjscie;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 przez wode na polnoc.} {#map move n;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 przez wode na poludnie.} {#map move s;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 przez wode na wschod.} {#map move e;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 przez wode na zachod.} {#map move w;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 przez wode na polnocny-zachod.} {#map move nw;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 przez wode na poludniowy-zachod.} {#map move sw;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 przez wode na polnocny-wschod.} {#map move ne;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 przez wode na poludniowy-wschod.} {#map move se;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 na ulice.} {#map move wyjscie;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 brama zamku na zachod.} {#map move brama;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 brodem przez strumien.} {#map move brod;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 brodzac w wodzie na druga strone rzeki.} {#map move woda;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 do alkierza.} {#map move alkierz;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 do budynku.} {#map move budynek;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 do wnetrza chatki.} {#map move chatka;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 do chaty.} {#map move chata;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 do czwartej kajuty.} {#map move czwarta kajuta;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 do drugiej kajuty.} {#map move druga kajuta;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 do drzwi.} {#map move drzwi;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 do gory na most.} {#map move most;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 na most.} {#map move most;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 w strone wyjscia.} {#map move wyjscie;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 w kierunku traktu.} {#map move trakt;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 przez dziure w murze} {#map move sw;mapdraw} {2};
+#action {%*{Podazasz|podazasz} za %1 gdzies w las, szybko znikajac miedzy drzewami} {#map move n;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 znikajac w podwojach warowni.} {#map move w;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 opuszczajac podwoje warowni.} {#map move e;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 na poczte.} {#map move e;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 na polnoc odgarniajac pajeczny zaslaniajace przejscie.} {#map move n;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 na poludnie odgarniajac pajeczny zaslaniajace przejscie.} {#map move s;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 na wschod odgarniajac pajeczny zaslaniajace przejscie.} {#map move e;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 na zachod odgarniajac pajeczny zaslaniajace przejscie.} {#map move w;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 przez drzwi na poludnie.} {#map move s;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 przez drzwi na polnoc.} {#map move n;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 przez drzwi na zachod.} {#map move w;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 przez drzwi na wschod.} {#map move e;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 przez kladke.} {#map move kladka;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 traktem w gore.} {#map move u;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 traktem w dol.} {#map move d;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 w gore traktem.} {#map move u;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 w dol traktem.} {#map move d;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 droga w dol.} {#map move d;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 droga w gore.} {#map move u;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 do otworu.} {#map move otwor;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 w kierunku otworu.} {#map move otwor;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 na zewnatrz.} {#map move wyjscie;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 do srodka otworu.} {#map move otwor;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 za brame.} {#map move brama;mapdraw;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 na zewnatrz baszty.} {#map move wyjscie;mapdraw};
+#action {%*{Podazasz|podazasz} za %1 wznoszacym sie korytarzem ku powierzchni.} {#map move u;mapdraw};
 
 #loop {1} {11} {flushmapc} {#var asciimapv[$flushmapc] {                                          }};
 #alias {asciimap}
@@ -178,6 +179,8 @@
 #var arkadirections[poludnie] {s};
 #var arkadirections[gora] {u};
 #var arkadirections[dol] {d};
+#var arkadirections[gore] {u};
+
 
 #alias {move_n} {n};
 #alias {move_s} {s};
@@ -190,20 +193,11 @@
 #alias {move_sw} {sw};
 #alias {move_se} {se};
 
-#alias {follow_move_n} {#map move n};
-#alias {follow_move_s} {#map move s};
-#alias {follow_move_e} {#map move e};
-#alias {follow_move_w} {#map move w};
-#alias {follow_move_d} {#map move d};
-#alias {follow_move_u} {#map move u};
-#alias {follow_move_ne} {#map move ne};
-#alias {follow_move_nw} {#map move nw};
-#alias {follow_move_sw} {#map move sw};
-#alias {follow_move_se} {#map move se};
-
 
 
 #alias {mapdraw} {
+    #format mnamelen {%L} {$ROOM_INFO[map][name]};
+    #if {$mnamelen < 2} {
     #map map {69x12} {tmpmap.ascii};
     #script {asciimapv} {cat tmpmap.ascii};
     #loop {1} {12} {asciicnt} {
@@ -216,9 +210,11 @@
         #replace asciimapline {|} {<bbb>|};
         #var asciimapv[$asciicnt] {$asciimapline};
     };
+    testprompt;
+};
 }
 #alias {mapread} {#map read $path/plugins/mappers/hybrid/maps/%0};
-#alias {mapwrite} {#map read $path/plugins/mappers/hybrid/maps/%0};
+#alias {mapwrite} {#map write $path/plugins/mappers/hybrid/maps/%0};
 
 #EVENT {MAP ENTER ROOM}
 {
@@ -244,18 +240,40 @@
 	#unalias {se};
 	#unalias {d};
 	#unalias {u};
-    #alias {follow_move_n} {#map move n};
-    #alias {follow_move_s} {#map move s};
-    #alias {follow_move_e} {#map move e};
-    #alias {follow_move_w} {#map move w};
-    #alias {follow_move_d} {#map move d};
-    #alias {follow_move_u} {#map move u};
-    #alias {follow_move_ne} {#map move ne};
-    #alias {follow_move_nw} {#map move nw};
-    #alias {follow_move_sw} {#map move sw};
-    #alias {follow_move_se} {#map move se};
+
 };
 
+#alias {follow_n} {#var follow_dir n};
+#alias {follow_s} {#var follow_dir s};
+#alias {follow_w} {#var follow_dir w};
+#alias {follow_e} {#var follow_dir e};
+#alias {follow_ne} {#var follow_dir ne};
+#alias {follow_nw} {#var follow_dir nw};
+#alias {follow_se} {#var follow_dir se};
+#alias {follow_sw} {#var follow_dir sw};
+
+
+#action {{Podazasz|podazasz} za %1 na {gore|dol|poludnie|wschod|zachod|polnocny-zachod|polnocny-wschod|poludniowy-zachod|poludniowy-wschod|polnoc}.}
+{
+    #var ttmap_newtmp 0;
+    #if {$gmcpendpoints[$arkadirections[%2]] == 1} {
+        #sh {<FAA>$gmcpendpoints[$arkadirections[%2]] <088>};
+        #line substitute {variables} {$arkadirections[%2]$arkadirections[%2]};
+        #var gmcpendpoints[n] {0};
+        #var gmcpendpoints[s] {0};
+        #var gmcpendpoints[w] {0};
+        #var gmcpendpoints[e] {0};
+        #var gmcpendpoints[nw] {0};
+        #var gmcpendpoints[ne] {0};
+        #var gmcpendpoints[sw] {0};
+        #var gmcpendpoints[se] {0};
+        #var gmcpendpoints[u] {0};
+        #var gmcpendpoints[d] {0};
+    } {
+        #map move $arkadirections[%2];
+    };
+        mapdraw;
+};
 
 #nop ###############  GMCP  MAP INTEGRATION #####################
 
@@ -271,9 +289,22 @@
 	#unalias {se};
 	#unalias {d};
 	#unalias {u};
-	
+
+    #sh {<FAA>TUTATJ GMCP<088>};
+
+
     #format mnamelen {%L} {$ROOM_INFO[map][name]};
     #if {$mnamelen > 0} {
+        #var gmcpendpoints[n] {0};
+        #var gmcpendpoints[s] {0};
+        #var gmcpendpoints[w] {0};
+        #var gmcpendpoints[e] {0};
+        #var gmcpendpoints[nw] {0};
+        #var gmcpendpoints[ne] {0};
+        #var gmcpendpoints[sw] {0};
+        #var gmcpendpoints[se] {0};
+        #var gmcpendpoints[u] {0};
+        #var gmcpendpoints[d] {0};
         #if {$ttmap_loaded == 1} {
     		#map destroy;
     		#var ttmap_loaded 0;
@@ -284,7 +315,7 @@
 
 		#foreach {$maplookup[$ROOM_INFO[map][name]][$ROOM_INFO[map][x]][$ROOM_INFO[map][y]][]} {tmpexit} {
 
-#line substitute {variables} {
+            #line substitute {variables} {
                 #alias {$arkadirections[$tmpexit]} {
                     #send $maplookup[$ROOM_INFO[map][name]][$ROOM_INFO[map][x]][$ROOM_INFO[map][y]][$tmpexit][mapdir];
 					#map read $path/plugins/mappers/hybrid/maps/$maplookup[$ROOM_INFO[map][name]][$ROOM_INFO[map][x]][$ROOM_INFO[map][y]][$tmpexit][mapnam];
@@ -292,44 +323,44 @@
 					#var ttmap_loaded 1;
                     #var ttmap_newtmp 0;
 				};
-                #alias {follow_move_$arkadirections[$tmpexit]} {
-                    #send $maplookup[$ROOM_INFO[map][name]][$ROOM_INFO[map][x]][$ROOM_INFO[map][y]][$tmpexit][mapdir];
+                #alias {$arkadirections[$tmpexit]$arkadirections[$tmpexit]} {
                     #map read $path/plugins/mappers/hybrid/maps/$maplookup[$ROOM_INFO[map][name]][$ROOM_INFO[map][x]][$ROOM_INFO[map][y]][$tmpexit][mapnam];
                     #map goto $maplookup[$ROOM_INFO[map][name]][$ROOM_INFO[map][x]][$ROOM_INFO[map][y]][$tmpexit][mappos];
                     #var ttmap_loaded 1;
                     #var ttmap_newtmp 0;
                 };
-
-};
-
-		};
-    } {
-        #if {$ttmap_loaded < 1} {
-            #map create;
-            #map goto 1;
-            #var ttmap_loaded 1;
-            #var ttmap_newtmp 1;
-        };
-        #if {$ttmap_loaded == 1} {
-
-            #if {$ttmap_newtmp == 1} {
-                #foreach {$ROOM_INFO[exits][]} {rum} {
-                    #switch {"$ROOM_INFO[exits][$rum]"} {
-                        #case {"zachod"} {#map dig w};
-                        #case {"wschod"} {#map dig e};
-                        #case {"polnoc"} {#map dig n};
-                        #case {"poludnie"} {#map dig s};
-                        #case {"polnocny-wschod"} {#map dig ne};
-                        #case {"poludniowy-wschod"} {#map dig se};
-                        #case {"poludniowy-zachod"} {#map dig sw};
-                        #case {"polnocny-zachod"} {#map dig nw};
-                        #case {"dol"} {#map dig d};
-                        #case {"gora"} {#map dig u};
-                    };
-                };
-                mapdraw;
             };
+
+            #var gmcpendpoints[$arkadirections[$tmpexit]] {1};
         };
+    } {
+            #if {$ttmap_loaded < 1} {
+                #map create;
+                #map goto 1;
+                #var ttmap_loaded 1;
+                #var ttmap_newtmp 1;
+            };
+
+            #if {$ttmap_loaded == 1} {
+                #if {$ttmap_newtmp == 1} {
+                    #foreach {$ROOM_INFO[exits][]} {rum} {
+                        #switch {"$ROOM_INFO[exits][$rum]"} {
+                            #case {"zachod"} {#map dig w};
+                            #case {"wschod"} {#map dig e};
+                            #case {"polnoc"} {#map dig n};
+                            #case {"poludnie"} {#map dig s};
+                            #case {"polnocny-wschod"} {#map dig ne};
+                            #case {"poludniowy-wschod"} {#map dig se};
+                            #case {"poludniowy-zachod"} {#map dig sw};
+                            #case {"polnocny-zachod"} {#map dig nw};
+                            #case {"dol"} {#map dig d};
+                            #case {"gora"} {#map dig u};
+                        };
+                    };
+                    mapdraw;
+                };
+            };
+
     };
 
 	#var ruch_kompasu {none};
