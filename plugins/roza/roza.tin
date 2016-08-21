@@ -1,0 +1,31 @@
+#EVENT {VARIABLE UPDATE ROOM_INFO} {
+  
+  #var rozb {{w}{  }{e}{  }{n}{   }{s}{   }{nw}{  }{ne}{  }{se}{  }{sw}{  }{d}{ }{u}{ }};
+  #delay {0.01} {
+    #foreach {$ROOM_INFO[exits]} {i}
+    {
+      #switch {"$ROOM_INFO[exits][$i]"}
+      {
+        #case {"polnoc"} {#var {rozb[n]} { | }};
+        #case {"polnocny-wschod"} {#var {rozb[ne]} {/ }};
+        #case {"polnocny-zachod"} {#var {rozb[nw]} { \\}};
+        #case {"poludnie"} {#var {rozb[s]} { | }};
+        #case {"poludniowy-wschod"} {#var {rozb[se]} {\\ }};
+        #case {"poludniowy-zachod"} {#var {rozb[sw]} { /}};
+        #case {"wschod"} {#var {rozb[e]} {--}};
+        #case {"zachod"} {#var {rozb[w]} {--}};
+        #case {"dol"} {#var {rozb[d]} {-}};
+        #case {"gora"} {#var {rozb[u]} {+}};
+      };
+    };
+    
+        #var you {[ ]};
+        #if {$ROOM_INFO[map][name]} {
+          #echo {<G02>$ROOM_INFO[map][name] : $ROOM_INFO[map][x]x$ROOM_INFO[map][y]<880>};
+        };
+        #echo {$rozb[nw]$rozb[n]$rozb[ne]};
+        #echo {$rozb[w]$you$rozb[e]$rozb[u]};
+        #echo {$rozb[sw]$rozb[s]$rozb[se]$rozb[d]};
+      
+  };
+}

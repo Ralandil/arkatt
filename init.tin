@@ -3,8 +3,17 @@
 #var plugin[mappers][path] {$path/plugins/mappers/mudmapper/mudmapper.tin};
 #var plugin[mappers][state] {0};
 
+#var plugin[prompt][path] {$path/plugins/prompt/prompt.tin};
+#var plugin[prompt][state] {1};
+
+#var plugin[prompt_xs][path] {$path/plugins/prompt_xs/prompt.tin};
+#var plugin[prompt_xs][state] {0};
+
 #var plugin[lampa][path] {$path/plugins/lampa/lampa.tin};
 #var plugin[lampa][state] {1};
+
+#var plugin[roza][path] {$path/plugins/roza/roza.tin};
+#var plugin[roza][state] {1};
 
 #alias plugins {
 	#list {plugin} {size} {plugin_size};
@@ -24,6 +33,30 @@
 	};
 }
 
+#alias {plugin} {
+
+	#foreach {$plugin[]} {n} {
+		#if {$plugin[$n][state] == 1} {
+			#class {$n} {read} {$plugin[$n][path]};
+		};
+		#else {
+			#class {$n} {kill};
+		}
+	}
+
+}
+
+#alias {reload} {
+	#class %0 kill;
+	#class {%0} {read} {$plugin[%0][path]}
+}
+
+plugin;
+
+#event {SEND OUTPUT} {#sh %0}
+
+
+
 #var hp_bar { 0/ 0};
 #var pr_smad $hp_bar;
 #var pr_mana $hp_bar;
@@ -33,15 +66,6 @@
 #var pr_form $hp_bar;
 #var pr_exp $hp_bar;
 #var pr_obci $hp_bar;
-
-#foreach {$plugin[]} {n} {
-	#if {$plugin[$n][state] == 1} {
-		#class {$n} {read} {$plugin[$n][path]};
-	};
-	#else {
-		#class {$n} {kill};
-	}
-}
 
 #read $path/gmcp_char.tin;
 #read $path/gmcp_message.tin;
@@ -56,7 +80,7 @@
 
 #read $path/ocena_zbroi.tin;
 #read $path/env.tin;
-#read $path/prompt.tin;
+#nopread $path/prompt.tin;
 #read $path/macros.tin;
 #read $path/walka_ogolna.tin;
 #read $path/walka_ciosy.tin;

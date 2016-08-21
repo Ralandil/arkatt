@@ -52,6 +52,13 @@
     #var logpath ${path}/logs;
 
 
+#nop #####################################################
+#nop  KATALOG PROFILE
+#nop #####################################################;
+
+    #var profilepath ${path}/profiles;
+
+
 
 #nop #####################################################
 #nop  WORKI
@@ -136,6 +143,8 @@
     #var KEY_PAD_MIDDLE {\eOu};
     #var KEY_WARMODE_1 {§};
 
+    #var KEY_LEFT_HAND {\ez}
+    #var KEY_RIGHT_HAND {\ex}
 
 
 #nop #####################################################

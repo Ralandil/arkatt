@@ -1,9 +1,27 @@
+#event {IAC SB GMCP char.info IAC SE}{
+	#var CHAR_INFO {%0};
+	
+};
+
+#event {VARIABLE UPDATE CHAR_INFO} {
+	#var info {%1};
+	#var my_profile {${profilepath}/$info[name].tin};
+	#class profile {read} {$my_profile};
+
+	#class {profile} {open};
+		#var name ${info[name]};
+	#class {profile} {close};
+
+	#class profile {write} {$my_profile};
+	#sh {OKKK};
+}
+
 #EVENT {IAC SB GMCP char.state IAC SE} {
 	#var CHAR_STATE {%0};
     #if {"$CHAR_STATE[intox]" == "0"} {#var pr_upicie {<118><aca> 0/ 9<088>};};
     #if {"$CHAR_STATE[intox]" == "1"} {#var pr_upicie {<118><aca> 1/ 9<088>};};
     #if {"$CHAR_STATE[intox]" == "2"} {#var pr_upicie {<118><aca> 2/ 9<088>};};
-    #if {"$CHAR_STATE[intox]" == "3"} {#var pr_upicie {<118><aca> 3/ 9<088>};};
+    #if {"$CHAR_STATE[intox]" =	= "3"} {#var pr_upicie {<118><aca> 3/ 9<088>};};
     #if {"$CHAR_STATE[intox]" == "4"} {#var pr_upicie {<118><aca> 4/ 9<088>};};
     #if {"$CHAR_STATE[intox]" == "5"} {#var pr_upicie {<118><aca> 5/ 9<088>};};
     #if {"$CHAR_STATE[intox]" == "6"} {#var pr_upicie {<118><aca> 6/ 9<088>};};

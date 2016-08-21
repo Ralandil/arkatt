@@ -1,0 +1,9 @@
+#class {prompt_xs} {open}
+
+#split 0 1;
+
+#alias {testprompt} {
+	#nop;
+};
+
+#class {prompt_xs} {close}

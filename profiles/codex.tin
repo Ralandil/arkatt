@@ -1,0 +1,5 @@
+#CLASS {profile} OPEN
+
+#VARIABLE         {name}  {codex}
+
+#CLASS {profile} CLOSE
