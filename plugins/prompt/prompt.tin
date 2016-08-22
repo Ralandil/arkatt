@@ -1,0 +1,156 @@
+#class {prompt} {open}
+
+#loop 1 40 {d} {#var prompt_objects[$d] {}};
+#var prompt_type {1}
+
+#var pane_progress_none { 0/ 0};
+
+#var GBLOCK {<788>_<088>};
+#var YBLOCK {<FFA><118><aaa>_<088>};
+#var RBLOCK {<FAA><118><aaa>_<088>};
+#var GBLOCKU {<788><aaa>/\\<088>};
+#var GBLOCKD {<AFA><788><aaa>\\/<088>};
+#var RBLOCKU {<FAA><118><aaa>/\\<088>};
+#var RBLOCKD {<FAA><118><aaa>\\/<088>};
+#var YBLOCKU {<FFA><118><aaa>/\\<088>};
+#var YBLOCKD {<FFA><118><aaa>\\/<088>};
+
+#var compass_sw_t { /}
+#var compass_sw_b {/ }
+#var compass_se_t {\\ }
+#var compass_se_b { \\}
+#var compass_ne_t { /}
+#var compass_ne_b {/ }
+#var compass_nw_t {\\ }
+#var compass_nw_b { \\}
+#var compass_s { $hframe }
+#var compass_w {-}
+#var compass_e {-}
+#var compass_n {$hframe}
+#var compass_d {-}
+#var compass_u {+}
+#var compass_centre {${cl_kolko} <088>}
+#var prompt_zaslona_tick {-};
+
+
+#var quickbind_alias_red {<G01>       <088>};
+#var quickbind_alias_blue {<G01>       <088>};
+#var quickbind_alias_yellow {<G01>       <088>};
+#var quickbind_alias_green {<G01>       <088>};
+
+#var pr_upicie $pane_progress_none;
+
+#var pr_poczta <afa>--<088>;
+#var pr_bron <faa>N<088>;
+#var pr_kill <ccc>0<088>;
+
+#var pr_nw {\\};
+#var pr_n {|};
+#var pr_ne {/};
+#var pr_e {-};
+#var pr_w {-};
+#var pr_se {\\};
+#var pr_s {|};
+#var pr_sw {/};
+#var pr_d {d};
+#var pr_u {u};
+#var pr_wy {w};
+#var pr_ctr {<ffa>+<088>};
+
+#split 0 11
+
+#var display_function_1 {                              };
+#var display_function_2 {                                   };
+#var display_function_3 {                                   };
+#var display_function_4 {                                   };
+#var display_function_5 {                                   };
+#var display_function_6 {                                   };
+#var display_function_7 {                                   };
+#var display_function_8 {                                   };
+#var display_function_9 {                                   };
+
+#alias {testprompt}
+{
+#sh prompt11;
+#sh prompt10;
+#sh prompt9;
+#sh prompt8;
+#sh prompt7;
+#sh prompt6;
+	#sh prompt5;
+	#sh prompt4;
+	#sh prompt3;
+	#sh prompt2;
+	#sh prompt1;
+}
+
+
+
+#var prompt_tab_button_hp_a {<118><G04><afa>   DRUZYNA > <088>};
+#var prompt_tab_button_hp_i {<118><G01><aba>   DRUZYNA   <088>};
+#var prompt_tab_button_he_a {<118><G04><aff> <  ZIOLA  > <088>};
+#var prompt_tab_button_he_i {<118><G01><abb>    ZIOLA    <088>};
+#var prompt_tab_button_ch_a {<118><G04><ffa> < ROZMOWA > <088>};
+#var prompt_tab_button_ch_i {<118><G01><bba>   ROZMOWA   <088>};
+#var prompt_tab_button_ch_n {<118><G01><bba>   ROZMOWA <faa>! <088>};
+#var prompt_tab_button_st_a {<118><G04><faa> <  STATY  > <088>};
+#var prompt_tab_button_st_i {<118><G01><baa>    STATY    <088>};
+
+#var prompt_tab_button_hp $prompt_tab_button_hp_a;
+#var prompt_tab_button_he $prompt_tab_button_he_i;
+#var prompt_tab_button_ch $prompt_tab_button_ch_i;
+#var prompt_tab_button_st $prompt_tab_button_st_i;
+
+
+#alias {PROMPT_SET_HP} {
+#var fmsvc {<BAA> <088>};
+#var prompt_tab_button_hp $prompt_tab_button_hp_a;
+#var prompt_tab_button_he $prompt_tab_button_he_i;
+#var prompt_tab_button_ch $prompt_tab_button_ch_i;
+#var prompt_tab_button_st $prompt_tab_button_st_i;
+    #format screen_w {%C};
+    #math preline_w {$screen_w / 2};
+    #math preline_w {$preline_w - 45};
+    #var preline { };
+    #nop loop {1} {$preline_w} {d} {
+        #var preline {$preline };
+    };
+
+#prompt {prompt11} {                                 <088>$fmsvc$asciimapv[1]<088>   $prompt_tab_button_hp$prompt_tab_button_ch$prompt_tab_button_he$prompt_tab_button_st } {11};
+   #prompt {prompt10} {$preline<088> $czas_prompt            <088>$fmsvc$asciimapv[2]<088>$fmsvc  ${prompt_avatar[1]}$prompt_objects[10]$prompt_objects[20]$prompt_objects[30]$prompt_objects[40]} {10};
+    #prompt {prompt9} {$preline<088>                                <088>$fmsvc$asciimapv[3]<088>$fmsvc  ${prompt_objects[1]}$prompt_objects[11]$prompt_objects[21]$prompt_objects[31]$prompt_objects[41]} {9};
+    #prompt {prompt8} {$preline<088> $display_function_1 <088>$fmsvc$asciimapv[4]<088>$fmsvc  ${prompt_objects[2]}$prompt_objects[12]$prompt_objects[22]$prompt_objects[32]$prompt_objects[42]} {8};
+    #prompt {prompt7} {$preline<088>                                <088>$fmsvc$asciimapv[5]<088>$fmsvc  $prompt_objects[3]$prompt_objects[13]$prompt_objects[23]$prompt_objects[33]$prompt_objects[43]} {7};
+    #prompt {prompt6} {$preline<088> $prompt_button_target $prompt_button_przelam  <088>$fmsvc$asciimapv[6]<088>$fmsvc  $prompt_objects[4]$prompt_objects[14]$prompt_objects[24]$prompt_objects[34]$prompt_objects[44]} {6};
+	#prompt {prompt5} {$preline<088> $prompt_button_zaslonacel $prompt_button_zaslonaty $prompt_button_swiatlo  <088>$fmsvc$asciimapv[7]<088>$fmsvc  $prompt_objects[5]$prompt_objects[15]$prompt_objects[25]$prompt_objects[35]$prompt_objects[45]} {5};
+	#prompt {prompt4} {$preline<088>                                <088>$fmsvc$asciimapv[8]<088>$fmsvc  $prompt_objects[6]$prompt_objects[16]$prompt_objects[26]$prompt_objects[36]$prompt_objects[46]} {4};
+    #prompt {prompt3} {$preline<088> <aff>Kon:<088>$hp_bar <aff>Zme:<088>$pr_zmeczenie <aff>Glo:<088>$pr_glod<088>  $fmsvc$asciimapv[9]<088>$fmsvc  $prompt_objects[7]$prompt_objects[17]$prompt_objects[27]$prompt_objects[37]$prompt_objects[47]} {3};
+	#prompt {prompt2} {$preline<088> <aff>Man:<088>$pr_mana <aff>Cie:<088>$pr_obci <aff>Pra:<088>$pr_smad<088>  $fmsvc$asciimapv[10]<088>$fmsvc  $prompt_objects[8]$prompt_objects[18]$prompt_objects[28]$prompt_objects[38]$prompt_objects[48]} {2};
+	#prompt {prompt1} {$preline<088> <aff>Exp:<088>$pr_exp <aff>For:<088>$pr_form <aff>Upi:<088>$pr_upicie<088>  $fmsvc$asciimapv[11]<088>$fmsvc  $prompt_objects[9]$prompt_objects[19]$prompt_objects[29]$prompt_objects[39]$prompt_objects[49]} {1};
+    testprompt;
+}
+#event {SCREEN RESIZE} {PROMPT_SET_HP};
+
+
+#alias {PROMPT_SET_MAP} {
+	#prompt {prompt5} { <088><aff>f1: $display_function_1 <088>           <aff>Kon:<088> $hp_bar  <aff>Pra: <088>$pr_smad   $asciimapv[2]} {6};
+	#prompt {prompt4} { <088><aff>f2: $display_function_2 <088> $pr_nw  $pr_n  $pr_ne   <aff>Man:<088> $pr_mana  <aff>Glo: <088>$pr_glod   $asciimapv[3]} {5};
+	#prompt {prompt3} { <088><aff>f3: $display_function_3 <088> $pr_w  o  $pr_e   <aff>Zme:<088> $pr_zmeczenie  <aff>Upi: <088>$pr_upicie   $asciimapv[4]} {4};
+	#prompt {prompt2} { <088><aff>f4: $display_function_4 <088> $pr_sw  $pr_s  $pr_se   <aff>For:<088> $pr_form  <aff>Exp: <088>$pr_exp   $asciimapv[5]} {3};
+	#prompt {prompt1} { <088><aff>f5: $display_function_5 <088>           <aff>Cie: <088>$pr_obci  <faf>Cho: <088>   $walkmodep   $asciimapv[6]} {2};
+	testprompt;
+}
+
+#alias {PROMPT_GO_BACK} {
+    #unticker {ticker_prompt_object};
+    #ticker {ticker_prompt_object} {
+        update_teams;
+        #unticker {ticker_prompt_object};
+    } {5};
+}
+
+
+PROMPT_SET_HP;
+
+
+#class {prompt} {close}
