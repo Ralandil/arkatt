@@ -36,18 +36,31 @@
     #var KEY_PAD_MIDDLE {\eOu};
 
 #var room_symbol {[ ]};
-#line substitute {variables} {#macro {$KEY_PAD_S} {#map move s;#map map;#map set roomsymbol $room_symbol}}
-#line substitute {variables} {#macro {$KEY_PAD_N} {#map move n;#map map;#map set roomsymbol $room_symbol}}
-#line substitute {variables} {#macro {$KEY_PAD_W} {#map move w;#map map;#map set roomsymbol $room_symbol}}
-#line substitute {variables} {#macro {$KEY_PAD_E} {#map move e;#map map;#map set roomsymbol $room_symbol}}
-#line substitute {variables} {#macro {$KEY_PAD_NW} {#map move nw;#map map;#map set roomsymbol $room_symbol}}
-#line substitute {variables} {#macro {$KEY_PAD_NE} {#map move ne;#map map;#map set roomsymbol $room_symbol}}
-#line substitute {variables} {#macro {$KEY_PAD_SW} {#map move sw;#map map;#map set roomsymbol $room_symbol}}
-#line substitute {variables} {#macro {$KEY_PAD_SE} {#map move se;#map map;#map set roomsymbol $room_symbol}}
-#line substitute {variables} {#macro {$KEY_PAD_U} {#map move_u;#map map;#map set roomsymbol $room_symbol}}
-#line substitute {variables} {#macro {$KEY_PAD_D} {#map move d;map map;#map set roomsymbol $room_symbol}}
+#macro {$KEY_PAD_S} {#map move s;#map map;#map set roomsymbol $room_symbol}
+#macro {$KEY_PAD_N} {#map move n;#map map;#map set roomsymbol $room_symbol}
+#macro {$KEY_PAD_W} {#map move w;#map map;#map set roomsymbol $room_symbol}
+#macro {$KEY_PAD_E} {#map move e;#map map;#map set roomsymbol $room_symbol}
+#macro {$KEY_PAD_NW} {#map move nw;#map map;#map set roomsymbol $room_symbol}
+#macro {$KEY_PAD_NE} {#map move ne;#map map;#map set roomsymbol $room_symbol}
+#macro {$KEY_PAD_SW} {#map move sw;#map map;#map set roomsymbol $room_symbol}
+#macro {$KEY_PAD_SE} {#map move se;#map map;#map set roomsymbol $room_symbol}
+#macro {$KEY_PAD_U} {#map move_u;#map map;#map set roomsymbol $room_symbol}
+#macro {$KEY_PAD_D} {#map move d;map map;#map set roomsymbol $room_symbol}
 
 #line substitute {variables} {#macro {$KEY_PAD_MIDDLE} {#map undo;#map map}};
+
+#split 0 3
+
+#prompt {prompt1} {  <afa>kolor pola:<088> <088>$room_symbol<088>} {1};
+#prompt {prompt2} { <afa>F1 las: <aca>[L]<088> <afa>F2 oboz: <bab>[O]<088>} {2};
+
+#macro {$KEY_F1} {#var room_symbol <aca>[L]<088>;#sh prompt1};
+#macro {$KEY_F2} {#var room_symbol <bab>[O]<088>;#sh prompt1};
+#macro {$KEY_F3} {#var room_symbol <aca>[L]<088>;#sh prompt1};
+
+
+#sh prompt1
+#sh prompt2
 
 #map create 
 #map goto 1
