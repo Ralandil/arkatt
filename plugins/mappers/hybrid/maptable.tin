@@ -122,6 +122,10 @@
 #var maplookup[Wissenland][148][43][polnocny-wschod][mappos] {70};
 #var maplookup[Wissenland][148][43][polnocny-wschod][mapdir] {polnocny-wschod};
 
+#var maplookup[Wissenland][148][43][wschod][mapnam] {bagna.map};
+#var maplookup[Wissenland][148][43][wschod][mappos] {72};
+#var maplookup[Wissenland][148][43][wschod][mapdir] {wschod};
+
 
 #var maplookup[Averland][148][102][poludniowy-wschod][mapnam] {puszki.map};
 #var maplookup[Averland][148][102][poludniowy-wschod][mappos] {1};
@@ -137,6 +141,9 @@
 #var maplookup[Reikland][75][60][zachod][mappos] {1};
 #var maplookup[Reikland][75][60][zachod][mapdir] {zachod};
 
+
+#nop kultysci
+#nop var maplookup[Averland][84][116]
 
 
 #unmacro {<};
