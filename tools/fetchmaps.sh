@@ -10,7 +10,7 @@ suffix="..................................................."
 while read line
 do
 	newname=`echo $line|tr -d " "`
-	iconv -f utf-8 -t US-ASCII//TRANSLIT -c "$line" |sed 's/ /./g'|sed 's/\\/L/g' > $newname.ascii
+	iconv -f utf-8 -t US-ASCII//TRANSLIT -c "$line" |sed 's/ /./g'|sed 's/\\/9/g' > $newname.ascii
 	rm "$line"
 done < maplist.list
 

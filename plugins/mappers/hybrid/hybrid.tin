@@ -141,7 +141,9 @@
     #loop 1 $asciimap_h loopcnt {
         #var tmpline {$asciimapv[$loopcnt]};
         #format {tmpline} {%-${asciimap_w}s} {$tmpline};
-        #replace {tmpline} {\\} {\\\};
+        #nop replace {tmpline} {\\} {\\\};
+        #replace {tmpline} {9} {\\};
+        #replace {tmpline} {.} { };
         #replace {tmpline} {G} {<faf>G<088>};
         #replace {tmpline} {@} {<118><fbb>@<088>};
         #replace {tmpline} {P} {<afa>P<088>};
