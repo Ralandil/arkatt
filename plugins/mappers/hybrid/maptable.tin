@@ -159,6 +159,12 @@
 #var maplookup[Averland][84][116][gora][mappos] {864};
 #var maplookup[Averland][84][116][gora][mapdir] {wespnij sie na gore};
 
+#var maplookup[Wissenland][120][91][poludniowy-wschod][mapnam] {goblinynaszawies.map};
+#var maplookup[Wissenland][120][91][poludniowy-wschod][mappos] {1};
+#var maplookup[Wissenland][120][91][poludniowy-wschod][mapdir] {poludniowy-wschod};
+
+
+
 
 #unmacro {<};
 #unmacro {>};
