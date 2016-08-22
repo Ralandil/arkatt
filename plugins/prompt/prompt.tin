@@ -1,5 +1,3 @@
-#class {prompt} {open}
-
 #loop 1 40 {d} {#var prompt_objects[$d] {}};
 #var prompt_type {1}
 
@@ -151,6 +149,3 @@
 
 
 PROMPT_SET_HP;
-
-
-#class {prompt} {close}

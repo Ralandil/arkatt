@@ -48,7 +48,7 @@
 #var prompt_tab_button_ch $prompt_tab_button_ch_a;
 #var prompt_tab_button_st $prompt_tab_button_st_i;
     #format {screen_w} {%C};
-    #math {max_chat_w} {$screen_w - 60};
+    #math {max_chat_w} {$screen_w - 130};
     #format prompt_avatar[1] {%.${max_chat_w}s} {$prompt_chat_table[1]};
     #format prompt_objects[1] {%.${max_chat_w}s} {$prompt_chat_table[2]};
     #format prompt_objects[2] {%.${max_chat_w}s} {$prompt_chat_table[3]};
