@@ -140,7 +140,7 @@
     #script {asciimapv} {$path/maps/showmap $path/maps/$ROOM_INFO[map][name].map $ROOM_INFO[map][x] $ROOM_INFO[map][y] $asciimap_w $asciimap_h};
     #loop 1 $asciimap_h loopcnt {
         #var tmpline {$asciimapv[$loopcnt]};
-        #format {tmpline} {%-${asciimap_w}s} {$tmpline};
+        #line substitute variables {#format {tmpline} {%-${asciimap_w}s} {$tmpline}};
         #nop replace {tmpline} {\\} {\\\};
         #replace {tmpline} {9} {\\};
         #replace {tmpline} {.} { };
