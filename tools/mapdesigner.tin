@@ -36,16 +36,16 @@
     #var KEY_PAD_MIDDLE {\eOu};
 
 #var room_symbol {[ ]};
-#macro {$KEY_PAD_S} {#map move s;#map map;#map set roomsymbol $room_symbol}
-#macro {$KEY_PAD_N} {#map move n;#map map;#map set roomsymbol $room_symbol}
-#macro {$KEY_PAD_W} {#map move w;#map map;#map set roomsymbol $room_symbol}
-#macro {$KEY_PAD_E} {#map move e;#map map;#map set roomsymbol $room_symbol}
-#macro {$KEY_PAD_NW} {#map move nw;#map map;#map set roomsymbol $room_symbol}
-#macro {$KEY_PAD_NE} {#map move ne;#map map;#map set roomsymbol $room_symbol}
-#macro {$KEY_PAD_SW} {#map move sw;#map map;#map set roomsymbol $room_symbol}
-#macro {$KEY_PAD_SE} {#map move se;#map map;#map set roomsymbol $room_symbol}
-#macro {$KEY_PAD_U} {#map move_u;#map map;#map set roomsymbol $room_symbol}
-#macro {$KEY_PAD_D} {#map move d;map map;#map set roomsymbol $room_symbol}
+#macro {$KEY_PAD_S} {#map move s;#map map;#nop map set roomsymbol $room_symbol}
+#macro {$KEY_PAD_N} {#map move n;#map map;#nop map set roomsymbol $room_symbol}
+#macro {$KEY_PAD_W} {#map move w;#map map;#nop map set roomsymbol $room_symbol}
+#macro {$KEY_PAD_E} {#map move e;#map map;#nop map set roomsymbol $room_symbol}
+#macro {$KEY_PAD_NW} {#map move nw;#map map;#nop map set roomsymbol $room_symbol}
+#macro {$KEY_PAD_NE} {#map move ne;#map map;#nop map set roomsymbol $room_symbol}
+#macro {$KEY_PAD_SW} {#map move sw;#map map;#nop map set roomsymbol $room_symbol}
+#macro {$KEY_PAD_SE} {#map move se;#map map;#nop map set roomsymbol $room_symbol}
+#macro {$KEY_PAD_U} {#map move_u;#map map;#nop map set roomsymbol $room_symbol}
+#macro {$KEY_PAD_D} {#map move d;#map map;#nop map set roomsymbol $room_symbol}
 
 #line substitute {variables} {#macro {$KEY_PAD_MIDDLE} {#map undo;#map map}};
 

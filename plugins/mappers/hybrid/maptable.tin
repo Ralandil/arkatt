@@ -142,8 +142,9 @@
 #var maplookup[Reikland][75][60][zachod][mapdir] {zachod};
 
 
-#nop kultysci
-#nop var maplookup[Averland][84][116]
+#var maplookup[Averland][84][116][gora][mapnam] {puszki.map};
+#var maplookup[Averland][84][116][gora][mappos] {864};
+#var maplookup[Averland][84][116][gora][mapdir] {wespnij sie na gore};
 
 
 #unmacro {<};
