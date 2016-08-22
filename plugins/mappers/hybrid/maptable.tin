@@ -9,6 +9,19 @@
 #var maplookup[Averland][112][90][zachod][mapnam] {obozkg.map};
 #var maplookup[Averland][112][90][zachod][mappos] {34};
 #var maplookup[Averland][112][90][zachod][mapdir] {zachod};
+#var maplookup[Averland][100][92][wschod][mapnam] {obozkg.map};
+#var maplookup[Averland][100][92][wschod][mappos] {41};
+#var maplookup[Averland][100][92][wschod][mapdir] {wschod};
+#var maplookup[Averland][100][92][poludniowy-wschod][mapnam] {obozkg.map};
+#var maplookup[Averland][100][92][poludniowy-wschod][mappos] {42};
+#var maplookup[Averland][100][92][poludniowy-wschod][mapdir] {poludniowy-};
+
+#var maplookup[Averland][100][94][wschod][mapnam] {obozkg.map};
+#var maplookup[Averland][100][94][wschod][mappos] {42};
+#var maplookup[Averland][100][94][wschod][mapdir] {wschod};
+#var maplookup[Averland][100][94][polnocny-wschod][mapnam] {obozkg.map};
+#var maplookup[Averland][100][94][polnocny-wschod][mappos] {41};
+#var maplookup[Averland][100][94][polnocny-wschod][mapdir] {polnocny-wschod};
 
 #var maplookup[Wissenland][142][65][zachod][mapnam] {banici.map};
 #var maplookup[Wissenland][142][65][zachod][mappos] {1};
