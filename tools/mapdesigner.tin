@@ -1,0 +1,53 @@
+#nop #####################################################
+#nop  BIND: KLAWISZE FUNKCYJNE
+#nop #####################################################;
+
+    #var KEY_F1 {\eOP};
+    #var KEY_F2 {\eOQ};
+    #var KEY_F3 {\eOR};
+    #var KEY_F4 {\eOS};
+    #var KEY_F5 {\e[15~};
+    #var KEY_F6 {\e[17~};
+    #var KEY_F7 {\e[18~};
+    #var KEY_F8 {\e[19~};
+    #var KEY_F9 {\e[20~};
+    #var KEY_F10 {\e[21~};
+    #var KEY_F11 {\e[23~};
+    #var KEY_F12 {\e[24~};
+
+
+
+#nop #####################################################
+#nop  BIND: NUMPAD KIERUNKI
+#nop #####################################################;
+
+    #var KEY_PAD_N {\eOx};
+    #var KEY_PAD_S {\eOr};
+    #var KEY_PAD_E {\eOv};
+    #var KEY_PAD_W {\eOt};
+    #var KEY_PAD_NW {\eOw};
+    #var KEY_PAD_NE {\eOy};
+    #var KEY_PAD_SW {\eOq};
+    #var KEY_PAD_SE {\eOs};
+    #var KEY_PAD_U {\eOm};
+    #var KEY_PAD_D {\eOk};
+
+
+    #var KEY_PAD_MIDDLE {\eOu};
+
+#var room_symbol {[ ]};
+#line substitute {variables} {#macro {$KEY_PAD_S} {#map move s;#map map;#map set roomsymbol $room_symbol}}
+#line substitute {variables} {#macro {$KEY_PAD_N} {#map move n;#map map;#map set roomsymbol $room_symbol}}
+#line substitute {variables} {#macro {$KEY_PAD_W} {#map move w;#map map;#map set roomsymbol $room_symbol}}
+#line substitute {variables} {#macro {$KEY_PAD_E} {#map move e;#map map;#map set roomsymbol $room_symbol}}
+#line substitute {variables} {#macro {$KEY_PAD_NW} {#map move nw;#map map;#map set roomsymbol $room_symbol}}
+#line substitute {variables} {#macro {$KEY_PAD_NE} {#map move ne;#map map;#map set roomsymbol $room_symbol}}
+#line substitute {variables} {#macro {$KEY_PAD_SW} {#map move sw;#map map;#map set roomsymbol $room_symbol}}
+#line substitute {variables} {#macro {$KEY_PAD_SE} {#map move se;#map map;#map set roomsymbol $room_symbol}}
+#line substitute {variables} {#macro {$KEY_PAD_U} {#map move_u;#map map;#map set roomsymbol $room_symbol}}
+#line substitute {variables} {#macro {$KEY_PAD_D} {#map move d;map map;#map set roomsymbol $room_symbol}}
+
+#line substitute {variables} {#macro {$KEY_PAD_MIDDLE} {#map undo;#map map}};
+
+#map create 
+#map goto 1
