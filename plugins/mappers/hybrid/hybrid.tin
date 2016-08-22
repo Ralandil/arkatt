@@ -292,9 +292,6 @@
 	#unalias {d};
 	#unalias {u};
 
-    #sh {<FAA>TUTATJ GMCP<088>};
-
-
     #format mnamelen {%L} {$ROOM_INFO[map][name]};
     #if {$mnamelen > 0} {
         #var gmcpendpoints[n] {0};

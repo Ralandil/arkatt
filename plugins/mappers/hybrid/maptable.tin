@@ -118,6 +118,11 @@
 #var maplookup[Averland][96][68][zachod][mappos] {1};
 #var maplookup[Averland][96][68][zachod][mapdir] {zachod};
 
+#var maplookup[Wissenland][148][43][polnocny-wschod][mapnam] {bagna.map};
+#var maplookup[Wissenland][148][43][polnocny-wschod][mappos] {70};
+#var maplookup[Wissenland][148][43][polnocny-wschod][mapdir] {polnocny-wschod};
+
+
 #var maplookup[Averland][148][102][poludniowy-wschod][mapnam] {puszki.map};
 #var maplookup[Averland][148][102][poludniowy-wschod][mappos] {1};
 #var maplookup[Averland][148][102][poludniowy-wschod][mapdir] {poludniowy-wschod};
