@@ -1,4 +1,5 @@
 #config {command echo} {off};
+#config {LOG} {HTML};
 
 #var plugin[mappers][path] {$path/plugins/mappers/mudmapper/mudmapper.tin};
 #var plugin[mappers][state] {0};
@@ -14,6 +15,9 @@
 
 #var plugin[roza][path] {$path/plugins/roza/roza.tin};
 #var plugin[roza][state] {1};
+
+#var plugin[logs][path] {$path/plugins/logs/logs.tin};
+#var plugin[logs][state] {1};
 
 #alias plugins {
 	#list {plugin} {size} {plugin_size};
@@ -51,7 +55,6 @@
 	#class {%0} {read} {$plugin[%0][path]}
 }
 
-plugin;
 
 #event {SEND OUTPUT} {#sh %0}
 
@@ -102,7 +105,9 @@ plugin;
 #read $path/compare.tin;
 #read $path/gmcp_mapper.tin;
 #read $path/automap/mapdrawer.tin;
-#CONFIG LOG PLAIN
-#format {logfile} {${logpath}/%t.html} {%Y-%m-%d};
-#log append $logfile;
+
+
 #var gmcp_saving 0;
+
+plugin;
+

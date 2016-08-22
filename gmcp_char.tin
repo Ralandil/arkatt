@@ -6,6 +6,8 @@
 #event {VARIABLE UPDATE CHAR_INFO} {
 	#var info {%1};
 	#var my_profile {${profilepath}/$info[name].tin};
+	#format {logfile} {${logpath}/${info[name]}-%t.html} {%Y-%m-%d};
+
 	#class profile {read} {$my_profile};
 
 	#class {profile} {open};
@@ -13,7 +15,6 @@
 	#class {profile} {close};
 
 	#class profile {write} {$my_profile};
-	#sh {OKKK};
 }
 
 #EVENT {IAC SB GMCP char.state IAC SE} {

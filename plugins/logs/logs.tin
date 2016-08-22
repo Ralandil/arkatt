@@ -1,0 +1,10 @@
+#class {logs} {open}
+
+#nop format {logfile} {${logpath}/${CHAR_INFO[name]}-%t.html} {%Y-%m-%d};
+
+#event {VARIABLE UPDATE logfile} {
+	#log append %1;
+}
+
+#class {logs} {close}
+
