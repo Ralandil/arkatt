@@ -15,10 +15,22 @@
 	#class {profile} {close};
 
 	#class profile {write} {$my_profile};
+
+	plugin;
 }
 
 #EVENT {IAC SB GMCP char.state IAC SE} {
 	#var CHAR_STATE {%0};
+
+	#foreach {$CHAR_STATE[]} {s} {
+		#list {state} {find} {$s} {v}; 
+		#if {$v > 0} {
+			#list {state}{set}{$s}{$CHAR_STATE[$s]}
+		} {
+			#var {state[$s]} {$CHAR_STATE[$s]};
+		}
+	};
+
     #if {"$CHAR_STATE[intox]" == "0"} {#var pr_upicie {<118><aca> 0/ 9<088>};};
     #if {"$CHAR_STATE[intox]" == "1"} {#var pr_upicie {<118><aca> 1/ 9<088>};};
     #if {"$CHAR_STATE[intox]" == "2"} {#var pr_upicie {<118><aca> 2/ 9<088>};};

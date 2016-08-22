@@ -197,6 +197,7 @@
 #sh  
 #sh  {               'start' by rozpoczac przygode};
 #sh  {               'plugins' by wyswietlic liste plugingow};
+#sh  {               'plugin <nazwa pluginu>' by wlaczyc/wylaczyc plugin};
 #sh
 #sh  {<aff>     ####################################################################<880>};
 #sh

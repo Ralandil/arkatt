@@ -19,6 +19,21 @@
 #var plugin[logs][path] {$path/plugins/logs/logs.tin};
 #var plugin[logs][state] {1};
 
+#var plugin[czas][path] {$path/plugins/czas/czas.tin};
+#var plugin[czas][state] {1};
+
+#var plugin[combat][path] {$path/plugins/combat/combat.tin};
+#var plugin[combat][state] {1};
+
+#var plugin[herbs][path] {$path/plugins/herbs/herbs.tin};
+#var plugin[herbs][state] {1};
+
+#var plugin[exp][path] {$path/plugins/exp/exp.tin};
+#var plugin[exp][state] {1};
+
+#var plugin[team][path] {$path/plugins/team/team.tin};
+#var plugin[team][state] {1};
+
 #alias plugins {
 	#list {plugin} {size} {plugin_size};
 	#if {$plugin_size > 0} {
@@ -26,7 +41,7 @@
 		#sh {+-----------------------------------------+};
 
 		#foreach {$plugin[]} {n} {
-			#format {line} {| %-15s |  %+20s |} {$n} {$plugin[$n][state]};
+			#format {line} {| %-15s |  %+20s |} {$n} {@switcher{$plugin[$n][state]}};
 			#sh $line;
 		};
 		#sh {+-----------------------------------------+};
@@ -38,16 +53,45 @@
 }
 
 #alias {plugin} {
-
-	#foreach {$plugin[]} {n} {
-		#if {$plugin[$n][state] == 1} {
-			#class {$n} {read} {$plugin[$n][path]};
-		};
-		#else {
-			#class {$n} {kill};
+	#if {"%0" == ""} {
+		#foreach {$plugin[]} {n} {
+			#if {$plugin[$n][state] == 1} {
+				#class {$n} {read} {$plugin[$n][path]};
+			};
+			#else {
+				#class {$n} {kill};
+			}
 		}
-	}
+	};
+	#else {
+	    #nop list $plugin[%0] {size} {v};
+	    #if {"$plugin[%0][path]" != ""} {
 
+
+	    	#if {$plugin[%0][state] == 1} {
+	    		#var plugin[%0][state] {0};
+	    		#var this_status {wylaczony};
+			} {
+				#var plugin[%0][state] {1};
+				#var this_status {wlaczony};
+			};
+
+
+			#class {profile} {open};
+				#var {pugin} {$plugin};
+			#class {profile} {close};
+
+			#class profile {write} {$my_profile};	
+
+	    	@info{Plugin %0 zostal przeladowany.};
+	    	plugin;
+	    };
+	    #else {
+	    	
+	    	@error{Nie ma plugina o nazwie %0.};
+	    }
+
+	}
 }
 
 #alias {reload} {
@@ -69,6 +113,7 @@
 #var pr_form $hp_bar;
 #var pr_exp $hp_bar;
 #var pr_obci $hp_bar;
+
 
 #read $path/gmcp_char.tin;
 #read $path/gmcp_message.tin;
@@ -109,5 +154,4 @@
 
 #var gmcp_saving 0;
 
-plugin;
 
