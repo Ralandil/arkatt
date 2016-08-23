@@ -365,7 +365,7 @@
 
 	#var ruch_kompasu {none};
 	#var kompas_dziala {0};
-#nop    testprompt;
+    testprompt;
 }
 
 

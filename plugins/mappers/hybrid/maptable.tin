@@ -168,5 +168,10 @@
 #var maplookup[KrainaZgromadzenia][109][48][wschod][mappos] {1};
 #var maplookup[KrainaZgromadzenia][109][48][wschod][mapdir] {wschod};
 
+#var maplookup[Salignac][31][50][polnoc][mapnam] {kasztel.map};
+#var maplookup[Salignac][31][50][polnoc][mappos] {1};
+#var maplookup[Salignac][31][50][polnoc][mapdir] {polnoc};
+
+
 #unmacro {<};
 #unmacro {>};
