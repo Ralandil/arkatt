@@ -164,7 +164,9 @@
 #var maplookup[Wissenland][120][91][poludniowy-wschod][mapdir] {poludniowy-wschod};
 
 
-
+#var maplookup[KrainaZgromadzenia][109][48][wschod][mapnam] {wezendorf.map};
+#var maplookup[KrainaZgromadzenia][109][48][wschod][mappos] {1};
+#var maplookup[KrainaZgromadzenia][109][48][wschod][mapdir] {wschod};
 
 #unmacro {<};
 #unmacro {>};

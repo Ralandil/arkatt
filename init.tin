@@ -100,7 +100,7 @@
 }
 
 
-#event {SEND OUTPUT} {#sh %0}
+#unevent {SEND OUTPUT} {#sh %0}
 
 
 

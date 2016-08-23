@@ -76,7 +76,11 @@
     #var team_index {1};
     #var team_bind_index {1};
     #foreach {$obda2[]} {vob} {
-        #if {"$obda2[$vob][team]" == "true"} {
+
+        #if {"$obda2[$vob][avatar]" == "true"} {
+            #var test test;
+        };
+        #elseif {"$obda2[$vob][team]" == "true"} {
                 #regex {$obda2[$vob][desc]} {%w %w %w} {#var team_curr_nick {&3}} {#var team_curr_nick {$obda2[$vob][desc]}};
                 #format {team_curr_nick} {%-7s} {$team_curr_nick};
                 #format {team_curr_nick} {%.7s} {$team_curr_nick};
@@ -137,8 +141,9 @@
 
 };
 
-};
 
+
+};
 };
 
 #alias {update_enemies}
@@ -399,7 +404,7 @@
 {
 	#var {obnu} {%0};
 	#forall {$obda2[]} {
-		#line substitute {variables} {#unsub {%i$obda2[&0][desc]}};
+		#nop line substitute {variables} {#unsub {%i$obda2[&0][desc]}};
 		#list {obnu} find {&0} {vfob};
 		#if {"$vfob" == "0"} {
 			#unvar {obda2[&0]}
@@ -412,7 +417,7 @@
 {
   #var {obda} {%0};
   #foreach {$obda[]} {vob} {
-    #line substitute {variables} {#unsub {%i$obda2[&0][desc]}};
+    #nop line substitute {variables} {#unsub {%i$obda2[&0][desc]}};
     #forall {$obda[$vob][]} {
       #var {obda2[$vob][&0]} {$obda[$vob][&0]};
       #var {obda2[$vob][enemies]} {};

@@ -52,7 +52,7 @@
 #var kalendarz_miesiace[3][nazwa] {Jahrdrung}
 #var kalendarz_miesiace[4][nazwa] {Mitterfruhl}
 #var kalendarz_miesiace[5][nazwa] {Pflugzeit}
-#var kalendarz_miesiace[6][nazwa] {Sigmarzeit}
+#var kalendarz_miesiace[6][nazwa] {Sigmarszeit}
 #var kalendarz_miesiace[7][nazwa] {Sommerzeit}
 #var kalendarz_miesiace[8][nazwa] {Sonnstill}
 #var kalendarz_miesiace[9][nazwa] {Vorgeheim}
@@ -71,7 +71,7 @@
 #var kalendarz_miesiace[Jahrdrung][index] {3}
 #var kalendarz_miesiace[Mitterfruhl][index] {4}
 #var kalendarz_miesiace[Pflugzeit][index] {5}
-#var kalendarz_miesiace[Sigmarzeit][index] {6}
+#var kalendarz_miesiace[Sigmarszeit][index] {6}
 #var kalendarz_miesiace[Sommerzeit][index] {7}
 #var kalendarz_miesiace[Sonnstill][index] {8}
 #var kalendarz_miesiace[Vorgeheim][index] {9}
@@ -90,7 +90,7 @@
 #var kalendarz_miesiace[Jahrdrung][dni] {32}
 #var kalendarz_miesiace[Mitterfruhl][dni] {1}
 #var kalendarz_miesiace[Pflugzeit][dni] {33}
-#var kalendarz_miesiace[Sigmarzeit][dni] {33}
+#var kalendarz_miesiace[Sigmarszeit][dni] {33}
 #var kalendarz_miesiace[Sommerzeit][dni] {33}
 #var kalendarz_miesiace[Sonnstill][dni] {1}
 #var kalendarz_miesiace[Vorgeheim][dni] {33}
@@ -109,7 +109,7 @@
 #var kalendarz_miesiace[Jahrdrung][wroku] {34}
 #var kalendarz_miesiace[Mitterfruhl][wroku] {66}
 #var kalendarz_miesiace[Pflugzeit][wroku] {67}
-#var kalendarz_miesiace[Sigmarzeit][wroku] {100}
+#var kalendarz_miesiace[Sigmarszeit][wroku] {100}
 #var kalendarz_miesiace[Sommerzeit][wroku] {133}
 #var kalendarz_miesiace[Sonnstill][wroku] {166}
 #var kalendarz_miesiace[Vorgeheim][wroku] {167}
@@ -144,7 +144,7 @@
 #var kalendarz_miesiace[Jahrdrung][pora] {Wiosna};
 #var kalendarz_miesiace[Mitterfruhl][pora] {Wiosna};
 #var kalendarz_miesiace[Pflugzeit][pora] {Wiosna};
-#var kalendarz_miesiace[Sigmarzeit][pora] {Lato};
+#var kalendarz_miesiace[Sigmarszeit][pora] {Lato};
 #var kalendarz_miesiace[Sommerzeit][pora] {Lato};
 #var kalendarz_miesiace[Sonnstill][pora] {Lato};
 #var kalendarz_miesiace[Vorgeheim][pora] {Lato};
