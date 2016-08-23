@@ -9,7 +9,9 @@
 	#format {logfile} {${logpath}/${info[name]}-%t.html} {%Y-%m-%d};
 
 	#class profile {read} {$my_profile};
-
+	#if {&my_plugin} {
+		#var plugin {$my_plugin};
+	};
 	#class {profile} {open};
 		#var name ${info[name]};
 	#class {profile} {close};

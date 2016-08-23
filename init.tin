@@ -78,7 +78,7 @@
 
 
 			#class {profile} {open};
-				#var {pugin} {$plugin};
+				#var {my_pugin} {$plugin};
 			#class {profile} {close};
 
 			#class profile {write} {$my_profile};	
