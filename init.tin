@@ -151,6 +151,10 @@
 #read $path/gmcp_mapper.tin;
 #read $path/automap/mapdrawer.tin;
 
+#nop HELPER;
+
+#read $path/helper.tin;
+
 
 #var gmcp_saving 0;
 
