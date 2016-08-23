@@ -78,7 +78,7 @@
 
 
 			#class {profile} {open};
-				#var {pugin} {$plugin};
+				#var {my_pugin} {$plugin};
 			#class {profile} {close};
 
 			#class profile {write} {$my_profile};	
@@ -150,6 +150,10 @@
 #read $path/compare.tin;
 #read $path/gmcp_mapper.tin;
 #read $path/automap/mapdrawer.tin;
+
+#nop HELPER;
+
+#read $path/helper.tin;
 
 
 #var gmcp_saving 0;
