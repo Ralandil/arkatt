@@ -136,7 +136,7 @@
 #read $path/worki3.tin;
 #read $path/sleep.tin;
 #read $path/kolorki.tin;
-#read $path/exp.tin;
+#nop read $path/exp.tin;
 #read $path/data/quickbinds_data.tin;
 #read $path/data/kasztel.tin;
 #read $path/data/burza.tin;
