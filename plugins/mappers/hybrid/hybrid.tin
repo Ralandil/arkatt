@@ -161,6 +161,7 @@
         #var asciimapv[$loopcnt] {$tmpline};
         #nop sh {$asciimapv[$loopcnt]};
     };
+    testprompt;
 }
 
 
@@ -364,7 +365,7 @@
 
 	#var ruch_kompasu {none};
 	#var kompas_dziala {0};
-    testprompt;
+#nop    testprompt;
 }
 
 
