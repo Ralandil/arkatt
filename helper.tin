@@ -6,7 +6,8 @@
 	#list {sat_at} {create} {$content_arr[1]};
 	#list {sat_at} {size} {sat_n};
 	#format {na_im} {%l} {$sat_at[1]};
-	usiadz $na_im $sat_at[$sat_n];
+	#alias siadaj {usiadz $na_im $sat_at[$sat_n]};
+	qb siadaj;
 } {1}
 
 #alias {showcolors}
