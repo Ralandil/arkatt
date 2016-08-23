@@ -91,7 +91,9 @@
 
 #action {Masz epicka %1.}
 {
+	#if {"%1" == "sile"} {#var p_str 40};	
 	#if {"%1" == "zrecznosc"} {#var p_dex 40};	
+	#if {"%1" == "wytrzymalosc"} {#var p_sta 40};	
 }
 #action {Jestes %1, %2, %3, %4 i %5.}
 {
