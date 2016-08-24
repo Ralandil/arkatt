@@ -51,8 +51,8 @@
 
 #split 0 3
 
-#prompt {prompt2} { <afa>F1 las  : <aca>[L]<088> <afa>F3 gory  : <fca>[G]<088> F5 woda: <aaf>[W]<088> F7 pole: <bba>[P]<088>} {2};
-#prompt {prompt1} { <afa>F2 trakt: <abb>[T]<088> <afa>F4 boagna: <cba>[B]<088> F6 oboz: <bab>[O]<088> F8 reset } {1};
+#prompt {prompt2} { <088>F1 las  : <aca>[L]<088> F3 gory  : <fca>[G]<088> F5 woda: <aaf>[W]<088> F7 pole: <bba>[P]<088>} {2};
+#prompt {prompt1} { <088>F2 trakt: <abb>[T]<088> F4 boagna: <cba>[B]<088> F6 oboz: <bab>[O]<088> F8 reset } {1};
 
 #macro {$KEY_F1} {#map set roomsymbol <aca>[L]<088>;#sh prompt1};
 #macro {$KEY_F2} {#map set roomsymbol <abb>[T]<088>;#sh prompt1};
