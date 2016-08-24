@@ -382,51 +382,59 @@
 #action {Nie widzisz zadnego wyjscia %*.$} {#map undo;#echo {<faa>%0<088>};testprompt;undo};
 
 #action {Odpadasz od sciany i lecisz w dol, jednak dzieki niewielkiej wysokosci udaje ci sie zgrabnie wyladowac na ziemi.$} {#map undo;#var map_movecursor 0;map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
-#action {Nie masz na to sily.$} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
+#action {Nie masz na to sily.$} {undo};
 #action {Probujesz otworzyc %1, ale nie udaje ci sie to.} {#var ret @set_quickbind_green{uderz w brame};#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};#line gag};
-#action {Jestes tak zmeczony, ze nie mozesz dalej podazac w tym kierunku.$} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
+#action {Jestes tak zmeczony, ze nie mozesz dalej podazac w tym kierunku.$} {undo};
 #action {Nie mozesz tego zrobic, gdyz %*} {#map undo} {7};
 
-#action {Gorliwy ciemnowlosy mezczyzna stoi ci na drodze.} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
+#action {Gorliwy ciemnowlosy mezczyzna stoi ci na drodze.} {undo};
 
-#action {Nie jestes upowazniony do wejscia do magazynu.} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
-#action {Podchodzisz pod drzwi na polnocy, ktore otwiera wielki mezczyzna i oceniajaco taksuje cie wzrokiem. Prycha pod nosem i bez} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
-#action {Podchodzisz pod drzwi na polnocy, zza ktorych rozlega sie czyjs ponury glos: 'Zmiataj stad, nim ktos ci %1} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag} {2};
-#action {Podchodzisz pod drzwi na polnocy, ktore otwiera wielki mezczyzna i przyglada ci sie badawczo, %1} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag} {2};
-#action {Podchodzisz pod drzwi na polnocy, %1} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag} {1};
-#action {Droge zastepuje ci barczysty straznik mowiac: Prosze okazac kwit magazynowy lub wskazac towar do przechowania.} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag} {1};
-#action {Ogolony kompetentny straznik mowi do ciebie: Nikt z zakryta twarza nie wejdzie na teren zamku.} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag} {1};
-#action {Wysoki zezowaty sierzant mowi do ciebie: Nikt z zakryta twarza nie wejdzie na teren Uniwersytetu.} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag} {1};
-#action {Wysoki wasaty sierzant mowi do ciebie: Nikt z zakryta twarza nie wejdzie na teren Uniwersytetu.} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag} {1};
-#action {Nie zmiescisz sie w budzie!} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag} {1};
-#action {Nie mozesz sie tam udac, gdyz siedzisz.$} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
-#action {Najpierw wejdz do kabiny i sie rozbierz!} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
-#action {Nie masz %1 wstepu.$} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
-#action {Musisz najpierw oplacic wejscie na widownie.} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
-#action {%1 mowi do ciebie: Nikt z zakryta twarza nie wejdzie na teren koszar.} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
+#action {Nie jestes upowazniony do wejscia do magazynu.} {undo};
+#action {Podchodzisz pod drzwi na polnocy, ktore otwiera wielki mezczyzna i oceniajaco taksuje cie wzrokiem. Prycha pod nosem i bez} {undo};
+#action {Podchodzisz pod drzwi na polnocy, zza ktorych rozlega sie czyjs ponury glos: 'Zmiataj stad, nim ktos ci %1} {undo} {2};
+#action {Podchodzisz pod drzwi na polnocy, ktore otwiera wielki mezczyzna i przyglada ci sie badawczo, %1} {undo} {2};
+#action {Podchodzisz pod drzwi na polnocy, %1} {undo} {1};
+#action {Droge zastepuje ci barczysty straznik mowiac: Prosze okazac kwit magazynowy lub wskazac towar do przechowania.} {undo} {1};
+#action {Ogolony kompetentny straznik mowi do ciebie: Nikt z zakryta twarza nie wejdzie na teren zamku.} {undo} {1};
+#action {Wysoki zezowaty sierzant mowi do ciebie: Nikt z zakryta twarza nie wejdzie na teren Uniwersytetu.} {undo} {1};
+#action {Wysoki wasaty sierzant mowi do ciebie: Nikt z zakryta twarza nie wejdzie na teren Uniwersytetu.} {undo} {1};
+#action {Nie zmiescisz sie w budzie!} {undo} {1};
+#action {Nie mozesz sie tam udac, gdyz siedzisz.$} {undo};
+#action {Najpierw wejdz do kabiny i sie rozbierz!} {undo};
+#action {Nie masz %1 wstepu.$} {undo};
+#action {Musisz najpierw oplacic wejscie na widownie.} {undo};
+#action {%1 mowi do ciebie: Nikt z zakryta twarza nie wejdzie na teren koszar.} {undo};
 
-#action {Nie mozesz sie tam udac, gdyz %1 blokuj%+ ci droge na %3.$} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
-#action {Jestes teraz zajety czyms innym.$} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
-#action {Niestety, brama jest zamknieta.$} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
-#action {%3 mowi do ciebie: Nikt z bronia nie wejdzie na teren gornej twierdzy. Prosze zostawic ja na stojaku.$} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
-#action {Przeciez nic nie widzisz.$} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
+#action {Nie mozesz sie tam udac, gdyz %1 blokuj%+ ci droge na %3.$} {undo};
+#action {Jestes teraz zajety czyms innym.$} {undo};
+#action {Niestety, brama jest zamknieta.$} {undo};
+#action {%3 mowi do ciebie: Nikt z bronia nie wejdzie na teren gornej twierdzy. Prosze zostawic ja na stojaku.$} {undo};
+#action {Przeciez nic nie widzisz.$} {undo};
 #action {Probujesz sie ruszyc na %1, jednak pajecze sieci, w ktore sie w miedzy czasie zaplatales, uniemozliwiaja ci to.} {#map undo;#var map_movecursor 0;#showme <faa>PROBUJ NA %1<088>};
-#action {Niestety drzwi sa zamkniete, ale zauwazasz na nich tabliczke:} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
-#action {Niestety jestes zbyt duzy, aby przecisnac sie przez dziure.$} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
-#action {Probujesz wejsc w uliczke, ale cos z cichym plasnieciem rozmazuje ci sie pod noga. Zdegustowany zawracasz i decydujesz sie ominac ten zaulek.$} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
-#action {Nie mozesz sie udac na zaplecze.$} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
-#action {Juz probujesz wejsc, gdy nagle drzwi okazuja sie byc dokladnie zamkniete. Na drzwiach zauwazasz tylko tabliczke:} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
-#action {Drzwi sa zamkniete i nie daja sie otworzyc bez odpowiedniego klucza.$} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
-#action {Pociagasz za klamke, ale drzwi sa zamkniete.$} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
-#action {Probujesz rozpaczliwie wspiac sie na gore, ale zeslizgujesz sie po mokrych kamieniach.$} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
+#action {Niestety drzwi sa zamkniete, ale zauwazasz na nich tabliczke:} {undo};
+#action {Niestety jestes zbyt duzy, aby przecisnac sie przez dziure.$} {undo};
+#action {Probujesz wejsc w uliczke, ale cos z cichym plasnieciem rozmazuje ci sie pod noga. Zdegustowany zawracasz i decydujesz sie ominac ten zaulek.$} {undo};
+#action {Nie mozesz sie udac na zaplecze.$} {undo};
+#action {Juz probujesz wejsc, gdy nagle drzwi okazuja sie byc dokladnie zamkniete. Na drzwiach zauwazasz tylko tabliczke:} {undo};
+#action {Drzwi sa zamkniete i nie daja sie otworzyc bez odpowiedniego klucza.$} {undo};
+#action {Pociagasz za klamke, ale drzwi sa zamkniete.$} {undo};
+#action {Probujesz rozpaczliwie wspiac sie na gore, ale zeslizgujesz sie po mokrych kamieniach.$} {undo};
 
 #action {Probujesz dostac sie do srodka willi, lecz po chwili zjawia sie lokaj, powiadamiajac cie uprzejmym, acz stanowczym glosem,} {#map undo}
 #action {Kierujesz sie w strone krzakow porastajacych polnocno-wchodnia czesc kotliny, lecz bezradnie zatrzymujesz sie przed zwarta sciana kolcow i galezi. Nie znajdujesz sposobu, jak wejsc w chaszcze.} {#map undo} {1};
-#action {Jestes ogluszony i nie mozesz nic zrobic.$} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
-#action {Nie jestes w stanie wymknac sie stad niezauwazenie.$} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
+#action {Jestes ogluszony i nie mozesz nic zrobic.$} {undo};
+#action {Nie jestes w stanie wymknac sie stad niezauwazenie.$} {undo};
 
-#action {%* stoi ci na drodze.} {#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
+#action {%* stoi ci na drodze.} {undo};
 
+
+#alias undo {
+    #map undo;
+    #var map_movecursor 0;
+    #echo {<faa>%0<088>};
+    testprompt;
+    #line gag
+}
 #nop IN A CASE GMCP DO NOT RETURN ANY VALUES
 #nop action {Jest zbyt ciemno by cokolwiek zauwazyc. Instynktownie jednak odgadujesz, ze znajdujesz sie gleboko pod ziemia. Bardzo gleboko...} {#var lastmove none}
 #nop action {Ciemne miejsce.} {#var lastmove none}

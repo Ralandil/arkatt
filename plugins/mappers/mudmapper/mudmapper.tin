@@ -160,10 +160,11 @@
 }
 
 
-#nop ###############  GMCP  MAP INTEGRATION #####################
+#nop ###############  GMCP  MAP INTEGRATION #####################;
 
 #EVENT {IAC SB GMCP room.info IAC SE}{
 	#var ROOM_INFO {%0};
+
     #var pr_n { };
     #var pr_s { };
     #var pr_e { };
