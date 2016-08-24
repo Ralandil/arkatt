@@ -69,3 +69,12 @@
 
 #map create 
 #map goto 1
+
+
+#alias link {
+    #map {exit}{%1}{command}{%2}
+    #map get roomexits ex;
+    #var vn $rx[%2];
+    #map link {%2} {$vn};
+    #sh {done.}
+}

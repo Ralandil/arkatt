@@ -145,7 +145,7 @@
 #read $path/tropienie.tin;
 #read $path/chat.tin;
 #read $path/czas.tin;
-#nop read $path/baza.txt;
+#read $path/baza.txt;
 #read $path/compare.tin;
 #read $path/gmcp_mapper.tin;
 #read $path/automap/mapdrawer.tin;

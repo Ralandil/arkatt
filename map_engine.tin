@@ -149,10 +149,12 @@
 }
 
 
-#nop ###############  GMCP  MAP INTEGRATION #####################
+#nop ###############  GMCP  MAP INTEGRATION #####################;
 
 #EVENT {IAC SB GMCP room.info IAC SE}{
+
 	#var ROOM_INFO {%0};
+    #var room_desc ${ROOM_INFO[map][x]}x${ROOM_INFO[map][y]}; 
     #var pr_n { };
     #var pr_s { };
     #var pr_e { };
@@ -186,7 +188,7 @@
             #else {
                 #format {nxtexitlen} {%L} {$nxtexit};
                 #if {$nxtexitlen > 0} {
-                    #line substitute {variables} {#alias {$nxtexit} {#send $nxtexit;#mapper navigate:custom:$nxtexit;locationmap_reset;#var map_movecursor 1}};
+                    #line substitute {variables} {#alias {$nxtexit} {#send $nxtexit;#mapper navigate:custom:$nxtexit;#var map_movecursor 1}};
                 };
             };
         };
@@ -195,7 +197,7 @@
         #if {$mnamelen > 0} {
             #replace {ROOM_INFO[map][name]} { } {};
             #replace {ROOM_INFO[map][name]} {'} {};
-            #if {"$linux" == "1"} {asciimap;locationmap_reset};
+            #if {"$linux" == "1"} {asciimap};
         } {
             #if {$map_movecursor == 1} {map_updateexits;map_draw;};
             #if {"$map_movecursor" == "n"} {map_move_n;map_updateexits;map_draw};
