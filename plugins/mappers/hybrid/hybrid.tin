@@ -281,8 +281,14 @@
 #nop ###############  GMCP  MAP INTEGRATION #####################
 
 #EVENT {IAC SB GMCP room.info IAC SE} {
-	#var ROOM_INFO {%0};
-    #var room_desc ${ROOM_INFO[map][x]}x${ROOM_INFO[map][y]}; 
+    #var ROOM_INFO {%0};
+    #var room_desc ${ROOM_INFO[map][x]}x${ROOM_INFO[map][y]};
+#nop unvar room_info_hybrid;
+    #var room_info_hybrid $ROOM_INFO;
+#nop EVENT {variable update room_info_hybrid} {}
+    #nop EVENT {IAC SB GMCP room.info IAC SE} {};
+	#nop var ROOM_INFO {%0};
+    #nop var room_desc ${ROOM_INFO[map][x]}x${ROOM_INFO[map][y]};
 
 	#unalias {w};
 	#unalias {e};
