@@ -44,19 +44,24 @@
 #macro {$KEY_PAD_NE} {#map move ne;#map map;#nop map set roomsymbol $room_symbol}
 #macro {$KEY_PAD_SW} {#map move sw;#map map;#nop map set roomsymbol $room_symbol}
 #macro {$KEY_PAD_SE} {#map move se;#map map;#nop map set roomsymbol $room_symbol}
-#macro {$KEY_PAD_U} {#map move_u;#map map;#nop map set roomsymbol $room_symbol}
+#macro {$KEY_PAD_U} {#map move u;#map map;#nop map set roomsymbol $room_symbol}
 #macro {$KEY_PAD_D} {#map move d;#map map;#nop map set roomsymbol $room_symbol}
 
 #line substitute {variables} {#macro {$KEY_PAD_MIDDLE} {#map undo;#map map}};
 
 #split 0 3
 
-#prompt {prompt1} {  <afa>kolor pola:<088> <088>$room_symbol<088>} {1};
-#prompt {prompt2} { <afa>F1 las: <aca>[L]<088> <afa>F2 oboz: <bab>[O]<088>} {2};
+#prompt {prompt2} { <afa>F1 las  : <aca>[L]<088> <afa>F3 gory  : <fca>[G]<088> F5 woda: <aaf>[W]<088> F7 pole: <bba>[P]<088>} {2};
+#prompt {prompt1} { <afa>F2 trakt: <abb>[T]<088> <afa>F4 boagna: <cba>[B]<088> F6 oboz: <bab>[O]<088> F8 reset } {1};
 
-#macro {$KEY_F1} {#var room_symbol <aca>[L]<088>;#sh prompt1};
-#macro {$KEY_F2} {#var room_symbol <bab>[O]<088>;#sh prompt1};
-#macro {$KEY_F3} {#var room_symbol <aca>[L]<088>;#sh prompt1};
+#macro {$KEY_F1} {#map set roomsymbol <aca>[L]<088>;#sh prompt1};
+#macro {$KEY_F2} {#map set roomsymbol <abb>[T]<088>;#sh prompt1};
+#macro {$KEY_F3} {#map set roomsymbol <fca>[G]<088>;#sh prompt1};
+#macro {$KEY_F4} {#map set roomsymbol <cba>[B]<088>;#sh prompt1};
+#macro {$KEY_F5} {#map set roomsymbol <aaf>[W]<088>;#sh prompt1};
+#macro {$KEY_F6} {#map set roomsymbol <bab>[O]<088>;#sh prompt1};
+#macro {$KEY_F7} {#map set roomsymbol <bba>[P]<088>;#sh prompt1};
+#macro {$KEY_F8} {#map set roomsymbol {};#sh prompt1};
 
 
 #sh prompt1
