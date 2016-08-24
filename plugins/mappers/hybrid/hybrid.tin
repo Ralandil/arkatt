@@ -365,6 +365,10 @@
 
     };
 
+
+    #nop shortcut;
+    #if {$ROOM_INFO[exits][wyjscie]} {qb wyjscie};
+
 	#var ruch_kompasu {none};
 	#var kompas_dziala {0};
     testprompt;
