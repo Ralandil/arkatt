@@ -169,7 +169,7 @@
                 #var kill_functionkey {- };
             };
 
-            #line substitute {variables} {#sub {%i$obda2[$vob][desc]} {<118><faa>[$kill_functionkey] <088><faa>$obda2[$vob][desc]<088>}};
+            #nop line substitute {variables} {#sub {%i$obda2[$vob][desc]} {<118><faa>[$kill_functionkey] <088><faa>$obda2[$vob][desc]<088>}};
             #foreach {$obda2[]} {vos} {
                 #if {"$obda2[$vos][attack_num]" == "$vob"} {
 
@@ -254,7 +254,7 @@
                     #math indexvalue { };
                     #math indexvalue {96 + $neut_bind_index};
                     #format indexchar {%a} {$indexvalue};
-            	    #line substitute {variables} {#sub {%i$obda2[$vob][desc]} {<118><afa>[$indexchar] <088><afa>$obda2[$vob][desc]<088>}};
+            	    #nop line substitute {variables} {#sub {%i$obda2[$vob][desc]} {<118><afa>[$indexchar] <088><afa>$obda2[$vob][desc]<088>}};
                     #if {$neut_index < 5} {#math attack_bind {1 + $neut_index};};
                     #foreach {$obda2[]} {vos} {
                         #if {"$obda2[$vos][attack_num]" == "$vob"} {

@@ -14,7 +14,7 @@
 #var plugin[lampa][state] {1};
 
 #var plugin[roza][path] {$path/plugins/roza/roza.tin};
-#var plugin[roza][state] {1};
+#var plugin[roza][state] {0};
 
 #var plugin[logs][path] {$path/plugins/logs/logs.tin};
 #var plugin[logs][state] {1};
@@ -35,7 +35,7 @@
 #var plugin[team][state] {1};
 
 #var plugin[mapa][path] {$path/plugins/mapa/mapa.tin};
-#var plugin[mapa][state] {1};
+#var plugin[mapa][state] {0};
 
 #alias plugins {
 	#list {plugin} {size} {plugin_size};
