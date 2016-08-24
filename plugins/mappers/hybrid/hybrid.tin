@@ -379,13 +379,13 @@
 
 #nop create mode;
 #action {Ruszasz razno na %1, schodzac z wytyczonego traktu, jednak okazuje sie %*.$} {#map:undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
-#action {Nie widzisz zadnego wyjscia %*.$} {#map undo;#echo {<faa>%0<088>};testprompt;undo};
+#action {Nie widzisz zadnego wyjscia %*.$} {undo};
 
-#action {Odpadasz od sciany i lecisz w dol, jednak dzieki niewielkiej wysokosci udaje ci sie zgrabnie wyladowac na ziemi.$} {#map undo;#var map_movecursor 0;map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
+#action {Odpadasz od sciany i lecisz w dol, jednak dzieki niewielkiej wysokosci udaje ci sie zgrabnie wyladowac na ziemi.$} {undo};
 #action {Nie masz na to sily.$} {undo};
-#action {Probujesz otworzyc %1, ale nie udaje ci sie to.} {#var ret @set_quickbind_green{uderz w brame};#map undo;#var map_movecursor 0;#echo {<faa>%0<088>};#line gag};
+#action {Probujesz otworzyc %1, ale nie udaje ci sie to.} {qb {uderz w brame};undo};
 #action {Jestes tak zmeczony, ze nie mozesz dalej podazac w tym kierunku.$} {undo};
-#action {Nie mozesz tego zrobic, gdyz %*} {#map undo} {7};
+#action {Nie mozesz tego zrobic, gdyz %*} {undo} {7};
 
 #action {Gorliwy ciemnowlosy mezczyzna stoi ci na drodze.} {undo};
 
@@ -420,8 +420,8 @@
 #action {Pociagasz za klamke, ale drzwi sa zamkniete.$} {undo};
 #action {Probujesz rozpaczliwie wspiac sie na gore, ale zeslizgujesz sie po mokrych kamieniach.$} {undo};
 
-#action {Probujesz dostac sie do srodka willi, lecz po chwili zjawia sie lokaj, powiadamiajac cie uprzejmym, acz stanowczym glosem,} {#map undo}
-#action {Kierujesz sie w strone krzakow porastajacych polnocno-wchodnia czesc kotliny, lecz bezradnie zatrzymujesz sie przed zwarta sciana kolcow i galezi. Nie znajdujesz sposobu, jak wejsc w chaszcze.} {#map undo} {1};
+#action {Probujesz dostac sie do srodka willi, lecz po chwili zjawia sie lokaj, powiadamiajac cie uprzejmym, acz stanowczym glosem,} {undo}
+#action {Kierujesz sie w strone krzakow porastajacych polnocno-wchodnia czesc kotliny, lecz bezradnie zatrzymujesz sie przed zwarta sciana kolcow i galezi. Nie znajdujesz sposobu, jak wejsc w chaszcze.} {undo} {1};
 #action {Jestes ogluszony i nie mozesz nic zrobic.$} {undo};
 #action {Nie jestes w stanie wymknac sie stad niezauwazenie.$} {undo};
 
