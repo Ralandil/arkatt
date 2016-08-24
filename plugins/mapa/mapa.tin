@@ -1,0 +1,213 @@
+#class mapa {open}
+
+#sh {}
+#sh {+------------------------------------------------------------------+}
+#sh {|         mapa tintin v 0.1 by Dorien Cragen                       |}
+#sh {+------------------------------------------------------------------+}
+#sh {| mapa - aby uruchomic mape                                        |}
+#sh {| save - aby zapisac mape                                          |}
+#sh {| gps - aby odnalesc sie na mape                                   |}
+#sh {+------------------------------------------------------------------+}
+#sh {}
+
+#alias mapa {
+	#nop system {osascript -e 'tell application "Terminal" to do script "tail -f $path/data/map.txt"'};
+	#system {osascript -e 'tell application "Terminal" to do script "tt++ $path/plugins/mapa/window.tin"'};
+	#delay {1} {
+		#session mapa {127.0.0.1} {9082};
+		#delay {1} {
+			#mapa read:${path}/plugins/mapa/mapa;
+			#rpg;
+		};
+	};
+
+}
+
+
+#list custom add {n};
+#list custom add {s};
+#list custom add {e};
+#list custom add {w};
+#list custom add {nw};
+#list custom add {ne};
+#list custom add {se};
+#list custom add {sw};
+#list custom add {d};
+#list custom add {u};
+#list custom add {alkierz};
+#list custom add {alkowa};
+#list custom add {altana};
+#list custom add {arena};
+#list custom add {bakburta};
+#list custom add {bank};
+#list custom add {barak};
+#list custom add {barka};
+#list custom add {biblioteka};
+#list custom add {brama};
+#list custom add {brod};
+#list custom add {brzeg};
+#list custom add {budka};
+#list custom add {budynek};
+#list custom add {chata};
+#list custom add {chatka};
+#list custom add {czwarta};
+#list custom add {dom};
+#list custom add {domek};
+#list custom add {drabina};
+#list custom add {druga};
+#list custom add {drzwi};
+#list custom add {dziob};
+#list custom add {dziupla};
+#list custom add {dziura};
+#list custom add {furta};
+#list custom add {furtka};
+#list custom add {gabinet};
+#list custom add {ganek};
+#list custom add {golebnik};
+#list custom add {gospoda};
+#list custom add {jaskinia};
+#list custom add {jaskinie};
+#list custom add {kajuta};
+#list custom add {kamienica};
+#list custom add {kantorek};
+#list custom add {kantyna};
+#list custom add {kaplica};
+#list custom add {karcer};
+#list custom add {karczma};
+#list custom add {klapa};
+#list custom add {kladka};
+#list custom add {korytarz};
+#list custom add {krzaki};
+#list custom add {kuchnia};
+#list custom add {kurhan};
+#list custom add {kurnik};
+#list custom add {kuznia};
+#list custom add {lazaret};
+#list custom add {laznia};
+#list custom add {lodka};
+#list custom add {magazyn};
+#list custom add {mlyn};
+#list custom add {most};
+#list custom add {namiot};
+#list custom add {ogrod};
+#list custom add {otwor};
+#list custom add {oboz};
+#list custom add {palac};
+#list custom add {pawilon};
+#list custom add {pieczara};
+#list custom add {piekarnia};
+#list custom add {pierwsza};
+#list custom add {pietro};
+#list custom add {piwnice};
+#list custom add {poczta};
+#list custom add {poklad};
+#list custom add {pokoik};
+#list custom add {pomost};
+#list custom add {portal};
+#list custom add {rufa};
+#list custom add {sala};
+#list custom add {salon};
+#list custom add {sciezka};
+#list custom add {schodki};
+#list custom add {schody};
+#list custom add {sklep};
+#list custom add {spizarnia};
+#list custom add {srodokrecie};
+#list custom add {stajnia};
+#list custom add {sterburta};
+#list custom add {stodola};
+#list custom add {stragan};
+#list custom add {straznica};
+#list custom add {stryszek};
+#list custom add {swiatynia};
+#list custom add {szalas};
+#list custom add {szczelina};
+#list custom add {szopa};
+#list custom add {taras};
+#list custom add {targ};
+#list custom add {trakt};
+#list custom add {trzecia};
+#list custom add {tunel};
+#list custom add {ulica};
+#list custom add {wejscie};
+#list custom add {wiatrak};
+#list custom add {wieza};
+#list custom add {woz};
+#list custom add {wyjscie};
+#list custom add {wyplyn};
+#list custom add {wyrwa};
+#list custom add {zagroda};
+#list custom add {zajazd};
+#list custom add {zielarnia};
+#list customm add {dotknij}
+#list customm add {obejrzyj}
+#list customm add {obroc}
+#list customm add {odsun}
+#list customm add {otworz}
+#list customm add {pchnij}
+#list customm add {pociagnij}
+#list customm add {podnies}
+#list customm add {przecisnij}
+#list customm add {przeczolgaj}
+#list customm add {przedrzyj}
+#list customm add {przejdz}
+#list customm add {przeplyn}
+#list customm add {przepraw}
+#list customm add {przeskocz}
+#list customm add {przesun}
+#list customm add {przyloz}
+#list customm add {rozsun}
+#list customm add {skocz}
+#list customm add {wdrap}
+#list customm add {wcisnij}
+#list customm add {wejdz}
+#list customm add {wespnij}
+#list customm add {wskocz}
+#list customm add {wslizgnij}
+#list customm add {wyjdz}
+#list customm add {wynurz}
+#list customm add {zanurkuj}
+#list customm add {zejdz}
+#list customm add {zeskocz}
+#list customm add {zsun}
+
+#event {VARIABLE UPDATE room_desc}{
+	#format len {%L} {%1};
+	#if {$len > 2} {
+		#mapa desc:%1;
+	}
+}
+
+#alias gps {
+	#mapa goto:$room_desc;
+}
+
+#EVENT {SEND OUTPUT}
+{
+	#sh {<G01><ebd>%0<880>};
+	#mapa move:%0;
+}
+
+#alias save {
+	#mapa save;
+}
+#alias undo {
+	#mapa #send {#map undo};
+}
+
+#event {SESSION CONNECTED} {
+	#sh {%1};
+	@info{Polaczenie z mapa zostalo ustanowione.};
+	#mapa read:${path}/plugins/mapa/mapa;
+	#rpg;
+}
+
+#event {SESSION DISCONNECTED mapa} {
+	@error{Polaczenie z mapa zostalo przerwane.};
+}
+
+#nop BLOKERY: ;
+
+
+
+#class mapa close

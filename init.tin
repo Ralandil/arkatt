@@ -34,6 +34,9 @@
 #var plugin[team][path] {$path/plugins/team/team.tin};
 #var plugin[team][state] {1};
 
+#var plugin[mapa][path] {$path/plugins/mapa/mapa.tin};
+#var plugin[mapa][state] {1};
+
 #alias plugins {
 	#list {plugin} {size} {plugin_size};
 	#if {$plugin_size > 0} {
@@ -98,10 +101,6 @@
 	#class %0 kill;
 	#class {%0} {read} {$plugin[%0][path]}
 }
-
-
-#unevent {SEND OUTPUT} {#sh %0}
-
 
 
 #var hp_bar { 0/ 0};

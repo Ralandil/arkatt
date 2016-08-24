@@ -1,0 +1,81 @@
+#config {command echo} {off};
+#split {34} {1}
+#run window_mapa {nc -lp 9082}
+
+#action {read:%1} {
+	#var {map_url} {%1};
+	#map read %1;
+}
+
+#action {execute:%1} {
+	%1;
+}
+#action {next_position}{
+	loc;
+}
+
+#action {save} {
+	#map write ${map_url};
+}
+
+#action {move:%1} {
+	%1;
+}
+#action {goto:%1} {
+	#map goto {} {} {%1};
+}
+
+#action undo {
+	#map undo;
+}
+
+#action {desc:%1} {
+	#map set {roomdesc} {%1};
+	#map write ${map_url};
+}
+
+#action {update:%1} {
+	%1;
+}
+
+#alias {loc} {
+	#switch {$loc_var} {
+		#case 1 {#map goto {3722};#math {loc_var} {$loc_var + 1};@inform{Ubersreik}};
+		#case 2 {#map goto {3457};#math {loc_var} {$loc_var + 1};@inform{Nuln}};
+		#case 3 {#map goto {4266};#math {loc_var} {$loc_var + 1};@inform{Krautzen}};
+		#case 4 {#map goto {4436};#math {loc_var} {$loc_var + 1};@inform{Aveheim}};
+		#case 5 {#map goto {4465};#math {loc_var} {$loc_var + 1};@inform{Kraina Zgromadzenia}};
+		#case 6 {#map goto {5053};#math {loc_var} {$loc_var + 1};@inform{Merquies}};
+		#case 7 {#map goto {5264};#math {loc_var} {$loc_var + 1};@inform{Toscania}};
+		#case 8 {#map goto {5309};#math {loc_var} {$loc_var + 1};@inform{Ebino}};
+		#case 9 {#map goto {5871};#math {loc_var} {$loc_var + 1};@inform{Varieno}};
+		#case 10 {#map goto {6150};#math {loc_var} {$loc_var + 1};@inform{Quellens}};
+		#case 11 {#map goto {4134};#math {loc_var} {$loc_var + 1};@inform{Jouninard}};
+		#case 12 {#map goto {6637};#math {loc_var} {$loc_var + 1};@inform{Pustkowia}};
+		#case 13 {#map goto {6765};#math {loc_var} {$loc_var + 1};@inform{Blavikien}};
+		#case 14 {#map goto {6876};#math {loc_var} {$loc_var + 1};@inform{Gelibol}};
+		#case 15 {#map goto {6927};#math {loc_var} {$loc_var + 1};@inform{Gelibol 2}};
+		#case 16 {#map goto {7456};#math {loc_var} {$loc_var + 1};@inform{Edlar}};
+		#case 17 {#map goto {7649};#math {loc_var} {$loc_var + 1};@inform{Gorna posada}};
+		#case 18 {#map goto {6353};#math {loc_var} {$loc_var + 1};@inform{Montlac}};
+		#case 19 {#map goto {7288};#math {loc_var} {$loc_var + 1};@inform{Garnizon Armii Lyrii}};
+		#case 19 {#map goto {4989};#var {loc_var} {1};@inform{Piegowata Elfka}};
+		#default {#var {loc_var} {1}};
+	}
+}
+
+#event {MAP ENTER ROOM} {
+	#var vnum %0;
+
+	#if {$visit[$vnum] > 0} {
+		#math {vi} {$visit[$vnum]+1};
+	} {
+		#var {vi} {1};
+	}
+	#var {visit[$vnum]} {$vi};
+};
+
+#function inform {
+	#sh %1;
+	#return;
+}
