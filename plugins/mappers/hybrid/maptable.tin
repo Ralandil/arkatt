@@ -172,6 +172,17 @@
 #var maplookup[Salignac][31][50][polnoc][mappos] {1};
 #var maplookup[Salignac][31][50][polnoc][mapdir] {polnoc};
 
+#var maplookup[Ebino][28][14][polnocny-zachod][mapnam] {tnieroglodyci.map};
+#var maplookup[Ebino][28][14][polnocny-zachod][mappos] {1};
+#var maplookup[Ebino][28][14][polnocny-zachod][mapdir] {polnocny-zachod};
+
+#var maplookup[PolnocnaTilea][70][64][polnoc][mapnam] {fimiry.map};
+#var maplookup[PolnocnaTilea][70][64][polnoc][mappos] {1};
+#var maplookup[PolnocnaTilea][70][64][polnoc][mapdir] {polnoc};
+
+#var maplookup[Wissenland][88][61][dol][mapnam] {snotlingikreutz.map};
+#var maplookup[Wissenland][88][61][dol][mappos] {1};
+#var maplookup[Wissenland][88][61][dol][mapnam] {jaskinia};
 
 #unmacro {<};
 #unmacro {>};
