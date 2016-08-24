@@ -431,9 +431,7 @@
 #alias undo {
     #map undo;
     #var map_movecursor 0;
-    #echo {<faa>%0<088>};
     testprompt;
-    #line gag
 }
 #nop IN A CASE GMCP DO NOT RETURN ANY VALUES
 #nop action {Jest zbyt ciemno by cokolwiek zauwazyc. Instynktownie jednak odgadujesz, ze znajdujesz sie gleboko pod ziemia. Bardzo gleboko...} {#var lastmove none}

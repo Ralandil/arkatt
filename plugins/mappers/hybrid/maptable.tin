@@ -28,9 +28,9 @@
 #var maplookup[Wissenland][142][65][zachod][mapdir] {przecisnij sie przez krzaki};
 
 
-#var maplookup[Wissenland][169][88][poludniowy-wschod][mapnam] {czarneorki.map};
-#var maplookup[Wissenland][169][88][poludniowy-wschod][mappos] {39};
-#var maplookup[Wissenland][169][88][poludniowy-wschod][mapdir] {poludniowy-wschod};
+#var maplookup[Wissenland][167][88][poludniowy-wschod][mapnam] {czarneorki.map};
+#var maplookup[Wissenland][167][88][poludniowy-wschod][mappos] {39};
+#var maplookup[Wissenland][167][88][poludniowy-wschod][mapdir] {poludniowy-wschod};
 
 #var maplookup[Wissenland][169][88][poludnie][mapnam] {czarneorki.map};
 #var maplookup[Wissenland][169][88][poludnie][mappos] {39};
