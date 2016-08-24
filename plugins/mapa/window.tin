@@ -1,6 +1,11 @@
 #config {command echo} {off};
-#split {34} {1}
-#run window_mapa {nc -lp 9082}
+#split {34} {1};
+#run mapa {nc -lp 9082}
+
+#delay {1} {
+	#session callback {127.0.0.1} {9083};
+	#mapa;
+}
 
 #action {read:%1} {
 	#var {map_url} {%1};
@@ -19,14 +24,28 @@
 }
 
 #action {move:%1} {
+	#var last_recive %1;
 	%1;
 }
+
+
+
 #action {goto:%1} {
 	#map goto {} {} {%1};
 }
 
 #action undo {
-	#map undo;
+	#if {"$last_send" == "$last_recive"} {
+		#nop;
+	};
+	#elseif {"$last_send" != ""} {
+		#sh {$last_send = $last_recive};
+		#callback {$last_send};
+	}
+}
+#macro \er {
+	#read /Users/piotrnguyenha/arkatt/plugins/mapa/window.tin;
+	#sh {reloaded};
 }
 
 #action {desc:%1} {
@@ -34,8 +53,20 @@
 	#map write ${map_url};
 }
 
-#action {update:%1} {
-	%1;
+
+#action {mode:%1} {
+	#sh %1;
+	#switch {"%1"} {
+		#case {"walk"} {#map flag static on;#map flag nofollow off;#var mode {<BDB><aaa> WALK <088>}};
+		#case {"craft"} {#map flag nofollow off;#map flag nofollow off;#var mode {<CAB><aaa> CRAFT <088>}};
+		#case {"freeze"} {#map flag static on;#map flag nofollow on;#var mode {<CDF><aaa> FREEZE <088>}};
+	};
+	#echo {{%+1s} {1}} {<ECA><aaa>  $vnum  <088> <BDB><aaa>   $gmcp  <088> $mode};
+
+}
+
+#event {SCREEN RESIZE} {
+	#echo {{%+1s} {1}} {<ECA><aaa>  $vnum  <088> <BDB><aaa>   $gmcp  <088> $mode};
 }
 
 #alias {loc} {
@@ -67,6 +98,12 @@
 #event {MAP ENTER ROOM} {
 	#var vnum %0;
 
+	#map get {roomexits} {ex};
+	#map get {roomdesc} {gmcp};
+
+	#echo {{%+1s} {1}} {<ECA><aaa>  $vnum  <088> <BDB><aaa>   $gmcp  <088> $mode};
+
+
 	#if {$visit[$vnum] > 0} {
 		#math {vi} {$visit[$vnum]+1};
 	} {
@@ -74,6 +111,11 @@
 	}
 	#var {visit[$vnum]} {$vi};
 };
+
+#event {SEND OUTPUT} {
+	#var last_send {%0};
+	#sh {<ead>%0<088>}
+}
 
 #function inform {
 	#sh %1;

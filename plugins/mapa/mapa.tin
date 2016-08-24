@@ -15,13 +15,31 @@
 	#system {osascript -e 'tell application "Terminal" to do script "tt++ $path/plugins/mapa/window.tin"'};
 	#delay {1} {
 		#session mapa {127.0.0.1} {9082};
+		#run {callback} {nc -lp 9083};
+		#callback {
+			#event {RECEIVED OUTPUT} {
+				#rpg {
+					#var to_send {%%0};
+
+					#replace {to_send} {\x0d} {};
+					#replace {to_send} {\n} {};
+
+					$to_send;
+				}
+			}
+		};
 		#delay {1} {
 			#mapa read:${path}/plugins/mapa/mapa;
 			#rpg;
 		};
+		testprompt;
 	};
-
 }
+
+
+
+
+
 
 
 #list custom add {n};
@@ -171,21 +189,103 @@
 #list customm add {zeskocz}
 #list customm add {zsun}
 
-#event {VARIABLE UPDATE room_desc}{
-	#format len {%L} {%1};
-	#if {$len > 2} {
-		#mapa desc:%1;
-	}
+#alias gps {
+	#mapa goto:$ROOM_INFO[map][domain]-$ROOM_INFO[map][name]-$ROOM_INFO[map][x]x$ROOM_INFO[map][y];
 }
 
-#alias gps {
-	#mapa goto:$room_desc;
+#alias mapmode {
+	#nop walk|create|freeze;
+	#sh $mapa_mode;
+	#switch {$mapa_mode} {
+		#case {1} {#math {mapa_mode} {$mapa_mode + 1};#mapa {mode:walk;}};
+		#case {2} {#math {mapa_mode} {$mapa_mode + 1};#mapa {mode:craft}};
+		#case {3} {#var mapa_mode 1;#mapa {mode:freeze}};
+		#default {#var mapa_mode 1};
+	};
+
+}
+
+
+#var to_short {
+	{n}{n}
+	{polnoc}{n}
+	{s}{s}
+	{poludnie}{s}
+	{w}{w}
+	{zachod}{w}
+	{e}{e}
+	{wschod}{e}
+	{ne}{ne}
+	{polnocny-wschod}{ne}
+	{nw}{nw}
+	{polnocny-zachod}{nw}
+	{se}{se}
+	{poludniowy-wschod}{se}
+	{sw}{sw}
+	{poludniowy-zachod}{sw}
+}
+
+#var to_long {
+	{n}{polnoc}
+	{polnoc}{polnoc}
+	{s}{poludnie}
+	{poludnie}{poludnie}
+	{w}{zachod}
+	{zachod}{zachod}
+	{e}{wschod}
+	{wschod}{wschod}
+	{ne}{polnocny-wschod}
+	{polnocny-wschod}{polnocny-wschod}
+	{nw}{polnocny-zachod}
+	{polnocny-zachod}{polnocny-zachod}
+	{se}{poludniowy-wschod}
+	{poludniowy-wschod}{poludniowy-wschod}
+	{sw}{poludniowy-zachod}
+	{poludniowy-zachod}{poludniowy-zachod}
+}
+
+
+#nop ####################################################;
+#nop EDYTOWANIE INPUTA PRZED WYSTALANIEM DO MUDA - PRZETESTOWANIE KIERUNKU W MAPIE;
+#nop ####################################################;
+
+#EVENT {RECEIVED INPUT} {
+	
+	#var input %0;
+	#replace {input} {\x0d} {};
+	#replace {input} {\n} {};
+
+	#list {to_long} {find} {$input} {i};
+	#if {$i > 0} {
+		#var input {$to_short[$input]};
+	};
+
+	#list {custom} {find} {$input} {n};
+	#if {$n > 0} {
+		#mapa move:$input;
+		#mapa desc:$ROOM_INFO[map][domain]-$ROOM_INFO[map][name]-$ROOM_INFO[map][x]x$ROOM_INFO[map][y];
+	};
+
 }
 
 #EVENT {SEND OUTPUT}
 {
-	#sh {<G01><ebd>%0<880>};
-	#mapa move:%0;
+	#var send %0;
+	#replace {send} {\x0d} {};
+	#replace {send} {\n} {};
+
+	#list {to_long} {find} {$send} {i};
+	#if {$i > 0} {
+		#var send {$to_short[$send]};
+		#sh {$to_short[$send]};
+	};
+	#sh {<G02><aaa>$send<880>};
+
+	#list {custom} {find} {$send} {n};
+	#if {$n > 0} {
+		#sh {$send};
+	};
+
 }
 
 #alias save {
@@ -206,8 +306,11 @@
 	@error{Polaczenie z mapa zostalo przerwane.};
 }
 
-#nop BLOKERY: ;
 
+
+#action {Probujesz otworzyc %1, ale nie udaje ci sie to.} {
+	#line substitute {variables} {#macro {$KEY_QB} {zapukaj we wrota}};
+}
 
 
 #class mapa close
