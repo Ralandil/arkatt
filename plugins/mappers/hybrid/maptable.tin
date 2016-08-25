@@ -182,7 +182,7 @@
 
 #var maplookup[Wissenland][88][61][dol][mapnam] {snotlingikreutz.map};
 #var maplookup[Wissenland][88][61][dol][mappos] {1};
-#var maplookup[Wissenland][88][61][dol][mapnam] {jaskinia};
+#var maplookup[Wissenland][88][61][dol][mapdir] {jaskinia};
 
 #unmacro {<};
 #unmacro {>};
