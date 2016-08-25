@@ -35,12 +35,20 @@
 }
 
 #action undo {
+	#replace {last_send} {\n} {};
 	#if {"$last_send" == "$last_recive"} {
-		#nop;
+		#if {"$mapa_mode" == "craft"} {
+			#map undo;
+		}	
 	};
 	#elseif {"$last_send" != ""} {
 		#sh {$last_send = $last_recive};
-		#callback {$last_send};
+		#format len {%L} {$last_send};
+		#if {$len > 2} {
+			#if {$ben_sent != 1} {#callback {$last_send}}
+			#var ben_sent 1;
+			#delay {1} {#var ben_sent 0};
+		}
 	}
 }
 #macro \er {
@@ -55,10 +63,10 @@
 
 
 #action {mode:%1} {
-	#sh %1;
+	#var mapa_mode %1;
 	#switch {"%1"} {
 		#case {"walk"} {#map flag static on;#map flag nofollow off;#var mode {<BDB><aaa> WALK <088>}};
-		#case {"craft"} {#map flag nofollow off;#map flag nofollow off;#var mode {<CAB><aaa> CRAFT <088>}};
+		#case {"craft"} {#map flag nofollow off;#map flag static off;#var mode {<CAB><aaa> CRAFT <088>}};
 		#case {"freeze"} {#map flag static on;#map flag nofollow on;#var mode {<CDF><aaa> FREEZE <088>}};
 	};
 	#echo {{%+1s} {1}} {<ECA><aaa>  $vnum  <088> <BDB><aaa>   $gmcp  <088> $mode};

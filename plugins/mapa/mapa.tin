@@ -265,6 +265,7 @@
 		#mapa move:$input;
 		#mapa desc:$ROOM_INFO[map][domain]-$ROOM_INFO[map][name]-$ROOM_INFO[map][x]x$ROOM_INFO[map][y];
 	};
+	#unvar input;
 
 }
 
@@ -295,20 +296,10 @@
 	#mapa #send {#map undo};
 }
 
-#event {SESSION CONNECTED} {
-	#sh {%1};
-	@info{Polaczenie z mapa zostalo ustanowione.};
-	#mapa read:${path}/plugins/mapa/mapa;
-	#rpg;
-}
-
-#event {SESSION DISCONNECTED mapa} {
-	@error{Polaczenie z mapa zostalo przerwane.};
-}
-
-
-
+#action {Ruszasz razno na %1, schodzac z wytyczonego traktu, jednak okazuje sie, ze nie dasz rady isc w tym kierunku.} {undo}
+#action {Nie widzisz zadnego wyjscia prowadzacego %1.} {undo}
 #action {Probujesz otworzyc %1, ale nie udaje ci sie to.} {
+	undo;
 	#line substitute {variables} {#macro {$KEY_QB} {zapukaj we wrota}};
 }
 
