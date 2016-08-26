@@ -221,29 +221,20 @@
 
 #EVENT {MAP ENTER ROOM}
 {
-	#map map {69x12} {tmpmap.ascii};
-	#script {asciimapv} {cat tmpmap.ascii};
-	#loop {1} {12} {asciicnt} {
-		#line {strip} {#var asciimapline {$asciimapv[$asciicnt]}};
-		#replace asciimapline { \\} { <bbb>\\\};
-		#replace asciimapline {m\\} {m<bbb>\\\};
-        #replace asciimapline { /} { <bbb>/};
-        #replace asciimapline {m/} {m<bbb>/};
-        #replace asciimapline {-} {<bbb>-};
-        #replace asciimapline {|} {<bbb>|};
-		#var asciimapv[$asciicnt] {$asciimapline};
-	};
-	#unalias {w};
-	#unalias {e};
-	#unalias {n};
-	#unalias {s};
-	#unalias {ne};
-	#unalias {nw};
-	#unalias {sw};
-	#unalias {se};
-	#unalias {d};
-	#unalias {u};
-
+    #if {$mnamelen < 2} {
+	    #map map {69x12} {tmpmap.ascii};
+	    #script {asciimapv} {cat tmpmap.ascii};
+	    #loop {1} {12} {asciicnt} {
+            #line {strip} {#var asciimapline {$asciimapv[$asciicnt]}};
+		    #replace asciimapline { \\} { <bbb>\\\};
+		    #replace asciimapline {m\\} {m<bbb>\\\};
+            #replace asciimapline { /} { <bbb>/};
+            #replace asciimapline {m/} {m<bbb>/};
+            #replace asciimapline {-} {<bbb>-};
+            #replace asciimapline {|} {<bbb>|};
+		    #var asciimapv[$asciicnt] {$asciimapline};
+	    };
+    };
 };
 
 #alias {follow_n} {#var follow_dir n};
@@ -278,69 +269,27 @@
         mapdraw;
 };
 
-#nop ###############  GMCP  MAP INTEGRATION #####################
+#nop ###############  GMCP  MAP INTEGRATION #####################;
 
-#EVENT {IAC SB GMCP room.info IAC SE} {
+#event {IAC SB GMCP room.info IAC SE} {
     #var ROOM_INFO {%0};
     #var room_desc ${ROOM_INFO[map][x]}x${ROOM_INFO[map][y]};
-#nop unvar room_info_hybrid;
     #var room_info_hybrid $ROOM_INFO;
-#nop EVENT {variable update room_info_hybrid} {}
-    #nop EVENT {IAC SB GMCP room.info IAC SE} {};
-	#nop var ROOM_INFO {%0};
-    #nop var room_desc ${ROOM_INFO[map][x]}x${ROOM_INFO[map][y]};
-
-	#unalias {w};
-	#unalias {e};
-	#unalias {n};
-	#unalias {s};
-	#unalias {ne};
-	#unalias {nw};
-	#unalias {sw};
-	#unalias {se};
-	#unalias {d};
-	#unalias {u};
 
     #format mnamelen {%L} {$ROOM_INFO[map][name]};
     #if {$mnamelen > 0} {
-        #var gmcpendpoints[n] {0};
-        #var gmcpendpoints[s] {0};
-        #var gmcpendpoints[w] {0};
-        #var gmcpendpoints[e] {0};
-        #var gmcpendpoints[nw] {0};
-        #var gmcpendpoints[ne] {0};
-        #var gmcpendpoints[sw] {0};
-        #var gmcpendpoints[se] {0};
-        #var gmcpendpoints[u] {0};
-        #var gmcpendpoints[d] {0};
-        #if {$ttmap_loaded == 1} {
-    		#map destroy;
-    		#var ttmap_loaded 0;
-    	};
         #replace {ROOM_INFO[map][name]} { } {};
     	#replace {ROOM_INFO[map][name]} {'} {};
         #if {"$linux" == "1"} {asciimap};
 
-		#foreach {$maplookup[$ROOM_INFO[map][name]][$ROOM_INFO[map][x]][$ROOM_INFO[map][y]][]} {tmpexit} {
+        #if {$maplookup[$ROOM_INFO[map][name]-$ROOM_INFO[map][x]-$ROOM_INFO[map][y]][pos]} {
+            #map read $path/plugins/mappers/hybrid/maps/$maplookup[$ROOM_INFO[map][name]-$ROOM_INFO[map][x]-$ROOM_INFO[map][y]][file];
+            #map goto $maplookup[$ROOM_INFO[map][name]-$ROOM_INFO[map][x]-$ROOM_INFO[map][y]][pos];
+        } {
+            #map destroy;
+            #var ttmap_loaded 0;
+        }
 
-            #line substitute {variables} {
-                #alias {$arkadirections[$tmpexit]} {
-                    #send $maplookup[$ROOM_INFO[map][name]][$ROOM_INFO[map][x]][$ROOM_INFO[map][y]][$tmpexit][mapdir];
-					#map read $path/plugins/mappers/hybrid/maps/$maplookup[$ROOM_INFO[map][name]][$ROOM_INFO[map][x]][$ROOM_INFO[map][y]][$tmpexit][mapnam];
-					#map goto $maplookup[$ROOM_INFO[map][name]][$ROOM_INFO[map][x]][$ROOM_INFO[map][y]][$tmpexit][mappos];
-					#var ttmap_loaded 1;
-                    #var ttmap_newtmp 0;
-				};
-                #alias {$arkadirections[$tmpexit]$arkadirections[$tmpexit]} {
-                    #map read $path/plugins/mappers/hybrid/maps/$maplookup[$ROOM_INFO[map][name]][$ROOM_INFO[map][x]][$ROOM_INFO[map][y]][$tmpexit][mapnam];
-                    #map goto $maplookup[$ROOM_INFO[map][name]][$ROOM_INFO[map][x]][$ROOM_INFO[map][y]][$tmpexit][mappos];
-                    #var ttmap_loaded 1;
-                    #var ttmap_newtmp 0;
-                };
-            };
-
-            #var gmcpendpoints[$arkadirections[$tmpexit]] {1};
-        };
     } {
             #if {$ttmap_loaded < 1} {
                 #map create;
