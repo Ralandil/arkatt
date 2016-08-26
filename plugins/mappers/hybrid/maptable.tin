@@ -1,3 +1,7 @@
+#var maplookup[Averland-110-88][file] {kg.map};#var maplookup[Averland11088][pos] {3};
+#var maplookup[Averland-112-90][file] {kg.map};#var maplookup[Averland11088][pos] {2};
+
+
 #var maplookup[Averland][110][88][poludniowy-zachod][mapnam] {obozkg.map};
 #var maplookup[Averland][110][88][poludniowy-zachod][mappos] {30};
 #var maplookup[Averland][110][88][poludniowy-zachod][mapdir] {poludniowy-zachod};
