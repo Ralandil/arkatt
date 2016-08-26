@@ -278,6 +278,7 @@
 
     #format mnamelen {%L} {$ROOM_INFO[map][name]};
     #if {$mnamelen > 0} {
+        #sh {<afa>$ROOM_INFO[map][name] <ccc>(<afa>$ROOM_INFO[map][x]<ccc>x<afa>$ROOM_INFO[map][y]<ccc>)};
         #replace {ROOM_INFO[map][name]} { } {};
     	#replace {ROOM_INFO[map][name]} {'} {};
         #if {"$linux" == "1"} {asciimap};
@@ -286,8 +287,8 @@
             #map read $path/plugins/mappers/hybrid/maps/$maplookup[$ROOM_INFO[map][name]-$ROOM_INFO[map][x]-$ROOM_INFO[map][y]][file];
             #map goto $maplookup[$ROOM_INFO[map][name]-$ROOM_INFO[map][x]-$ROOM_INFO[map][y]][pos];
         } {
-            #map destroy;
-            #var ttmap_loaded 0;
+            #nop map destroy;
+            #nop var ttmap_loaded 0;
         }
 
     } {
@@ -337,7 +338,8 @@
 
 
 #nop create mode;
-#action {Ruszasz razno na %1, schodzac z wytyczonego traktu, jednak okazuje sie %*.$} {#map:undo;#var map_movecursor 0;#echo {<faa>%0<088>};testprompt;undo;#line gag};
+#action {Ruszasz razno na %1, schodzac z wytyczonego traktu, jednak %*.$} {undo};
+
 #action {Nie widzisz zadnego wyjscia %*.$} {undo};
 
 #action {Odpadasz od sciany i lecisz w dol, jednak dzieki niewielkiej wysokosci udaje ci sie zgrabnie wyladowac na ziemi.$} {undo};

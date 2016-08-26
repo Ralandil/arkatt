@@ -1,10 +1,20 @@
 #var maplookup[Averland-110-88][file] {kg.map};#var maplookup[Averland-110-88][pos] {3};
 #var maplookup[Averland-112-90][file] {kg.map};#var maplookup[Averland-112-90][pos] {2};
 
-#var maplookup[Averland-100-92][file] {kg.map};#var maplookup[Averland-100-92][pos] {-}; 
-#var maplookup[Averland-100-94][file] {kg.map};#var maplookup[Averland-100-94][pos] {-}; 
+#var maplookup[Averland-100-92][file] {kg.map};#var maplookup[Averland-100-92][pos] {14}; 
+#var maplookup[Averland-100-94][file] {kg.map};#var maplookup[Averland-100-94][pos] {16}; 
 
-
+#var maplookup[Averland-58-108][file] {czarneorki.map};#var maplookup[Averland-58-108][pos] {94};
+#var maplookup[Averland-56-108][file] {czarneorki.map};#var maplookup[Averland-56-108][pos] {93};
+#var maplookup[Averland-54-108][file] {czarneorki.map};#var maplookup[Averland-54-108][pos] {92};
+#var maplookup[Averland-52-106][file] {czarneorki.map};#var maplookup[Averland-52-106][pos] {91};
+#var maplookup[Averland-50-106][file] {czarneorki.map};#var maplookup[Averland-50-106][pos] {90};
+#var maplookup[Averland-48-106][file] {czarneorki.map};#var maplookup[Averland-48-106][pos] {89};
+#var maplookup[Averland-46-106][file] {czarneorki.map};#var maplookup[Averland-46-106][pos] {88};
+#nop 87;
+#nop 86;
+#nop 85;
+#nop 84;
 
 
 
