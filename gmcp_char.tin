@@ -1,6 +1,5 @@
 #event {IAC SB GMCP char.info IAC SE}{
 	#var CHAR_INFO {%0};
-	
 };
 
 #event {VARIABLE UPDATE CHAR_INFO} {
@@ -23,7 +22,6 @@
 
 #EVENT {IAC SB GMCP char.state IAC SE} {
 	#var CHAR_STATE {%0};
-
 	#foreach {$CHAR_STATE[]} {s} {
 		#list {state} {find} {$s} {v}; 
 		#if {$v > 0} {
@@ -32,90 +30,109 @@
 			#var {state[$s]} {$CHAR_STATE[$s]};
 		}
 	};
-
-    #if {"$CHAR_STATE[intox]" == "0"} {#var pr_upicie {<118><aca> 0/ 9<088>};};
-    #if {"$CHAR_STATE[intox]" == "1"} {#var pr_upicie {<118><aca> 1/ 9<088>};};
-    #if {"$CHAR_STATE[intox]" == "2"} {#var pr_upicie {<118><aca> 2/ 9<088>};};
-    #if {"$CHAR_STATE[intox]" == "3"} {#var pr_upicie {<118><aca> 3/ 9<088>};};
-    #if {"$CHAR_STATE[intox]" == "4"} {#var pr_upicie {<118><aca> 4/ 9<088>};};
-    #if {"$CHAR_STATE[intox]" == "5"} {#var pr_upicie {<118><aca> 5/ 9<088>};};
-    #if {"$CHAR_STATE[intox]" == "6"} {#var pr_upicie {<118><aca> 6/ 9<088>};};
-    #if {"$CHAR_STATE[intox]" == "7"} {#var pr_upicie {<118><aca> 7/ 9<088>};};
-    #if {"$CHAR_STATE[intox]" == "8"} {#var pr_upicie {<118><aca> 8/ 9<088>};};
-    #if {"$CHAR_STATE[intox]" == "9"} {#var pr_upicie {<118><aca> 9/ 9<088>};};
-    #if {"$CHAR_STATE[headache]" == "1"} {#var pr_upicie {<118><caa>-1/ 9<088>};};
-    #if {"$CHAR_STATE[headache]" == "2"} {#var pr_upicie {<118><caa>-2/ 9<088>};};
-    #if {"$CHAR_STATE[headache]" == "3"} {#var pr_upicie {<118><caa>-3/ 9<088>};};
-    #if {"$CHAR_STATE[headache]" == "4"} {#var pr_upicie {<118><caa>-4/ 9<088>};};
-    #if {"$CHAR_STATE[headache]" == "5"} {#var pr_upicie {<118><caa>-5/ 9<088>};};
-	#if {"$CHAR_STATE[fatigue]" == "0"} {#var pr_zmeczenie {<118><aca> 0/ 9<088>};};
-	#if {"$CHAR_STATE[fatigue]" == "1"} {#var pr_zmeczenie {<118><aca> 1/ 9<088>};};
-	#if {"$CHAR_STATE[fatigue]" == "2"} {#var pr_zmeczenie {<118><aca> 2/ 9<088>};};
-	#if {"$CHAR_STATE[fatigue]" == "3"} {#var pr_zmeczenie {<118><cca> 3/ 9<088>};};
-	#if {"$CHAR_STATE[fatigue]" == "4"} {#var pr_zmeczenie {<118><cca> 4/ 9<088>};};
-	#if {"$CHAR_STATE[fatigue]" == "5"} {#var pr_zmeczenie {<118><cca> 5/ 9<088>};};
-	#if {"$CHAR_STATE[fatigue]" == "6"} {#var pr_zmeczenie {<118><caa> 6/ 9<088>};};
-	#if {"$CHAR_STATE[fatigue]" == "7"} {#var pr_zmeczenie {<118><caa> 7/ 9<088>};};
-	#if {"$CHAR_STATE[fatigue]" == "8"} {#var pr_zmeczenie {<118><caa> 8/ 9<088>};};
-	#if {"$CHAR_STATE[fatigue]" == "9"} {#var pr_zmeczenie {<118><caa> 9/ 9<088>};};
-	#if {"$CHAR_STATE[hp]" == "6"} {#var hp_bar {<118><aca> 7/ 7<088>}};
-	#if {"$CHAR_STATE[hp]" == "5"} {#var hp_bar {<118><aca> 6/ 7<088>}};
-	#if {"$CHAR_STATE[hp]" == "4"} {#var hp_bar {<118><cca> 5/ 7<088>}};
-	#if {"$CHAR_STATE[hp]" == "3"} {#var hp_bar {<118><cca> 4/ 7<088>}};
-	#if {"$CHAR_STATE[hp]" == "2"} {#var hp_bar {<118><caa> 3/ 7<088>}};
-	#if {"$CHAR_STATE[hp]" == "1"} {#var hp_bar {<118><caa> 2/ 7<088>}};
-	#if {"$CHAR_STATE[hp]" == "0"} {#var hp_bar {<118><caa> 1/ 7<088>}};
-	#if {"$CHAR_STATE[encumberance]" == "6"} {#var pr_obci {<118><caa> 6/ 6<088>};};
-	#if {"$CHAR_STATE[encumberance]" == "5"} {#var pr_obci {<118><caa> 5/ 6<088>};};
-	#if {"$CHAR_STATE[encumberance]" == "4"} {#var pr_obci {<118><caa> 4/ 6<088>};};
-	#if {"$CHAR_STATE[encumberance]" == "3"} {#var pr_obci {<118><cca> 3/ 6<088>};};
-	#if {"$CHAR_STATE[encumberance]" == "2"} {#var pr_obci {<118><cca> 2/ 6<088>};};
-	#if {"$CHAR_STATE[encumberance]" == "1"} {#var pr_obci {<118><aca> 1/ 6<088>};};
-	#if {"$CHAR_STATE[encumberance]" == "0"} {#var pr_obci {<118><aca> 0/ 6<088>};};
-	#if {"$CHAR_STATE[form]" == "6"} {#var pr_form {<118><aca> 6/ 6<088>};};
-	#if {"$CHAR_STATE[form]" == "5"} {#var pr_form {<118><aca> 5/ 6<088>};};
-	#if {"$CHAR_STATE[form]" == "4"} {#var pr_form {<118><cca> 4/ 6<088>};};
-	#if {"$CHAR_STATE[form]" == "3"} {#var pr_form {<118><cca> 3/ 6<088>};};
-	#if {"$CHAR_STATE[form]" == "2"} {#var pr_form {<118><cca> 2/ 6<088>};};
-	#if {"$CHAR_STATE[form]" == "1"} {#var pr_form {<118><caa> 1/ 6<088>};};
-	#if {"$CHAR_STATE[form]" == "0"} {#var pr_form {<118><caa> 0/ 6<088>};};
-	#if {"$CHAR_STATE[stuffed]" == "3"} {#var pr_glod {<118><aca> 0/ 3<088>};};
-	#if {"$CHAR_STATE[stuffed]" == "2"} {#var pr_glod {<118><cca> 1/ 3<088>};};
-	#if {"$CHAR_STATE[stuffed]" == "1"} {#var pr_glod {<118><caa> 2/ 3<088>};};
-	#if {"$CHAR_STATE[stuffed]" == "0"} {#var pr_glod {<118><caa> 3/ 3<088>};};
-	#if {"$CHAR_STATE[soaked]" == "3"} {#var pr_smad {<118><aca> 0/ 3<088>};};
-	#if {"$CHAR_STATE[soaked]" == "2"} {#var pr_smad {<118><cca> 1/ 3<088>};};
-	#if {"$CHAR_STATE[soaked]" == "1"} {#var pr_smad {<118><caa> 2/ 3<088>};};
-	#if {"$CHAR_STATE[soaked]" == "0"} {#var pr_smad {<118><caa> 3/ 3<088>};};
-	#if {"$CHAR_STATE[improve]" == "0"} {#var pr_exp {<118><fff> 0/15<088>};};
-	#if {"$CHAR_STATE[improve]" == "1"} {#var pr_exp {<118><fff> 1/15<088>};};
-	#if {"$CHAR_STATE[improve]" == "2"} {#var pr_exp {<118><fff> 2/15<088>};};
-	#if {"$CHAR_STATE[improve]" == "3"} {#var pr_exp {<118><fff> 3/15<088>};};
-	#if {"$CHAR_STATE[improve]" == "4"} {#var pr_exp {<118><fff> 4/15<088>};};
-	#if {"$CHAR_STATE[improve]" == "5"} {#var pr_exp {<118><fff> 5/15<088>};};
-	#if {"$CHAR_STATE[improve]" == "6"} {#var pr_exp {<118><fff> 6/15<088>};};
-	#if {"$CHAR_STATE[improve]" == "7"} {#var pr_exp {<118><fff> 7/15<088>};};
-	#if {"$CHAR_STATE[improve]" == "8"} {#var pr_exp {<118><fff> 8/15<088>};};
-	#if {"$CHAR_STATE[improve]" == "9"} {#var pr_exp {<118><fff> 9/15<088>};};
-	#if {"$CHAR_STATE[improve]" == "10"} {#var pr_exp {<118><fff>10/15<088>};};
-	#if {"$CHAR_STATE[improve]" == "11"} {#var pr_exp {<118><fff>11/15<088>};};
-	#if {"$CHAR_STATE[improve]" == "12"} {#var pr_exp {<118><fff>12/15<088>};};
-	#if {"$CHAR_STATE[improve]" == "13"} {#var pr_exp {<118><fff>13/15<088>};};
-	#if {"$CHAR_STATE[improve]" == "14"} {#var pr_exp {<118><fff>14/15<088>};};
-	#if {"$CHAR_STATE[improve]" == "15"} {#var pr_exp {<118><fff>15/15<088>};};
-	#if {"$CHAR_STATE[mana]" == "8"} {#var pr_mana {<118><aca> 9/ 9<088>};};
-	#if {"$CHAR_STATE[mana]" == "7"} {#var pr_mana {<118><aca> 8/ 9<088>};};
-	#if {"$CHAR_STATE[mana]" == "6"} {#var pr_mana {<118><aca> 7/ 9<088>};};
-	#if {"$CHAR_STATE[mana]" == "5"} {#var pr_mana {<118><cca> 6/ 9<088>};};
-	#if {"$CHAR_STATE[mana]" == "4"} {#var pr_mana {<118><cca> 5/ 9<088>};};
-	#if {"$CHAR_STATE[mana]" == "3"} {#var pr_mana {<118><cca> 4/ 9<088>};};
-	#if {"$CHAR_STATE[mana]" == "2"} {#var pr_mana {<118><caa> 3/ 9<088>};};
-	#if {"$CHAR_STATE[mana]" == "1"} {#var pr_mana {<118><caa> 2/ 9<088>};};
-	#if {"$CHAR_STATE[mana]" == "0"} {#var pr_mana {<118><caa> 1/ 9<088>};};
-    testprompt;
+#switch {"$CHAR_STATE[intox]"}{
+#case {"0"}{#var {pr_upicie}{<118><aca> 0/ 9<088>}};
+#case {"1"}{#var {pr_upicie}{<118><aca> 1/ 9<088>}};
+#case {"2"}{#var {pr_upicie}{<118><aca> 2/ 9<088>}};
+#case {"0"}{#var {pr_upicie}{<118><aca> 3/ 9<088>}};
+#case {"0"}{#var {pr_upicie}{<118><aca> 4/ 9<088>}};
+#case {"0"}{#var {pr_upicie}{<118><aca> 5/ 9<088>}};
+#case {"0"}{#var {pr_upicie}{<118><aca> 6/ 9<088>}};
+#case {"0"}{#var {pr_upicie}{<118><aca> 7/ 9<088>}};
+#case {"0"}{#var {pr_upicie}{<118><aca> 8/ 9<088>}};
+#case {"0"}{#var {pr_upicie}{<118><aca> 9/ 9<088>}};
+};
+#switch {"$CHAR_STATE[headache]"}{
+#case {"1"}{#var {pr_upicie}{<118><caa>-1/ 9<088>}};
+#case {"2"}{#var {pr_upicie}{<118><caa>-2/ 9<088>}};
+#case {"3"}{#var {pr_upicie}{<118><caa>-3/ 9<088>}};
+#case {"4"}{#var {pr_upicie}{<118><caa>-4/ 9<088>}};
+#case {"5"}{#var {pr_upicie}{<118><caa>-5/ 9<088>}};
+};
+#switch {"$CHAR_STATE[fatigue]"}{
+#case {"0"}{#var {pr_zmeczenie}{<118><aca> 0/ 9<088>}};
+#case {"1"}{#var {pr_zmeczenie}{<118><aca> 1/ 9<088>}};
+#case {"2"}{#var {pr_zmeczenie}{<118><aca> 2/ 9<088>}};
+#case {"3"}{#var {pr_zmeczenie}{<118><cca> 3/ 9<088>}};
+#case {"4"}{#var {pr_zmeczenie}{<118><cca> 4/ 9<088>}};
+#case {"5"}{#var {pr_zmeczenie}{<118><cca> 5/ 9<088>}};
+#case {"6"}{#var {pr_zmeczenie}{<118><caa> 6/ 9<088>}};
+#case {"7"}{#var {pr_zmeczenie}{<118><caa> 7/ 9<088>}};
+#case {"8"}{#var {pr_zmeczenie}{<118><caa> 8/ 9<088>}};
+#case {"9"}{#var {pr_zmeczenie}{<118><caa> 9/ 9<088>}};
+};
+#switch {"$CHAR_STATE[hp]"}{
+#case {"6"}{#var {hp_bar}{<118><aca> 7/ 7<088>}};
+#case {"5"}{#var {hp_bar}{<118><aca> 6/ 7<088>}};
+#case {"4"}{#var {hp_bar}{<118><cca> 5/ 7<088>}};
+#case {"3"}{#var {hp_bar}{<118><cca> 4/ 7<088>}};
+#case {"2"}{#var {hp_bar}{<118><caa> 3/ 7<088>}};
+#case {"1"}{#var {hp_bar}{<118><caa> 2/ 7<088>}};
+#case {"0"}{#var {hp_bar}{<118><caa> 1/ 7<088>}};
+};
+#switch {"$CHAR_STATE[encumberance]"}{
+#case {"6"}{#var {pr_obci}{<118><caa> 6/ 6<088>}};
+#case {"5"}{#var {pr_obci}{<118><caa> 5/ 6<088>}};
+#case {"4"}{#var {pr_obci}{<118><caa> 4/ 6<088>}};
+#case {"3"}{#var {pr_obci}{<118><cca> 3/ 6<088>}};
+#case {"2"}{#var {pr_obci}{<118><cca> 2/ 6<088>}};
+#case {"1"}{#var {pr_obci}{<118><aca> 1/ 6<088>}};
+#case {"0"}{#var {pr_obci}{<118><aca> 0/ 6<088>}};
+};
+#switch {"$CHAR_STATE[form]"}{
+#case {"6"}{#var {pr_form}{<118><aca> 6/ 6<088>}};
+#case {"5"}{#var {pr_form}{<118><aca> 5/ 6<088>}};
+#case {"4"}{#var {pr_form}{<118><cca> 4/ 6<088>}};
+#case {"3"}{#var {pr_form}{<118><cca> 3/ 6<088>}};
+#case {"2"}{#var {pr_form}{<118><cca> 2/ 6<088>}};
+#case {"1"}{#var {pr_form}{<118><caa> 1/ 6<088>}};
+#case {"0"}{#var {pr_form}{<118><caa> 0/ 6<088>}};
+};
+#switch {"$CHAR_STATE[stuffed]"}{
+#case {"3"}{#var {pr_glod}{<118><aca> 0/ 3<088>}};
+#case {"2"}{#var {pr_glod}{<118><cca> 1/ 3<088>}};
+#case {"1"}{#var {pr_glod}{<118><caa> 2/ 3<088>}};
+#case {"0"}{#var {pr_glod}{<118><caa> 3/ 3<088>}};
+};
+#switch {"$CHAR_STATE[soaked]"}{
+#case {"3"}{#var {pr_smad}{<118><aca> 0/ 3<088>}};
+#case {"2"}{#var {pr_smad}{<118><cca> 1/ 3<088>}};
+#case {"1"}{#var {pr_smad}{<118><caa> 2/ 3<088>}};
+#case {"0"}{#var {pr_smad}{<118><caa> 3/ 3<088>}};
+};
+#switch {"$CHAR_STATE[improve]"}{
+#case {"0"}{#var {pr_exp}{<118><fff> 0/15<088>}};
+#case {"1"}{#var {pr_exp}{<118><fff> 1/15<088>}};
+#case {"2"}{#var {pr_exp}{<118><fff> 2/15<088>}};
+#case {"3"}{#var {pr_exp}{<118><fff> 3/15<088>}};
+#case {"4"}{#var {pr_exp}{<118><fff> 4/15<088>}};
+#case {"5"}{#var {pr_exp}{<118><fff> 5/15<088>}};
+#case {"6"}{#var {pr_exp}{<118><fff> 6/15<088>}};
+#case {"7"}{#var {pr_exp}{<118><fff> 7/15<088>}};
+#case {"8"}{#var {pr_exp}{<118><fff> 8/15<088>}};
+#case {"9"}{#var {pr_exp}{<118><fff> 9/15<088>}};
+#case {"10"}{#var {pr_exp}{<118><fff>10/15<088>}};
+#case {"11"}{#var {pr_exp}{<118><fff>11/15<088>}};
+#case {"12"}{#var {pr_exp}{<118><fff>12/15<088>}};
+#case {"13"}{#var {pr_exp}{<118><fff>13/15<088>}};
+#case {"14"}{#var {pr_exp}{<118><fff>14/15<088>}};
+#case {"15"}{#var {pr_exp}{<118><fff>15/15<088>}};
+};
+#switch {"$CHAR_STATE[mana]"}{
+#case {"8"}{#var {pr_mana}{<118><aca> 9/ 9<088>}};
+#case {"7"}{#var {pr_mana}{<118><aca> 8/ 9<088>}};
+#case {"6"}{#var {pr_mana}{<118><aca> 7/ 9<088>}};
+#case {"5"}{#var {pr_mana}{<118><cca> 6/ 9<088>}};
+#case {"4"}{#var {pr_mana}{<118><cca> 5/ 9<088>}};
+#case {"3"}{#var {pr_mana}{<118><cca> 4/ 9<088>}};
+#case {"2"}{#var {pr_mana}{<118><caa> 3/ 9<088>}};
+#case {"1"}{#var {pr_mana}{<118><caa> 2/ 9<088>}};
+#case {"0"}{#var {pr_mana}{<118><caa> 1/ 9<088>}};
+};
+testprompt;
 }
 
-#action {Masz nowa poczte od %1.}
+#action {{^> |^}Masz nowa poczte od %1.}
 {
 	#system notify-send -i konsolekalendar ARKADIA "Nowa poczta od : %1";
 	#var pr_poczta {<510>**<088>};
@@ -123,45 +140,49 @@
 	#line gag;
 }
 
-#action {Nie masz zadnych nieprzeczytanych listow.}
+#action {{^> |^}Nie masz zadnych nieprzeczytanych listow.}
 {
 	#var pr_poczta <afa>--<088>;
 }
 
-
-#action {^Nie poczyniles zadnych postepow, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 0/16};#line gag};
-#action {^Poczyniles minimalne postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 1/16};#line gag};
-#action {^Poczyniles nieznaczne postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 2/16};#line gag};
-#action {^Poczyniles bardzo male postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 3/16};#line gag};
-#action {^Poczyniles male postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 4/16};#line gag};
-#action {^Poczyniles nieduze postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 5/16};#line gag};
-#action {^Poczyniles zadowalajace postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 6/16};#line gag};
-#action {^Poczyniles spore postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 7/16};#line gag};
-#action {^Poczyniles dosc duze postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 8/16};#line gag};
-#action {^Poczyniles znaczne postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 9/16};#line gag};
-#action {^Poczyniles duze postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<fff>10/16};#line gag};
-#action {^Poczyniles bardzo duze postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<fff>11/16};#line gag};
-#action {^Poczyniles ogromne postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<fff>12/16};#line gag};
-#action {^Poczyniles imponujace postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<fff>13/16};#line gag};
-#action {^Poczyniles wspaniale postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<fff>14/16};#line gag};
-#action {^Poczyniles gigantyczne postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<fff>15/16};#line gag};
-#action {^Poczyniles niebotyczne postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<fff>16/16};#line gag};
-
-#action {Nie poczynilas zadnych postepow, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 0/16};#line gag};
-#action {Poczynilas minimalne postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 1/16};#line gag};
-#action {Poczynilas nieznaczne postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 2/16};#line gag};
-#action {Poczynilas bardzo male postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 3/16};#line gag};
-#action {Poczynilas male postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 4/16};#line gag};
-#action {Poczynilas nieduze postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 5/16};#line gag};
-#action {Poczynilas zadowalajace postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 6/16};#line gag};
-#action {Poczynilas spore postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 7/16};#line gag};
-#action {Poczynilas dosc duze postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 8/16};#line gag};
-#action {Poczynilas znaczne postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 9/16};#line gag};
-#action {Poczynilas duze postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<fff>10/16};#line gag};
-#action {Poczynilas bardzo duze postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<fff>11/16};#line gag};
-#action {Poczynilas ogromne postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<fff>12/16};#line gag};
-#action {Poczynilas imponujace postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<fff>13/16};#line gag};
-#action {Poczynilas wspaniale postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<fff>14/16};#line gag};
-#action {Poczynilas gigantyczne postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<fff>15/16};#line gag};
-#action {Poczynilas niebotyczne postepy, od momentu kiedy wszedles do gry.} {#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<fff>16/16};#line gag};
-
+#action {{^> |^}{Nie poczyniles zadnych postepow, od momentu kiedy wszedles do gry|Nie poczynilas zadnych postepow, od momentu kiedy wszedlas do gry|Poczyniles minimalne postepy, od momentu kiedy wszedles do gry|Poczynilas minimalne postepy, od momentu kiedy wszedlas do gry|Poczyniles nieznaczne postepy, od momentu kiedy wszedles do gry|Poczynilas nieznaczne postepy, od momentu kiedy wszedlas do gry|Poczyniles bardzo male postepy, od momentu kiedy wszedles do gry|Poczynilas bardzo male postepy, od momentu kiedy wszedlas do gry|Poczyniles male postepy, od momentu kiedy wszedles do gry|Poczynilas male postepy, od momentu kiedy wszedlas do gry|Poczyniles nieduze postepy, od momentu kiedy wszedles do gry|Poczynilas nieduze postepy, od momentu kiedy wszedlas do gry|Poczyniles zadowalajace postepy, od momentu kiedy wszedles do gry|Poczynilas zadowalajace postepy, od momentu kiedy wszedlas do gry|Poczyniles spore postepy, od momentu kiedy wszedles do gry|Poczynilas spore postepy, od momentu kiedy wszedlas do gry|Poczyniles dosc duze postepy, od momentu kiedy wszedles do gry|Poczynilas dosc duze postepy, od momentu kiedy wszedlas do gry|Poczyniles znaczne postepy, od momentu kiedy wszedles do gry|Poczynilas znaczne postepy, od momentu kiedy wszedlas do gry|Poczyniles duze postepy, od momentu kiedy wszedles do gry|Poczynilas duze postepy, od momentu kiedy wszedlas do gry|Poczyniles bardzo duze postepy, od momentu kiedy wszedles do gry|Poczynilas bardzo duze postepy, od momentu kiedy wszedlas do gry|Poczyniles ogromne postepy, od momentu kiedy wszedles do gry|Poczynilas ogromne postepy, od momentu kiedy wszedlas do gry|Poczyniles imponujace postepy, od momentu kiedy wszedles do gry|Poczynilas imponujace postepy, od momentu kiedy wszedlas do gry|Poczyniles wspaniale postepy, od momentu kiedy wszedles do gry|Poczynilas wspaniale postepy, od momentu kiedy wszedlas do gry|Poczyniles gigantyczne postepy, od momentu kiedy wszedles do gry|Poczynilas gigantyczne postepy, od momentu kiedy wszedlas do gry|Poczyniles niebotyczne postepy, od momentu kiedy wszedles do gry|Poczynilas niebotyczne postepy, od momentu kiedy wszedlas do gry}.$}
+{
+	#line gag;
+	#var {postep}{%0};
+	switch {"$postep"}
+	{
+#case {"Nie poczyniles zadnych postepow, od momentu kiedy wszedles do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 0/16}};
+#case {"Poczyniles minimalne postepy, od momentu kiedy wszedles do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 1/16}};
+#case {"Poczyniles nieznaczne postepy, od momentu kiedy wszedles do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 2/16}};
+#case {"Poczyniles bardzo male postepy, od momentu kiedy wszedles do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 3/16}};
+#case {"Poczyniles male postepy, od momentu kiedy wszedles do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 4/16}};
+#case {"Poczyniles nieduze postepy, od momentu kiedy wszedles do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 5/16}};
+#case {"Poczyniles zadowalajace postepy, od momentu kiedy wszedles do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 6/16}};
+#case {"Poczyniles spore postepy, od momentu kiedy wszedles do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 7/16}};
+#case {"Poczyniles dosc duze postepy, od momentu kiedy wszedles do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 8/16}};
+#case {"Poczyniles znaczne postepy, od momentu kiedy wszedles do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 9/16}};
+#case {"Poczyniles duze postepy, od momentu kiedy wszedles do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<fff>10/16}};
+#case {"Poczyniles bardzo duze postepy, od momentu kiedy wszedles do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<fff>11/16}};
+#case {"Poczyniles ogromne postepy, od momentu kiedy wszedles do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<fff>12/16}};
+#case {"Poczyniles imponujace postepy, od momentu kiedy wszedles do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<fff>13/16}};
+#case {"Poczyniles wspaniale postepy, od momentu kiedy wszedles do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<fff>14/16}};
+#case {"Poczyniles gigantyczne postepy, od momentu kiedy wszedles do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<fff>15/16}};
+#case {"Poczyniles niebotyczne postepy, od momentu kiedy wszedles do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<fff>16/16}};
+#case {"Nie poczynilas zadnych postepow, od momentu kiedy wszedlas do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 0/16}};
+#case {"Poczynilas minimalne postepy, od momentu kiedy wszedlas do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 1/16}};
+#case {"Poczynilas nieznaczne postepy, od momentu kiedy wszedlas do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 2/16}};
+#case {"Poczynilas bardzo male postepy, od momentu kiedy wszedlas do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 3/16}};
+#case {"Poczynilas male postepy, od momentu kiedy wszedlas do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 4/16}};
+#case {"Poczynilas nieduze postepy, od momentu kiedy wszedlas do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 5/16}};
+#case {"Poczynilas zadowalajace postepy, od momentu kiedy wszedlas do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 6/16}};
+#case {"Poczynilas spore postepy, od momentu kiedy wszedlas do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 7/16}};
+#case {"Poczynilas dosc duze postepy, od momentu kiedy wszedlas do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 8/16}};
+#case {"Poczynilas znaczne postepy, od momentu kiedy wszedlas do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<118><fff> 9/16}};
+#case {"Poczynilas duze postepy, od momentu kiedy wszedlas do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<fff>10/16}};
+#case {"Poczynilas bardzo duze postepy, od momentu kiedy wszedlas do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<fff>11/16}};
+#case {"Poczynilas ogromne postepy, od momentu kiedy wszedlas do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<fff>12/16}};
+#case {"Poczynilas imponujace postepy, od momentu kiedy wszedlas do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<fff>13/16}};
+#case {"Poczynilas wspaniale postepy, od momentu kiedy wszedlas do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<fff>14/16}};
+#case {"Poczynilas gigantyczne postepy, od momentu kiedy wszedlas do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<fff>15/16}};
+#case {"Poczynilas niebotyczne postepy, od momentu kiedy wszedlas do gry."}{#format {stamp} {%t} {%H:%M:%S};#sh <117><FAA><aaa> ### $stamp %0 ### <088>;#var pr_exp {<fff>16/16}};
+}
