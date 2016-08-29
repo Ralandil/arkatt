@@ -34,13 +34,13 @@
 #case {"0"}{#var {pr_upicie}{<118><aca> 0/ 9<088>}};
 #case {"1"}{#var {pr_upicie}{<118><aca> 1/ 9<088>}};
 #case {"2"}{#var {pr_upicie}{<118><aca> 2/ 9<088>}};
-#case {"0"}{#var {pr_upicie}{<118><aca> 3/ 9<088>}};
-#case {"0"}{#var {pr_upicie}{<118><aca> 4/ 9<088>}};
-#case {"0"}{#var {pr_upicie}{<118><aca> 5/ 9<088>}};
-#case {"0"}{#var {pr_upicie}{<118><aca> 6/ 9<088>}};
-#case {"0"}{#var {pr_upicie}{<118><aca> 7/ 9<088>}};
-#case {"0"}{#var {pr_upicie}{<118><aca> 8/ 9<088>}};
-#case {"0"}{#var {pr_upicie}{<118><aca> 9/ 9<088>}};
+#case {"3"}{#var {pr_upicie}{<118><aca> 3/ 9<088>}};
+#case {"4"}{#var {pr_upicie}{<118><aca> 4/ 9<088>}};
+#case {"5"}{#var {pr_upicie}{<118><aca> 5/ 9<088>}};
+#case {"6"}{#var {pr_upicie}{<118><aca> 6/ 9<088>}};
+#case {"7"}{#var {pr_upicie}{<118><aca> 7/ 9<088>}};
+#case {"8"}{#var {pr_upicie}{<118><aca> 8/ 9<088>}};
+#case {"9"}{#var {pr_upicie}{<118><aca> 9/ 9<088>}};
 };
 #switch {"$CHAR_STATE[headache]"}{
 #case {"1"}{#var {pr_upicie}{<118><caa>-1/ 9<088>}};
